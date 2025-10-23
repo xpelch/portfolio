@@ -43,8 +43,7 @@
         "href": "https://www.logixoperations.com",
         "startDate": "03/2023",
         "endDate": "Present",
-        "description": "Developed scalable web applications using .NET (C#) and React. Designed modular front-end architectures, integrated REST and WebSocket APIs, and implemented secure authentication flows (JWT, OAuth2). Optimized SQL performance and built asynchronous orchestration middleware for complex data workflows. Additionally managed Scrum ceremonies, Jira backlog, and CI/CD pipelines via GitHub Actions and Azure.",
-        "logo": "LO",
+        "description": "Development of scalable web applications using .NET (C#) and React. Design of modular front-end architectures, integration of REST APIs, and implementation of secure authentication flows. Optimization of SQL performance and deployment of asynchronous orchestrators for complex data processing. In parallel, oversight of the Scrum cycle, management of the GitHub backlog, CI/CD automation with GitHub Actions, and database migration management on Azure.", "logo": "LO",
         "skills": [".NET", "React", "Redux", "Entity Framework", "Docker", "Azure DevOps", "GitHub Actions"]
       },
       {

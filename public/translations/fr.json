@@ -43,7 +43,7 @@
         "href": "https://www.logixoperations.com",
         "startDate": "03/2023",
         "endDate": "Présent",
-        "description": "Développement d’applications web évolutives avec .NET (C#) et React. Mise en place de structures front-end modulaires, intégration d’API REST et gestion des flux d’authentification sécurisés. Optimisation des performances SQL et implémentation d’orchestrateurs asynchrones pour le traitement de données complexes. En parallèle, gestion du Scrum, du backlog Jira et du CI/CD sur GitHub Actions et Azure.",
+        "description": "Développement d’applications web évolutives avec .NET (C#) et React. Conception de structures front-end modulaires, intégration d’API REST et sécurisation des flux d’authentification. Optimisation des performances SQL et mise en place d’orchestrateurs asynchrones pour le traitement de données complexes. En parallèle, supervision du cycle Scrum, gestion du backlog GitHub, automatisation du CI/CD via GitHub Actions et gestion des migrations de bases de données sur Azure.",
         "logo": "LO",
         "skills": [".NET", "React", "Redux", "Entity Framework", "Docker", "Azure DevOps", "GitHub Actions"]
       },
