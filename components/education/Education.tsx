@@ -1,7 +1,7 @@
 import React from "react";
 import EducationItem from "./EducationItem";
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Education } from '@/types';
+import { type Education } from '@/types';
 import SectionContainer from '@/components/ui/SectionContainer';
 import SectionHeader from '@/components/ui/SectionHeader';
 
