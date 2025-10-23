@@ -1,0 +1,129 @@
+{
+    "general": {
+      "name": "Xavier Pelchat",
+      "headline": "Full Stack Developer",
+      "about": [
+        "Hey 👋",
+        "I'm a full-stack developer based in Quebec, passionate about clean code, scalability, and well-thought-out architecture. My work revolves around quality, maintainability, and performance, following principles like SOLID, DRY, and Clean Architecture.",
+        "I build and maintain complex applications using .NET and React, ensuring consistency across backend, frontend, and infrastructure layers. I combine technical expertise with leadership, managing Scrum processes, CI/CD pipelines, and code reviews.",
+        "I strongly believe in continuous learning and efficiency. Outside of work, I’m interested in blockchain & crypto."
+      ],
+      "socials": {
+        "email": "xpelch.dev@proton.me",
+        "linkedin": "https://www.linkedin.com/in/xpelch",
+        "github": "https://github.com/xpelch"
+      },
+      "navigation": {
+        "about": "ABOUT",
+        "experiences": "EXPERIENCE",
+        "education": "EDUCATION",
+        "projects": "PROJECTS"
+      },
+      "buttons": {
+        "getInTouch": "Get in Touch",
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "discoverWork": "Discover my work",
+        "viewProjects": "View my projects"
+      },
+      "sections": {
+        "about": "About",
+        "experiences": "Experience",
+        "education": "Education",
+        "projects": "Projects"
+      },
+      "greeting": {
+        "hello": "Hello, I'm"
+      }
+    },
+    "experiences": [
+      {
+        "title": "Full Stack Developer",
+        "company": "Logix Operations",
+        "href": "https://www.logixoperations.com",
+        "startDate": "03/2023",
+        "endDate": "Present",
+        "description": "Developed scalable web applications using .NET (C#) and React. Designed modular front-end architectures, integrated REST and WebSocket APIs, and implemented secure authentication flows (JWT, OAuth2). Optimized SQL performance and built asynchronous orchestration middleware for complex data workflows. Additionally managed Scrum ceremonies, Jira backlog, and CI/CD pipelines via GitHub Actions and Azure.",
+        "logo": "LO",
+        "skills": [".NET", "React", "Redux", "Entity Framework", "Docker", "Azure DevOps", "GitHub Actions"]
+      },
+      {
+        "title": "Administrative Assistant",
+        "company": "Université Laval",
+        "href": "https://www.ulaval.ca",
+        "startDate": "08/2021",
+        "endDate": "04/2023",
+        "description": "Provided administrative and technical support at Université Laval, including document management, data organization, and contribution to various internal workflows.",
+        "logo": "UL",
+        "skills": ["Organization", "Excel", "Data Management"]
+      },
+      {
+        "title": "Full Stack Developer (Internship)",
+        "company": "Ecerteco",
+        "href": "https://www.ecerteco.com",
+        "startDate": "05/2022",
+        "endDate": "08/2022",
+        "description": "Worked as a full-stack developer using Node.js and C#, contributing to the design and implementation of both backend and frontend features for internal systems.",
+        "logo": "E",
+        "skills": ["Node.js", "C#", "JavaScript", "SQL"]
+      }
+    ],
+    "education": [
+      {
+        "subject": "Computer Science",
+        "degree": "Bachelor’s Degree",
+        "university": "Université Laval",
+        "href": "https://www.ulaval.ca",
+        "startDate": "2021",
+        "endDate": "2024",
+        "description": "Focused on object-oriented design, data structures, Java programming, and web application development."
+      },
+      {
+        "subject": "Computer Programming",
+        "degree": "College Diploma (Partial)",
+        "university": "Cégep de Lévis",
+        "href": "https://www.cegeplevis.ca",
+        "startDate": "2019",
+        "endDate": "2021",
+        "description": "Technical training in object-oriented programming, database management, and web development."
+      }
+    ],
+    "projects": [
+      {
+        "name": "Developer Portfolio",
+        "framework": "Next.js",
+        "description": "Minimalist dark-mode personal portfolio built with Next.js and TailwindCSS. Features smooth animations, SEO optimization, and showcases professional projects and experience.",
+        "href": "https://github.com/xpelch/portfolio",
+        "stars": "Public"
+      },
+      {
+        "name": "Blockhead AI Chatbot",
+        "framework": "Next.js",
+        "description": "Lightweight crypto chatbot for instant market insights. Features onchain chat copilot with trending pairs, gas monitoring, wallet integration, and streaming AI responses.",
+        "href": "https://github.com/xpelch/ai-chatbot",
+        "stars": "Public"
+      },
+      {
+        "name": "Sweep Token Consolidation",
+        "framework": "Next.js",
+        "description": "Modern Farcaster Mini App for token consolidation. Allows users to consolidate multiple token holdings into a single target token with one-click swaps powered by the 0x Protocol.",
+        "href": "https://github.com/xpelch/sweep",
+        "stars": "Public"
+      },
+      {
+        "name": "Squash The Creeps",
+        "framework": "Godot",
+        "description": "A simple 3D game built with Godot Engine. Players must squash incoming enemies.",
+        "href": "https://github.com/xpelch/squash_the_creeps",
+        "stars": "Public"
+      },
+      {
+        "name": "Dodge The Creeps",
+        "framework": "Godot",
+        "description": "Classic 2D action game developed with Godot Engine. Players must dodge incoming enemies.",
+        "href": "https://github.com/xpelch/dodge_the_creeps",
+        "stars": "Public"
+      }
+    ]
+  }
+  
