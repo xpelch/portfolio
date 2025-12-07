@@ -11,9 +11,11 @@ export interface GeneralData {
   socials: Socials;
   navigation: {
     about: string;
+    skills: string;
     experiences: string;
     education: string;
     projects: string;
+    contact: string;
   };
   buttons: {
     getInTouch: string;
@@ -21,16 +23,38 @@ export interface GeneralData {
     linkedin: string;
     discoverWork: string;
     viewProjects: string;
+    emailMe?: string;
   };
   sections: {
     about: string;
+    skills: string;
     experiences: string;
     education: string;
     projects: string;
+    contact: string;
   };
   greeting: {
     hello: string;
   };
+}
+
+export interface Skills {
+  backend: string[];
+  frontend: string[];
+  devops: string[];
+  web3?: string[];
+}
+
+export interface ExperienceSummary {
+  title: string;
+  bullets: string[];
+}
+
+export interface CTA {
+  title: string;
+  subtitle: string;
+  buttonText: string;
+  email: string;
 }
 
 export interface Experience {
@@ -64,6 +88,9 @@ export interface Project {
 
 export interface Translations {
   general: GeneralData;
+  skills: Skills;
+  experienceSummary: ExperienceSummary;
+  cta: CTA;
   experiences: Experience[];
   education: Education[];
   projects: Project[];

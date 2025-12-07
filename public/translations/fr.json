@@ -1,129 +1,168 @@
 {
-    "general": {
-      "name": "Xavier Pelchat",
-      "headline": "Développeur Full Stack",
-      "about": [
-        "Salut 👋",
-        "Je suis un développeur full-stack basé au Québec, passionné par la propreté du code, la scalabilité et les architectures bien pensées. Mon approche est centrée sur la qualité, la maintenabilité et la performance, en suivant des principes comme SOLID, DRY et Clean Architecture.",
-        "J’ai bâti et maintenu des applications complexes avec .NET et React, tout en assurant la cohérence entre backend, frontend et infrastructure. Je combine expertise technique et leadership en gérant le Scrum, les pipelines CI/CD et les revues de code.",
-        "Je crois profondément en l’apprentissage continu et j’aime comprendre comment chaque couche s’articule pour créer un ensemble cohérent et évolutif. Hors du travail, je m’intéresse aux technologies blockchain."
-      ],
-      "socials": {
-        "email": "xpelch.dev@proton.me",
-        "linkedin": "https://www.linkedin.com/in/xpelch",
-        "github": "https://github.com/xpelch"
-      },
-      "navigation": {
-        "about": "À PROPOS",
-        "experiences": "EXPÉRIENCES",
-        "education": "FORMATION",
-        "projects": "PROJETS"
-      },
-      "buttons": {
-        "getInTouch": "Me contacter",
-        "github": "GitHub",
-        "linkedin": "LinkedIn",
-        "discoverWork": "Découvrir mon travail",
-        "viewProjects": "Voir mes projets"
-      },
-      "sections": {
-        "about": "À propos",
-        "experiences": "Expériences",
-        "education": "Formation",
-        "projects": "Projets"
-      },
-      "greeting": {
-        "hello": "Bonjour, je suis"
-      }
+  "general": {
+    "name": "Xavier Pelchat",
+    "headline": "Je conçois des apps web prêtes pour la prod, end-to-end.",
+    "about": [
+      "Salut 👋 je suis développeur full-stack au Québec, orienté code propre et scalable.",
+      "Je conçois et maintiens des apps .NET + React de bout en bout avec une approche SOLID / clean archi.",
+      "J’accorde de l’importance à la maintenabilité, la perf et l’encadrement (CI/CD, revues de code).",
+      "Bricoleur curieux, avec de l’expérience sur Base/Farcaster (Clout) et toujours en apprentissage."
+    ],
+    "socials": {
+      "email": "xpelch.dev@proton.me",
+      "linkedin": "https://www.linkedin.com/in/xpelch",
+      "github": "https://github.com/xpelch"
     },
-    "experiences": [
-      {
-        "title": "Développeur Full Stack",
-        "company": "Logix Operations",
-        "href": "https://www.logixoperations.com",
-        "startDate": "03/2023",
-        "endDate": "Présent",
-        "description": "Développement d’applications web évolutives avec .NET (C#) et React. Conception de structures front-end modulaires, intégration d’API REST et sécurisation des flux d’authentification. Optimisation des performances SQL et mise en place d’orchestrateurs asynchrones pour le traitement de données complexes. En parallèle, supervision du cycle Scrum, gestion du backlog GitHub, automatisation du CI/CD via GitHub Actions et gestion des migrations de bases de données sur Azure.",
-        "logo": "LO",
-        "skills": [".NET", "React", "Redux", "Entity Framework", "Docker", "Azure DevOps", "GitHub Actions"]
-      },
-      {
-        "title": "Auxiliaire administratif",
-        "company": "Université Laval",
-        "href": "https://www.ulaval.ca",
-        "startDate": "08/2021",
-        "endDate": "04/2023",
-        "description": "Support administratif et technique au sein de l’Université Laval, incluant la gestion documentaire, l’organisation de données et la contribution à divers processus internes.",
-        "logo": "UL",
-        "skills": ["Organisation", "Excel", "Gestion de données"]
-      },
-      {
-        "title": "Développeur Full Stack (Stage)",
-        "company": "Ecerteco",
-        "href": "https://www.ecerteco.com",
-        "startDate": "05/2022",
-        "endDate": "08/2022",
-        "description": "Développement full-stack d’applications avec Node.js et C#. Contribution à la conception et à la mise en œuvre de fonctionnalités orientées back-end et front-end.",
-        "logo": "E",
-        "skills": ["Node.js", "C#", "JavaScript", "SQL"]
-      }
-    ],
-    "education": [
-      {
-        "subject": "Informatique",
-        "degree": "Baccalauréat",
-        "university": "Université Laval",
-        "href": "https://www.ulaval.ca",
-        "startDate": "2021",
-        "endDate": "2024",
-        "description": "Spécialisation en conception orientée objet, structures de données, Java et développement d’applications web."
-      },
-      {
-        "subject": "Programmation informatique",
-        "degree": "DEC partiel",
-        "university": "Cégep de Lévis",
-        "href": "https://www.cegeplevis.ca",
-        "startDate": "2019",
-        "endDate": "2021",
-        "description": "Formation technique en programmation orientée objet, bases de données et développement web."
-      }
-    ],
-    "projects": [
-      {
-        "name": "Portfolio Dev",
-        "framework": "Next.js",
-        "description": "Portfolio personnel minimaliste et dark-mode construit avec Next.js, TailwindCSS et animations fluides. Présente mes projets et expériences de manière épurée.",
-        "href": "https://github.com/xpelch/portfolio",
-        "stars": "Public"
-      },
-      {
-        "name": "Blockhead AI Chatbot",
-        "framework": "Next.js",
-        "description": "Chatbot crypto léger pour insights de marché instantanés. Intègre un copilote de chat onchain avec paires tendances, monitoring du gas, wallet integration et réponses AI en streaming.",
-        "href": "https://github.com/xpelch/ai-chatbot",
-        "stars": "Public"
-      },
-      {
-        "name": "Sweep Token Consolidation",
-        "framework": "Next.js",
-        "description": "Mini App Farcaster moderne pour la consolidation de tokens. Permet aux utilisateurs de consolider plusieurs tokens en un seul token cible avec des swaps en un clic via le protocole 0x.",
-        "href": "https://github.com/xpelch/sweep",
-        "stars": "Public"
-      },
-      {
-        "name": "Squash The Creeps",
-        "framework": "Godot",
-        "description": "Jeu 3D simple développé avec Godot Engine. Le joueur doit écraser les ennemis entrants en sautant sur eux.",
-        "href": "https://github.com/xpelch/squash_the_creeps",
-        "stars": "Public"
-      },
-      {
-        "name": "Dodge The Creeps",
-        "framework": "Godot",
-        "description": "Jeu 2D classique développé avec Godot Engine. Le joueur doit éviter les ennemis entrants.",
-        "href": "https://github.com/xpelch/dodge_the_creeps",
-        "stars": "Public"
-      }
+    "navigation": {
+      "about": "À PROPOS",
+      "skills": "COMPÉTENCES",
+      "experiences": "EXPÉRIENCES",
+      "education": "FORMATION",
+      "projects": "PROJETS",
+      "contact": "CONTACT"
+    },
+    "buttons": {
+      "getInTouch": "Me contacter",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "discoverWork": "Voir le profil",
+      "viewProjects": "Voir les projets",
+      "emailMe": "M’écrire"
+    },
+    "sections": {
+      "about": "À propos",
+      "skills": "Compétences",
+      "experiences": "Expériences",
+      "education": "Formation",
+      "projects": "Projets",
+      "contact": "Contact"
+    },
+    "greeting": {
+      "hello": "Bonjour, je suis"
+    }
+  },
+  "skills": {
+    "backend": ["C#", "ASP.NET Core", "EF Core", "SQL", "Redis"],
+    "frontend": ["React", "Next.js", "Typescript", "Tailwind"],
+    "devops": ["Docker", "GitHub Actions", "AWS", "OVH"],
+    "web3": ["Solidity", "viem", "wagmi", "Base", "Farcaster"]
+  },
+  "experienceSummary": {
+    "title": "Développeur Full-Stack (4 ans)",
+    "bullets": [
+      "Bâti des apps web en prod avec .NET + React.",
+      "Conçu des APIs REST scalables et des schémas SQL.",
+      "Mise en place de CI/CD et déploiements containerisés.",
+      "Livré des features en autonomie avec front React/Next.js."
     ]
-  }
-  
+  },
+  "cta": {
+    "title": "Ouvert aux opportunités temps plein — Canada / Remote US",
+    "subtitle": "Discutons de la prochaine release que je peux livrer.",
+    "buttonText": "M’écrire",
+    "email": "xpelch.dev@proton.me"
+  },
+  "experiences": [
+    {
+      "title": "Développeur Full Stack",
+      "company": "Logix Operations",
+      "href": "https://www.logixoperations.com",
+      "startDate": "03/2023",
+      "endDate": "Présent",
+      "description": "Développement d’applications web évolutives avec .NET (C#) et React. Conception de structures front-end modulaires, intégration d’API REST et sécurisation des flux d’authentification. Optimisation des performances SQL et mise en place d’orchestrateurs asynchrones pour le traitement de données complexes. En parallèle, supervision du cycle Scrum, gestion du backlog GitHub, automatisation du CI/CD via GitHub Actions et gestion des migrations de bases de données sur Azure.",
+      "logo": "LO",
+      "skills": [".NET", "React", "Redux", "Entity Framework", "Docker", "Azure DevOps", "GitHub Actions"]
+    },
+    {
+      "title": "Auxiliaire administratif",
+      "company": "Université Laval",
+      "href": "https://www.ulaval.ca",
+      "startDate": "08/2021",
+      "endDate": "04/2023",
+      "description": "Support administratif et technique au sein de l’Université Laval, incluant la gestion documentaire, l’organisation de données et la contribution à divers processus internes.",
+      "logo": "UL",
+      "skills": ["Organisation", "Excel", "Gestion de données"]
+    },
+    {
+      "title": "Développeur Full Stack (Stage)",
+      "company": "Ecerteco",
+      "href": "https://www.ecerteco.com",
+      "startDate": "05/2022",
+      "endDate": "08/2022",
+      "description": "Développement full-stack d’applications avec Node.js et C#. Contribution à la conception et à la mise en œuvre de fonctionnalités orientées back-end et front-end.",
+      "logo": "E",
+      "skills": ["Node.js", "C#", "JavaScript", "SQL"]
+    }
+  ],
+  "education": [
+    {
+      "subject": "Informatique",
+      "degree": "Baccalauréat",
+      "university": "Université Laval",
+      "href": "https://www.ulaval.ca",
+      "startDate": "2021",
+      "endDate": "2024",
+      "description": "Spécialisation en conception orientée objet, structures de données, Java et développement d’applications web."
+    },
+    {
+      "subject": "Programmation informatique",
+      "degree": "DEC partiel",
+      "university": "Cégep de Lévis",
+      "href": "https://www.cegeplevis.ca",
+      "startDate": "2019",
+      "endDate": "2021",
+      "description": "Formation technique en programmation orientée objet, bases de données et développement web."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Clout – On-Chain Attention Market",
+      "framework": "Next.js 15 / React",
+      "description": "Next.js 15 + React + Tailwind. Worker Node.js (Typescript) avec Snapchain. Contrats Solidity (BountyManager, FeeTreasury, Directory). PostgreSQL + Prisma. Mini-app Farcaster live avec docs (cloutapp.fun, docs.cloutapp.fun).",
+      "href": "https://cloutapp.fun",
+      "stars": "Live"
+    },
+    {
+      "name": "Full-Stack Backend (.NET)",
+      "framework": "ASP.NET Core",
+      "description": "Build client anonyme : APIs REST, workers, tuning SQL, migrations EF Core, CI/CD containerisé (GitHub Actions + Azure/AWS).",
+      "href": "https://github.com/xpelch",
+      "stars": "Case study"
+    },
+    {
+      "name": "Blockhead AI Chatbot",
+      "framework": "Next.js",
+      "description": "Chatbot crypto léger pour insights de marché. Copilote onchain avec paires tendances, suivi du gas, wallet integration et réponses AI en streaming.",
+      "href": "https://github.com/xpelch/ai-chatbot",
+      "stars": "Public"
+    },
+    {
+      "name": "Sweep Token Consolidation",
+      "framework": "Next.js",
+      "description": "Mini App Farcaster moderne pour consolider plusieurs tokens en un token cible avec swaps en un clic via le protocole 0x.",
+      "href": "https://github.com/xpelch/sweep",
+      "stars": "Public"
+    },
+    {
+      "name": "Portfolio Dev",
+      "framework": "Next.js",
+      "description": "Portfolio personnel minimaliste et dark-mode construit avec Next.js et TailwindCSS, avec animations fluides et SEO optimisé.",
+      "href": "https://github.com/xpelch/portfolio",
+      "stars": "Public"
+    },
+    {
+      "name": "Squash The Creeps",
+      "framework": "Godot",
+      "description": "Jeu 3D simple développé avec Godot Engine. Le joueur doit écraser les ennemis entrants en sautant sur eux.",
+      "href": "https://github.com/xpelch/squash_the_creeps",
+      "stars": "Public"
+    },
+    {
+      "name": "Dodge The Creeps",
+      "framework": "Godot",
+      "description": "Jeu 2D classique développé avec Godot Engine. Le joueur doit éviter les ennemis entrants.",
+      "href": "https://github.com/xpelch/dodge_the_creeps",
+      "stars": "Public"
+    }
+  ]
+}

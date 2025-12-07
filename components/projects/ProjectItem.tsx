@@ -6,11 +6,17 @@ interface ProjectItemProps {
   lib: string;
   description: string;
   href: string;
+  className?: string;
 }
 
-const ProjectItem: React.FC<ProjectItemProps> = ({ name, stars, lib, description, href }) => {
+const ProjectItem: React.FC<ProjectItemProps> = ({ name, stars, lib, description, href, className = "" }) => {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="group flex flex-col p-4 lg:p-5 transition-all bg-surface-200 hover:bg-surface-300 hover:scale-105 brightness-75 hover:brightness-100 hover:z-10 rounded-lg border border-transparent hover:border-secondary-200/30 hover:shadow-lg">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group flex flex-col p-4 lg:p-5 transition-all bg-surface-200 hover:bg-surface-300 hover:scale-105 brightness-75 hover:brightness-100 hover:z-10 rounded-lg border border-transparent hover:border-secondary-200/30 hover:shadow-lg ${className}`}
+    >
       <div className='text-text-secondary mb-3 lg:mb-4 flex flex-row items-center justify-between'>
         <div className='flex flex-row items-center'>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-3 h-3 lg:w-4 lg:h-4">

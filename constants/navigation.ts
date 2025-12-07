@@ -1,8 +1,10 @@
 export const NAVIGATION_ITEMS = [
   { id: 'about', href: '#about', num: '01' },
-  { id: 'experiences', href: '#experiences', num: '02' },
-  { id: 'education', href: '#education', num: '03' },
-  { id: 'projects', href: '#projects', num: '04' },
+  { id: 'skills', href: '#skills', num: '02' },
+  { id: 'experiences', href: '#experiences', num: '03' },
+  { id: 'education', href: '#education', num: '04' },
+  { id: 'projects', href: '#projects', num: '05' },
+  { id: 'contact', href: '#contact', num: '06' },
 ] as const;
 
 export const INTERSECTION_OBSERVER_CONFIG = {

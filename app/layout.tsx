@@ -8,9 +8,23 @@ import HydrationBoundary from "@/components/ui/HydrationBoundary";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const title = "Xavier Pelchat – Full-Stack Developer (.NET / React)";
+const description = "Full-stack engineer building production-ready apps. Creator of Clout, an on-chain attention market.";
+
 export const metadata: Metadata = {
-  title: "Xavier Pelchat",
-  description: "Professional portfolio showcasing my experience, education, and projects",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    images: ["/window.svg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/window.svg"],
+  },
 };
 
 export default function RootLayout({

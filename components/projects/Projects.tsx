@@ -15,12 +15,12 @@ const Projects: React.FC<ProjectsProps> = ({ data }) => {
   return (
     <SectionContainer id='projects'>
       <SectionHeader 
-        number="04" 
+        number="05" 
         title={translations?.general?.sections?.projects || "Projets"} 
       />
       
       <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-        {data.map((project) => (
+        {data.map((project, index) => (
           <ProjectItem
             key={project.name}
             name={project.name}
@@ -28,6 +28,7 @@ const Projects: React.FC<ProjectsProps> = ({ data }) => {
             lib={project.framework}
             description={project.description}
             href={project.href}
+            className={index === 0 ? 'md:col-span-2' : ''}
           />
         ))}
       </div>

@@ -15,7 +15,7 @@ const Education: React.FC<EducationProps> = ({ data }) => {
   return (
     <SectionContainer id='education'>
       <SectionHeader 
-        number="03" 
+        number="04" 
         title={translations?.general?.sections?.education || "Formation"} 
       />
       
