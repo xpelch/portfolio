@@ -9,7 +9,7 @@ import HydrationBoundary from "@/components/ui/HydrationBoundary";
 const inter = Inter({ subsets: ["latin"] });
 
 const title = "Xavier Pelchat – Full-Stack Developer (.NET / React)";
-const description = "Full-stack engineer building production-ready apps. Creator of Clout, an on-chain attention market.";
+const description = "Full-stack engineer building production-ready web apps.";
 
 export const metadata: Metadata = {
   title,

@@ -115,13 +115,7 @@
     }
   ],
   "projects": [
-    {
-      "name": "Clout – On-Chain Attention Market",
-      "framework": "Next.js 15 / React",
-      "description": "Next.js 15 + React + Tailwind. Node.js worker (Typescript) with Snapchain. Solidity contracts (BountyManager, FeeTreasury, Directory). PostgreSQL + Prisma. Live Farcaster mini-app with docs (cloutapp.fun, docs.cloutapp.fun).",
-      "href": "https://cloutapp.fun",
-      "stars": "Live"
-    },
+
     {
       "name": "Full-Stack Backend (.NET)",
       "framework": "ASP.NET Core",

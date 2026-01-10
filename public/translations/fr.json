@@ -6,7 +6,7 @@
       "Salut 👋 je suis développeur full-stack au Québec, orienté code propre et scalable.",
       "Je conçois et maintiens des apps .NET + React de bout en bout avec une approche SOLID / clean archi.",
       "J’accorde de l’importance à la maintenabilité, la perf et l’encadrement (CI/CD, revues de code).",
-      "Bricoleur curieux, avec de l’expérience sur Base/Farcaster (Clout) et toujours en apprentissage."
+      "Bricoleur curieux, avec de l’expérience en Web3 et toujours en apprentissage."
     ],
     "socials": {
       "email": "xpelch.dev@proton.me",
@@ -115,13 +115,6 @@
     }
   ],
   "projects": [
-    {
-      "name": "Clout – On-Chain Attention Market",
-      "framework": "Next.js 15 / React",
-      "description": "Next.js 15 + React + Tailwind. Worker Node.js (Typescript) avec Snapchain. Contrats Solidity (BountyManager, FeeTreasury, Directory). PostgreSQL + Prisma. Mini-app Farcaster live avec docs (cloutapp.fun, docs.cloutapp.fun).",
-      "href": "https://cloutapp.fun",
-      "stars": "Live"
-    },
     {
       "name": "Full-Stack Backend (.NET)",
       "framework": "ASP.NET Core",
