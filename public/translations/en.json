@@ -6,7 +6,7 @@
       "Hey 👋 I’m a full-stack developer in Québec focused on clean, scalable systems.",
       "I build and maintain .NET + React apps end-to-end with SOLID and clean architecture in mind.",
       "I care about maintainability, performance, and leading teams through CI/CD and code reviews.",
-      "Curious builder with experience on Base/Farcaster (Clout) and always learning."
+      "Curious builder with experience with Web3 and always learning."
     ],
     "socials": {
       "email": "xpelch.dev@proton.me",
@@ -115,7 +115,6 @@
     }
   ],
   "projects": [
-
     {
       "name": "Full-Stack Backend (.NET)",
       "framework": "ASP.NET Core",
