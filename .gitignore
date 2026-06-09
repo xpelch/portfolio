@@ -39,3 +39,50 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# atlas workflow runtime
+/logs/
+/output/
+/tmp/
+/secrets/
+/skills/
+/.atlas/*.json
+/.atlas/*.jsonl
+
+# atlas/local backups and dumps
+*.bak
+*.backup
+*.dump
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+*.rar
+
+# local credentials and sensitive config
+*.key
+*.pfx
+*.p12
+*.ppk
+*.crt
+*.csr
+*.jks
+*.kdb
+secrets.json
+appsettings*.json
+*password*
+*passwd*
+*secret*
+*apikey*
+*api-key*
+*connectionstring*
+*connection-string*
+
+# Agent workflow folders
+/agent-context/
+/context/
+/examples/
+/playbooks/
+/templates/
+/tools/

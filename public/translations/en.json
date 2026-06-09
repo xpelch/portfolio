@@ -1,12 +1,25 @@
 {
   "general": {
     "name": "Xavier Pelchat",
-    "headline": "I build scalable, production-ready web apps end-to-end.",
+    "role": "Full-stack engineer / technical lead",
+    "headline": "I build production web systems with .NET, React, and practical AI workflows.",
+    "location": "Quebec, Canada",
+    "availability": "Canada / Remote US",
+    "proofPoints": [
+      { "label": "Production stack", "value": ".NET, React, SQL, Docker" },
+      { "label": "Operating mode", "value": "Ship, stabilize, automate" },
+      { "label": "AI angle", "value": "Agentic workflows, OpenAI, Codex" }
+    ],
+    "operatorSignal": {
+      "title": "Operating loop",
+      "description": "A lightweight way to show how I work: define the state, choose the smallest useful move, ship it, verify it, and keep the learning visible.",
+      "steps": ["Sense", "Plan", "Build", "Verify", "Learn"]
+    },
     "about": [
-      "Hey 👋 I’m a full-stack developer in Québec focused on clean, scalable systems.",
-      "I build and maintain .NET + React apps end-to-end with SOLID and clean architecture in mind.",
-      "I care about maintainability, performance, and leading teams through CI/CD and code reviews.",
-      "Curious builder with experience with Web3 and always learning."
+      "I am a full-stack developer in Quebec focused on systems that survive real production use: clear boundaries, typed data, visible proof, and maintainable delivery paths.",
+      "My day-to-day work sits at the intersection of .NET/C#, React, SQL, authentication, integrations, background processing, and CI/CD. I like the parts where product constraints, data quality, and engineering reliability meet.",
+      "Recently, I have been exploring practical agentic and LLM-powered workflows inside business applications: not AI theater, but tools that reduce manual work, surface better decisions, and fit existing operations.",
+      "I care about code reviews, planning, debugging, performance, and the unglamorous details that make a release trustworthy."
     ],
     "socials": {
       "email": "xpelch.dev@proton.me",
@@ -14,64 +27,65 @@
       "github": "https://github.com/xpelch"
     },
     "navigation": {
-      "about": "ABOUT",
-      "skills": "SKILLS",
-      "experiences": "EXPERIENCE",
-      "education": "EDUCATION",
-      "projects": "PROJECTS",
-      "contact": "CONTACT"
+      "about": "About",
+      "skills": "Stack",
+      "experiences": "Experience",
+      "education": "Education",
+      "projects": "Work",
+      "contact": "Contact"
     },
     "buttons": {
-      "getInTouch": "Email",
+      "getInTouch": "Contact",
       "github": "GitHub",
       "linkedin": "LinkedIn",
-      "discoverWork": "See profile",
-      "viewProjects": "View projects",
+      "discoverWork": "Read profile",
+      "viewProjects": "View work",
       "emailMe": "Email me"
     },
     "sections": {
-      "about": "About",
-      "skills": "Skills",
+      "about": "Profile",
+      "skills": "Stack lanes",
       "experiences": "Experience",
       "education": "Education",
-      "projects": "Projects",
+      "projects": "Selected work",
       "contact": "Contact"
     },
     "greeting": {
-      "hello": "Hello, I'm"
+      "hello": "Hello, I am"
     }
   },
   "skills": {
-    "backend": ["C#", "ASP.NET Core", "EF Core", "SQL", "Redis"],
-    "frontend": ["React", "Next.js", "Typescript", "Tailwind"],
-    "devops": ["Docker", "GitHub Actions", "AWS", "OVH"],
+    "backend": ["C#", "ASP.NET Core", "EF Core", "SQL", "PostgreSQL", "Redis"],
+    "frontend": ["React", "Next.js", "TypeScript", "Tailwind"],
+    "devops": ["Docker", "GitHub Actions", "Azure DevOps", "AWS", "OVH"],
+    "agentic": ["OpenAI API", "OpenAI Codex", "PostHog", "Agentic workflows", "Automation", "Data validation"],
     "web3": ["Solidity", "viem", "wagmi", "Base", "Farcaster"]
   },
   "experienceSummary": {
-    "title": "Full-Stack Developer (4 years)",
+    "title": "Production full-stack work, 4+ years",
     "bullets": [
-      "Built production web apps with .NET + React.",
-      "Designed scalable REST APIs and SQL schemas.",
-      "Implemented CI/CD pipelines and containerized deployments.",
-      "Delivered features independently with React/Next.js frontends."
+      "Built and maintained .NET + React applications used in operational environments.",
+      "Integrated REST and WebSocket APIs for real-time workflows and data synchronization.",
+      "Designed validation, reconciliation, caching, and delta-sync flows across structured business data.",
+      "Improved SQL, EF Core, LINQ, and routing/geolocation workloads, including reductions above 80% on targeted processing paths."
     ]
   },
   "cta": {
     "title": "Canada / Remote US",
-    "subtitle": "Let’s talk about how I can help ship your next release.",
+    "subtitle": "Send the problem, the constraints, and the release target. I will reply with a practical next step.",
     "buttonText": "Email me",
     "email": "xpelch.dev@proton.me"
   },
   "experiences": [
     {
-      "title": "Full Stack Developer",
+      "title": "Full-Stack Developer / Technical Lead",
       "company": "Logix Operations",
-      "href": "https://www.logixoperations.com",
+      "href": "#",
       "startDate": "03/2023",
       "endDate": "Present",
-      "description": "Development of scalable web applications using .NET (C#) and React. Design of modular front-end architectures, integration of REST APIs, and implementation of secure authentication flows. Optimization of SQL performance and deployment of asynchronous orchestrators for complex data processing. In parallel, oversight of the Scrum cycle, management of the GitHub backlog, CI/CD automation with GitHub Actions, and database migration management on Azure.",
-      "logo": "LO",
-      "skills": [".NET", "React", "Redux", "Entity Framework", "Docker", "Azure DevOps", "GitHub Actions"]
+      "description": "Built and maintained production web applications with .NET/C# and React. Integrated REST and WebSocket APIs, implemented authentication and role-based access control, designed data mapping and validation workflows, optimized SQL and EF Core paths, contributed to Docker and CI/CD pipelines, and helped coordinate planning, code review, backlog priorities, QA, and stakeholder delivery. Also explored LLM-powered and agentic workflow concepts inside practical logistics and internal business systems.",
+      "logo": "OP",
+      "skills": [".NET", "React", "TypeScript", "SQL", "REST", "WebSocket", "RBAC", "Docker", "CI/CD", "AI workflows"]
     },
     {
       "title": "Administrative Assistant",
@@ -79,83 +93,89 @@
       "href": "https://www.ulaval.ca",
       "startDate": "08/2021",
       "endDate": "04/2023",
-      "description": "Provided administrative and technical support at Université Laval, including document management, data organization, and contribution to various internal workflows.",
+      "description": "Provided administrative and technical support at Université Laval, including document management, data organization, and contribution to internal workflows.",
       "logo": "UL",
-      "skills": ["Organization", "Excel", "Data Management"]
+      "skills": ["Organization", "Excel", "Data management"]
     },
     {
-      "title": "Full Stack Developer (Internship)",
+      "title": "Full-Stack Developer (Internship)",
       "company": "Ecerteco",
       "href": "https://www.ecerteco.com",
       "startDate": "05/2022",
       "endDate": "08/2022",
-      "description": "Worked as a full-stack developer using Node.js and C#, contributing to the design and implementation of both backend and frontend features for internal systems.",
-      "logo": "E",
+      "description": "Contributed to backend and frontend features with Node.js, C#, JavaScript, and SQL in an internal application context.",
+      "logo": "EC",
       "skills": ["Node.js", "C#", "JavaScript", "SQL"]
     }
   ],
   "education": [
     {
       "subject": "Computer Science",
-      "degree": "Bachelor’s Degree",
+      "degree": "Bachelor's Degree",
       "university": "Université Laval",
       "href": "https://www.ulaval.ca",
       "startDate": "2021",
       "endDate": "2024",
-      "description": "Focused on object-oriented design, data structures, Java programming, and web application development."
+      "description": "Focused on object-oriented design, data structures, Java programming, algorithms, and web application development."
     },
     {
       "subject": "Computer Programming",
-      "degree": "College Diploma (Partial)",
+      "degree": "College program (partial)",
       "university": "Cégep de Lévis",
       "href": "https://www.cegeplevis.ca",
       "startDate": "2019",
       "endDate": "2021",
-      "description": "Technical training in object-oriented programming, database management, and web development."
+      "description": "Technical training in object-oriented programming, databases, and web development."
     }
   ],
   "projects": [
     {
-      "name": "Full-Stack Backend (.NET)",
-      "framework": "ASP.NET Core",
-      "description": "Anonymous client build: REST APIs, background workers, SQL performance tuning, EF Core migrations, containerized CI/CD on GitHub Actions + Azure/AWS.",
-      "href": "https://github.com/xpelch",
-      "stars": "Case study"
+      "name": "Logix Operations",
+      "framework": "ASP.NET Core / React",
+      "description": "Confidential production work across APIs, auth, data mapping, SQL optimization, background processing, and deployment workflows.",
+      "href": "#",
+      "stars": "Private project",
+      "role": "Full-stack developer / technical lead",
+      "outcome": "Made operational workflows faster, clearer, and easier to maintain.",
+      "proof": "REST + WebSocket APIs, RBAC, ETL/data mapping, SQL/EF optimization, Docker, CI/CD.",
+      "constraint": "Client details stay private, so the work is framed as architecture and delivery evidence.",
+      "stack": [".NET", "React", "SQL", "Docker", "CI/CD", "AI workflows"]
     },
     {
       "name": "Blockhead AI Chatbot",
       "framework": "Next.js",
-      "description": "Lightweight crypto chatbot for instant market insights. Features onchain chat copilot with trending pairs, gas monitoring, wallet integration, and streaming AI responses.",
+      "description": "A crypto-focused AI chatbot for fast market context: trending pairs, gas monitoring, wallet-aware flows, and streaming AI responses.",
       "href": "https://github.com/xpelch/ai-chatbot",
-      "stars": "Public"
+      "stars": "Public",
+      "role": "Product and implementation",
+      "outcome": "Turns scattered onchain signals into a conversational workflow.",
+      "proof": "Streaming AI UI, wallet context, market signal surfaces, Next.js application flow.",
+      "constraint": "Keeps the assistant useful without pretending to replace trading judgment.",
+      "stack": ["Next.js", "AI", "Wallets", "Streaming UI"]
     },
     {
       "name": "Sweep Token Consolidation",
-      "framework": "Next.js",
-      "description": "Modern Farcaster Mini App for token consolidation. Allows users to consolidate multiple token holdings into a single target token with one-click swaps powered by the 0x Protocol.",
+      "framework": "Next.js / Farcaster",
+      "description": "A Farcaster Mini App that consolidates multiple token holdings into a target token through one-click swaps powered by 0x.",
       "href": "https://github.com/xpelch/sweep",
-      "stars": "Public"
+      "stars": "Public",
+      "role": "Full-stack product build",
+      "outcome": "Compresses a multi-step token cleanup workflow into a focused swap experience.",
+      "proof": "Farcaster Mini App flow, 0x Protocol integration, token selection, transaction-oriented UI.",
+      "constraint": "Needs trust, clarity, and careful transaction affordances in a small surface.",
+      "stack": ["Next.js", "Farcaster", "0x", "viem", "wagmi"]
     },
     {
-      "name": "Developer Portfolio",
+      "name": "Portfolio System",
       "framework": "Next.js",
-      "description": "Minimalist dark-mode personal portfolio built with Next.js and TailwindCSS. Features smooth animations, SEO optimization, and showcases professional projects and experience.",
+      "description": "This portfolio: a bilingual, production-oriented one-page site with agentic workflow signals and proof-driven project presentation.",
       "href": "https://github.com/xpelch/portfolio",
-      "stars": "Public"
-    },
-    {
-      "name": "Squash The Creeps",
-      "framework": "Godot",
-      "description": "A simple 3D game built with Godot Engine. Players must squash incoming enemies.",
-      "href": "https://github.com/xpelch/squash_the_creeps",
-      "stars": "Public"
-    },
-    {
-      "name": "Dodge The Creeps",
-      "framework": "Godot",
-      "description": "Classic 2D action game developed with Godot Engine. Players must dodge incoming enemies.",
-      "href": "https://github.com/xpelch/dodge_the_creeps",
-      "stars": "Public"
+      "stars": "Public",
+      "role": "Design and implementation",
+      "outcome": "Turns a resume-style page into a clearer product signal.",
+      "proof": "Next.js, typed translations, responsive layout, lint/build proof.",
+      "constraint": "Must stay fast, accessible, and honest.",
+      "stack": ["Next.js", "React", "TypeScript", "Tailwind"]
     }
   ]
 }

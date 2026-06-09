@@ -7,6 +7,18 @@ export interface Socials {
 export interface GeneralData {
   name: string;
   headline: string;
+  role?: string;
+  location?: string;
+  availability?: string;
+  proofPoints?: Array<{
+    label: string;
+    value: string;
+  }>;
+  operatorSignal?: {
+    title: string;
+    description: string;
+    steps: string[];
+  };
   about: string[];
   socials: Socials;
   navigation: {
@@ -43,6 +55,7 @@ export interface Skills {
   frontend: string[];
   devops: string[];
   web3?: string[];
+  agentic?: string[];
 }
 
 export interface ExperienceSummary {
@@ -84,6 +97,11 @@ export interface Project {
   description: string;
   href: string;
   stars: string;
+  role?: string;
+  outcome?: string;
+  proof?: string;
+  constraint?: string;
+  stack?: string[];
 }
 
 export interface Translations {

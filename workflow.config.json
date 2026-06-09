@@ -1,0 +1,146 @@
+﻿{
+    "version":  "0.1",
+    "organization":  {
+                         "name":  "Portfolio",
+                         "orchestratorIdentity":  "Atlas"
+                     },
+    "workspace":  {
+                      "root":  "C:\\Programming\\portfolio"
+                  },
+    "repositories":  {
+                         "discoveryRoots":  [
+                                                "C:\\Programming\\portfolio"
+                                            ],
+                         "indexPath":  ""
+                     },
+    "references":  {
+                       "primarySkill":  "organization-ref",
+                       "primarySkillPath":  "",
+                       "primarySkillRoot":  "",
+                       "documentationSkill":  "",
+                       "documentationSkillPath":  "",
+                       "wikiConnector":  "bookstack"
+                   },
+    "agentWorkflow":  {
+                          "starterRoot":  "C:\\Programming\\portfolio",
+                          "folders":  [
+                                          "agent-context",
+                                          ".atlas",
+                                          "context",
+                                          "examples",
+                                          "logs",
+                                          "playbooks",
+                                          "templates",
+                                          "tools"
+                                      ],
+                          "ignoredFolders":  [
+                                                 "/agent-context/",
+                                                 "/context/",
+                                                 "/examples/",
+                                                 "/logs/",
+                                                 "/playbooks/",
+                                                 "/templates/",
+                                                 "/tools/",
+                                                 "/skills/",
+                                                 "/output/"
+                                             ],
+                          "requiredAgentInstructions":  [
+                                                            "Knowledge Navigation",
+                                                            "repo-intelligence",
+                                                            "documentation-workflow",
+                                                            "sync-knowledge-index.ps1",
+                                                            "atlas-refresh.ps1",
+                                                            "workflow-bootstrap.ps1",
+                                                            "workflow-backup.ps1",
+                                                            "workflow-restore.ps1",
+                                                            "workflow-install-org.ps1",
+                                                            "workflow-export-start.ps1",
+                                                            "atlas-catalog.ps1",
+                                                            "atlas-code-index.ps1",
+                                                            "atlas-audit.ps1",
+                                                            "atlas-changeset.ps1",
+                                                            "atlas-run.ps1",
+                                                            "atlas-contracts.ps1",
+                                                            "atlas-promote-knowledge.ps1",
+                                                            "atlas.ps1",
+                                                            "Atlas mode Jarvis"
+                                                        ]
+                      },
+    "tools":  {
+                  "atlas":  "C:\\Programming\\portfolio\\atlas.ps1",
+                  "atlasJarvis":  "C:\\Programming\\portfolio\\tools\\atlas\\atlas.ps1",
+                  "syncKnowledgeIndex":  "C:\\Programming\\portfolio\\tools\\sync-knowledge-index\\sync-knowledge-index.ps1",
+                  "atlasRefresh":  "C:\\Programming\\portfolio\\tools\\atlas-refresh\\atlas-refresh.ps1",
+                  "workflowBootstrap":  "C:\\Programming\\portfolio\\tools\\workflow-bootstrap\\workflow-bootstrap.ps1",
+                  "workflowBackup":  "C:\\Programming\\portfolio\\tools\\workflow-backup\\workflow-backup.ps1",
+                  "workflowRestore":  "C:\\Programming\\portfolio\\tools\\workflow-restore\\workflow-restore.ps1",
+                  "workflowInstallOrg":  "C:\\Programming\\portfolio\\tools\\workflow-install-org\\workflow-install-org.ps1",
+                  "workflowExportStart":  "C:\\Programming\\portfolio\\tools\\workflow-export-start\\workflow-export-start.ps1",
+                  "atlasCatalog":  "C:\\Programming\\portfolio\\tools\\atlas-catalog\\atlas-catalog.ps1",
+                  "atlasCodeIndex":  "C:\\Programming\\portfolio\\tools\\atlas-code-index\\atlas-code-index.ps1",
+                  "atlasAudit":  "C:\\Programming\\portfolio\\tools\\atlas-audit\\atlas-audit.ps1",
+                  "atlasChangeset":  "C:\\Programming\\portfolio\\tools\\atlas-changeset\\atlas-changeset.ps1",
+                  "atlasRun":  "C:\\Programming\\portfolio\\tools\\atlas-run\\atlas-run.ps1",
+                  "atlasContracts":  "C:\\Programming\\portfolio\\tools\\atlas-contracts\\atlas-contracts.ps1",
+                  "atlasPromoteKnowledge":  "C:\\Programming\\portfolio\\tools\\atlas-promote-knowledge\\atlas-promote-knowledge.ps1"
+              },
+    "backup":  {
+                   "defaultOutputRoot":  "C:\\Programming\\portfolio\\logs\\backups",
+                   "includeRoots":  [
+                                        "C:\\Programming\\portfolio",
+                                        "C:\\Programming\\portfolio\\servers"
+                                    ],
+                   "includeRootFiles":  [
+                                            "AGENTS.md",
+                                            ".gitignore",
+                                            ".atlas/symbiote.yaml",
+                                            "atlas.cmd",
+                                            "atlas.ps1",
+                                            "workflow.config.json"
+                                        ],
+                   "includeFolders":  [
+                                          "agent-context",
+                                          "context",
+                                          "examples",
+                                          "playbooks",
+                                          "templates",
+                                          "tools"
+                                      ],
+                   "excludeNames":  [
+                                        ".git",
+                                        ".vs",
+                                        ".idea",
+                                        ".venv",
+                                        "node_modules",
+                                        "bin",
+                                        "obj",
+                                        "dist",
+                                        "build",
+                                        "out",
+                                        ".next",
+                                        "coverage",
+                                        "secrets",
+                                        "logs",
+                                        "output",
+                                        "tmp"
+                                    ],
+                   "excludePatterns":  [
+                                           ".env",
+                                           ".env.*",
+                                           "appsettings*.json",
+                                           "secrets.json",
+                                           "*password*",
+                                           "*secret*",
+                                           "*apikey*",
+                                           "*connectionstring*",
+                                           "*.pfx",
+                                           "*.pem",
+                                           "*.key"
+                                       ]
+               },
+    "installer":  {
+                      "installedBy":  "workflow-install-org",
+                      "installedAt":  "2026-06-09T19:23:31.3988616Z",
+                      "sourceConfig":  "C:\\Users\\lib\\AppData\\Local\\Temp\\atlas-workflow-start-20260609T192329Z\\workflow-root\\workflow.config.json"
+                  }
+}

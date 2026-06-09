@@ -26,7 +26,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
     <div className="group flex flex-col lg:flex-row mb-4 p-4 lg:p-5 transition-all hover:bg-surface-200 rounded-lg border border-transparent hover:border-border-accent/20 hover:shadow-lg">
       <div className="flex flex-row lg:flex-col lg:basis-1/4 lg:mr-2 mb-3 lg:mb-0">
         <div className={`flex items-center justify-center w-[50px] h-[50px] lg:w-[70px] lg:h-[70px] rounded-full mr-3 lg:mr-0 lg:mb-2 aspect-square ${
-          company === 'Logix Operations' ? 'bg-primary-200' :
+          company === 'Operations Platform' ? 'bg-primary-200' :
           company === 'Université Laval' ? 'bg-secondary-200' :
           'bg-primary-400'
         }`}>

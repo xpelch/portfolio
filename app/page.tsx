@@ -1,26 +1,506 @@
 'use client';
 
+import Image from 'next/image';
+import { useEffect, useMemo, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
-import BackgroundDecorations from '@/components/ui/BackgroundDecorations';
-import HeroSection from '@/components/ui/HeroSection';
-import ContentSections from '@/components/ui/ContentSections';
+import type { Project, Translations } from '@/types';
+
+const modes = [
+  { key: 'ship', en: 'ship', fr: 'livrer' },
+  { key: 'stabilize', en: 'stabilize', fr: 'stabiliser' },
+  { key: 'automate', en: 'automate', fr: 'automatiser' },
+  { key: 'learn', en: 'learn', fr: 'apprendre' },
+] as const;
+
+function useTypingLoop(messages: string[]) {
+  const [messageIndex, setMessageIndex] = useState(0);
+  const [visibleLength, setVisibleLength] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const syncPreference = () => setReducedMotion(media.matches);
+    syncPreference();
+    media.addEventListener('change', syncPreference);
+    return () => media.removeEventListener('change', syncPreference);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion || messages.length === 0) return;
+
+    const current = messages[messageIndex] ?? '';
+    const isComplete = visibleLength === current.length;
+    const isEmpty = visibleLength === 0;
+    const delay = isComplete && !deleting ? 1050 : deleting ? 34 : 58;
+
+    const timeout = window.setTimeout(() => {
+      if (!deleting && isComplete) {
+        setDeleting(true);
+        return;
+      }
+
+      if (deleting && isEmpty) {
+        setDeleting(false);
+        setMessageIndex((index) => (index + 1) % messages.length);
+        return;
+      }
+
+      setVisibleLength((length) => length + (deleting ? -1 : 1));
+    }, delay);
+
+    return () => window.clearTimeout(timeout);
+  }, [deleting, messageIndex, messages, reducedMotion, visibleLength]);
+
+  if (messages.length === 0) return '';
+  if (reducedMotion) return messages[0];
+
+  return (messages[messageIndex] ?? '').slice(0, visibleLength);
+}
+
+function isFrench(translations: Translations) {
+  return translations.general.greeting.hello.toLowerCase().includes('bonjour');
+}
+
+function ArrowIcon({ className = 'h-4 w-4' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ExternalIcon() {
+  return (
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M8 8h8v8M16 8 7 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return <p className="mono-copy text-xs tracking-[0.18em] text-text-secondary">{'//'} {children}</p>;
+}
+
+function ProjectVisual({ project, index }: { project: Project; index: number }) {
+  const lanes = project.stack?.slice(0, 4) ?? [project.framework];
+  return (
+    <div className="relative h-44 overflow-hidden border-b border-border bg-surface-100 p-4">
+      <div className="absolute inset-0 opacity-45">
+        <div className="h-full w-full bg-[linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:32px_32px]" />
+      </div>
+      <div className="relative flex h-full flex-col justify-between">
+        <div className="flex items-start justify-between gap-4">
+          <div className="space-y-2">
+            <div className="mono-copy text-[0.68rem] text-text-muted">case.0{index + 1}</div>
+            <div className="max-w-48 text-xl font-semibold leading-tight text-on-surface">{project.name}</div>
+          </div>
+          <div className="h-8 w-8 border border-secondary-300/70 text-secondary-300">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M16 4v24M4 16h24M8 8l16 16M24 8 8 24" stroke="currentColor" strokeWidth="1" />
+            </svg>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-2">
+          {lanes.map((lane) => (
+            <div key={lane} className="mono-copy border border-border bg-surface-200/80 px-2 py-1 text-[0.66rem] text-text-secondary">
+              {lane}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProjectCard({
+  project,
+  index,
+  labels,
+}: {
+  project: Project;
+  index: number;
+  labels: { outcome: string; proof: string; private: string; open: string };
+}) {
+  return (
+    <a
+      href={project.href}
+      target={project.href === '#' ? undefined : '_blank'}
+      rel={project.href === '#' ? undefined : 'noopener noreferrer'}
+      className="scrap-card group block overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-secondary-300/70"
+      aria-label={`${project.name}: ${project.description}`}
+    >
+      <ProjectVisual project={project} index={index} />
+      <div className="space-y-5 p-5">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="mono-copy text-xs text-secondary-300">{project.framework}</p>
+            <h3 className="mt-2 text-2xl font-semibold leading-tight text-on-surface">{project.name}</h3>
+          </div>
+          <span className="mono-copy whitespace-nowrap border border-border px-2 py-1 text-[0.68rem] text-text-secondary">
+            {project.stars}
+          </span>
+        </div>
+        <p className="text-sm leading-6 text-text-secondary">{project.description}</p>
+        <dl className="space-y-3 border-t border-border pt-4 text-sm">
+          {project.outcome && (
+            <div>
+              <dt className="mono-copy text-[0.68rem] tracking-[0.12em] text-text-muted">{labels.outcome}</dt>
+              <dd className="mt-1 text-on-background">{project.outcome}</dd>
+            </div>
+          )}
+          {project.proof && (
+            <div>
+              <dt className="mono-copy text-[0.68rem] tracking-[0.12em] text-text-muted">{labels.proof}</dt>
+              <dd className="mt-1 text-text-secondary">{project.proof}</dd>
+            </div>
+          )}
+        </dl>
+        <div className="flex items-center gap-2 text-sm font-medium text-secondary-300">
+          <span>{project.href === '#' ? labels.private : labels.open}</span>
+          {project.href !== '#' && <ExternalIcon />}
+        </div>
+      </div>
+    </a>
+  );
+}
+
+function StackTable({ translations }: { translations: Translations }) {
+  const lanes = [
+    ['Backend', translations.skills.backend],
+    ['Frontend', translations.skills.frontend],
+    ['DevOps', translations.skills.devops],
+    ['Agentic', translations.skills.agentic ?? []],
+    ['Web3', translations.skills.web3 ?? []],
+  ] as const;
+
+  return (
+    <div className="border-y border-border">
+      {lanes.map(([title, items]) => (
+        <div key={title} className="grid gap-4 border-b border-border py-4 last:border-b-0 md:grid-cols-[9rem_1fr]">
+          <h3 className="mono-copy text-sm text-text-secondary">{title}</h3>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {items.map((item) => (
+              <span key={item} className="text-sm text-on-background">{item}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function Home() {
   const { translations, loading } = useLanguage();
 
-  if (loading || !translations) {
+  const copy = useMemo(() => {
+    if (!translations) return null;
+    const fr = isFrench(translations);
+    return {
+      fr,
+      nav: {
+        projects: fr ? 'Travaux' : 'Work',
+        about: fr ? 'Profil' : 'Profile',
+        stack: 'Stack',
+        experience: fr ? 'Expérience' : 'Experience',
+      },
+      intro: fr
+        ? "comprendre. construire. tester. améliorer."
+        : 'understand. build. test. improve.',
+      sub: fr
+        ? "Développeur full-stack spécialisé en applications web de production, automatisation et workflows AI utiles."
+        : 'Full-stack developer focused on production web apps, automation, and useful AI workflows.',
+      terminalMessages: fr
+        ? ['> construire, vérifier, apprendre...', '> cadrer, construire, valider...', '> livrer, mesurer, améliorer...']
+        : ['> build, verify, learn...', '> frame, build, validate...', '> ship, measure, improve...'],
+      recent: fr ? 'Travaux récents' : 'Recent work',
+      allProjects: fr ? 'Voir les projets' : 'View projects',
+      aboutHand: fr ? 'curieux, autonome et rigoureux' : 'curious, autonomous and proof-oriented',
+      stackNote: fr ? 'et toujours plus à apprendre...' : 'and always more to learn...',
+      contactTitle: fr ? 'Dispo pour de nouveaux projets' : 'Available for new projects',
+      contactBody: fr
+        ? 'Discutons de ton idée, de tes contraintes ou de la release à stabiliser.'
+        : 'Send the idea, constraints, or release that needs to ship cleanly.',
+      note: fr ? ['idée', 'construire', 'valider', 'livrer'] : ['idea', 'build', 'validate', 'ship'],
+      labels: {
+        outcome: fr ? 'IMPACT' : 'OUTCOME',
+        proof: fr ? 'PREUVE' : 'PROOF',
+        private: fr ? 'Cas privé' : 'Private case study',
+        open: fr ? 'Projet public' : 'Open project',
+      },
+      modes: modes.map((mode) => (fr ? mode.fr : mode.en)),
+    };
+  }, [translations]);
+
+  const terminalText = useTypingLoop(copy?.terminalMessages ?? []);
+
+  if (loading || !translations || !copy) {
     return <LoadingSpinner />;
   }
 
+  const featuredProjects = translations.projects.slice(0, 3);
+  const remainingProject = translations.projects[3];
+  const proofPoints = translations.general.proofPoints ?? [];
+  const operator = translations.general.operatorSignal;
+
   return (
-    <div className="min-h-screen bg-linear-to-br from-surface-100 via-surface-200 to-surface-300">
-      <BackgroundDecorations />
-      
-      <div className="relative z-10">
-        <HeroSection generalData={translations.general} />
-        <ContentSections translations={translations} />
+    <main className="paper-noise min-h-screen overflow-hidden bg-surface-100 text-on-background">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-8 sm:px-8 lg:px-10">
+        <header className="flex items-center justify-end gap-6 border-b border-border pb-5">
+          <nav className="mono-copy hidden items-center gap-9 text-sm text-text-secondary md:flex" aria-label="Primary navigation">
+            <a className="hover:text-on-surface" href="#projects">{copy.nav.projects}</a>
+            <a className="hover:text-on-surface" href="#about">{copy.nav.about}</a>
+            <a className="hover:text-on-surface" href="#stack">{copy.nav.stack}</a>
+            <a className="hover:text-on-surface" href="#experience">{copy.nav.experience}</a>
+          </nav>
+          <a
+            href={`mailto:${translations.general.socials.email}`}
+            className="mono-copy border border-secondary-300/70 px-4 py-3 text-xs text-secondary-300 transition hover:bg-secondary-300 hover:text-surface-100"
+          >
+            {translations.general.buttons.getInTouch}
+          </a>
+        </header>
+
+        <section id="top" className="relative grid min-h-[calc(100dvh-6rem)] items-center gap-12 py-10 lg:grid-cols-[0.95fr_1.05fr] lg:py-14">
+          <div className="space-y-9">
+            <div className="flex items-center gap-2 text-secondary-300">
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z" stroke="currentColor" strokeWidth="1.5" />
+                <path d="M12 12.3a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6Z" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+              <span className="mono-copy text-xs text-text-secondary">{translations.general.location}</span>
+            </div>
+            <div className="space-y-7">
+              <h1 className="serif-display max-w-3xl text-6xl leading-[0.96] text-on-surface sm:text-7xl md:whitespace-nowrap lg:text-[4.75rem] xl:text-[5.6rem] 2xl:text-8xl">
+                {translations.general.name}
+              </h1>
+              <div className="space-y-5">
+                <p className="text-2xl font-semibold leading-tight text-secondary-300 sm:text-3xl">
+                  {translations.general.role}
+                </p>
+                <div className="h-px w-20 bg-secondary-300" />
+                <p className="max-w-xl text-2xl leading-tight text-on-surface sm:text-3xl">
+                  {translations.general.headline}
+                </p>
+                <p className="max-w-xl text-base leading-7 text-text-secondary">{copy.sub}</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#projects"
+                className="mono-copy inline-flex items-center justify-center gap-3 border border-on-surface px-6 py-4 text-sm text-on-surface transition hover:bg-on-surface hover:text-surface-100"
+              >
+                {translations.general.buttons.viewProjects}
+                <ArrowIcon />
+              </a>
+              <a
+                href={translations.general.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mono-copy inline-flex items-center justify-center gap-3 border border-border px-6 py-4 text-sm text-text-secondary transition hover:border-secondary-300 hover:text-secondary-300"
+              >
+                GitHub
+                <ExternalIcon />
+              </a>
+            </div>
+
+            <div className="grid max-w-2xl gap-3 border-y border-border py-5 sm:grid-cols-3">
+              {proofPoints.map((point) => (
+                <div key={point.label}>
+                  <p className="mono-copy text-[0.68rem] tracking-[0.12em] text-text-muted">{point.label}</p>
+                  <p className="mt-2 text-sm text-on-background">{point.value}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="handwritten max-w-sm rotate-[-2deg] text-xl leading-7 text-secondary-300">
+              {copy.intro}
+            </p>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-xl lg:mr-0">
+            <div className="relative overflow-visible">
+              <div className="absolute left-1/2 top-0 z-20 h-8 w-28 -translate-x-1/2 -rotate-2 bg-secondary-300/28" />
+              <div className="origin-center scale-105 sm:scale-110">
+                <Image
+                  src="/images/developer-workspace-cutout.png"
+                  alt="Black and white developer workspace with a laptop and notebook"
+                  width={980}
+                  height={980}
+                  priority
+                  className="aspect-[3/2] w-full object-contain"
+                />
+              </div>
+              <div className="absolute -right-2 bottom-5 z-20 w-32 rotate-[-3deg] bg-secondary-300 p-4 text-surface-100 shadow-2xl sm:-right-8">
+                <p className="handwritten text-2xl leading-tight">{copy.note[0]}</p>
+                <ul className="mono-copy mt-2 space-y-1 text-sm">
+                  {copy.note.slice(1).map((item) => (
+                    <li key={item}>&gt; {item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mono-copy mt-8 flex h-5 w-full max-w-[39ch] items-center justify-start gap-2 text-sm text-text-secondary">
+              <span className="inline-block w-[36ch] overflow-hidden whitespace-nowrap" aria-live="polite">{terminalText}</span>
+              <span className="h-4 w-2 animate-pulse bg-on-surface" />
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" data-section className="py-14">
+          <div className="mb-8 flex items-end justify-between gap-5">
+            <SectionLabel>{copy.recent}</SectionLabel>
+            <a href={translations.general.socials.github} target="_blank" rel="noopener noreferrer" className="mono-copy hidden items-center gap-2 text-sm text-text-secondary hover:text-secondary-300 sm:flex">
+              {copy.allProjects}
+              <ArrowIcon />
+            </a>
+          </div>
+
+          <div className="grid gap-7 lg:grid-cols-3">
+            {featuredProjects.map((project, index) => (
+              <ProjectCard key={project.name} project={project} index={index} labels={copy.labels} />
+            ))}
+          </div>
+          {remainingProject && (
+            <p className="handwritten ml-auto mt-6 max-w-xs rotate-[-2deg] text-xl text-text-secondary">
+              {copy.fr ? 'du concret, pas du bruit.' : 'proof over promises.'}
+            </p>
+          )}
+        </section>
+
+        <section id="experience" data-section className="border-y border-border py-16">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <SectionLabel>{translations.general.sections.experiences}</SectionLabel>
+              <h2 className="mt-5 max-w-md text-4xl font-semibold leading-tight text-on-surface">
+                {copy.fr
+                  ? 'des produits utiles, livrés de façon méthodique'
+                  : 'useful products, shipped with discipline'}
+              </h2>
+            </div>
+            <div className="space-y-6">
+              {translations.experiences.map((experience) => (
+                <article key={`${experience.company}-${experience.startDate}`} className="grid gap-4 border-b border-border pb-6 last:border-b-0 md:grid-cols-[8rem_1fr]">
+                  <div className="mono-copy text-xs text-text-muted">
+                    {experience.startDate}<br />{experience.endDate}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-on-surface">{experience.title}</h3>
+                    <p className="mt-1 text-secondary-300">{experience.company}</p>
+                    <p className="mt-4 text-sm leading-6 text-text-secondary">{experience.description}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {experience.skills.map((skill) => (
+                        <span key={skill} className="mono-copy border border-border px-2 py-1 text-[0.68rem] text-text-secondary">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="about" data-section className="grid gap-12 py-16 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="relative max-w-sm">
+            <div className="absolute left-10 top-0 z-10 h-8 w-28 -rotate-3 bg-on-surface/18" />
+            <div className="rotate-[-3deg] border border-border bg-surface-200 p-3 shadow-2xl">
+              <Image
+                src="/images/profile-shoreline.jpg"
+                alt="Person standing by a rocky shoreline in a quiet reset moment"
+                width={520}
+                height={620}
+                loading="eager"
+                className="aspect-[4/5] w-full object-cover object-center"
+              />
+            </div>
+            <p className="handwritten mt-7 max-w-48 -rotate-6 text-xl leading-7 text-text-secondary">
+              reset. focus. ship.
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            <SectionLabel>{translations.general.sections.about}</SectionLabel>
+            <h2 className="handwritten max-w-2xl text-4xl leading-tight text-on-surface sm:text-5xl">
+              {copy.aboutHand}
+            </h2>
+            <div className="grid gap-5 text-base leading-7 text-text-secondary md:grid-cols-2">
+              {translations.general.about.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+
+            {operator && (
+              <div className="border-y border-border py-6">
+                <div className="grid gap-5 lg:grid-cols-[12rem_1fr]">
+                  <div>
+                    <h3 className="mono-copy text-sm text-secondary-300">{operator.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-text-secondary">{operator.description}</p>
+                  </div>
+                  <ol className="grid gap-2 sm:grid-cols-2">
+                    {operator.steps.map((step, index) => (
+                      <li key={step} className="min-w-0 border border-border px-3 py-3">
+                        <span className="mono-copy block text-[0.68rem] text-text-muted">0{index + 1}</span>
+                        <span className="mt-2 block whitespace-nowrap text-sm leading-5 text-on-background">{step}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+
+        <section id="stack" data-section className="grid gap-12 py-16 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <SectionLabel>{translations.general.sections.skills}</SectionLabel>
+            <h2 className="mt-5 max-w-md text-4xl font-semibold leading-tight text-on-surface">
+              {translations.experienceSummary.title}
+            </h2>
+            <ul className="mt-8 space-y-4 text-text-secondary">
+              {translations.experienceSummary.bullets.map((bullet) => (
+                <li key={bullet} className="grid grid-cols-[1.25rem_1fr] gap-3">
+                  <span className="mt-3 h-px bg-secondary-300" />
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="space-y-7">
+            <StackTable translations={translations} />
+            <p className="handwritten text-2xl text-text-secondary">{copy.stackNote}</p>
+          </div>
+        </section>
+
+        <section id="contact" data-section className="grid gap-10 border-t border-border py-14 md:grid-cols-[1fr_auto] md:items-end">
+          <div className="space-y-6">
+            <SectionLabel>{copy.contactTitle}</SectionLabel>
+            <p className="mt-4 max-w-md text-text-secondary">{copy.contactBody}</p>
+            <a
+              href={`mailto:${translations.cta.email}`}
+              className="mono-copy inline-flex items-center justify-center gap-3 border border-secondary-300 px-8 py-5 text-secondary-300 transition hover:bg-secondary-300 hover:text-surface-100"
+            >
+              {translations.cta.buttonText}
+              <ArrowIcon />
+            </a>
+          </div>
+
+          <div className="md:justify-self-end">
+            <SectionLabel>{copy.fr ? 'Réseaux' : 'Links'}</SectionLabel>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a className="mono-copy border border-border px-4 py-3 text-sm text-text-secondary hover:border-secondary-300 hover:text-secondary-300" href={translations.general.socials.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a className="mono-copy border border-border px-4 py-3 text-sm text-text-secondary hover:border-secondary-300 hover:text-secondary-300" href={translations.general.socials.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a className="mono-copy border border-border px-4 py-3 text-sm text-text-secondary hover:border-secondary-300 hover:text-secondary-300" href={`mailto:${translations.general.socials.email}`}>Email</a>
+            </div>
+          </div>
+        </section>
       </div>
-    </div>
+    </main>
   );
 }

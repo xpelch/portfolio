@@ -1,0 +1,203 @@
+Xavier Pelchat
+He/Him
+
+Full Stack Engineer at Logix Opérations
+linkedin.com/in/xpelch
+
+Experience
+
+Full-Stack Developer / Technical Lead
+
+Logix Operations · Permanent Full-time
+
+Mar 2023 - Present · 3 yrs 4 mos
+
+Quebec, Canada · Remote
+
+Full-Stack Developer / Technical Lead
+- Contributed to AI-focused initiatives by exploring and integrating LLM-powered tools, automation workflows, and agentic concepts into logistics and internal business systems.
+- Designed and prototyped AI-assisted workflows to reduce manual effort, improve operational efficiency, and support more intelligent decision-making within transportation management processes.
+- Worked on the integration of AI capabilities into existing full-stack applications, connecting structured business data, APIs, and user workflows in a practical and production-oriented way.
+- Built and maintained web applications using .NET/C# and React, with reusable front-end components and modular architecture.
+- Integrated REST and WebSocket APIs to support real-time workflows, operational visibility, and data synchronization.
+- Implemented authentication, authorization, and role-based access control across internal systems.
+- Designed ETL/data mapping workflows combining multiple data sources, with validation, reconciliation, caching, and delta-sync logic.
+- Optimized SQL queries, EF Core/LINQ expressions, and geolocation/routing modules, reducing processing time by over 80%.
+- Containerized services with Docker and contributed to CI/CD pipelines using GitHub Actions and Azure DevOps.
+- Supported repository restructuring and migration toward a unified GitHub monorepo.
+- Led technical planning, code reviews, ticket prioritization, and coordination between developers, QA, and stakeholders.… more
+
+ Leadership, Node.js and +11 skills
+
+Université Laval logo
+Auxiliaire administratif
+
+Université Laval · Contract Part-time
+
+Aug 2021 - Apr 2023 · 1 yr 9 mos
+
+Quebec, Canada
+
+Ecerteco logo
+Full-stack Developer
+
+Ecerteco · Internship
+
+May 2022 - Aug 2022 · 4 mos
+
+Quebec, Canada
+
+ Node.js and C#
+
+Virgin Plus logo
+Représentant des ventes
+
+Virgin Plus · Permanent Part-time
+
+Oct 2020 - Aug 2021 · 11 mos
+
+Lévis, Quebec, Canada
+
+• Vente et activation d'appareils de téléphonie mobile.
+• Vente de services de télécommunications résidentiels
+• Assurer le service à la clientèle.
+• Transfert de données.
+• Utilisation du système caisse et ses composantes… more
+
+Rogers Communications logo
+Représentant des ventes
+
+Rogers Communications · Permanent Part-time
+
+Mar 2019 - Oct 2020 · 1 yr 8 mos
+
+Lévis, Quebec, Canada
+
+• Vente et activation d'appareils de téléphonie mobile.
+• Assurer le service à la clientèle.
+• Transfert de données.
+• Utilisation du système caisse et ses composantes.
+
+Education
+Université Laval logo
+Université Laval
+
+Bachelor's degree, Computer Science
+
+Sep 2021 – Dec 2024
+
+ Object Oriented Design, Java and +3 skills
+
+Cégep de Lévis logo
+Cégep de Lévis
+
+Technique d'informatique, Programmation
+
+2019 – 2021
+
+Activities and societies: - Technique Informatique
+- Maths SN
+
+ Node.js
+
+
+Website
+
+xpelch.vercel.app (Personal)
+
+Email
+
+xpelch.dev@proton.me
+
+
+##SKILLS
+Agentic
+
+OpenAI Codex
+
+GitHub
+
+Full-Stack Developer / Technical Lead at Logix Operations
+
+OpenAI API
+
+Full-Stack Developer / Technical Lead at Logix Operations
+
+Node.js
+
+2 experiences at Logix Operations and 1 other company
+
+
+2 educational experiences at Université Laval and 1 other school
+
+Next.js
+
+Redux.js
+
+Full-Stack Developer / Technical Lead at Logix Operations
+
+SOLID Design Principles
+
+
+Université Laval
+
+Leadership
+
+Full-Stack Developer / Technical Lead at Logix Operations
+
+Project Management
+
+Full-Stack Developer / Technical Lead at Logix Operations
+
+TypeScript
+
+Full-Stack Developer / Technical Lead at Logix Operations
+
+React.js
+
+Full-Stack Developer / Technical Lead at Logix Operations
+
+.NET Framework
+
+Full-Stack Developer / Technical Lead at Logix Operations
+
+Object Oriented Design
+
+
+Université Laval
+
+C#
+
+2 experiences at Logix Operations and 1 other company
+
+Java
+
+
+Université Laval
+
+Passed LinkedIn Skill Assessment
+
+Docker Products
+
+Full-Stack Developer / Technical Lead at Logix Operations
+
+Algorithms
+
+
+Université Laval
+
+Management
+
+Jira
+
+Full-Stack Developer / Technical Lead at Logix Operations
+
+Pipelines
+
+Full-Stack Developer / Technical Lead at Logix Operations
+
+Résolution de problèmes
+
+Stratégie
+
+Solidity

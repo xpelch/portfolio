@@ -1,13 +1,14 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import type { Translations } from '@/types';
 
 type Language = 'en' | 'fr';
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  translations: any;
+  translations: Translations | null;
   loading: boolean;
 }
 
@@ -27,7 +28,7 @@ interface LanguageProviderProps {
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>('en');
-  const [translations, setTranslations] = useState<any>(null);
+  const [translations, setTranslations] = useState<Translations | null>(null);
   const [loading, setLoading] = useState(true);
 
   const setLanguage = async (lang: Language) => {
@@ -36,7 +37,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     
     try {
       const response = await fetch(`/translations/${lang}.json`);
-      const data = await response.json();
+      const data = await response.json() as Translations;
       setTranslations(data);
     } catch (error) {
       console.error('Failed to load translations:', error);
@@ -50,12 +51,12 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     const loadTranslations = async () => {
       try {
         const response = await fetch(`/translations/${savedLanguage}.json`);
-        const data = await response.json();
+        const data = await response.json() as Translations;
         setTranslations(data);
       } catch (error) {
         console.error('Failed to load translations:', error);
         const fallbackResponse = await fetch('/translations/en.json');
-        const fallbackData = await fallbackResponse.json();
+        const fallbackData = await fallbackResponse.json() as Translations;
         setTranslations(fallbackData);
       } finally {
         setLoading(false);

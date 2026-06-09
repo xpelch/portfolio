@@ -1,6 +1,6 @@
 import { Translations } from '@/types';
 
-export const getNavigationName = (key: string, translations: Translations): string => {
+export const getNavigationName = (key: string, translations: Translations | null): string => {
   const navigationMap: Record<string, string> = {
     about: translations?.general?.navigation?.about || "À propos",
     skills: translations?.general?.navigation?.skills || "Compétences",

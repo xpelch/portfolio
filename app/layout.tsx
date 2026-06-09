@@ -8,22 +8,23 @@ import HydrationBoundary from "@/components/ui/HydrationBoundary";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const title = "Xavier Pelchat – Full-Stack Developer (.NET / React)";
-const description = "Full-stack engineer building production-ready web apps.";
+const title = "Xavier Pelchat - Full-Stack Developer & AI Workflows";
+const description = "Full-stack engineer in Quebec building production-ready .NET, React, and practical AI workflow systems.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://xpelch.vercel.app"),
   title,
   description,
   openGraph: {
     title,
     description,
-    images: ["/window.svg"],
+    images: ["/images/developer-workspace.png"],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/window.svg"],
+    images: ["/images/developer-workspace.png"],
   },
 };
 
