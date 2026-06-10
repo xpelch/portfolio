@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import type { Project, Translations } from '@/types';
@@ -87,8 +87,8 @@ function ProjectVisual({ project, index }: { project: Project; index: number }) 
   const lanes = project.stack?.slice(0, 4) ?? [project.framework];
   return (
     <div className="relative h-44 overflow-hidden border-b border-border bg-surface-100 p-4">
-      <div className="absolute inset-0 opacity-45">
-        <div className="h-full w-full bg-[linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:32px_32px]" />
+      <div className="absolute inset-0 opacity-70">
+        <div className="h-full w-full bg-[linear-gradient(90deg,rgba(255,255,255,0.10)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(206,190,83,0.12)_1px,transparent_1px),linear-gradient(180deg,rgba(206,190,83,0.10)_1px,transparent_1px)] bg-[size:32px_32px,32px_32px,128px_128px,128px_128px]" />
       </div>
       <div className="relative flex h-full flex-col justify-between">
         <div className="flex items-start justify-between gap-4">
@@ -192,8 +192,78 @@ function StackTable({ translations }: { translations: Translations }) {
   );
 }
 
+type CommandDeckItem = {
+  key: string;
+  label: string;
+  meta: string;
+  action: () => void;
+};
+
+function CommandDeck({
+  open,
+  onClose,
+  title,
+  status,
+  commands,
+}: {
+  open: boolean;
+  onClose: () => void;
+  title: string;
+  status: string;
+  commands: CommandDeckItem[];
+}) {
+  const commandRefs = useRef<Array<HTMLButtonElement | null>>([]);
+
+  useEffect(() => {
+    if (!open) return;
+    const focusTimer = window.setTimeout(() => commandRefs.current[0]?.focus(), 0);
+    return () => window.clearTimeout(focusTimer);
+  }, [open]);
+
+  if (!open) return null;
+
+  return (
+    <div className="fixed inset-0 z-40 grid place-items-center overflow-y-auto bg-surface-100/82 px-4 py-8" role="presentation" onMouseDown={onClose}>
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="command-deck-title"
+        className="my-auto max-h-[calc(100dvh-2rem)] w-full max-w-xl overflow-hidden border border-border bg-surface-200 shadow-2xl"
+        onMouseDown={(event) => event.stopPropagation()}
+      >
+        <div className="border-b border-border p-4 sm:p-5">
+          <p id="command-deck-title" className="mono-copy text-xs tracking-[0.16em] text-secondary-300">
+            {title}
+          </p>
+          <p className="mt-2 text-sm text-text-secondary">{status}</p>
+        </div>
+        <div className="max-h-[min(30rem,calc(100dvh-10rem))] divide-y divide-border overflow-y-auto">
+          {commands.map((command, index) => (
+            <button
+              key={command.key}
+              ref={(node) => {
+                commandRefs.current[index] = node;
+              }}
+              type="button"
+              onClick={() => {
+                command.action();
+                onClose();
+              }}
+              className="group grid w-full gap-2 px-4 py-4 text-left transition hover:bg-surface-300 focus-visible:bg-surface-300 sm:grid-cols-[1fr_auto] sm:px-5"
+            >
+              <span className="font-semibold text-on-surface group-hover:text-secondary-300">{command.label}</span>
+              <span className="mono-copy text-xs text-text-muted">{command.meta}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
-  const { translations, loading } = useLanguage();
+  const { translations, loading, language, setLanguage } = useLanguage();
+  const [commandOpen, setCommandOpen] = useState(false);
 
   const copy = useMemo(() => {
     if (!translations) return null;
@@ -223,6 +293,8 @@ export default function Home() {
       contactBody: fr
         ? 'Discutons de ton idée, de tes contraintes ou de la release à stabiliser.'
         : 'Send the idea, constraints, or release that needs to ship cleanly.',
+      commandTitle: fr ? 'OPERATOR DECK' : 'OPERATOR DECK',
+      commandStatus: fr ? 'Chemins rapides pour évaluer le travail.' : 'Fast paths for evaluating the work.',
       heroStatus: 'Canada / Remote US',
       note: fr ? ['idée', 'construire', 'valider', 'livrer'] : ['idea', 'build', 'validate', 'ship'],
       labels: {
@@ -237,6 +309,30 @@ export default function Home() {
 
   const terminalText = useTypingLoop(copy?.terminalMessages ?? []);
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null;
+      const isTextEntry =
+        target?.tagName === 'INPUT' ||
+        target?.tagName === 'TEXTAREA' ||
+        target?.tagName === 'SELECT' ||
+        target?.isContentEditable;
+
+      if (event.key === 'Escape') {
+        setCommandOpen(false);
+        return;
+      }
+
+      if (event.key === '/' && !event.altKey && !event.ctrlKey && !event.metaKey && !isTextEntry) {
+        event.preventDefault();
+        setCommandOpen(true);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   if (loading || !translations || !copy) {
     return <LoadingSpinner />;
   }
@@ -245,6 +341,49 @@ export default function Home() {
   const remainingProject = translations.projects[3];
   const proofPoints = translations.general.proofPoints ?? [];
   const operator = translations.general.operatorSignal;
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  const commandItems: CommandDeckItem[] = [
+    {
+      key: 'work',
+      label: copy.fr ? 'Inspecter les travaux' : 'Inspect work',
+      meta: '#projects',
+      action: () => scrollToSection('projects'),
+    },
+    {
+      key: 'contact',
+      label: copy.fr ? 'Démarrer le contact' : 'Start contact',
+      meta: 'mailto',
+      action: () => {
+        window.location.href = `mailto:${translations.general.socials.email}`;
+      },
+    },
+    {
+      key: 'operator',
+      label: copy.fr ? 'Lire la boucle opérateur' : 'Read operator loop',
+      meta: '#about',
+      action: () => scrollToSection('about'),
+    },
+    {
+      key: 'github',
+      label: 'GitHub',
+      meta: 'external',
+      action: () => window.open(translations.general.socials.github, '_blank', 'noopener,noreferrer'),
+    },
+    {
+      key: 'linkedin',
+      label: 'LinkedIn',
+      meta: 'external',
+      action: () => window.open(translations.general.socials.linkedin, '_blank', 'noopener,noreferrer'),
+    },
+    {
+      key: 'language',
+      label: language === 'fr' ? 'Switch to English' : 'Passer en français',
+      meta: language === 'fr' ? 'EN' : 'FR',
+      action: () => setLanguage(language === 'fr' ? 'en' : 'fr'),
+    },
+  ];
 
   return (
     <main className="paper-noise min-h-screen overflow-hidden bg-surface-100 text-on-background">
@@ -362,10 +501,15 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mono-copy mt-8 flex h-5 w-full max-w-[39ch] items-center justify-start gap-2 text-sm text-text-secondary">
+            <button
+              type="button"
+              onClick={() => setCommandOpen(true)}
+              className="mono-copy mt-8 flex h-5 w-full max-w-[39ch] items-center justify-start gap-2 text-left text-sm text-text-secondary transition hover:text-secondary-300"
+              aria-label={copy.fr ? 'Ouvrir le deck opérateur' : 'Open operator deck'}
+            >
               <span className="inline-block max-w-[36ch] overflow-hidden whitespace-nowrap" aria-live="polite">{terminalText}</span>
               <span className="h-4 w-2 animate-pulse bg-on-surface" />
-            </div>
+            </button>
           </div>
         </section>
 
@@ -519,6 +663,13 @@ export default function Home() {
           </div>
         </section>
       </div>
+      <CommandDeck
+        open={commandOpen}
+        onClose={() => setCommandOpen(false)}
+        title={copy.commandTitle}
+        status={copy.commandStatus}
+        commands={commandItems}
+      />
     </main>
   );
 }
