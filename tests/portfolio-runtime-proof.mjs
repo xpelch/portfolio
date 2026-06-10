@@ -234,7 +234,7 @@ async function assertRuntimeAnchors(cdp, name) {
   assert.deepEqual(result.result.value, [], `${name} is missing runtime anchors`);
 }
 
-async function assertJourneyEvents(cdp, name) {
+async function assertJourneyEvents(cdp, name, { requireSink }) {
   const expression = `(async () => {
     window.__portfolioJourneyEvents = [];
     window.__portfolioJourneyAcks = [];
@@ -292,7 +292,9 @@ async function assertJourneyEvents(cdp, name) {
 
   for (const required of ['project_open', 'contact_click', 'external_profile_click', 'language_switch']) {
     assert.equal(names.has(required), true, `${name} did not record ${required}`);
-    assert.equal(ackNames.has(required), true, `${name} did not receive server acknowledgement for ${required}`);
+    if (requireSink) {
+      assert.equal(ackNames.has(required), true, `${name} did not receive server acknowledgement for ${required}`);
+    }
   }
 
   return { events, acknowledgements };
@@ -378,7 +380,7 @@ async function captureScreenshots() {
       await assertRuntimeAnchors(cdp, target.name);
       await assertLanguageSwitcherIsClear(cdp, target.name);
       if (target.name === 'desktop-en') {
-        const journeyProof = await assertJourneyEvents(cdp, target.name);
+        const journeyProof = await assertJourneyEvents(cdp, target.name, { requireSink: Boolean(providedUrl) });
         journeyEvents = journeyProof.events;
         journeyAcks = journeyProof.acknowledgements;
       }
@@ -567,7 +569,7 @@ try {
       languageSwitcherClear: 'pass',
       telemetry: 'pass-privacy-safe-memory-bus',
       journeyEvents: 'pass',
-      journeyEventSink: 'pass-production-acknowledged',
+      journeyEventSink: providedUrl ? 'pass-production-acknowledged' : 'not-required-local-runtime',
     },
     images,
     screenshots,
@@ -611,7 +613,9 @@ try {
       '',
       '## Remaining Runtime Gaps',
       '',
-      '- No external analytics destination is configured; CTA proof uses the deployed privacy-safe journey endpoint.',
+      providedUrl
+        ? '- No external analytics destination is configured; CTA proof uses the deployed privacy-safe journey endpoint.'
+        : '- Endpoint acknowledgement is verified by `proof:production`; local runtime proof verifies the browser journey bus.',
       '',
     ].join('\n'),
     'utf8',
