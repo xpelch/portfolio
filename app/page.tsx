@@ -83,6 +83,28 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   return <p className="mono-copy text-xs tracking-[0.18em] text-text-secondary">{'//'} {children}</p>;
 }
 
+type JourneyEventName = 'contact_click' | 'project_open' | 'external_profile_click' | 'language_switch';
+
+type JourneyEvent = {
+  name: JourneyEventName;
+  target: string;
+  at: string;
+};
+
+declare global {
+  interface Window {
+    __portfolioJourneyEvents?: JourneyEvent[];
+  }
+}
+
+function recordJourneyEvent(name: JourneyEventName, target: string) {
+  if (typeof window === 'undefined') return;
+
+  const event = { name, target, at: new Date().toISOString() };
+  window.__portfolioJourneyEvents = [...(window.__portfolioJourneyEvents ?? []), event];
+  window.dispatchEvent(new CustomEvent('portfolio:journey', { detail: event }));
+}
+
 function ProjectVisual({ project, index }: { project: Project; index: number }) {
   const lanes = project.stack?.slice(0, 4) ?? [project.framework];
   return (
@@ -131,6 +153,8 @@ function ProjectCard({
       rel={project.href === '#' ? undefined : 'noopener noreferrer'}
       className="scrap-card group block overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-secondary-300/70"
       aria-label={`${project.name}: ${project.description}`}
+      data-proof="project-card"
+      onClick={() => recordJourneyEvent('project_open', project.name)}
     >
       <ProjectVisual project={project} index={index} />
       <div className="space-y-5 p-5">
@@ -356,6 +380,7 @@ export default function Home() {
       label: copy.fr ? 'Démarrer le contact' : 'Start contact',
       meta: 'mailto',
       action: () => {
+        recordJourneyEvent('contact_click', 'command-deck');
         window.location.href = `mailto:${translations.general.socials.email}`;
       },
     },
@@ -369,19 +394,29 @@ export default function Home() {
       key: 'github',
       label: 'GitHub',
       meta: 'external',
-      action: () => window.open(translations.general.socials.github, '_blank', 'noopener,noreferrer'),
+      action: () => {
+        recordJourneyEvent('external_profile_click', 'github');
+        window.open(translations.general.socials.github, '_blank', 'noopener,noreferrer');
+      },
     },
     {
       key: 'linkedin',
       label: 'LinkedIn',
       meta: 'external',
-      action: () => window.open(translations.general.socials.linkedin, '_blank', 'noopener,noreferrer'),
+      action: () => {
+        recordJourneyEvent('external_profile_click', 'linkedin');
+        window.open(translations.general.socials.linkedin, '_blank', 'noopener,noreferrer');
+      },
     },
     {
       key: 'language',
       label: language === 'fr' ? 'Switch to English' : 'Passer en français',
       meta: language === 'fr' ? 'EN' : 'FR',
-      action: () => setLanguage(language === 'fr' ? 'en' : 'fr'),
+      action: () => {
+        const nextLanguage = language === 'fr' ? 'en' : 'fr';
+        recordJourneyEvent('language_switch', nextLanguage);
+        setLanguage(nextLanguage);
+      },
     },
   ];
 
@@ -404,6 +439,7 @@ export default function Home() {
           <a
             href={`mailto:${translations.general.socials.email}`}
             className="mono-copy border border-secondary-300/70 px-4 py-3 text-xs text-secondary-300 transition hover:bg-secondary-300 hover:text-surface-100"
+            onClick={() => recordJourneyEvent('contact_click', 'header')}
           >
             {translations.general.buttons.getInTouch}
           </a>
@@ -449,6 +485,7 @@ export default function Home() {
               <a
                 href={`mailto:${translations.general.socials.email}`}
                 className="mono-copy inline-flex items-center justify-center gap-3 border border-secondary-300 px-6 py-4 text-sm text-secondary-300 transition hover:bg-secondary-300 hover:text-surface-100"
+                onClick={() => recordJourneyEvent('contact_click', 'hero')}
               >
                 {translations.general.buttons.emailMe}
                 <ArrowIcon />
@@ -458,6 +495,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mono-copy inline-flex items-center justify-center gap-3 border border-border px-6 py-4 text-sm text-text-secondary transition hover:border-primary-400 hover:text-primary-500"
+                onClick={() => recordJourneyEvent('external_profile_click', 'github')}
               >
                 GitHub
                 <ExternalIcon />
@@ -516,7 +554,7 @@ export default function Home() {
         <section id="projects" data-section className="py-14">
           <div className="mb-8 flex items-end justify-between gap-5">
             <SectionLabel>{copy.recent}</SectionLabel>
-            <a href={translations.general.socials.github} target="_blank" rel="noopener noreferrer" className="mono-copy hidden items-center gap-2 text-sm text-text-secondary hover:text-secondary-300 sm:flex">
+            <a href={translations.general.socials.github} target="_blank" rel="noopener noreferrer" className="mono-copy hidden items-center gap-2 text-sm text-text-secondary hover:text-secondary-300 sm:flex" onClick={() => recordJourneyEvent('external_profile_click', 'github-projects')}>
               {copy.allProjects}
               <ArrowIcon />
             </a>
@@ -647,6 +685,7 @@ export default function Home() {
             <a
               href={`mailto:${translations.cta.email}`}
               className="mono-copy inline-flex items-center justify-center gap-3 border border-secondary-300 px-8 py-5 text-secondary-300 transition hover:bg-secondary-300 hover:text-surface-100"
+              onClick={() => recordJourneyEvent('contact_click', 'contact-section')}
             >
               {translations.cta.buttonText}
               <ArrowIcon />
@@ -656,9 +695,9 @@ export default function Home() {
           <div className="md:justify-self-end">
             <SectionLabel>{copy.fr ? 'Réseaux' : 'Links'}</SectionLabel>
             <div className="mt-4 flex flex-wrap gap-3">
-              <a className="mono-copy border border-border px-4 py-3 text-sm text-text-secondary hover:border-secondary-300 hover:text-secondary-300" href={translations.general.socials.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a className="mono-copy border border-border px-4 py-3 text-sm text-text-secondary hover:border-secondary-300 hover:text-secondary-300" href={translations.general.socials.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a className="mono-copy border border-border px-4 py-3 text-sm text-text-secondary hover:border-secondary-300 hover:text-secondary-300" href={`mailto:${translations.general.socials.email}`}>Email</a>
+              <a className="mono-copy border border-border px-4 py-3 text-sm text-text-secondary hover:border-secondary-300 hover:text-secondary-300" href={translations.general.socials.github} target="_blank" rel="noopener noreferrer" onClick={() => recordJourneyEvent('external_profile_click', 'github-footer')}>GitHub</a>
+              <a className="mono-copy border border-border px-4 py-3 text-sm text-text-secondary hover:border-secondary-300 hover:text-secondary-300" href={translations.general.socials.linkedin} target="_blank" rel="noopener noreferrer" onClick={() => recordJourneyEvent('external_profile_click', 'linkedin-footer')}>LinkedIn</a>
+              <a className="mono-copy border border-border px-4 py-3 text-sm text-text-secondary hover:border-secondary-300 hover:text-secondary-300" href={`mailto:${translations.general.socials.email}`} onClick={() => recordJourneyEvent('contact_click', 'footer')}>Email</a>
             </div>
           </div>
         </section>

@@ -26,3 +26,20 @@ jobs:
 
       - name: Test
         run: npm test
+
+      - name: Production journey proof
+        run: npm run proof:production
+
+      - name: Upload journey proof artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-journey-proof
+          path: |
+            logs/visual/portfolio-runtime-proof.json
+            logs/visual/portfolio-runtime-proof.md
+            logs/visual/portfolio-runtime-*.png
+            logs/visual/portfolio-production-proof.json
+            logs/visual/portfolio-production-proof.md
+            logs/visual/portfolio-production-*.png
+          if-no-files-found: error

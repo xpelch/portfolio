@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node tests/portfolio-content.test.mjs && npm run lint && npm run build"
+    "proof:journey": "npm run build && node tests/portfolio-runtime-proof.mjs",
+    "proof:production": "node tests/portfolio-runtime-proof.mjs --url https://xpelch.vercel.app --label production",
+    "test": "node tests/portfolio-content.test.mjs && npm run lint && npm run build && node tests/portfolio-runtime-proof.mjs"
   },
   "dependencies": {
     "next": "16.0.7",

@@ -17,7 +17,32 @@ function assertUrlOrAnchor(value, label) {
   );
 }
 
+const mojibakeMarkers = ['\u00c3', '\u00c2', '\u00e2\u20ac'];
+
+function assertNoMojibake(value, label) {
+  if (typeof value === 'string') {
+    assert.equal(
+      mojibakeMarkers.some((marker) => value.includes(marker)),
+      false,
+      `${label} contains mojibake: ${value}`,
+    );
+    return;
+  }
+
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => assertNoMojibake(item, `${label}[${index}]`));
+    return;
+  }
+
+  if (value && typeof value === 'object') {
+    for (const [key, item] of Object.entries(value)) {
+      assertNoMojibake(item, `${label}.${key}`);
+    }
+  }
+}
+
 function validatePortfolioJourney(locale, data) {
+  assertNoMojibake(data, locale);
   assert.equal(data.general.name, 'Xavier Pelchat', `${locale}: name is the first identity signal`);
   assert.match(data.general.headline, /production|production|systèmes|systems/i, `${locale}: headline must state production value`);
   assert.ok(data.general.socials.email.includes('@'), `${locale}: email is available`);
@@ -26,7 +51,7 @@ function validatePortfolioJourney(locale, data) {
 
   assert.ok(data.general.proofPoints.length >= 3, `${locale}: hero proof strip has at least three proof points`);
   assert.ok(
-    data.general.operatorSignal.steps.some((step) => /verify|vÃ©rifier|vérifier/i.test(step)),
+    data.general.operatorSignal.steps.some((step) => /verify|vérifier/i.test(step)),
     `${locale}: operator loop includes verification`,
   );
   assert.ok(data.general.operatorSignal.steps.length >= 5, `${locale}: operator loop is complete enough to explain working style`);
