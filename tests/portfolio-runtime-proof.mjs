@@ -15,6 +15,14 @@ const chromeCandidates = [
   'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
   'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
   'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+  '/usr/bin/google-chrome',
+  '/usr/bin/google-chrome-stable',
+  '/usr/bin/chromium',
+  '/usr/bin/chromium-browser',
+  'google-chrome',
+  'google-chrome-stable',
+  'chromium',
+  'chromium-browser',
 ].filter(Boolean);
 function readArg(name) {
   const index = process.argv.indexOf(name);
@@ -97,8 +105,17 @@ async function pathExists(filePath) {
 async function findBrowserPath() {
   for (const candidate of chromeCandidates) {
     if (candidate && await pathExists(candidate)) return candidate;
+    if (candidate && !candidate.includes(path.sep) && commandExists(candidate)) return candidate;
   }
-  throw new Error('No Chrome or Edge executable found for screenshot proof. Set PORTFOLIO_CHROME_PATH.');
+  throw new Error(`No Chrome, Chromium, or Edge executable found for screenshot proof. Set PORTFOLIO_CHROME_PATH. Checked: ${chromeCandidates.join(', ')}`);
+}
+
+function commandExists(command) {
+  if (process.platform === 'win32') {
+    return spawnSync('where.exe', [command], { stdio: 'ignore' }).status === 0;
+  }
+
+  return spawnSync('sh', ['-c', `command -v "$1" >/dev/null 2>&1`, 'sh', command], { stdio: 'ignore' }).status === 0;
 }
 
 async function waitForDevTools(port) {
@@ -255,6 +272,7 @@ async function captureScreenshots() {
   const browserPath = await findBrowserPath();
   const debugPort = 41000 + Math.floor(Math.random() * 1000);
   const profileDir = path.join(os.tmpdir(), `portfolio-proof-${Date.now()}`);
+  await mkdir(outputDir, { recursive: true });
   await mkdir(profileDir, { recursive: true });
 
   const browser = spawn(browserPath, [
