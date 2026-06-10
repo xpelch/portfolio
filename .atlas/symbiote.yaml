@@ -77,4 +77,3 @@ blockedReads:
   - "*.pem"
   - "*.key"
 phase: "v0"
-
