@@ -1,36 +1,38 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-100: oklch(0.26 0.035 62);
-  --color-primary-200: oklch(0.36 0.045 62);
-  --color-primary-300: oklch(0.52 0.065 67);
-  --color-primary-400: oklch(0.68 0.09 73);
-  --color-primary-500: oklch(0.79 0.075 78);
-  --color-primary-600: oklch(0.9 0.045 82);
+  --color-primary-100: oklch(0.24 0.042 190);
+  --color-primary-200: oklch(0.34 0.052 186);
+  --color-primary-300: oklch(0.48 0.064 180);
+  --color-primary-400: oklch(0.63 0.077 174);
+  --color-primary-500: oklch(0.76 0.069 166);
+  --color-primary-600: oklch(0.88 0.044 154);
 
-  --color-secondary-100: oklch(0.32 0.05 74);
-  --color-secondary-200: oklch(0.58 0.095 76);
-  --color-secondary-300: oklch(0.76 0.105 82);
-  --color-secondary-400: oklch(0.85 0.075 85);
-  --color-secondary-500: oklch(0.91 0.045 86);
-  --color-secondary-600: oklch(0.96 0.025 86);
+  --color-secondary-100: oklch(0.31 0.055 98);
+  --color-secondary-200: oklch(0.55 0.095 98);
+  --color-secondary-300: oklch(0.76 0.115 97);
+  --color-secondary-400: oklch(0.84 0.088 100);
+  --color-secondary-500: oklch(0.91 0.052 104);
+  --color-secondary-600: oklch(0.96 0.026 108);
 
-  --color-surface-100: oklch(0.225 0.026 61);
-  --color-surface-200: oklch(0.285 0.031 62);
-  --color-surface-300: oklch(0.355 0.036 64);
-  --color-surface-400: oklch(0.48 0.035 66);
-  --color-surface-500: oklch(0.61 0.03 70);
-  --color-surface-600: oklch(0.75 0.025 76);
+  --color-surface-100: oklch(0.18 0.018 185);
+  --color-surface-200: oklch(0.225 0.023 182);
+  --color-surface-300: oklch(0.295 0.03 176);
+  --color-surface-400: oklch(0.42 0.034 168);
+  --color-surface-500: oklch(0.58 0.031 158);
+  --color-surface-600: oklch(0.73 0.024 142);
 
-  --color-on-background: oklch(0.93 0.025 82);
-  --color-on-surface: oklch(0.97 0.018 86);
-  --color-text-secondary: oklch(0.79 0.028 78);
-  --color-text-muted: oklch(0.64 0.028 74);
-  --color-border: oklch(0.47 0.035 66);
-  --color-border-accent: oklch(0.76 0.105 82);
-  --color-hover: oklch(0.82 0.085 84);
+  --color-on-background: oklch(0.92 0.022 112);
+  --color-on-surface: oklch(0.965 0.016 112);
+  --color-text-secondary: oklch(0.78 0.026 126);
+  --color-text-muted: oklch(0.62 0.027 140);
+  --color-border: oklch(0.43 0.033 166);
+  --color-border-accent: oklch(0.76 0.115 97);
+  --color-hover: oklch(0.82 0.086 106);
 
-  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), Georgia, serif;
+  --font-mono: var(--font-mono), "SFMono-Regular", Consolas, monospace;
 }
 
 @layer base {
@@ -44,11 +46,12 @@
   }
 
   body {
+    font-family: var(--font-body);
     min-height: 100dvh;
     overflow-x: hidden;
     background:
-      radial-gradient(circle at 72% 8%, color-mix(in oklch, var(--color-secondary-300) 16%, transparent), transparent 30rem),
-      radial-gradient(circle at 18% 24%, color-mix(in oklch, var(--color-secondary-600) 8%, transparent), transparent 34rem),
+      radial-gradient(circle at 76% 6%, color-mix(in oklch, var(--color-primary-400) 15%, transparent), transparent 30rem),
+      radial-gradient(circle at 14% 22%, color-mix(in oklch, var(--color-secondary-300) 13%, transparent), transparent 36rem),
       linear-gradient(180deg, color-mix(in oklch, var(--color-surface-200) 54%, transparent), transparent 42rem),
       var(--color-surface-100);
     background-size: auto;
@@ -91,12 +94,12 @@
   }
 
   .mono-copy {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-family: var(--font-mono);
   }
 
   .serif-display {
-    font-family: Georgia, "Times New Roman", serif;
-    letter-spacing: -0.03em;
+    font-family: var(--font-display);
+    letter-spacing: 0;
   }
 
   .paper-noise {
@@ -170,6 +173,6 @@
     border: 1px solid color-mix(in oklch, var(--color-border) 80%, transparent);
     background:
       linear-gradient(180deg, color-mix(in oklch, var(--color-surface-300) 62%, transparent), color-mix(in oklch, var(--color-surface-200) 96%, transparent));
-    box-shadow: 0 22px 80px color-mix(in oklch, black 34%, transparent);
+    box-shadow: 0 22px 80px color-mix(in oklch, var(--color-surface-100) 72%, transparent);
   }
 }

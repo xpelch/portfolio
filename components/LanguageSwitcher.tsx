@@ -7,7 +7,7 @@ const LanguageSwitcher: React.FC = () => {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <div className="fixed bottom-5 right-5 z-50">
+    <div className="fixed bottom-5 right-5 z-50 max-sm:bottom-auto max-sm:right-[8.5rem] max-sm:top-8">
       <div className="mono-copy flex overflow-hidden border border-border bg-surface-100/90 text-xs shadow-2xl">
         {(['en', 'fr'] as const).map((code) => (
           <button

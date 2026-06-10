@@ -223,6 +223,7 @@ export default function Home() {
       contactBody: fr
         ? 'Discutons de ton idée, de tes contraintes ou de la release à stabiliser.'
         : 'Send the idea, constraints, or release that needs to ship cleanly.',
+      heroStatus: 'Canada / Remote US',
       note: fr ? ['idée', 'construire', 'valider', 'livrer'] : ['idea', 'build', 'validate', 'ship'],
       labels: {
         outcome: fr ? 'IMPACT' : 'OUTCOME',
@@ -248,7 +249,13 @@ export default function Home() {
   return (
     <main className="paper-noise min-h-screen overflow-hidden bg-surface-100 text-on-background">
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-8 sm:px-8 lg:px-10">
-        <header className="flex items-center justify-end gap-6 border-b border-border pb-5">
+        <header className="flex items-center justify-between gap-6 border-b border-border pb-5">
+          <a href="#top" className="group flex items-center gap-4" aria-label="Back to top">
+            <span className="serif-display text-3xl font-bold leading-none text-secondary-300">XP</span>
+            <span className="mono-copy hidden text-[0.68rem] font-semibold tracking-[0.22em] text-on-surface sm:block">
+              XAVIER PELCHAT
+            </span>
+          </a>
           <nav className="mono-copy hidden items-center gap-9 text-sm text-text-secondary md:flex" aria-label="Primary navigation">
             <a className="hover:text-on-surface" href="#projects">{copy.nav.projects}</a>
             <a className="hover:text-on-surface" href="#about">{copy.nav.about}</a>
@@ -265,15 +272,19 @@ export default function Home() {
 
         <section id="top" className="relative grid min-h-[calc(100dvh-6rem)] items-center gap-12 py-10 lg:grid-cols-[0.95fr_1.05fr] lg:py-14">
           <div className="space-y-9">
-            <div className="flex items-center gap-2 text-secondary-300">
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M12 12.3a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6Z" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
-              <span className="mono-copy text-xs text-text-secondary">{translations.general.location}</span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-secondary-300">
+              <div className="flex items-center gap-2">
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z" stroke="currentColor" strokeWidth="1.5" />
+                  <path d="M12 12.3a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6Z" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+                <span className="mono-copy text-xs text-text-secondary">{translations.general.location}</span>
+              </div>
+              <span className="hidden h-px w-8 bg-border sm:block" />
+              <span className="mono-copy text-xs text-text-secondary">{copy.heroStatus}</span>
             </div>
             <div className="space-y-7">
-              <h1 className="serif-display max-w-3xl text-6xl leading-[0.96] text-on-surface sm:text-7xl md:whitespace-nowrap lg:text-[4.75rem] xl:text-[5.6rem] 2xl:text-8xl">
+              <h1 className="serif-display max-w-3xl text-6xl font-bold leading-[0.96] text-on-surface sm:text-7xl md:whitespace-nowrap lg:text-[4.75rem] xl:text-[5.6rem] 2xl:text-8xl">
                 {translations.general.name}
               </h1>
               <div className="space-y-5">
@@ -288,7 +299,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href="#projects"
                 className="mono-copy inline-flex items-center justify-center gap-3 border border-on-surface px-6 py-4 text-sm text-on-surface transition hover:bg-on-surface hover:text-surface-100"
@@ -297,10 +308,17 @@ export default function Home() {
                 <ArrowIcon />
               </a>
               <a
+                href={`mailto:${translations.general.socials.email}`}
+                className="mono-copy inline-flex items-center justify-center gap-3 border border-secondary-300 px-6 py-4 text-sm text-secondary-300 transition hover:bg-secondary-300 hover:text-surface-100"
+              >
+                {translations.general.buttons.emailMe}
+                <ArrowIcon />
+              </a>
+              <a
                 href={translations.general.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mono-copy inline-flex items-center justify-center gap-3 border border-border px-6 py-4 text-sm text-text-secondary transition hover:border-secondary-300 hover:text-secondary-300"
+                className="mono-copy inline-flex items-center justify-center gap-3 border border-border px-6 py-4 text-sm text-text-secondary transition hover:border-primary-400 hover:text-primary-500"
               >
                 GitHub
                 <ExternalIcon />
@@ -334,18 +352,18 @@ export default function Home() {
                   className="aspect-[3/2] w-full object-contain"
                 />
               </div>
-              <div className="absolute -right-2 bottom-5 z-20 w-32 rotate-[-3deg] bg-secondary-300 p-4 text-surface-100 shadow-2xl sm:-right-8">
+              <div className="absolute -right-2 bottom-5 z-20 w-40 rotate-[-3deg] bg-secondary-300 p-4 text-surface-100 shadow-2xl sm:-right-8">
                 <p className="handwritten text-2xl leading-tight">{copy.note[0]}</p>
                 <ul className="mono-copy mt-2 space-y-1 text-sm">
                   {copy.note.slice(1).map((item) => (
-                    <li key={item}>&gt; {item}</li>
+                    <li key={item} className="whitespace-nowrap">&gt; {item}</li>
                   ))}
                 </ul>
               </div>
             </div>
 
             <div className="mono-copy mt-8 flex h-5 w-full max-w-[39ch] items-center justify-start gap-2 text-sm text-text-secondary">
-              <span className="inline-block w-[36ch] overflow-hidden whitespace-nowrap" aria-live="polite">{terminalText}</span>
+              <span className="inline-block max-w-[36ch] overflow-hidden whitespace-nowrap" aria-live="polite">{terminalText}</span>
               <span className="h-4 w-2 animate-pulse bg-on-surface" />
             </div>
           </div>
