@@ -185,14 +185,20 @@ function createCdpClient(webSocketUrl) {
   };
 }
 
-async function waitForText(cdp, text) {
+async function waitForText(cdp, text, attempts = 160) {
   const expression = `document.body && document.body.innerText.includes(${JSON.stringify(text)})`;
-  for (let attempt = 0; attempt < 80; attempt += 1) {
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
     const result = await cdp.send('Runtime.evaluate', { expression, returnByValue: true });
     if (result.result?.value === true) return;
     await wait(125);
   }
   throw new Error(`Timed out waiting for visible text: ${text}`);
+}
+
+async function installLanguagePreference(cdp, language) {
+  return cdp.send('Page.addScriptToEvaluateOnNewDocument', {
+    source: `try { localStorage.setItem('portfolio-language', ${JSON.stringify(language)}); } catch (_) {}`,
+  });
 }
 
 async function assertLanguageSwitcherIsClear(cdp, name) {
@@ -329,6 +335,7 @@ async function captureScreenshots() {
     let journeyEvents = [];
     for (const target of targets) {
       await cdp.send('Emulation.setDeviceMetricsOverride', target.viewport);
+      const languagePreference = await installLanguagePreference(cdp, target.language);
       await cdp.send('Page.navigate', { url: baseUrl });
       await waitForText(cdp, 'Xavier Pelchat');
       await cdp.send('Runtime.evaluate', {
@@ -336,6 +343,9 @@ async function captureScreenshots() {
       });
       await cdp.send('Page.reload', { ignoreCache: true });
       await waitForText(cdp, target.waitText);
+      await cdp.send('Page.removeScriptToEvaluateOnNewDocument', {
+        identifier: languagePreference.identifier,
+      });
       const metrics = await cdp.send('Runtime.evaluate', {
         expression: '({ width: window.innerWidth, scrollWidth: document.documentElement.scrollWidth, text: document.body.innerText.slice(0, 400) })',
         returnByValue: true,
