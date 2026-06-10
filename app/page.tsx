@@ -424,8 +424,8 @@ export default function Home() {
           </a>
         </header>
 
-        <section id="top" className="relative grid min-h-[calc(100dvh-6rem)] items-center gap-12 py-10 lg:grid-cols-[0.95fr_1.05fr] lg:py-14">
-          <div className="space-y-9">
+        <section id="top" className="relative grid min-h-[calc(100dvh-6rem)] items-start gap-10 py-6 sm:gap-12 sm:py-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:py-14">
+          <div className="space-y-6 sm:space-y-9">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-secondary-300">
               <div className="flex items-center gap-2">
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -437,16 +437,16 @@ export default function Home() {
               <span className="hidden h-px w-8 bg-border sm:block" />
               <span className="mono-copy text-xs text-text-secondary">{copy.heroStatus}</span>
             </div>
-            <div className="space-y-7">
-              <h1 className="serif-display max-w-3xl text-6xl font-bold leading-[0.96] text-on-surface sm:text-7xl md:whitespace-nowrap lg:text-[4.75rem] xl:text-[5.6rem] 2xl:text-8xl">
+            <div className="space-y-5 sm:space-y-7">
+              <h1 className="serif-display max-w-3xl text-5xl font-bold leading-[0.96] text-on-surface sm:text-7xl md:whitespace-nowrap lg:text-[4.75rem] xl:text-[5.6rem] 2xl:text-8xl">
                 {translations.general.name}
               </h1>
-              <div className="space-y-5">
-                <p className="text-2xl font-semibold leading-tight text-secondary-300 sm:text-3xl">
+              <div className="space-y-4 sm:space-y-5">
+                <p className="text-xl font-semibold leading-tight text-secondary-300 sm:text-3xl">
                   {translations.general.role}
                 </p>
                 <div className="h-px w-20 bg-secondary-300" />
-                <p className="max-w-xl text-2xl leading-tight text-on-surface sm:text-3xl">
+                <p className="max-w-xl text-xl leading-tight text-on-surface sm:text-3xl">
                   {translations.general.headline}
                 </p>
                 <p className="max-w-xl text-base leading-7 text-text-secondary">{copy.sub}</p>
