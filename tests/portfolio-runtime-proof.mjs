@@ -234,6 +234,40 @@ async function assertRuntimeAnchors(cdp, name) {
   assert.deepEqual(result.result.value, [], `${name} is missing runtime anchors`);
 }
 
+async function assertFirstViewportDecisionSurface(cdp, target) {
+  const expression = `((requiredTexts) => {
+    const visible = (element) => {
+      const style = window.getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+      return (
+        style.visibility !== 'hidden' &&
+        style.display !== 'none' &&
+        Number(style.opacity) > 0 &&
+        rect.width > 0 &&
+        rect.height > 0 &&
+        rect.bottom > 0 &&
+        rect.top < window.innerHeight &&
+        rect.right > 0 &&
+        rect.left < window.innerWidth
+      );
+    };
+    const hasVisibleText = (text) => [...document.querySelectorAll('a, button, h1, h2, h3, p, span')]
+      .some((element) => visible(element) && element.textContent.includes(text));
+    const proofItems = [...document.querySelectorAll('#top [class*="grid"] div')]
+      .filter((element) => visible(element) && element.textContent.trim().length > 0);
+    return {
+      missingTexts: requiredTexts.filter((text) => !hasVisibleText(text)),
+      proofItemCount: proofItems.length,
+      viewport: { width: window.innerWidth, height: window.innerHeight },
+    };
+  })(${JSON.stringify(target.firstViewportTexts)})`;
+  const result = await cdp.send('Runtime.evaluate', { expression, returnByValue: true });
+  const value = result.result.value;
+  assert.deepEqual(value.missingTexts, [], `${target.name} first viewport is missing required decision text`);
+  assert.ok(value.proofItemCount >= 3, `${target.name} first viewport does not expose the hero proof strip`);
+  return value;
+}
+
 async function assertJourneyEvents(cdp, name, { requireSink }) {
   const expression = `(async () => {
     window.__portfolioJourneyEvents = [];
@@ -340,6 +374,7 @@ async function captureScreenshots() {
         viewport: { width: 1440, height: 1100, deviceScaleFactor: 1, mobile: false },
         language: 'en',
         waitText: 'Full-stack engineer',
+        firstViewportTexts: ['Xavier Pelchat', 'Full-stack engineer', 'View work', 'Email me', 'GitHub'],
       },
       {
         name: 'mobile-en',
@@ -347,6 +382,7 @@ async function captureScreenshots() {
         viewport: { width: 390, height: 900, deviceScaleFactor: 2, mobile: true },
         language: 'en',
         waitText: 'Email me',
+        firstViewportTexts: ['Xavier Pelchat', 'Email me'],
       },
       {
         name: 'mobile-fr',
@@ -354,10 +390,12 @@ async function captureScreenshots() {
         viewport: { width: 390, height: 900, deviceScaleFactor: 2, mobile: true },
         language: 'fr',
         waitText: "M'\u00e9crire",
+        firstViewportTexts: ['Xavier Pelchat', "M'\u00e9crire"],
       },
     ];
 
     const screenshots = [];
+    const firstViewport = [];
     let journeyEvents = [];
     let journeyAcks = [];
     for (const target of targets) {
@@ -379,6 +417,7 @@ async function captureScreenshots() {
       });
       await assertRuntimeAnchors(cdp, target.name);
       await assertLanguageSwitcherIsClear(cdp, target.name);
+      firstViewport.push({ name: target.name, ...await assertFirstViewportDecisionSurface(cdp, target) });
       if (target.name === 'desktop-en') {
         const journeyProof = await assertJourneyEvents(cdp, target.name, { requireSink: Boolean(providedUrl) });
         journeyEvents = journeyProof.events;
@@ -402,7 +441,7 @@ async function captureScreenshots() {
     }
 
     cdp.close();
-    return { screenshots, journeyEvents, journeyAcks };
+    return { screenshots, firstViewport, journeyEvents, journeyAcks };
   } catch (error) {
     throw new Error(`${error.message}\nBrowser output:\n${browserOutput.slice(-2000)}`);
   } finally {
@@ -478,6 +517,35 @@ async function collectLinks(en, fr) {
   return Promise.all(uniqueLinks.map(([label, href]) => checkExternalLink(label, href)));
 }
 
+async function writeAutogrowthJourneySignal(proof) {
+  const signalDir = path.join(root, '.autogrowth', 'signals', 'analytics');
+  await mkdir(signalDir, { recursive: true });
+  const signalPath = path.join(signalDir, `portfolio-${proofLabel}-journey-latest.json`);
+  const signal = {
+    schema: 'portfolio-journey-analytics-signal-v1',
+    generatedAt: proof.generatedAt,
+    sourceProof: path.relative(root, proofJsonPath),
+    environment: proof.environment,
+    url: proof.url,
+    commit: proof.commit,
+    result: 'pass',
+    analytics: {
+      eventNames: [...new Set(proof.journeyEvents.map((event) => event.name))],
+      acknowledgedEventNames: [...new Set(proof.journeyAcks.map((ack) => ack.name))],
+      eventCount: proof.journeyEvents.length,
+      acknowledgementCount: proof.journeyAcks.length,
+    },
+    privacy: {
+      storesTargets: false,
+      storesUserIdentifiers: false,
+      storesIpAddress: false,
+      storesUserAgent: false,
+    },
+  };
+  await writeFile(signalPath, `${JSON.stringify(signal, null, 2)}\n`, 'utf8');
+  return path.relative(root, signalPath);
+}
+
 function startServer() {
   if (providedUrl) return null;
 
@@ -545,7 +613,7 @@ try {
     verifyImage('/images/profile-shoreline.jpg'),
     verifyImage('/images/developer-workspace.png'),
   ]);
-  const { screenshots, journeyEvents, journeyAcks } = await captureScreenshots();
+  const { screenshots, firstViewport, journeyEvents, journeyAcks } = await captureScreenshots();
   const links = await collectLinks(en, fr);
   const commit = await getCommit();
 
@@ -566,6 +634,7 @@ try {
       linkContracts: 'pass',
       liveExternalLinks: links.some((link) => link.status === 'provider-blocked') ? 'partial-provider-blocked' : 'pass',
       screenshots: 'pass',
+      firstViewportDecisionSurface: 'pass',
       languageSwitcherClear: 'pass',
       telemetry: 'pass-privacy-safe-memory-bus',
       journeyEvents: 'pass',
@@ -573,10 +642,12 @@ try {
     },
     images,
     screenshots,
+    firstViewport,
     journeyEvents,
     journeyAcks,
     links,
   };
+  proof.autogrowthSignal = await writeAutogrowthJourneySignal(proof);
 
   await mkdir(outputDir, { recursive: true });
   await writeFile(proofJsonPath, `${JSON.stringify(proof, null, 2)}\n`, 'utf8');
@@ -599,6 +670,10 @@ try {
       '',
       ...screenshots.map((screenshot) => `- ${screenshot.name}: \`${screenshot.path}\` (${screenshot.width}px viewport, ${screenshot.scrollWidth}px scroll width)`),
       '',
+      '## First Viewport Decision Surface',
+      '',
+      ...firstViewport.map((viewport) => `- ${viewport.name}: ${viewport.proofItemCount} visible proof items, ${viewport.viewport.width}x${viewport.viewport.height}`),
+      '',
       '## Live Links',
       '',
       ...links.map((link) => `- ${link.label}: ${link.status}${link.httpStatus ? ` (${link.httpStatus})` : ''} ${link.href}`),
@@ -610,6 +685,10 @@ try {
       '## Journey Event Sink',
       '',
       ...journeyAcks.map((ack) => `- ${ack.name}: ${ack.target} (${ack.ok ? 'accepted' : 'rejected'})`),
+      '',
+      '## Autogrowth Signal',
+      '',
+      `- ${proof.autogrowthSignal}`,
       '',
       '## Remaining Runtime Gaps',
       '',
