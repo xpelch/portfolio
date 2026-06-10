@@ -1,0 +1,51 @@
+{
+  "schema": "autogrowth-normalized-telemetry-v1",
+  "updated_at": "2026-06-10T22:13:18Z",
+  "status": "ready",
+  "source_counts": {
+    "logs": 0,
+    "analytics": 1,
+    "errors": 0,
+    "ci": 0,
+    "tickets": 0,
+    "usage_events": 0,
+    "connectors": 0
+  },
+  "connector_sources": {},
+  "connector_readiness": {
+    "status": "missing",
+    "checks": []
+  },
+  "priorities": [
+    {
+      "id": "field-usage-loop",
+      "severity": "medium",
+      "cap": "telemetry-driven product loop cap",
+      "signal": "field usage sources detected",
+      "next_prompt": "Use normalized telemetry to pick one product cap, one experiment, and one proof gate.",
+      "proof_gate": "experiment result, funnel delta, or telemetry artifact attached",
+      "causal_score": 50,
+      "causal_hypothesis": "Field signals are sufficient to choose one product experiment, but causal proof still requires before/after evidence.",
+      "evidence_sources": [
+        "analytics"
+      ]
+    }
+  ],
+  "causal_priority": {
+    "id": "field-usage-loop",
+    "severity": "medium",
+    "cap": "telemetry-driven product loop cap",
+    "signal": "field usage sources detected",
+    "next_prompt": "Use normalized telemetry to pick one product cap, one experiment, and one proof gate.",
+    "proof_gate": "experiment result, funnel delta, or telemetry artifact attached",
+    "causal_score": 50,
+    "causal_hypothesis": "Field signals are sufficient to choose one product experiment, but causal proof still requires before/after evidence.",
+    "evidence_sources": [
+      "analytics"
+    ]
+  },
+  "caps": [
+    "telemetry-driven product loop cap"
+  ],
+  "next_prompt": "Use normalized telemetry to pick one product cap, one experiment, and one proof gate."
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "id": "architecture.top-level-sprawl",
+    "category": "Architecture",
+    "status": "warn",
+    "severity": "P2",
+    "confidence": 0.8,
+    "evidence": [
+      "25 top-level entries detected"
+    ],
+    "recommendation": "Group root entries by responsibility, such as apps/, packages/, tools/, docs/, infra/, and tests/."
+  },
+  {
+    "id": "docs.commands-truth",
+    "category": "Documentation",
+    "status": "warn",
+    "severity": "P3",
+    "confidence": 0.8,
+    "evidence": [
+      "README.md present",
+      "0 command-like README entries detected"
+    ],
+    "recommendation": "Add at least one copy-pasteable setup/test/build command to README.md."
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "schema": "autogrowth-long-run-queue-v1",
+  "tasks": [
+    {
+      "id": "product-graph-slice-public-first-success",
+      "priority": 90,
+      "status": "queued",
+      "created_at": "2026-06-10T19:41:07Z",
+      "source": "product-graph",
+      "graph_node": "slice-public-first-success",
+      "prompt": "Read AGENTS.md, .autogrowth/context-pack.json, product-plan.json, and execution-graph.json. Work only on graph node `slice-public-first-success`: Public first-success journey. Deliverables: public route/screen, responsive UI states, trust cues, first-success confirmation. Proof gates: build/test passes, desktop and mobile screenshot, loading/empty/error states visible, journey event emitted. Stop after one vertical slice and attach proof.",
+      "command": [
+        "C:\\Users\\lib\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "C:\\Users\\lib\\.codex\\skills\\autogrowth\\scripts\\evaluate_workspace.py",
+        "--workspace",
+        "C:\\Programming\\portfolio",
+        "--run-mode",
+        "prompt",
+        "--no-codex",
+        "--json"
+      ]
+    }
+  ],
+  "updated_at": "2026-06-10T19:41:30Z"
+}

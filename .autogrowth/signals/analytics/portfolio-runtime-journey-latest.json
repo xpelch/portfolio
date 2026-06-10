@@ -1,0 +1,31 @@
+{
+  "schema": "portfolio-journey-analytics-signal-v1",
+  "generatedAt": "2026-06-10T22:15:33.499Z",
+  "sourceProof": "logs\\visual\\portfolio-runtime-proof.json",
+  "environment": "production-local-next-start",
+  "url": "http://127.0.0.1:3107",
+  "commit": "f6b0e42",
+  "result": "pass",
+  "analytics": {
+    "eventNames": [
+      "project_open",
+      "contact_click",
+      "external_profile_click",
+      "language_switch"
+    ],
+    "acknowledgedEventNames": [
+      "project_open",
+      "contact_click",
+      "external_profile_click",
+      "language_switch"
+    ],
+    "eventCount": 4,
+    "acknowledgementCount": 4
+  },
+  "privacy": {
+    "storesTargets": false,
+    "storesUserIdentifiers": false,
+    "storesIpAddress": false,
+    "storesUserAgent": false
+  }
+}

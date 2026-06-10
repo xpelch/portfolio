@@ -1,0 +1,26 @@
+{
+  "schema": "autogrowth-field-signals-v1",
+  "updated_at": "2026-06-10T22:13:18Z",
+  "sources": {
+    "logs": [],
+    "analytics": [
+      "analytics signal: C:\\Programming\\portfolio\\.autogrowth\\signals\\analytics\\portfolio-production-journey-latest.json"
+    ],
+    "errors": [],
+    "ci": [],
+    "crash_reports": [],
+    "tickets": [],
+    "usage_events": []
+  },
+  "summary": {
+    "real_users_observed": null,
+    "top_error": "",
+    "slowest_flow": "",
+    "most_confusing_flow": "",
+    "abandonment_signal": ""
+  },
+  "ingestion": {
+    "source": "C:\\Programming\\portfolio\\.autogrowth\\signals\\analytics\\portfolio-production-journey-latest.json",
+    "files_seen": 1
+  }
+}

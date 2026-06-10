@@ -1,0 +1,44 @@
+{
+  "schema": "portfolio-privacy-safe-usage-events-v1",
+  "source": "github-actions-artifact:portfolio-journey-proof",
+  "runId": 27308411602,
+  "runUrl": "https://github.com/xpelch/portfolio/actions/runs/27308411602",
+  "commit": "f6b0e42",
+  "environment": "production",
+  "url": "https://xpelch.vercel.app",
+  "generatedAt": "2026-06-10T21:46:16.965Z",
+  "privacy": {
+    "containsPersonalIdentifiers": false,
+    "containsIpAddress": false,
+    "containsUserAgent": false,
+    "retentionIntent": "proof-only"
+  },
+  "events": [
+    {
+      "event": "project_open",
+      "target": "Logix Operations",
+      "acknowledged": true
+    },
+    {
+      "event": "contact_click",
+      "target": "header",
+      "acknowledged": true
+    },
+    {
+      "event": "external_profile_click",
+      "target": "github",
+      "acknowledged": true
+    },
+    {
+      "event": "language_switch",
+      "target": "fr",
+      "acknowledged": true
+    }
+  ],
+  "checks": {
+    "journeyEventSink": "pass-production-acknowledged",
+    "screenshots": "pass",
+    "languageSwitcherClear": "pass",
+    "linkContracts": "pass"
+  }
+}

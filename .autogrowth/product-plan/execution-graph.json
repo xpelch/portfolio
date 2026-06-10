@@ -1,0 +1,183 @@
+{
+  "schema": "autogrowth-execution-graph-v1",
+  "generated_at": "2026-06-10T19:35:51Z",
+  "idea": "Portfolio moderne, representatif et professionnel, cozy, avec quelques easter eggs et effets wow discrets. Objectif: polish produit comparable au GAFAM, zero friction, navigation evidente, workflows fluides, etats UI complets, performance percue rapide, accessibilite propre, qualite technique verifiee, en conservant le design actuel.",
+  "workspace": "portfolio",
+  "quality_bar": [
+    "Apple",
+    "Microsoft",
+    "Google",
+    "Meta",
+    "TikTok"
+  ],
+  "nodes": [
+    {
+      "id": "slice-public-first-success",
+      "title": "Public first-success journey",
+      "source_docs": [
+        "PRD.md",
+        "IA_UX.md",
+        "DESIGN_SYSTEM.md",
+        "COMPETITIVE_BENCHMARK.md"
+      ],
+      "deliverables": [
+        "public route/screen",
+        "responsive UI states",
+        "trust cues",
+        "first-success confirmation"
+      ],
+      "proof_gates": [
+        "build/test passes",
+        "desktop and mobile screenshot",
+        "loading/empty/error states visible",
+        "journey event emitted"
+      ],
+      "telemetry_hooks": [
+        "journey_started",
+        "first_success_completed",
+        "journey_abandoned",
+        "ui_error_seen"
+      ],
+      "blocking_roles": [
+        "product",
+        "design",
+        "qa"
+      ]
+    },
+    {
+      "id": "slice-admin-preview-publish",
+      "title": "Admin edit, preview, validate, publish",
+      "source_docs": [
+        "PRD.md",
+        "IA_UX.md",
+        "IMPLEMENTATION_PLAN.md",
+        "PRODUCTION_READINESS.md"
+      ],
+      "deliverables": [
+        "admin surface",
+        "permission checks",
+        "preview",
+        "validation",
+        "publish audit log",
+        "rollback path"
+      ],
+      "proof_gates": [
+        "admin happy path test",
+        "permission denial test",
+        "publish rollback proof",
+        "audit record proof"
+      ],
+      "telemetry_hooks": [
+        "admin_edit_started",
+        "admin_preview_opened",
+        "admin_publish_succeeded",
+        "admin_publish_failed"
+      ],
+      "blocking_roles": [
+        "architect",
+        "security",
+        "qa"
+      ]
+    },
+    {
+      "id": "slice-data-api-contracts",
+      "title": "Data model and API contracts",
+      "source_docs": [
+        "IMPLEMENTATION_PLAN.md",
+        "PRODUCTION_READINESS.md"
+      ],
+      "deliverables": [
+        "schema/migrations",
+        "API request/response contracts",
+        "validation errors",
+        "idempotency rules"
+      ],
+      "proof_gates": [
+        "migration test",
+        "contract test",
+        "validation failure test",
+        "rate-limit or abuse test"
+      ],
+      "telemetry_hooks": [
+        "api_request_completed",
+        "api_request_failed",
+        "validation_failed",
+        "rate_limit_hit"
+      ],
+      "blocking_roles": [
+        "architect",
+        "security"
+      ]
+    },
+    {
+      "id": "slice-observability-support",
+      "title": "Observability, support, and recovery",
+      "source_docs": [
+        "PRODUCTION_READINESS.md",
+        "TELEMETRY_LOOP.md"
+      ],
+      "deliverables": [
+        "error reporting",
+        "health/metrics",
+        "support taxonomy",
+        "backup/restore note",
+        "operator runbook"
+      ],
+      "proof_gates": [
+        "health check proof",
+        "error event proof",
+        "support event proof",
+        "backup/restore drill note"
+      ],
+      "telemetry_hooks": [
+        "error_reported",
+        "support_ticket_created",
+        "health_check_failed",
+        "restore_drill_completed"
+      ],
+      "blocking_roles": [
+        "ops",
+        "qa"
+      ]
+    },
+    {
+      "id": "slice-telemetry-growth-loop",
+      "title": "Telemetry-driven product loop",
+      "source_docs": [
+        "COMPETITIVE_BENCHMARK.md",
+        "TELEMETRY_LOOP.md"
+      ],
+      "deliverables": [
+        "normalized telemetry summary",
+        "top drop-off",
+        "top error",
+        "next experiment prompt",
+        "benchmark delta"
+      ],
+      "proof_gates": [
+        "signals normalized",
+        "priority cap selected",
+        "experiment prompt bounded",
+        "score contract run"
+      ],
+      "telemetry_hooks": [
+        "dropoff_detected",
+        "rage_click_detected",
+        "conversion_changed",
+        "latency_regressed"
+      ],
+      "blocking_roles": [
+        "growth",
+        "product",
+        "qa"
+      ]
+    }
+  ],
+  "promotion_gates": [
+    "A slice cannot promote without a proof gate attached.",
+    "Public UX and admin operator flows must both remain coherent.",
+    "Telemetry hooks must be named before production rollout.",
+    "High-risk auth, billing, privacy, data, or admin changes require security/ops review."
+  ],
+  "next_agent_prompt": "Read AGENTS.md, .autogrowth/context-pack.json, product-plan.json, and execution-graph.json. Pick the first unproven slice, implement only that slice, attach proof, and update telemetry evidence."
+}

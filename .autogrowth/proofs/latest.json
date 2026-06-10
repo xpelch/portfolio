@@ -1,0 +1,586 @@
+{
+  "score": 88,
+  "max": 100,
+  "evaluation": "C:\\Programming\\portfolio\\EVALUATION.md",
+  "profile": "app",
+  "requested_profile": "auto",
+  "writes_enabled": true,
+  "write_reason": "normal project workspace",
+  "context": {
+    "name": "portfolio",
+    "type": "fullstack",
+    "languages": [
+      "TypeScript",
+      "PowerShell",
+      "Shell",
+      "JavaScript"
+    ],
+    "frameworks": [
+      "Next.js",
+      "React",
+      "Tailwind CSS"
+    ],
+    "domain": [
+      "autogrowth",
+      "atlas",
+      "portfolio",
+      "proof",
+      "sandbox",
+      "20260610t202309z",
+      "copy",
+      "jarvis"
+    ],
+    "vision": [
+      "Build a bilingual developer portfolio that makes Xavier Pelchat feel like a",
+      "production-minded full-stack engineer: clear work, credible proof, practical AI",
+      "workflow signal, and a fast path to contact."
+    ],
+    "target": "BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A",
+    "context_strength": "high",
+    "context_warnings": []
+  },
+  "codex_reviewed": true,
+  "caps": [
+    "88 cap: production/analytics evidence is not connected to the complete visitor journey.",
+    "90 cap: journey proof must include real deployed runtime evidence and observability, not only local screenshots.",
+    "94 cap: accessibility and performance evidence must be attached for the real runtime.",
+    "100 cap: requires exceptional proven outcomes: benchmarked visitor journey, fresh production evidence, measurable contact/project engagement, stable CI, and polished bilingual UX.",
+    "Anti-goal cap: extra docs, tool inventory, fixtures, or internal workflow volume cannot raise the score unless connected to the visitor/operator outcome."
+  ],
+  "excellence_review": {
+    "Feature depth": [
+      "Les contrats et cas d'erreur des surfaces API devraient etre valides par des tests d'integration lisibles.",
+      "The portfolio should expose a proof-backed selected-work path where each project answers role, problem, constraints, shipped outcome, stack, and verification artifact in one scan.",
+      "The practical AI workflow signal should remain supporting evidence; do not turn it into the primary product unless analytics show visitors engage with it before contacting.",
+      "The contact journey needs an explicit success/failure state or measurable event, not only outbound links, because the business outcome is contact intent.",
+      "If there is an API route, its user-visible reason should be clear and tested; otherwise keep the portfolio static and remove backend ambiguity from the product story."
+    ],
+    "QoL": [
+      "Reduce operator friction by making one command produce the production-like journey proof, screenshots, accessibility scan, link check, and event trace in a single dated artifact.",
+      "Make stale proof obvious: every visual/proof artifact should state target URL, commit, viewport, language, command, and timestamp.",
+      "Keep generated Autogrowth/runtime artifacts out of the visitor narrative; the operator needs them, but the visitor needs proof and contact clarity fast.",
+      "Automate the decision packet for future agents so they do not reread 155 markdown files to discover the same 88 cap."
+    ],
+    "UI/UX": [
+      "Aucun signal accessibilite explicite; verifier clavier, focus, labels, contrastes et etats d'erreur.",
+      "The first viewport remains the highest-leverage surface: name, role, offer, proof strip, selected work CTA, contact CTA, and language switch must be visible without overlap on mobile and desktop.",
+      "The benchmark bar is dark, tactile, and human; any dashboard-like or agentic-control visual direction should be resisted unless it makes the work easier to evaluate.",
+      "Project cards should be inspectable, not decorative: visible artifacts, outcomes, and proof links matter more than visual density.",
+      "The next UI proof should include keyboard focus, contrast, mobile French copy length, no horizontal overflow, and image/anchor integrity on the deployed URL."
+    ],
+    "Next excellence actions": [
+      "Choisir 3 parcours critiques et les evaluer comme des features completes: entree, succes, erreur, reprise, preuve.",
+      "Ajouter une checklist 'feature done' couvrant valeur utilisateur, friction QoL, accessibilite, tests et observabilite.",
+      "Creer une revue UI/UX recurrente avec captures avant/apres et criteres responsive/accessibilite.",
+      "Cartographier les contrats API par feature avec validation, erreurs attendues et exemples d'appel.",
+      "Replace the generic `raise Tests` move with a production journey proof slice that exercises the deployed site and records analytics/accessibility/performance evidence.",
+      "Add a small journey-event assertion: landing view, selected work opened, language switched, and contact intent emitted or observable.",
+      "Create one visitor-facing project proof upgrade for the strongest selected work, then validate whether it improves the two-minute evaluation path.",
+      "Fix or calibrate the README command-truth check so score movement is not distorted by a false documentation warning."
+    ]
+  },
+  "scoreboard": {
+    "categories": [
+      {
+        "category": "Contexte et objectif",
+        "score": 6,
+        "max": 6,
+        "grade": "excellent"
+      },
+      {
+        "category": "Architecture",
+        "score": 7,
+        "max": 8,
+        "grade": "excellent"
+      },
+      {
+        "category": "Qualite code",
+        "score": 8,
+        "max": 8,
+        "grade": "excellent"
+      },
+      {
+        "category": "Tests",
+        "score": 5,
+        "max": 10,
+        "grade": "developing"
+      },
+      {
+        "category": "Fiabilite",
+        "score": 5,
+        "max": 7,
+        "grade": "strong"
+      },
+      {
+        "category": "Securite",
+        "score": 6,
+        "max": 8,
+        "grade": "strong"
+      },
+      {
+        "category": "Couverture metier",
+        "score": 8,
+        "max": 8,
+        "grade": "excellent"
+      },
+      {
+        "category": "Automatisation",
+        "score": 4,
+        "max": 5,
+        "grade": "strong"
+      },
+      {
+        "category": "Documentation",
+        "score": 5,
+        "max": 5,
+        "grade": "excellent"
+      },
+      {
+        "category": "Observabilite",
+        "score": 4,
+        "max": 4,
+        "grade": "excellent"
+      }
+    ],
+    "weakest": [
+      "Tests",
+      "Fiabilite",
+      "Securite"
+    ],
+    "focus_moves": [
+      "Remonter Tests de 5/10 vers 7/10 avec une preuve executable.",
+      "Remonter Fiabilite de 5/7 vers 7/7 avec une preuve executable.",
+      "Remonter Securite de 6/8 vers 8/8 avec une preuve executable.",
+      "Lever le plafond principal avant de poursuivre l'optimisation fine: 88 cap: production/analytics evidence is not connected to the complete visitor journey.",
+      "Traiter les 22 deltas feature/QoL/UI-UX comme backlog d'excellence priorise."
+    ],
+    "excellence_gap_count": 22
+  },
+  "go_further": {
+    "Scoreboard moves": [
+      "Choisir 3 parcours critiques et les evaluer comme des features completes: entree, succes, erreur, reprise, preuve.",
+      "Ajouter une checklist 'feature done' couvrant valeur utilisateur, friction QoL, accessibilite, tests et observabilite.",
+      "Creer une revue UI/UX recurrente avec captures avant/apres et criteres responsive/accessibilite.",
+      "Cartographier les contrats API par feature avec validation, erreurs attendues et exemples d'appel.",
+      "Tenir un scoreboard apres chaque iteration: score actuel, plafond actif, top 3 deltas, preuve ajoutee, prochain pari.",
+      "Move Tests from 5/10 to 7/10 by adding one executable production journey test with a failure/recovery expectation, not by adding broad fixtures.",
+      "Move Reliability from 5/7 to 7/7 by proving production links, images, routes, and contact paths on the real URL.",
+      "Move Security from 6/8 to 7/8 by verifying no secrets or private employer/client details leak into public project proof artifacts."
+    ],
+    "Research questions": [
+      "Quels sont les 3 parcours critiques que l'utilisateur ou l'operateur doit reussir sans aide?",
+      "Quels irritants reviennent dans l'usage quotidien: attente, confusion, ressaisie, erreurs muettes, commandes trop longues?",
+      "Quelles preuves objectives montreraient que la prochaine iteration est meilleure: temps de parcours, taux d'erreur, couverture, captures, logs?",
+      "Quels ecrans doivent avoir des etats empty/loading/error/success impeccables avant d'augmenter le score?",
+      "Quels contrats API casseraient la confiance utilisateur s'ils echouent silencieusement ou avec une erreur vague?",
+      "Which project proof most changes a hiring manager's confidence in under two minutes?",
+      "Where do visitors hesitate: first viewport, selected work, language switch, or contact path?",
+      "What analytics events are already captured, and do they map to the stated success moment?"
+    ],
+    "Benchmark targets": [
+      "Comparer l'onboarding, les commandes et les etats d'erreur avec 2 projets de reference du meme type.",
+      "Comparer les parcours critiques avec les standards du domaine: accessibilite, performance percue, messages d'erreur, recuperation.",
+      "Comparer les ecrans clefs a des produits de reference pour densite, hierarchie visuelle, focus clavier et responsive.",
+      "Awwwards/Creative Bloq portfolio bar: selected work remains visible, inspectable, and proof-backed; visual craft never hides the work.",
+      "Linear/Vercel proof bar translated to portfolio: status, constraints, proof, and next action are obvious without reading internal docs.",
+      "Production quality bar: deployed desktop and mobile journeys have passing link/image checks, no overflow, acceptable accessibility/performance summaries, and dated screenshots.",
+      "Conversion bar: contact intent and project inspection are measurable events, not assumptions.",
+      "Bilingual bar: English and French expose equivalent meaning, hierarchy, proof, and CTA access in the first viewport."
+    ],
+    "Experiments": [
+      "Faire une passe 'moins de friction': supprimer une etape, rendre un defaut plus intelligent, ajouter un feedback immediat.",
+      "Faire une passe 'preuve': ajouter un test, une capture, un scenario ou un rapport qui demontre la feature au lieu de la decrire.",
+      "Creer une capture Playwright mobile et desktop pour chaque parcours critique puis noter les frictions visibles.",
+      "Ajouter une matrice contrat API: validation, erreur attendue, retry, observabilite, exemple d'appel.",
+      "Ajouter un scenario executable qui couvre le chemin heureux et un cas d'erreur prioritaire."
+    ]
+  },
+  "efficiency_self_check": [
+    "Keep: the clear vision, bilingual parity rule, canonical `npm test`, CI gate, visual proof habit, and score-cap framing.",
+    "Change: the next move should stop saying only `raise Tests`; it should specify deployed visitor journey plus analytics/accessibility/performance proof.",
+    "Remove or defer: new portfolio sections, chatbot surfaces, extra workflow tooling, and broad root-structure cleanup until the production evidence cap moves.",
+    "Automate: journey proof generation, screenshot capture, link/image checks, accessibility/performance checks, and stale-proof detection.",
+    "Measure: contact CTA clicks, project opens, language switches, first-viewport load quality, broken links, and mobile overflow.",
+    "Simplify: keep the public product as a one-page portfolio unless evidence shows visitors need a deeper route or case-study page."
+  ],
+  "feature_bets": [
+    "Proof harness: add one executable scenario for the critical journey; attacks Tests/Reliability caps; validate with the narrow test command; do not build broad fixtures first.",
+    "Critical-flow polish pass: add empty/loading/error/success states and responsive proof; attacks UI/UX and feature completeness caps; validate with Playwright screenshots; do not add secondary screens first.",
+    "Score-cap sprint: choose one feature that moves Tests only; validate with a before/after artifact; do not spread effort across unrelated categories."
+  ],
+  "feature_bet_scores": [
+    {
+      "bet": "Score-cap sprint: choose one feature that moves Tests only; validate with a before/after artifact; do not spread effort across unrelated categories.",
+      "impact": 8,
+      "cost": 4,
+      "proof_clarity": 8,
+      "growth_ux_value": 6,
+      "risk": 3,
+      "decision": "DO NOW"
+    },
+    {
+      "bet": "Critical-flow polish pass: add empty/loading/error/success states and responsive proof; attacks UI/UX and feature completeness caps; validate with Playwright screenshots; do not add secondary screens first.",
+      "impact": 7,
+      "cost": 4,
+      "proof_clarity": 8,
+      "growth_ux_value": 8,
+      "risk": 3,
+      "decision": "DO NOW"
+    },
+    {
+      "bet": "Proof harness: add one executable scenario for the critical journey; attacks Tests/Reliability caps; validate with the narrow test command; do not build broad fixtures first.",
+      "impact": 7,
+      "cost": 5,
+      "proof_clarity": 8,
+      "growth_ux_value": 8,
+      "risk": 3,
+      "decision": "DO NOW"
+    }
+  ],
+  "progress_delta": [
+    "- Previous score : 88/100.",
+    "- Current score : 88/100.",
+    "- Delta : +0.",
+    "- Advancement judgment : flat; the project did not prove meaningful advancement since the previous evaluation."
+  ],
+  "state": "C:\\Programming\\portfolio\\.autogrowth\\state.json",
+  "state_updated": true,
+  "state_insights": [
+    "- Durable state : previous recorded score was 88/100.",
+    "- Recurring blockers : jugement Codex indisponible; fallback heuristique conservateur; Current cap: 88 until production/analytics evidence is connected to the complete visitor journey.; 94 cap: cannot pass without accessibility and performance evidence on the real runtime.",
+    "- State directive : stop restating recurring blockers; choose an escape lane or measurement lane."
+  ],
+  "write_policy": [
+    "- Profile : app.",
+    "- Writes enabled : true (normal project workspace)."
+  ],
+  "repo_diagram": [
+    "```mermaid",
+    "flowchart TD",
+    "    R[\"portfolio (fullstack)\"]",
+    "    R --> N1[\"app (5 files)\"]",
+    "    N1 --> N1_1[\"api (1)\"]",
+    "    N1 --> N1_2[\"favicon.ico (1)\"]",
+    "    N1 --> N1_3[\"globals.css (1)\"]",
+    "    N1 --> N1_4[\"layout.tsx (1)\"]",
+    "    N1 --> N1_5[\"page.tsx (1)\"]",
+    "    R --> N2[\"components (23 files)\"]",
+    "    N2 --> N2_1[\"ui (8)\"]",
+    "    N2 --> N2_2[\"education (2)\"]",
+    "    N2 --> N2_3[\"experiences (2)\"]",
+    "    N2 --> N2_4[\"projects (2)\"]",
+    "    N2 --> N2_5[\"About.tsx (1)\"]",
+    "    R --> N3[\"lib (1 files)\"]",
+    "    N3 --> N3_1[\"journey-events.ts (1)\"]",
+    "    R --> N4[\"tests (2 files)\"]",
+    "    N4 --> N4_1[\"portfolio-content.test.mjs (1)\"]",
+    "    N4 --> N4_2[\"portfolio-runtime-proof.mjs (1)\"]",
+    "    R --> N5[\"docs (1 files)\"]",
+    "    N5 --> N5_1[\"architecture.md (1)\"]",
+    "    R --> N6[\"tools (50 files)\"]",
+    "    N6 --> N6_1[\"analyze-repo (3)\"]",
+    "    N6 --> N6_2[\"debug-flow (3)\"]",
+    "    N6 --> N6_3[\"generate-feature-spec (3)\"]",
+    "    N6 --> N6_4[\"review-diff (3)\"]",
+    "    N6 --> N6_5[\"safe-refactor (3)\"]",
+    "    R --> N7[\".github (1 files)\"]",
+    "    N7 --> N7_1[\"workflows (1)\"]",
+    "    R --> N8[\".autogrowth (320 files)\"]",
+    "    N8 --> N8_1[\"sandbox (281)\"]",
+    "    N8 --> N8_2[\"product-plan (11)\"]",
+    "    N8 --> N8_3[\"signals (8)\"]",
+    "    N8 --> N8_4[\"proofs (4)\"]",
+    "    N8 --> N8_5[\"evals (2)\"]",
+    "    R --> N9[\"logs (124 files)\"]",
+    "    N9 --> N9_1[\"atlas (56)\"]",
+    "    N9 --> N9_2[\"visual (30)\"]",
+    "    N9 --> N9_3[\"autogrowth (23)\"]",
+    "    N9 --> N9_4[\"dev-server (10)\"]",
+    "    N9 --> N9_5[\"reports (3)\"]",
+    "    R --> N10[\". (15 files)\"]",
+    "    R --> N11[\"public (13 files)\"]",
+    "    N11 --> N11_1[\"images (3)\"]",
+    "    N11 --> N11_2[\"logos (3)\"]",
+    "    N11 --> N11_3[\"translations (2)\"]",
+    "    N11 --> N11_4[\"file.svg (1)\"]",
+    "    N11 --> N11_5[\"globe.svg (1)\"]",
+    "    R --> N12[\"templates (9 files)\"]",
+    "    N12 --> N12_1[\"adr.md (1)\"]",
+    "    N12 --> N12_2[\"bug-report.md (1)\"]",
+    "    N12 --> N12_3[\"checkpoint.md (1)\"]",
+    "    N12 --> N12_4[\"feature-spec.md (1)\"]",
+    "    N12 --> N12_5[\"investigation-report.md (1)\"]",
+    "    R --> MORE[\"13 more top-level entries\"]",
+    "```"
+  ],
+  "architecture_enhancements": [
+    "- Regrouper les entrees racine dispersees par responsabilite (`packages/`, `apps/`, `tools/`, `docs/`) pour rendre les frontieres maintenables.",
+    "- Fullstack: isoler client, serveur et contrats partages; prouver un flux bout-en-bout avec seed/demo et commande unique."
+  ],
+  "deep": true,
+  "deep_execution": true,
+  "deep_checks": [
+    {
+      "id": "inventory.repo-shape",
+      "category": "Architecture",
+      "status": "pass",
+      "severity": "P3",
+      "confidence": 0.9,
+      "evidence": [
+        "597 files analyzed",
+        "top-level entries: ., .atlas, .autogrowth, .github, .vercel, agent-context, app, components, constants, context, contexts, docs",
+        "manifests detected: 2",
+        "architecture signals: app, components, api, server, tests, docs, context, playbooks, tools, nested modules"
+      ],
+      "recommendation": "Add or clarify a runtime manifest and obvious module boundaries before growing the repo further."
+    },
+    {
+      "id": "architecture.top-level-sprawl",
+      "category": "Architecture",
+      "status": "warn",
+      "severity": "P2",
+      "confidence": 0.8,
+      "evidence": [
+        "25 top-level entries detected"
+      ],
+      "recommendation": "Group root entries by responsibility, such as apps/, packages/, tools/, docs/, infra/, and tests/."
+    },
+    {
+      "id": "tests.coverage-shape",
+      "category": "Tests",
+      "status": "pass",
+      "severity": "P3",
+      "confidence": 0.9,
+      "evidence": [
+        "33 test-like paths detected",
+        "e2e/user journey signal: true"
+      ],
+      "recommendation": "Add tests for the core success path plus at least one failure/recovery path."
+    },
+    {
+      "id": "automation.ci-present",
+      "category": "Automation",
+      "status": "pass",
+      "severity": "P3",
+      "confidence": 0.95,
+      "evidence": [
+        "CI workflow/config detected"
+      ],
+      "recommendation": "Add a minimal CI gate that runs the canonical verification command."
+    },
+    {
+      "id": "security.baseline",
+      "category": "Security",
+      "status": "pass",
+      "severity": "P3",
+      "confidence": 0.8,
+      "evidence": [
+        ".gitignore present",
+        "secret-like paths: none in scanned set"
+      ],
+      "recommendation": "Ensure secrets are ignored, document required env vars with examples, and add dependency/security checks where available."
+    },
+    {
+      "id": "dependencies.lockfile-health",
+      "category": "Reliability",
+      "status": "pass",
+      "severity": "P3",
+      "confidence": 0.75,
+      "evidence": [
+        "lockfiles: package-lock.json",
+        "node package manager locks: package-lock.json",
+        "dependency lock required: true"
+      ],
+      "recommendation": "Commit one lockfile for app/tool repos and avoid mixed package-manager state unless documented."
+    },
+    {
+      "id": "observability.status-signal",
+      "category": "Observability",
+      "status": "pass",
+      "severity": "P3",
+      "confidence": 0.75,
+      "evidence": [
+        "status/log/trace/health signal detected"
+      ],
+      "recommendation": "Add a health/status/logging surface that explains current state, failure reason, and next action."
+    },
+    {
+      "id": "docs.commands-truth",
+      "category": "Documentation",
+      "status": "warn",
+      "severity": "P3",
+      "confidence": 0.8,
+      "evidence": [
+        "README.md present",
+        "0 command-like README entries detected"
+      ],
+      "recommendation": "Add at least one copy-pasteable setup/test/build command to README.md."
+    },
+    {
+      "id": "docs.architecture-present",
+      "category": "Architecture",
+      "status": "pass",
+      "severity": "P3",
+      "confidence": 0.9,
+      "evidence": [
+        "architecture documentation detected"
+      ],
+      "recommendation": "Document components, ownership boundaries, critical flow, decisions, risks, and proof commands."
+    },
+    {
+      "id": "runtime.command.npm-run-test",
+      "category": "Runtime proof",
+      "status": "pass",
+      "severity": "P3",
+      "confidence": 0.95,
+      "evidence": [
+        "`npm run test` exit 0",
+        "duration 12.5s",
+        "owser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baselin"
+      ],
+      "recommendation": "Fix the command failure or record why it is not the canonical proof path."
+    },
+    {
+      "id": "runtime.command.npm-run-build",
+      "category": "Runtime proof",
+      "status": "pass",
+      "severity": "P3",
+      "confidence": 0.95,
+      "evidence": [
+        "`npm run build` exit 0",
+        "duration 5.31s",
+        "owser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baselin"
+      ],
+      "recommendation": "Fix the command failure or record why it is not the canonical proof path."
+    },
+    {
+      "id": "runtime.command.npm-run-lint",
+      "category": "Runtime proof",
+      "status": "pass",
+      "severity": "P3",
+      "confidence": 0.95,
+      "evidence": [
+        "`npm run lint` exit 0",
+        "duration 2.08s",
+        "> portfolio@0.1.0 lint > eslint"
+      ],
+      "recommendation": "Fix the command failure or record why it is not the canonical proof path."
+    }
+  ],
+  "starter_created": false,
+  "one_move": [
+    "Run a production visitor-journey proof slice: land on the deployed URL, inspect selected work, switch language, trigger contact intent, capture desktop/mobile EN/FR screenshots, verify links/images, record a11y/performance summary, and attach any journey event evidence. This is the shortest path from 88 to the 90 band because it attacks the active cap instead of adding inventory."
+  ],
+  "score_roadmap": [
+    "- 0-49 : define target, owner, runtime, verification, and the first real journey.",
+    "- 50-74 : make the project dependable: complete core flows, tests, errors, docs, and status.",
+    "- 75-89 : make it feel good: polish UX/QoL, reduce steps, automate proof, and expose outcomes.",
+    "- 90-99 : make it exceptional: benchmark, harden, measure, remove friction, and prove edge cases.",
+    "- 100 : maintain magnum opus evidence; freshness and restraint matter more than more features.",
+    "- Current band directive for fullstack : polish the core experience, remove friction, automate verification, and harden release paths."
+  ],
+  "autonomy_roadmap": [
+    "- Current Autogrowth maturity reference : 890/1000 means the local runtime is robust, but field integration and long-run autonomy still gate 930+.",
+    "- 930+ axis 1, authenticated field connectors : move beyond CLI/export/local collection toward real GitHub, CI provider, Sentry, PostHog/analytics, Playwright Cloud, and production-log APIs with explicit auth status and access issues.",
+    "- 930+ axis 2, deeper modularity : keep shrinking the monolith by extracting deep checks, dashboard, scoring, rendering, state, policy, telemetry, and loop runtime behind testable module contracts.",
+    "- 930+ axis 3, blocking multi-agent orchestration : turn scout/builder/critic/judge into a quorum workflow with votes, vetoes, replayable rationale, memory, and explicit rejection reasons.",
+    "- 930+ axis 4, long-run loops : add schedules, budgets, multi-run stop conditions, crash resume, task queue, and decision history so improvement can continue safely across sessions.",
+    "- 930+ axis 5, cockpit-grade dashboard : add filters, diff viewer, score trend, run replay, risk map, attached proof, and field-signal drilldown.",
+    "- Project application : for `fullstack`, do not claim 930+ unless the evaluation proves terrain data, autonomous loop safety, and user/operator outcome evidence, not only static repo quality."
+  ],
+  "context_rubric": [
+    "- Complete journeys: UI-to-API flow, shared contracts, visible errors, persistence, deployment path.",
+    "- Growth pressure: activation, fast feedback, trustworthy state, conversion/retention loop, supportability.",
+    "- Proof: E2E tests, screenshots, contract tests, build/deploy smoke, observability artifact."
+  ],
+  "growth_uiux_direction": [
+    "Pressure the UI around the evaluator's two-minute decision: can a hiring manager understand Xavier's role, proof, judgment, strongest work, and contact path before losing context?",
+    "Make proof visible where decisions happen: selected work and first viewport should surface status, constraints, outcomes, and next action without sending visitors into internal docs.",
+    "Treat bilingual parity as UX, not content hygiene: French mobile copy must be first-class, not just translated.",
+    "Use the reference images only as craft pressure; the portfolio must stay inspectable and human, not become a dark decorative shell.",
+    "The product should feel exceptional by being specific, fast, restrained, and easy to verify."
+  ],
+  "blocker_escape_lanes": [
+    "If production analytics access is blocked, create a local event-trace artifact from the same instrumentation and record the missing auth/access as the blocker.",
+    "If deployed proof is flaky, run the same proof against local production build and compare failures against production to isolate deployment versus app behavior.",
+    "If accessibility tooling cannot run in the sandbox, capture keyboard/focus/contrast findings manually in the visual proof artifact and add the automated check as the next bounded task.",
+    "If contact telemetry cannot be captured, prove link integrity and add UTM or event-wrapper instrumentation in a separate low-risk slice.",
+    "If the obvious goal stalls, upgrade one selected-work proof card and validate bilingual content contracts; this creates visitor evidence without weakening the production gate."
+  ],
+  "proof_checklist": [
+    "Run `npm test` and record the exact result.",
+    "Run production journey proof against `https://xpelch.vercel.app` or document why production access is blocked.",
+    "Capture desktop and mobile screenshots for English and French first viewport plus selected-work state.",
+    "Verify no horizontal overflow, clipped text, broken accents, broken anchors, missing images, or invisible focus states.",
+    "Record link/contact checks and at least one contact-intent signal or trace.",
+    "Attach accessibility and performance summary for the real runtime before claiming 94+.",
+    "Update `AUTOGROWTH.md` or `EVALUATION.md` only with fresh dated proof and the blocker movement."
+  ],
+  "next_two_hours": [
+    "1. Scope the slice: Run a production visitor-journey proof slice: land on the deployed URL, inspect selected work, switch language, trigger contact intent, capture desktop/mobile EN/FR screenshots, verify links/images, record a11y/performance summary, and attach any journey event evidence. This is the shortest path from 88 to the 90 band because it attacks the active cap instead of adding inventory.",
+    "2. Touch only the files needed for that slice; avoid parallel refactors.",
+    "3. Run proof: Run production journey proof against `https://xpelch.vercel.app` or document why production access is blocked.",
+    "4. Capture one before/after artifact or status result.",
+    "5. Update the blocker/proof note in `AUTOGROWTH.md` if the result changes direction.",
+    "6. Rerun `$autogrowth` and compare the progress delta."
+  ],
+  "agent_prompt_loop": [
+    "Reusable prompt: Use Autogrowth on `C:\\Programming\\portfolio`. Current score is 88/100. Attack the active cap by proving the deployed visitor journey, not by adding docs or broad features. Inspect `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `tests/portfolio-runtime-proof.mjs`, and `logs/visual/portfolio-journey-proof.md`; make the smallest change needed to capture production journey evidence for land -> inspect work -> switch language -> contact; run the narrow proof plus `npm test`; stop on pass, failed production proof, or missing analytics access.",
+    "Evidence inputs: `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `tests/portfolio-runtime-proof.mjs`, current production URL, latest visual proof screenshots, CI status if available, and analytics/event artifact if available.",
+    "Stop condition: stop after one bounded slice when production journey proof passes, fails with a concrete blocker, or the change no longer attacks the 88 cap.",
+    "Learning update: record blocker moved or not moved, proof command, target URL, screenshots, event/a11y/performance artifacts, rejected paths, and the next prompt candidate before rerunning evaluation."
+  ],
+  "causal_score_delta": [
+    "- Score delta : +0 (88/100 -> 88/100), direction `flat`.",
+    "- Goal signal : `VISION.md` has a concrete destination, so target calibration is stronger.",
+    "- Proof signal : canonical command detected `npm run test`; passing it can move proof confidence.",
+    "- Active cap : 88 cap: production/analytics evidence is not connected to the complete visitor journey..",
+    "- Weakest lever : `Tests` must move before broad feature work is credible.",
+    "- Deep evidence : no failing deep checks in this run."
+  ],
+  "short_backlog": [
+    "- DO NOW: Score-cap sprint: choose one feature that moves Tests only; validate with a before/after artifact; do not spread effort across unrelated categories.; proof clarity 8/10; risk 3/10; stop when it no longer attacks a named cap.",
+    "- DO NEXT: prepare the next proof slice after DO NOW; proof: tie to active cap; stop: no evidence gain.",
+    "- RESEARCH: clarify the riskiest unknown before building; proof: tie to active cap; stop: no evidence gain.",
+    "- DO NOT BUILD YET: avoid broad surface expansion until proof improves; proof: tie to active cap; stop: no evidence gain."
+  ],
+  "benchmark_calibration": [
+    "- Manual benchmark targets:",
+    "- Reference visual bar: `references/ui-ref.png` and `references/ui-ref2.png` for dark, tactile, human portfolio direction.",
+    "- Awwwards/Creative Bloq portfolio bar: selected work stays visible and inspectable; visual craft supports the work instead of hiding it.",
+    "- Linear/Vercel proof bar translated to portfolio: status, proof, constraints, and next action should be obvious without reading internal docs.",
+    "- Use these as pressure tests for feature bets, UI/UX polish, docs, and proof quality."
+  ],
+  "ingested_signals": null,
+  "connector_signals": null,
+  "normalized_telemetry": null,
+  "benchmark_run": null,
+  "product_proof": null,
+  "product_plan": null,
+  "long_run_plan": null,
+  "runtime": {
+    "preset": "standard",
+    "run_mode": "auto",
+    "codex_enabled": true,
+    "deep": true,
+    "loop": false,
+    "benchmark": false,
+    "score_contracts": false,
+    "product_proof": false,
+    "product_proof_url": "",
+    "product_plan": false,
+    "product_idea": "",
+    "product_graph_runtime": false,
+    "product_graph_execute": false,
+    "product_graph_apply": false,
+    "multi_agent_review": false,
+    "max_command_seconds": 60
+  },
+  "context_pack": null,
+  "proof_artifacts": {
+    "latest": "C:\\Programming\\portfolio\\.autogrowth\\proofs\\latest.json",
+    "findings": "C:\\Programming\\portfolio\\.autogrowth\\proofs\\findings.json",
+    "repo_map": "C:\\Programming\\portfolio\\.autogrowth\\proofs\\repo-map.mmd",
+    "commands_log": "C:\\Programming\\portfolio\\.autogrowth\\proofs\\commands.log"
+  }
+}

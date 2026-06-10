@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Autogrowth Dashboard</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 32px; color: #1f2937; }
+    h1, h2 { margin-bottom: 8px; }
+    table { border-collapse: collapse; width: 100%; margin: 12px 0 28px; }
+    th, td { border: 1px solid #d1d5db; padding: 8px; text-align: left; vertical-align: top; }
+    th { background: #f3f4f6; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .metric { border: 1px solid #d1d5db; padding: 12px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Autogrowth Dashboard</h1>
+  <div class="grid">
+    <div class="metric"><strong>Score</strong><br>90/100</div>
+    <div class="metric"><strong>Target</strong><br>BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A</div>
+    <div class="metric"><strong>Runs</strong><br>1</div>
+    <div class="metric"><strong>Pattern wins/fails</strong><br>0 / 1</div>
+    <div class="metric"><strong>Field signals</strong><br>1</div>
+    <div class="metric"><strong>Benchmarks</strong><br>2</div>
+    <div class="metric"><strong>Product proof</strong><br>not-run</div>
+    <div class="metric"><strong>Product plan</strong><br>not-run</div>
+    <div class="metric"><strong>Graph runtime</strong><br>not-run</div>
+    <div class="metric"><strong>Telemetry loop</strong><br>not-run</div>
+  </div>
+  <h2>Score History</h2>
+  <table><thead><tr><th>At</th><th>Score</th><th>Weakest</th></tr></thead><tbody><tr><td>2026-06-10T21:44:50Z</td><td>88</td><td>Tests, Fiabilite</td></tr>
+<tr><td>2026-06-10T21:48:51Z</td><td>88</td><td>Tests, Fiabilite</td></tr>
+<tr><td>2026-06-10T21:52:41Z</td><td>88</td><td>Tests, Fiabilite</td></tr>
+<tr><td>2026-06-10T21:57:11Z</td><td>88</td><td>Tests, Fiabilite</td></tr>
+<tr><td>2026-06-10T22:01:19Z</td><td>88</td><td>Tests, Fiabilite</td></tr>
+<tr><td>2026-06-10T22:05:05Z</td><td>88</td><td>Tests, Fiabilite</td></tr>
+<tr><td>2026-06-10T22:07:35Z</td><td>88</td><td>Tests, Fiabilite</td></tr>
+<tr><td>2026-06-10T22:13:39Z</td><td>88</td><td>Tests, Fiabilite</td></tr>
+<tr><td>2026-06-10T22:15:41Z</td><td>88</td><td>Tests, Fiabilite</td></tr>
+<tr><td>2026-06-10T22:18:48Z</td><td>90</td><td>Tests, Fiabilite</td></tr></tbody></table>
+  <h2>Recent Loop Runs</h2>
+  <table><thead><tr><th>At</th><th>Iter</th><th>Score</th><th>Proof</th><th>Files</th><th>Blocker lifted</th></tr></thead><tbody><tr><td>2026-06-10T20:23:09Z</td><td>1</td><td>88 -> 88</td><td>failed</td><td>2</td><td>True</td></tr></tbody></table>
+  <h2>Short Backlog</h2>
+  <pre>[
+  "- DO NOW: Score-cap sprint: choose one feature that moves Tests only; validate with a before/after artifact; do not spread effort across unrelated categories.; proof clarity 8/10; risk 3/10; stop when it no longer attacks a named cap.",
+  "- DO NEXT: prepare the next proof slice after DO NOW; proof: tie to active cap; stop: no evidence gain.",
+  "- RESEARCH: clarify the riskiest unknown before building; proof: tie to active cap; stop: no evidence gain.",
+  "- DO NOT BUILD YET: avoid broad surface expansion until proof improves; proof: tie to active cap; stop: no evidence gain."
+]</pre>
+  <h2>Field Signals</h2>
+  <pre>{
+  "real_users_observed": null,
+  "top_error": "",
+  "slowest_flow": "",
+  "most_confusing_flow": "",
+  "abandonment_signal": ""
+}</pre>
+  <h2>Benchmark Scenarios</h2>
+  <pre>[
+  {
+    "id": "onboarding-first-success",
+    "journey": "A new user/operator reaches first useful outcome.",
+    "proof": "Run the canonical journey proof or attach screenshot/log evidence.",
+    "target_standard": "Comparable best-in-class product reaches this with low ambiguity and visible progress.",
+    "command": "",
+    "_source": "C:\\Programming\\portfolio\\.autogrowth\\benchmarks\\scenarios.json"
+  },
+  {
+    "id": "critical-api-or-cli-flow",
+    "journey": "The main API/CLI workflow handles happy path and one failure path.",
+    "proof": "Fixture, integration test, or command transcript.",
+    "target_standard": "Failure is actionable and repeatable.",
+    "command": "",
+    "_source": "C:\\Programming\\portfolio\\.autogrowth\\benchmarks\\scenarios.json"
+  }
+]</pre>
+  <h2>Cockpit</h2>
+<label for="cockpit-filter"><strong>Filter cockpit</strong></label>
+<input id="cockpit-filter" placeholder="Search run, file, proof, risk" style="display:block;width:100%;max-width:520px;margin:8px 0 16px;padding:8px;border:1px solid #d1d5db;border-radius:6px;">
+<h3>Score Trend</h3>
+<pre class="filterable">[
+  {
+    "at": "2026-06-10T20:54:18Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T20:57:26Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T21:00:46Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T21:03:20Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T21:07:43Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T21:14:17Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T21:20:19Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T21:22:58Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T21:30:09Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T21:34:10Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T21:44:50Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T21:48:51Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T21:52:41Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T21:57:11Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T22:01:19Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T22:05:05Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T22:07:35Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T22:13:39Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T22:15:41Z",
+    "score": 88
+  },
+  {
+    "at": "2026-06-10T22:18:48Z",
+    "score": 90
+  }
+]</pre>
+<h3>Before / After</h3>
+<pre class="filterable">[
+  {
+    "at": "2026-06-10T20:23:09Z",
+    "before": 88,
+    "after": 88,
+    "delta": 0
+  }
+]</pre>
+<h3>Timeline</h3>
+<pre class="filterable">[
+  {
+    "at": "2026-06-10T20:23:09Z",
+    "event": "loop-run",
+    "summary": "score 88 -&gt; 88"
+  }
+]</pre>
+<h3>Long-run Queue</h3>
+<pre class="filterable">{
+  "status": "",
+  "last_runtime": {},
+  "queued": 0,
+  "decision_history": 0
+}</pre>
+<h3>Risk Map</h3>
+<pre class="filterable">[
+  {
+    "path": ".autogrowth/proofs/codex-judgment-direct-evidence.md",
+    "risk": 1
+  },
+  {
+    "path": "AUTOGROWTH.md",
+    "risk": 1
+  }
+]</pre>
+<h3>Run Replay</h3>
+<details open class="filterable"><summary>Replay details</summary><pre>[
+  {
+    "at": "2026-06-10T20:23:09Z",
+    "iteration": 1,
+    "trace_path": "C:\\Programming\\portfolio\\.autogrowth\\runs\\20260610T202649Z-iter1.json",
+    "score_before": 88,
+    "score_after": 88,
+    "score_delta": 0,
+    "proof": "failed",
+    "judge": "reject",
+    "changed": 2,
+    "guardrails": [
+      "proof failed"
+    ],
+    "changed_files": [
+      ".autogrowth/proofs/codex-judgment-direct-evidence.md",
+      "AUTOGROWTH.md"
+    ]
+  }
+]</pre></details>
+<h3>Diff Viewer</h3>
+<pre class="filterable">[
+  {
+    "schema": "autogrowth-sandbox-patch-preview-v1",
+    "changed_files_count": 2,
+    "counts": {
+      "added": 1,
+      "modified": 1,
+      "deleted": 0,
+      "other": 0
+    },
+    "files": [
+      {
+        "path": ".autogrowth/proofs/codex-judgment-direct-evidence.md",
+        "kind": "added",
+        "diff": ""
+      },
+      {
+        "path": "AUTOGROWTH.md",
+        "kind": "modified",
+        "diff": "--- a/AUTOGROWTH.md\n+++ b/AUTOGROWTH.md\n@@ -50,3 +50,4 @@\n | 2026-06-10 | `npm test`; production-local Chrome screenshots on `127.0.0.1:3001` | Pass: content contract, lint, production build, desktop/mobile no horizontal overflow, French mobile CTA no longer hidden by language switcher | Improves local visitor-journey proof; score cap still waits on deployed production or analytics evidence. |\n | 2026-06-10 | `npm test`; `logs/visual/portfolio-runtime-proof.md` | Pass: content contract, lint, production build, production-local `next start`, served translations, accent integrity, image loading, source anchors, and link contracts | Moves the proof lane from static/local notes toward repeatable production-equivalent verification; score cap still waits on browser screenshots and privacy-safe CTA event evidence. |\n | 2026-06-10 | `npm test`; `logs/visual/portfolio-runtime-*.png` | Pass: production-local Chrome captures desktop EN, mobile EN, and mobile FR; no horizontal overflow; language switcher no longer overlaps visible CTAs | Lifts the screenshot gap in the production-equivalent proof lane; next cap is CTA event evidence or a live deployed URL tied to the same evaluated state. |\n+| 2026-06-10 | `.autogrowth/proofs/codex-judgment-direct-evidence.md`; `npm run test` | Fail: direct Codex-reviewed packet exists in `.autogrowth/proofs/latest.json`, but canonical proof failed at `next build` because sandboxed font fetches to Google Fonts were unavailable | Attacks the fallback Codex-judgment blocker with direct evidence, but does not complete the lift because the required proof gate failed. |"
+      }
+    ],
+    "truncated": false
+  }
+]</pre>
+<h3>Attached Proof</h3>
+<pre class="filterable">{
+  "proof_artifacts": null,
+  "product_proof": null,
+  "product_plan": null,
+  "product_graph_runtime": null,
+  "normalized_telemetry": null,
+  "benchmarks": 2,
+  "field_sources": 1
+}</pre>
+<script>
+const filter = document.getElementById('cockpit-filter');
+filter?.addEventListener('input', () => {
+  const q = filter.value.toLowerCase();
+  document.querySelectorAll('.filterable').forEach((node) => {
+    node.style.display = !q || node.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+});
+</script>
+
+</body>
+</html>

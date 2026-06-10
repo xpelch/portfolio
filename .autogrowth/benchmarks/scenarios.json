@@ -1,0 +1,19 @@
+{
+  "schema": "autogrowth-benchmark-scenario-v1",
+  "scenarios": [
+    {
+      "id": "onboarding-first-success",
+      "journey": "A new user/operator reaches first useful outcome.",
+      "proof": "Run the canonical journey proof or attach screenshot/log evidence.",
+      "target_standard": "Comparable best-in-class product reaches this with low ambiguity and visible progress.",
+      "command": ""
+    },
+    {
+      "id": "critical-api-or-cli-flow",
+      "journey": "The main API/CLI workflow handles happy path and one failure path.",
+      "proof": "Fixture, integration test, or command transcript.",
+      "target_standard": "Failure is actionable and repeatable.",
+      "command": ""
+    }
+  ]
+}

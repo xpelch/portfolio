@@ -1,0 +1,40 @@
+{
+  "schema": "autogrowth-score-contracts-v1",
+  "contracts": [
+    {
+      "id": "missing-tests-cap",
+      "rule": "If no test-like files or commands exist, score should not exceed 72.",
+      "max_score_without_evidence": 72
+    },
+    {
+      "id": "generic-context-cap",
+      "rule": "Generic/low-context workspaces should not exceed 55 without a concrete product target.",
+      "max_score_without_evidence": 55
+    },
+    {
+      "id": "high-score-field-benchmark-gate",
+      "rule": "Scores above 90 require both field signals and benchmark scenarios.",
+      "max_score_without_evidence": 90
+    },
+    {
+      "id": "missing-ci-cap",
+      "rule": "Scores above 74 require a CI or repeatable automation gate.",
+      "max_score_without_evidence": 74
+    },
+    {
+      "id": "missing-docs-truth-cap",
+      "rule": "Scores above 78 require README/docs command truth or deep docs checks.",
+      "max_score_without_evidence": 78
+    },
+    {
+      "id": "missing-journey-proof-cap",
+      "rule": "Scores above 86 require a named journey, e2e, scenario, or benchmark proof.",
+      "max_score_without_evidence": 86
+    },
+    {
+      "id": "missing-observability-cap",
+      "rule": "Scores above 88 require observability, status, telemetry, health, or field/error signals.",
+      "max_score_without_evidence": 88
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "schema": "autogrowth-context-pack-v1",
+  "updated_at": "2026-06-10T22:18:48Z",
+  "repo": "portfolio",
+  "context_type": "fullstack",
+  "target": "BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A",
+  "score": 90,
+  "active_score_cap": "90 cap: current score can enter the 90 band because deployed smoke proof and event acknowledgements exist, but stale evaluation wording must be reconciled.",
+  "caps": [
+    "90 cap: current score can enter the 90 band because deployed smoke proof and event acknowledgements exist, but stale evaluation wording must be reconciled.",
+    "92 cap: cannot pass without observed CI artifacts and field-grade or connector-backed visitor-intent evidence.",
+    "94 cap: cannot pass without accessibility and performance evidence on the real deployed runtime.",
+    "96 cap: cannot pass without deeper selected-work inspectability, especially for confidential production work, proven in both languages.",
+    "100 cap: requires exceptional sustained evidence: benchmarked UX, fresh production proof, real outcome telemetry, stable CI, a11y/performance budgets, and target-user validation."
+  ],
+  "one_move": [
+    "Run one deployed evidence convergence slice: execute or wire CI-visible `npm test` and `npm run proof:production`, add deployed accessibility and performance checks, ingest the resulting artifacts into normalized telemetry, then rerun evaluation once so the cap moves from stale production-proof wording to the next true blocker."
+  ],
+  "proof_command": "npm run test",
+  "agent_prompt_loop": [
+    "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `.github/workflows/ci.yml`, `tests/portfolio-runtime-proof.mjs`, latest `logs/visual/*production*`, and `.autogrowth/signals/normalized.json`; evidence inputs: current score, latest production proof timestamp, CI status, analytics source counts; stop condition: exact current cap is classified as stale, valid, or blocked; learning update: record the cap class and missing proof type.",
+    "Reusable prompt: Use Autogrowth on `C:\\Programming\\portfolio`. Current evidence suggests production smoke proof exists, but field/CI/a11y/performance evidence is incomplete. Do one bounded evidence convergence slice: connect CI artifact status, deployed accessibility proof, deployed performance proof, and analytics-source classification into the proof packet. Do not add public features unless required to expose proof.",
+    "Execute the slice: use existing scripts first, add only narrowly scoped proof checks or artifact wiring, keep changes under test/proof/Autogrowth ownership, and avoid UI redesign; evidence inputs: command outputs, screenshot paths, CI artifact names, axe/Lighthouse/Web Vitals reports, normalized telemetry; stop condition: one proof packet clearly says pass/fail/blocker.",
+    "Verify proof: run `npm test`, `npm run proof:production`, and the new a11y/performance proof command if added; evidence inputs: exit codes and generated artifacts; stop condition: any failing deployed journey, missing artifact, or inaccessible connector blocks score movement; learning update: update `AUTOGROWTH.md`/`EVALUATION.md` with dated proof and the new cap."
+  ],
+  "next_two_hours": [
+    "1. Scope the slice: Run one deployed evidence convergence slice: execute or wire CI-visible `npm test` and `npm run proof:production`, add deployed accessibility and performance checks, ingest the resulting artifacts into normalized telemetry, then rerun evaluation once so the cap moves from stale production-proof wording to the next true blocker.",
+    "2. Touch only the files needed for that slice; avoid parallel refactors.",
+    "3. Run proof: Run `npm run proof:production` against `https://xpelch.vercel.app` and confirm URL, commit, screenshots, links, images, and journey event acknowledgements.",
+    "4. Capture one before/after artifact or status result."
+  ],
+  "short_backlog": [
+    "- DO NOW: Score-cap sprint: choose one feature that moves Tests only; validate with a before/after artifact; do not spread effort across unrelated categories.; proof clarity 8/10; risk 3/10; stop when it no longer attacks a named cap.",
+    "- DO NEXT: prepare the next proof slice after DO NOW; proof: tie to active cap; stop: no evidence gain.",
+    "- RESEARCH: clarify the riskiest unknown before building; proof: tie to active cap; stop: no evidence gain.",
+    "- DO NOT BUILD YET: avoid broad surface expansion until proof improves; proof: tie to active cap; stop: no evidence gain."
+  ],
+  "product_proof": null,
+  "product_plan": null,
+  "normalized_telemetry": null,
+  "runtime": {
+    "preset": "standard",
+    "run_mode": "auto",
+    "codex_enabled": true,
+    "deep": false,
+    "loop": true,
+    "benchmark": false,
+    "score_contracts": false,
+    "product_proof": false,
+    "product_proof_url": "",
+    "product_plan": false,
+    "product_idea": "",
+    "product_graph_runtime": false,
+    "product_graph_execute": false,
+    "product_graph_apply": false,
+    "multi_agent_review": false,
+    "max_command_seconds": 60
+  },
+  "read_first": [
+    ".autogrowth/context-pack.json",
+    ".autogrowth/state.json",
+    "VISION.md",
+    "AUTOGROWTH.md",
+    "EVALUATION.md only when score/cap context is stale or incomplete"
+  ]
+}

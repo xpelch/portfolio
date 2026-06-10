@@ -1,0 +1,25 @@
+{
+  "schema": "autogrowth-decision-eval-fixture-v1",
+  "criteria": [
+    {
+      "id": "blocker-selected",
+      "question": "Est-ce que le bon blocker a ete choisi ?",
+      "pass_condition": "A current active blocker is recorded before the loop runs."
+    },
+    {
+      "id": "prompt-bounded",
+      "question": "Est-ce que le prompt agent etait assez borne ?",
+      "pass_condition": "Prompt names score/proof/stop and stays under 1800 characters."
+    },
+    {
+      "id": "proof-validates-move",
+      "question": "Est-ce que la preuve valide vraiment le move ?",
+      "pass_condition": "A proof command exists and passes, or the run is an explicit dry-run."
+    },
+    {
+      "id": "score-causal",
+      "question": "Est-ce que le score a monte pour une vraie raison ?",
+      "pass_condition": "Positive score movement is tied to blocker lift or changed evidence."
+    }
+  ]
+}

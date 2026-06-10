@@ -1,0 +1,28 @@
+{
+  "schema": "autogrowth-policy-v1",
+  "max_iterations": 1,
+  "max_files_changed": 8,
+  "forbidden_paths": [
+    "infra/prod",
+    "secrets",
+    ".git",
+    "node_modules",
+    ".env"
+  ],
+  "required_proof": "",
+  "stop_on_test_failure": true,
+  "no_second_eval_without_artifact": true,
+  "require_human_approval_above_risk": 7,
+  "patch_acceptance": {
+    "enabled": true,
+    "reject_on_proof_failure": true,
+    "reject_on_guardrail_violation": true,
+    "max_backup_bytes": 2000000
+  },
+  "multi_agent_roles": [
+    "scout",
+    "builder",
+    "critic",
+    "judge"
+  ]
+}

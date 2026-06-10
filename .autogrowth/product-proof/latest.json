@@ -1,0 +1,211 @@
+{
+  "schema": "autogrowth-product-proof-v1",
+  "ran_at": "2026-06-10T16:52:25Z",
+  "status": "passed",
+  "summary": {
+    "product_polish_ready": true,
+    "static_passed": 7,
+    "static_max": 7,
+    "screenshots": "skipped",
+    "visual_qa": "review",
+    "visual_diff": "missing-screenshots"
+  },
+  "sampled_files": [
+    ".atlas/capabilities.json",
+    ".atlas/health.json",
+    ".atlas/state.json",
+    ".autogrowth/benchmarks/scenarios.json",
+    ".autogrowth/context-pack.json",
+    ".autogrowth/dashboard.html",
+    ".autogrowth/evals/decision-quality.fixture.json",
+    ".autogrowth/policy.json",
+    ".autogrowth/proofs/findings.json",
+    ".autogrowth/proofs/latest.json",
+    ".autogrowth/README.md",
+    ".autogrowth/score-contracts.json",
+    ".autogrowth/score-contracts.latest.json",
+    ".autogrowth/signals/field-signals.template.json",
+    ".autogrowth/state.json",
+    "agent-context/IDENTITY.md",
+    "AGENTS.md",
+    "app/globals.css",
+    "app/layout.tsx",
+    "app/page.tsx",
+    "AUTOGROWTH.md",
+    "components/About.tsx",
+    "components/ContactSection.tsx",
+    "components/DynamicLang.tsx",
+    "components/education/Education.tsx",
+    "components/education/EducationItem.tsx",
+    "components/experiences/ExperienceItem.tsx",
+    "components/experiences/Experiences.tsx",
+    "components/Header.tsx",
+    "components/LanguageSwitcher.tsx",
+    "components/Navigation.tsx",
+    "components/NavItem.tsx",
+    "components/projects/ProjectItem.tsx",
+    "components/projects/Projects.tsx",
+    "components/Skills.tsx",
+    "components/Socials.tsx",
+    "components/ui/BackgroundDecorations.tsx",
+    "components/ui/ContentSections.tsx",
+    "components/ui/HeroSection.tsx",
+    "components/ui/HydrationBoundary.tsx",
+    "components/ui/LoadingSpinner.tsx",
+    "components/ui/NoSSR.tsx",
+    "components/ui/SectionContainer.tsx",
+    "components/ui/SectionHeader.tsx",
+    "constants/navigation.ts",
+    "context/api-surface.md",
+    "context/patterns/atlas-jarvis-mode.md",
+    "context/patterns/atlas-multirepo-orchestration.md",
+    "context/patterns/portable-agent-workflow.md",
+    "context/README.md",
+    "contexts/LanguageContext.tsx",
+    "docs/architecture.md",
+    "EVALUATION.md",
+    "examples/debug-prod-issue-example.md",
+    "examples/implement-feature-example.md",
+    "hooks/useIntersectionObserver.ts",
+    "logs/atlas/jarvis/2026-06-09/evaluation.json",
+    "logs/atlas/jarvis/2026-06-09/handoff-153542.md",
+    "logs/atlas/jarvis/2026-06-09/handoff-153710.md",
+    "logs/atlas/jarvis/2026-06-09/handoff-153804.md",
+    "logs/atlas/jarvis/2026-06-09/plan-bitbucket-pipeline-failed.json",
+    "logs/atlas/jarvis/2026-06-09/plan-bootstrap-local-debug.json",
+    "logs/atlas/jarvis/2026-06-09/plan-cross-repo-deploy.json",
+    "logs/atlas/jarvis/2026-06-09/plan-deploy-production-server.json",
+    "logs/atlas/jarvis/2026-06-09/plan-documentation-wiki-update.json",
+    "logs/atlas/jarvis/2026-06-09/plan-execute-portfolio-redesign-from-logs-autogrowth-2026-06-09-portfolio-redesign-prompt-md-with-agentic-ui-layer-and-proof-gates.json",
+    "logs/atlas/jarvis/2026-06-09/plan-fix-ci-failure.json",
+    "logs/atlas/jarvis/2026-06-09/plan-gather-repo-information.json",
+    "logs/atlas/jarvis/2026-06-09/plan-github-action-check-failed.json",
+    "logs/atlas/jarvis/2026-06-09/plan-multi-repo-contract-change.json",
+    "logs/atlas/jarvis/2026-06-09/plan-prepare-staging-deploy.json",
+    "logs/atlas/jarvis/2026-06-09/plan-production-incident-containers-down.json",
+    "logs/atlas/jarvis/2026-06-09/plan-release-with-db-migration.json",
+    "logs/atlas/jarvis/2026-06-09/plan-run-local-app.json",
+    "logs/atlas/jarvis/2026-06-09/plan-schema-sql-release-staging.json",
+    "logs/atlas/jarvis/2026-06-09/plan-security-scan-auth.json",
+    "logs/atlas/jarvis/2026-06-09/plan-wiki-documentation-reference.json",
+    "logs/atlas/jarvis/2026-06-09/plan-write-logiciel-spec-for-jarvis.json",
+    "logs/atlas/jarvis/2026-06-09/remember-atlas-jarvis-mode-spec.json",
+    "logs/atlas/jarvis/2026-06-09/sense.json"
+  ],
+  "signals": {
+    "frontend_surface": true,
+    "playwright_config": false,
+    "visual_test_files": true,
+    "journey_files": true,
+    "responsive": true,
+    "accessibility": true,
+    "loading_state": true,
+    "empty_state": true,
+    "error_state": true,
+    "performance": true,
+    "layout_risk": true,
+    "visual_proof": true,
+    "journey_proof": true
+  },
+  "static_checks": [
+    {
+      "id": "frontend-surface",
+      "passed": true,
+      "evidence": "frontend files or app/pages/components/public paths detected"
+    },
+    {
+      "id": "responsive-signal",
+      "passed": true,
+      "evidence": "responsive tokens such as media queries, breakpoint classes, or viewport handling"
+    },
+    {
+      "id": "accessibility-signal",
+      "passed": true,
+      "evidence": "ARIA, alt text, focus, sr-only, axe, or accessibility tokens"
+    },
+    {
+      "id": "ui-state-coverage",
+      "passed": true,
+      "evidence": "states={'loading': True, 'empty': True, 'error': True}"
+    },
+    {
+      "id": "visual-proof-signal",
+      "passed": true,
+      "evidence": "screenshot, visual, Storybook, Chromatic, Playwright, or Cypress signal"
+    },
+    {
+      "id": "journey-proof-signal",
+      "passed": true,
+      "evidence": "e2e, journey, scenario, onboarding, or flow signal"
+    },
+    {
+      "id": "performance-signal",
+      "passed": true,
+      "evidence": "lazy loading, Suspense, memoization, web-vitals, or performance token"
+    }
+  ],
+  "static_passed": 7,
+  "static_max": 7,
+  "playwright": {
+    "status": "skipped",
+    "reason": "local Playwright CLI not detected",
+    "screenshots": []
+  },
+  "visual_qa": {
+    "schema": "autogrowth-visual-qa-v1",
+    "status": "review",
+    "passed": 5,
+    "max": 10,
+    "checks": [
+      {
+        "id": "desktop-screenshot",
+        "passed": false
+      },
+      {
+        "id": "tablet-screenshot",
+        "passed": false
+      },
+      {
+        "id": "mobile-screenshot",
+        "passed": false
+      },
+      {
+        "id": "responsive-static-signal",
+        "passed": true
+      },
+      {
+        "id": "accessibility-static-signal",
+        "passed": true
+      },
+      {
+        "id": "loading-empty-error-states",
+        "passed": true
+      },
+      {
+        "id": "journey-or-screenshot-proof",
+        "passed": true
+      },
+      {
+        "id": "visual-diff-ready",
+        "passed": false
+      },
+      {
+        "id": "layout-risk-static-scan",
+        "passed": false
+      },
+      {
+        "id": "performance-static-signal",
+        "passed": true
+      }
+    ],
+    "screenshot_viewports": {},
+    "recommendation": "Add desktop/mobile screenshots, state coverage, and visual diff baselines before claiming big-tech polish."
+  },
+  "visual_diff": {
+    "schema": "autogrowth-visual-diff-v1",
+    "status": "missing-screenshots",
+    "changed_viewports": [],
+    "baseline_path": "C:\\Programming\\portfolio\\.autogrowth\\product-proof\\visual-baseline.json",
+    "current_viewports": []
+  }
+}

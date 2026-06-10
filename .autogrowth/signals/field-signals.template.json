@@ -1,0 +1,20 @@
+{
+  "schema": "autogrowth-field-signals-v1",
+  "updated_at": "",
+  "sources": {
+    "logs": [],
+    "analytics": [],
+    "errors": [],
+    "ci": [],
+    "crash_reports": [],
+    "tickets": [],
+    "usage_events": []
+  },
+  "summary": {
+    "real_users_observed": null,
+    "top_error": "",
+    "slowest_flow": "",
+    "most_confusing_flow": "",
+    "abandonment_signal": ""
+  }
+}

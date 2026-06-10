@@ -1,0 +1,8 @@
+{
+  "schema": "autogrowth-decision-quality-v1",
+  "blocker_selection": "pass",
+  "prompt_boundedness": "pass",
+  "proof_validity": "fail",
+  "causal_score_movement": "review",
+  "guardrail_clean": "fail"
+}

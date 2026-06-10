@@ -1,0 +1,13 @@
+{
+  "winning_moves": [],
+  "failing_moves": [
+    {
+      "at": "2026-06-10T20:26:49Z",
+      "prompt": "Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `jugement Codex indisponible; fallback heuristique conservateur` by doing only this move: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker.",
+      "proof": "failed",
+      "score_delta": 0
+    }
+  ],
+  "prompt_patterns": {},
+  "updated_at": "2026-06-10T20:26:49Z"
+}

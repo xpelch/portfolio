@@ -1,0 +1,31 @@
+{
+  "schema": "portfolio-journey-analytics-signal-v1",
+  "generatedAt": "2026-06-10T22:13:10.053Z",
+  "sourceProof": "logs\\visual\\portfolio-production-proof.json",
+  "environment": "production",
+  "url": "https://xpelch.vercel.app",
+  "commit": "f6b0e42",
+  "result": "pass",
+  "analytics": {
+    "eventNames": [
+      "project_open",
+      "contact_click",
+      "external_profile_click",
+      "language_switch"
+    ],
+    "acknowledgedEventNames": [
+      "language_switch",
+      "contact_click",
+      "project_open",
+      "external_profile_click"
+    ],
+    "eventCount": 4,
+    "acknowledgementCount": 4
+  },
+  "privacy": {
+    "storesTargets": false,
+    "storesUserIdentifiers": false,
+    "storesIpAddress": false,
+    "storesUserAgent": false
+  }
+}
