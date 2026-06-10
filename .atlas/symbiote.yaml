@@ -1,0 +1,80 @@
+﻿version: "0.1"
+name: "Atlas"
+orchestratorIdentity: "Atlas"
+mode: "jarvis"
+host:
+  name: "PortfolioRoot"
+  organization: "Portfolio"
+  path: "C:\\Programming\\portfolio"
+  root: "C:\\Programming\\portfolio"
+  type: "workspace-root"
+  identity: "Atlas"
+memory:
+  durable: "context"
+  sessions: "logs\\sessions"
+  specs: "logs\\specs"
+  knowledgeIndex: "logs\\knowledge-index.json"
+runtime:
+  liveStateDir: ".atlas"
+  evidenceDir: "logs\\atlas\\jarvis"
+  stateFile: ".atlas\\state.json"
+  healthFile: ".atlas\\health.json"
+  capabilitiesFile: ".atlas\\capabilities.json"
+  eventLog: ".atlas\\events.jsonl"
+sources:
+  - "AGENTS.md"
+  - "agent-context\\IDENTITY.md"
+  - "workflow.config.json"
+  - "logs\\knowledge-index.json"
+  - "logs\\index.md"
+  - "context\\.meta\\index.yaml"
+  - "workflow.config.json"
+senses:
+  - "git-status"
+  - "repo-catalog"
+  - "knowledge-index"
+  - "repo-catalog"
+  - "agent-instructions"
+  - "safe-security-scan"
+actions:
+  - "status"
+  - "sense"
+  - "plan"
+  - "verify"
+  - "remember"
+  - "handoff"
+commands:
+  - "atlas status -Mode jarvis"
+  - "atlas sense -Mode jarvis -Format json"
+  - "atlas plan -Mode jarvis -Intent \"...\""
+  - "atlas verify -Mode jarvis -Scope agents"
+  - "atlas remember -Mode jarvis -SessionPath \"...\""
+  - "atlas handoff -Mode jarvis -Out \"...\""
+guardrails:
+  safeReadDefault: true
+  denySecretContent: true
+  dryRunForRiskyActions: true
+  requireHumanApprovalForExternalMutation: true
+  logEvidence: true
+allowedActions:
+  - "read-workflow-context"
+  - "read-git-status"
+  - "read-knowledge-index"
+  - "write-jarvis-runtime-state"
+  - "write-jarvis-evidence"
+  - "propose-plan"
+  - "propose-knowledge-promotion"
+blockedReads:
+  - ".env"
+  - ".env.*"
+  - "appsettings*.json"
+  - "secrets.json"
+  - "*password*"
+  - "*secret*"
+  - "*apikey*"
+  - "*connectionstring*"
+  - "*.pfx"
+  - "*.pem"
+  - "*.key"
+phase: "v0"
+

@@ -48,6 +48,7 @@ next-env.d.ts
 /skills/
 /.atlas/*.json
 /.atlas/*.jsonl
+/.autogrowth/sandbox/
 
 # atlas/local backups and dumps
 *.bak
