@@ -237,6 +237,7 @@ async function assertRuntimeAnchors(cdp, name) {
 async function assertJourneyEvents(cdp, name) {
   const expression = `(async () => {
     window.__portfolioJourneyEvents = [];
+    window.__portfolioJourneyAcks = [];
     window.open = () => null;
     document.addEventListener('click', (event) => {
       const anchor = event.target.closest?.('a');
@@ -256,22 +257,45 @@ async function assertJourneyEvents(cdp, name) {
     githubLink?.click();
     frenchButton?.click();
 
-    await new Promise((resolve) => setTimeout(resolve, 120));
-    return (window.__portfolioJourneyEvents ?? []).map((event) => ({
-      name: event.name,
-      target: event.target,
-      at: event.at,
-    }));
+    for (let attempt = 0; attempt < 80; attempt += 1) {
+      const ackNames = new Set((window.__portfolioJourneyAcks ?? []).map((ack) => ack.name));
+      if (
+        ackNames.has('project_open') &&
+        ackNames.has('contact_click') &&
+        ackNames.has('external_profile_click') &&
+        ackNames.has('language_switch')
+      ) {
+        break;
+      }
+      await new Promise((resolve) => setTimeout(resolve, 125));
+    }
+
+    return {
+      events: (window.__portfolioJourneyEvents ?? []).map((event) => ({
+        name: event.name,
+        target: event.target,
+        at: event.at,
+      })),
+      acknowledgements: (window.__portfolioJourneyAcks ?? []).map((ack) => ({
+        ok: ack.ok,
+        name: ack.name,
+        target: ack.target,
+        receivedAt: ack.receivedAt,
+      })),
+    };
   })()`;
   const result = await cdp.send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true });
-  const events = result.result.value ?? [];
+  const events = result.result.value?.events ?? [];
+  const acknowledgements = result.result.value?.acknowledgements ?? [];
   const names = new Set(events.map((event) => event.name));
+  const ackNames = new Set(acknowledgements.map((ack) => ack.name));
 
   for (const required of ['project_open', 'contact_click', 'external_profile_click', 'language_switch']) {
     assert.equal(names.has(required), true, `${name} did not record ${required}`);
+    assert.equal(ackNames.has(required), true, `${name} did not receive server acknowledgement for ${required}`);
   }
 
-  return events;
+  return { events, acknowledgements };
 }
 
 async function captureScreenshots() {
@@ -333,6 +357,7 @@ async function captureScreenshots() {
 
     const screenshots = [];
     let journeyEvents = [];
+    let journeyAcks = [];
     for (const target of targets) {
       await cdp.send('Emulation.setDeviceMetricsOverride', target.viewport);
       const languagePreference = await installLanguagePreference(cdp, target.language);
@@ -353,7 +378,9 @@ async function captureScreenshots() {
       await assertRuntimeAnchors(cdp, target.name);
       await assertLanguageSwitcherIsClear(cdp, target.name);
       if (target.name === 'desktop-en') {
-        journeyEvents = await assertJourneyEvents(cdp, target.name);
+        const journeyProof = await assertJourneyEvents(cdp, target.name);
+        journeyEvents = journeyProof.events;
+        journeyAcks = journeyProof.acknowledgements;
       }
       assert.ok(
         metrics.result.value.scrollWidth <= metrics.result.value.width,
@@ -373,7 +400,7 @@ async function captureScreenshots() {
     }
 
     cdp.close();
-    return { screenshots, journeyEvents };
+    return { screenshots, journeyEvents, journeyAcks };
   } catch (error) {
     throw new Error(`${error.message}\nBrowser output:\n${browserOutput.slice(-2000)}`);
   } finally {
@@ -516,7 +543,7 @@ try {
     verifyImage('/images/profile-shoreline.jpg'),
     verifyImage('/images/developer-workspace.png'),
   ]);
-  const { screenshots, journeyEvents } = await captureScreenshots();
+  const { screenshots, journeyEvents, journeyAcks } = await captureScreenshots();
   const links = await collectLinks(en, fr);
   const commit = await getCommit();
 
@@ -540,10 +567,12 @@ try {
       languageSwitcherClear: 'pass',
       telemetry: 'pass-privacy-safe-memory-bus',
       journeyEvents: 'pass',
+      journeyEventSink: 'pass-production-acknowledged',
     },
     images,
     screenshots,
     journeyEvents,
+    journeyAcks,
     links,
   };
 
@@ -576,9 +605,13 @@ try {
       '',
       ...journeyEvents.map((event) => `- ${event.name}: ${event.target}`),
       '',
+      '## Journey Event Sink',
+      '',
+      ...journeyAcks.map((ack) => `- ${ack.name}: ${ack.target} (${ack.ok ? 'accepted' : 'rejected'})`),
+      '',
       '## Remaining Runtime Gaps',
       '',
-      '- No external analytics destination is configured; CTA proof uses the local privacy-safe journey bus.',
+      '- No external analytics destination is configured; CTA proof uses the deployed privacy-safe journey endpoint.',
       '',
     ].join('\n'),
     'utf8',

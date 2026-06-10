@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import { recordJourneyEvent } from '@/lib/journey-events';
 import type { Project, Translations } from '@/types';
 
 const modes = [
@@ -81,28 +82,6 @@ function ExternalIcon() {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return <p className="mono-copy text-xs tracking-[0.18em] text-text-secondary">{'//'} {children}</p>;
-}
-
-type JourneyEventName = 'contact_click' | 'project_open' | 'external_profile_click' | 'language_switch';
-
-type JourneyEvent = {
-  name: JourneyEventName;
-  target: string;
-  at: string;
-};
-
-declare global {
-  interface Window {
-    __portfolioJourneyEvents?: JourneyEvent[];
-  }
-}
-
-function recordJourneyEvent(name: JourneyEventName, target: string) {
-  if (typeof window === 'undefined') return;
-
-  const event = { name, target, at: new Date().toISOString() };
-  window.__portfolioJourneyEvents = [...(window.__portfolioJourneyEvents ?? []), event];
-  window.dispatchEvent(new CustomEvent('portfolio:journey', { detail: event }));
 }
 
 function ProjectVisual({ project, index }: { project: Project; index: number }) {

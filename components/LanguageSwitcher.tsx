@@ -2,21 +2,7 @@
 
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-type JourneyEvent = {
-  name: 'language_switch';
-  target: string;
-  at: string;
-};
-
-function recordLanguageSwitch(target: string) {
-  if (typeof window === 'undefined') return;
-
-  const event: JourneyEvent = { name: 'language_switch', target, at: new Date().toISOString() };
-  const portfolioWindow = window as Window & { __portfolioJourneyEvents?: JourneyEvent[] };
-  portfolioWindow.__portfolioJourneyEvents = [...(portfolioWindow.__portfolioJourneyEvents ?? []), event];
-  window.dispatchEvent(new CustomEvent('portfolio:journey', { detail: event }));
-}
+import { recordJourneyEvent } from '@/lib/journey-events';
 
 const LanguageSwitcher: React.FC = () => {
   const { language, setLanguage } = useLanguage();
@@ -29,7 +15,7 @@ const LanguageSwitcher: React.FC = () => {
             key={code}
             type="button"
             onClick={() => {
-              recordLanguageSwitch(code);
+              recordJourneyEvent('language_switch', code);
               setLanguage(code);
             }}
             className={`px-3 py-2 transition ${
