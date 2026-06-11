@@ -400,6 +400,71 @@ async function assertPerformanceBudget(cdp, target) {
   return { name: target.name, budget: performanceBudget, ...metrics };
 }
 
+async function assertCommandDeckWorkflow(cdp, target) {
+  const expression = `(async () => {
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    const waitFor = async (predicate) => {
+      for (let attempt = 0; attempt < 80; attempt += 1) {
+        const value = predicate();
+        if (value) return value;
+        await sleep(50);
+      }
+      return null;
+    };
+
+    const trigger = document.querySelector('[data-proof="command-deck-trigger"]');
+    if (!trigger) return { missingTrigger: true };
+
+    trigger.focus({ preventScroll: true });
+    trigger.click();
+    const dialog = await waitFor(() => document.querySelector('[data-proof="command-deck"]'));
+    const activeInside = await waitFor(() => dialog?.contains(document.activeElement));
+    const closeButton = dialog?.querySelector('[data-proof="command-deck-close"]');
+    const commandButtons = dialog ? [...dialog.querySelectorAll('button')].filter((button) => button !== closeButton) : [];
+    const initialFocus = document.activeElement?.textContent?.trim() ?? '';
+    const closeLabel = closeButton?.getAttribute('aria-label') ?? '';
+
+    closeButton?.click();
+    await waitFor(() => !document.querySelector('[data-proof="command-deck"]'));
+    await waitFor(() => document.activeElement === trigger);
+    const restoredAfterClose = document.activeElement === trigger;
+
+    trigger.click();
+    await waitFor(() => document.querySelector('[data-proof="command-deck"]'));
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true }));
+    await waitFor(() => !document.querySelector('[data-proof="command-deck"]'));
+    await waitFor(() => document.activeElement === trigger);
+    const restoredAfterEscape = document.activeElement === trigger;
+
+    return {
+      missingTrigger: false,
+      dialogRole: dialog?.getAttribute('role') ?? '',
+      modal: dialog?.getAttribute('aria-modal') ?? '',
+      labelledBy: dialog?.getAttribute('aria-labelledby') ?? '',
+      describedBy: dialog?.getAttribute('aria-describedby') ?? '',
+      closeLabel,
+      commandCount: commandButtons.length,
+      activeInside: Boolean(activeInside),
+      initialFocus,
+      restoredAfterClose,
+      restoredAfterEscape,
+    };
+  })()`;
+  const result = await cdp.send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true });
+  const value = result.result.value;
+  assert.equal(value.missingTrigger, false, `${target.name} is missing command deck trigger`);
+  assert.equal(value.dialogRole, 'dialog', `${target.name} command deck is not a dialog`);
+  assert.equal(value.modal, 'true', `${target.name} command deck is not modal`);
+  assert.equal(Boolean(value.labelledBy), true, `${target.name} command deck is missing aria-labelledby`);
+  assert.equal(Boolean(value.describedBy), true, `${target.name} command deck is missing aria-describedby`);
+  assert.equal(Boolean(value.closeLabel), true, `${target.name} command deck close button needs an accessible name`);
+  assert.ok(value.commandCount >= 6, `${target.name} command deck exposes too few commands`);
+  assert.equal(value.activeInside, true, `${target.name} command deck did not move focus inside`);
+  assert.equal(value.restoredAfterClose, true, `${target.name} command deck did not restore focus after close`);
+  assert.equal(value.restoredAfterEscape, true, `${target.name} command deck did not restore focus after Escape`);
+  return { name: target.name, ...value };
+}
+
 async function assertJourneyEvents(cdp, name, { requireSink }) {
   const expression = `(async () => {
     window.__portfolioJourneyEvents = [];
@@ -533,6 +598,7 @@ async function captureScreenshots() {
     const firstViewport = [];
     const accessibility = [];
     const performance = [];
+    const commandDeck = [];
     let journeyEvents = [];
     let journeyAcks = [];
     for (const target of targets) {
@@ -557,6 +623,7 @@ async function captureScreenshots() {
       firstViewport.push({ name: target.name, ...await assertFirstViewportDecisionSurface(cdp, target) });
       accessibility.push({ name: target.name, ...await assertAccessibilitySmoke(cdp, target) });
       performance.push(await assertPerformanceBudget(cdp, target));
+      commandDeck.push(await assertCommandDeckWorkflow(cdp, target));
       if (target.name === 'desktop-en') {
         const journeyProof = await assertJourneyEvents(cdp, target.name, { requireSink: Boolean(providedUrl) });
         journeyEvents = journeyProof.events;
@@ -580,7 +647,7 @@ async function captureScreenshots() {
     }
 
     cdp.close();
-    return { screenshots, firstViewport, accessibility, performance, journeyEvents, journeyAcks };
+    return { screenshots, firstViewport, accessibility, performance, commandDeck, journeyEvents, journeyAcks };
   } catch (error) {
     throw new Error(`${error.message}\nBrowser output:\n${browserOutput.slice(-2000)}`);
   } finally {
@@ -687,6 +754,15 @@ async function writeAutogrowthJourneySignal(proof) {
         largestResourceKiB: item.largestResourceKiB,
       })),
     },
+    commandDeck: proof.commandDeck.map((item) => ({
+      name: item.name,
+      commandCount: item.commandCount,
+      dialogRole: item.dialogRole,
+      modal: item.modal,
+      activeInside: item.activeInside,
+      restoredAfterClose: item.restoredAfterClose,
+      restoredAfterEscape: item.restoredAfterEscape,
+    })),
     privacy: {
       storesTargets: false,
       storesUserIdentifiers: false,
@@ -765,7 +841,7 @@ try {
     verifyImage('/images/profile-shoreline.jpg'),
     verifyImage('/images/developer-workspace.png'),
   ]);
-  const { screenshots, firstViewport, accessibility, performance, journeyEvents, journeyAcks } = await captureScreenshots();
+  const { screenshots, firstViewport, accessibility, performance, commandDeck, journeyEvents, journeyAcks } = await captureScreenshots();
   const links = await collectLinks(en, fr);
   const commit = await getCommit();
 
@@ -789,6 +865,7 @@ try {
       firstViewportDecisionSurface: 'pass',
       accessibilitySmoke: 'pass',
       performanceBudget: 'pass',
+      commandDeckKeyboard: 'pass',
       languageSwitcherClear: 'pass',
       telemetry: 'pass-privacy-safe-memory-bus',
       journeyEvents: 'pass',
@@ -800,6 +877,7 @@ try {
     accessibility,
     performanceBudget,
     performance,
+    commandDeck,
     journeyEvents,
     journeyAcks,
     links,
@@ -838,6 +916,10 @@ try {
       '## Performance Budget',
       '',
       ...performance.map((item) => `- ${item.name}: DCL ${item.domContentLoadedMs}ms, load ${item.loadCompleteMs}ms, response ${item.responseEndMs}ms, transfer ${item.transferKiB}KiB, ${item.resourceCount} resources`),
+      '',
+      '## Command Deck Keyboard',
+      '',
+      ...commandDeck.map((item) => `- ${item.name}: ${item.commandCount} commands, focus restored after close and Escape`),
       '',
       '## Live Links',
       '',

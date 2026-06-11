@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import { recordJourneyEvent } from '@/lib/journey-events';
@@ -207,14 +207,17 @@ function CommandDeck({
   onClose,
   title,
   status,
+  closeLabel,
   commands,
 }: {
   open: boolean;
   onClose: () => void;
   title: string;
   status: string;
+  closeLabel: string;
   commands: CommandDeckItem[];
 }) {
+  const dialogRef = useRef<HTMLDivElement | null>(null);
   const commandRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
   useEffect(() => {
@@ -223,22 +226,65 @@ function CommandDeck({
     return () => window.clearTimeout(focusTimer);
   }, [open]);
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      onClose();
+      return;
+    }
+
+    if (event.key !== 'Tab') return;
+    const focusable = Array.from(
+      dialogRef.current?.querySelectorAll<HTMLElement>('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])') ?? [],
+    ).filter((element) => !element.hasAttribute('disabled'));
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (!first || !last) return;
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+      return;
+    }
+
+    if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
   if (!open) return null;
 
   return (
     <div className="fixed inset-0 z-40 grid place-items-center overflow-y-auto bg-surface-100/82 px-4 py-8" role="presentation" onMouseDown={onClose}>
       <div
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="command-deck-title"
+        aria-describedby="command-deck-status"
+        data-proof="command-deck"
         className="my-auto max-h-[calc(100dvh-2rem)] w-full max-w-xl overflow-hidden border border-border bg-surface-200 shadow-2xl"
         onMouseDown={(event) => event.stopPropagation()}
+        onKeyDown={handleKeyDown}
       >
-        <div className="border-b border-border p-4 sm:p-5">
-          <p id="command-deck-title" className="mono-copy text-xs tracking-[0.16em] text-secondary-300">
-            {title}
-          </p>
-          <p className="mt-2 text-sm text-text-secondary">{status}</p>
+        <div className="flex items-start justify-between gap-4 border-b border-border p-4 sm:p-5">
+          <div>
+            <p id="command-deck-title" className="mono-copy text-xs tracking-[0.16em] text-secondary-300">
+              {title}
+            </p>
+            <p id="command-deck-status" className="mt-2 text-sm text-text-secondary">{status}</p>
+          </div>
+          <button
+            type="button"
+            aria-label={closeLabel}
+            data-proof="command-deck-close"
+            onClick={onClose}
+            className="mono-copy inline-flex min-h-10 min-w-10 items-center justify-center border border-border text-xs text-text-secondary transition hover:border-secondary-300 hover:text-secondary-300 focus-visible:border-secondary-300 focus-visible:text-secondary-300"
+          >
+            ESC
+          </button>
         </div>
         <div className="max-h-[min(30rem,calc(100dvh-10rem))] divide-y divide-border overflow-y-auto">
           {commands.map((command, index) => (
@@ -267,6 +313,8 @@ function CommandDeck({
 export default function Home() {
   const { translations, loading, language, setLanguage } = useLanguage();
   const [commandOpen, setCommandOpen] = useState(false);
+  const commandTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const lastFocusedElementRef = useRef<HTMLElement | null>(null);
 
   const copy = useMemo(() => {
     if (!translations) return null;
@@ -312,6 +360,18 @@ export default function Home() {
 
   const terminalText = useTypingLoop(copy?.terminalMessages ?? []);
 
+  const openCommandDeck = useCallback(() => {
+    lastFocusedElementRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : commandTriggerRef.current;
+    setCommandOpen(true);
+  }, []);
+
+  const closeCommandDeck = useCallback(() => {
+    setCommandOpen(false);
+    window.setTimeout(() => {
+      (lastFocusedElementRef.current ?? commandTriggerRef.current)?.focus({ preventScroll: true });
+    }, 0);
+  }, []);
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
@@ -322,19 +382,19 @@ export default function Home() {
         target?.isContentEditable;
 
       if (event.key === 'Escape') {
-        setCommandOpen(false);
+        closeCommandDeck();
         return;
       }
 
       if (event.key === '/' && !event.altKey && !event.ctrlKey && !event.metaKey && !isTextEntry) {
         event.preventDefault();
-        setCommandOpen(true);
+        openCommandDeck();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [closeCommandDeck, openCommandDeck]);
 
   if (loading || !translations || !copy) {
     return <LoadingSpinner />;
@@ -519,10 +579,12 @@ export default function Home() {
             </div>
 
             <button
+              ref={commandTriggerRef}
               type="button"
-              onClick={() => setCommandOpen(true)}
+              onClick={openCommandDeck}
               className="mono-copy mt-8 flex min-h-6 w-full max-w-[39ch] items-center justify-start gap-2 text-left text-sm text-text-secondary transition hover:text-secondary-300"
               aria-label={copy.fr ? 'Ouvrir le deck opérateur' : 'Open operator deck'}
+              data-proof="command-deck-trigger"
             >
               <span className="inline-block max-w-[36ch] overflow-hidden whitespace-nowrap" aria-live="polite">{terminalText}</span>
               <span className="h-4 w-2 animate-pulse bg-on-surface" />
@@ -683,9 +745,10 @@ export default function Home() {
       </div>
       <CommandDeck
         open={commandOpen}
-        onClose={() => setCommandOpen(false)}
+        onClose={closeCommandDeck}
         title={copy.commandTitle}
         status={copy.commandStatus}
+        closeLabel={copy.fr ? 'Fermer le deck opérateur' : 'Close operator deck'}
         commands={commandItems}
       />
     </main>
