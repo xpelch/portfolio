@@ -1,10 +1,10 @@
 {
   "schema": "portfolio-journey-analytics-signal-v1",
-  "generatedAt": "2026-06-11T15:20:41.583Z",
+  "generatedAt": "2026-06-11T15:50:42.180Z",
   "sourceProof": "logs\\visual\\portfolio-production-proof.json",
   "environment": "production",
   "url": "https://xpelch.vercel.app",
-  "commit": "4da6e68",
+  "commit": "9d30e51",
   "result": "pass",
   "analytics": {
     "eventNames": [
@@ -14,8 +14,8 @@
       "language_switch"
     ],
     "acknowledgedEventNames": [
-      "contact_click",
       "project_open",
+      "contact_click",
       "language_switch",
       "external_profile_click"
     ],
@@ -34,33 +34,33 @@
     "viewports": [
       {
         "name": "desktop-en",
-        "domContentLoadedMs": 130,
-        "loadCompleteMs": 130,
-        "responseEndMs": 82,
-        "firstContentfulPaintMs": 140,
+        "domContentLoadedMs": 80,
+        "loadCompleteMs": 90,
+        "responseEndMs": 39,
+        "firstContentfulPaintMs": 92,
         "resourceCount": 12,
         "transferKiB": 155,
         "largestResourceKiB": 89
       },
       {
         "name": "mobile-en",
-        "domContentLoadedMs": 89,
-        "loadCompleteMs": 92,
-        "responseEndMs": 39,
-        "firstContentfulPaintMs": 96,
+        "domContentLoadedMs": 97,
+        "loadCompleteMs": 107,
+        "responseEndMs": 47,
+        "firstContentfulPaintMs": 104,
         "resourceCount": 10,
         "transferKiB": 155,
         "largestResourceKiB": 89
       },
       {
         "name": "mobile-fr",
-        "domContentLoadedMs": 70,
-        "loadCompleteMs": 79,
-        "responseEndMs": 29,
-        "firstContentfulPaintMs": 76,
-        "resourceCount": 13,
-        "transferKiB": 1355,
-        "largestResourceKiB": 1200
+        "domContentLoadedMs": 88,
+        "loadCompleteMs": 95,
+        "responseEndMs": 43,
+        "firstContentfulPaintMs": 92,
+        "resourceCount": 10,
+        "transferKiB": 155,
+        "largestResourceKiB": 89
       }
     ]
   },

@@ -1,0 +1,151 @@
+{
+  "schema": "portfolio-latest-proof-v1",
+  "generatedAt": "2026-06-11T15:50:42.180Z",
+  "scoreContext": {
+    "currentScore": 91,
+    "activeCap": "92 cap: observed CI artifacts are stale for the proof commit and visitor-intent evidence is not connector-backed or durable.",
+    "capStatus": "active"
+  },
+  "subject": {
+    "product": "bilingual developer portfolio",
+    "url": "https://xpelch.vercel.app",
+    "environment": "production",
+    "commit": "9d30e51",
+    "result": "pass"
+  },
+  "sourceArtifacts": {
+    "runtimeProofJson": "logs\\visual\\portfolio-production-proof.json",
+    "runtimeProofMarkdown": "logs\\visual\\portfolio-production-proof.md",
+    "integratedProductionProof": ".autogrowth\\product-proof\\integrated-production-proof.json",
+    "autogrowthSignal": ".autogrowth\\signals\\analytics\\portfolio-production-journey-latest.json"
+  },
+  "proofSummary": {
+    "checksPassed": 18,
+    "checksPartial": 1,
+    "screenshots": 3,
+    "viewports": [
+      {
+        "name": "desktop-en",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "language": "en"
+      },
+      {
+        "name": "mobile-en",
+        "width": 390,
+        "scrollWidth": 390,
+        "language": "en"
+      },
+      {
+        "name": "mobile-fr",
+        "width": 390,
+        "scrollWidth": 390,
+        "language": "fr"
+      }
+    ],
+    "accessibility": {
+      "viewports": 3,
+      "namelessControls": 0,
+      "undersizedControls": 0,
+      "duplicateIds": 0,
+      "imagesMissingAlt": 0
+    },
+    "performance": {
+      "budget": {
+        "domContentLoadedMs": 3500,
+        "loadCompleteMs": 6000,
+        "responseEndMs": 3500,
+        "resourceCount": 70,
+        "transferKiB": 2500,
+        "largestResourceKiB": 1500
+      },
+      "worstLoadCompleteMs": 107,
+      "worstTransferKiB": 155
+    },
+    "commandDeck": {
+      "viewports": 3,
+      "minCommandCount": 6,
+      "focusRestoredEverywhere": true
+    },
+    "projectCards": {
+      "deadProjectLinks": 0,
+      "privateCardsWithoutDeadAnchors": true
+    },
+    "journeyEvents": {
+      "eventNames": [
+        "project_open",
+        "contact_click",
+        "external_profile_click",
+        "language_switch"
+      ],
+      "acknowledgedEventNames": [
+        "project_open",
+        "contact_click",
+        "language_switch",
+        "external_profile_click"
+      ],
+      "eventCount": 4,
+      "acknowledgementCount": 4
+    },
+    "linkHealth": [
+      {
+        "label": "email",
+        "status": "mailto-format-checked",
+        "httpStatus": null
+      },
+      {
+        "label": "github",
+        "status": "live-checked",
+        "httpStatus": 200
+      },
+      {
+        "label": "linkedin",
+        "status": "provider-blocked",
+        "httpStatus": 999
+      },
+      {
+        "label": "projet:Logix Opérations",
+        "status": "private-anchor",
+        "httpStatus": null
+      },
+      {
+        "label": "projet:Blockhead AI Chatbot",
+        "status": "live-checked",
+        "httpStatus": 200
+      },
+      {
+        "label": "projet:Sweep Token Consolidation",
+        "status": "live-checked",
+        "httpStatus": 200
+      },
+      {
+        "label": "projet:Portfolio System",
+        "status": "live-checked",
+        "httpStatus": 200
+      }
+    ]
+  },
+  "fieldEvidence": {
+    "ci": {
+      "status": "observed-stale",
+      "source": ".autogrowth\\signals\\ci\\github-actions-run-27318420599.json",
+      "commitMatched": false,
+      "conclusion": "success",
+      "runUrl": "https://github.com/xpelch/portfolio/actions/runs/27318420599",
+      "note": "No CI signal matched the proof commit; the 92 cap remains active until remote CI evidence is refreshed."
+    },
+    "telemetry": {
+      "status": "smoke-proof-production-endpoint",
+      "durableVisitorIntentSource": "missing",
+      "source": ".autogrowth\\signals\\analytics\\portfolio-production-journey-latest.json",
+      "note": "Journey acknowledgements prove the production endpoint contract; durable field visitor-intent evidence still requires an external analytics or log source."
+    }
+  },
+  "privacy": {
+    "storesTargets": false,
+    "storesUserIdentifiers": false,
+    "storesIpAddress": false,
+    "storesUserAgent": false
+  },
+  "nextAction": "Refresh CI evidence for this commit, then attach durable visitor-intent telemetry from a connector-backed or production-log source."
+}

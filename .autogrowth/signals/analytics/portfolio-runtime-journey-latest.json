@@ -1,10 +1,10 @@
 {
   "schema": "portfolio-journey-analytics-signal-v1",
-  "generatedAt": "2026-06-11T15:23:42.929Z",
+  "generatedAt": "2026-06-11T15:59:35.930Z",
   "sourceProof": "logs\\visual\\portfolio-runtime-proof.json",
   "environment": "production-local-next-start",
   "url": "http://127.0.0.1:3107",
-  "commit": "4da6e68",
+  "commit": "9d30e51",
   "result": "pass",
   "analytics": {
     "eventNames": [
@@ -34,10 +34,10 @@
     "viewports": [
       {
         "name": "desktop-en",
-        "domContentLoadedMs": 11,
+        "domContentLoadedMs": 21,
         "loadCompleteMs": 28,
-        "responseEndMs": 3,
-        "firstContentfulPaintMs": 32,
+        "responseEndMs": 4,
+        "firstContentfulPaintMs": 36,
         "resourceCount": 13,
         "transferKiB": 1350,
         "largestResourceKiB": 1200
@@ -45,19 +45,19 @@
       {
         "name": "mobile-en",
         "domContentLoadedMs": 12,
-        "loadCompleteMs": 26,
+        "loadCompleteMs": 20,
         "responseEndMs": 3,
-        "firstContentfulPaintMs": 20,
+        "firstContentfulPaintMs": 16,
         "resourceCount": 13,
         "transferKiB": 1350,
         "largestResourceKiB": 1200
       },
       {
         "name": "mobile-fr",
-        "domContentLoadedMs": 11,
-        "loadCompleteMs": 20,
+        "domContentLoadedMs": 12,
+        "loadCompleteMs": 19,
         "responseEndMs": 3,
-        "firstContentfulPaintMs": 32,
+        "firstContentfulPaintMs": 48,
         "resourceCount": 13,
         "transferKiB": 1350,
         "largestResourceKiB": 1200
