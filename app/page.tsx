@@ -410,10 +410,10 @@ export default function Home() {
             </span>
           </a>
           <nav className="mono-copy hidden items-center gap-9 text-sm text-text-secondary md:flex" aria-label="Primary navigation">
-            <a className="hover:text-on-surface" href="#projects">{copy.nav.projects}</a>
-            <a className="hover:text-on-surface" href="#about">{copy.nav.about}</a>
-            <a className="hover:text-on-surface" href="#stack">{copy.nav.stack}</a>
-            <a className="hover:text-on-surface" href="#experience">{copy.nav.experience}</a>
+            <a className="inline-flex min-h-6 items-center hover:text-on-surface" href="#projects">{copy.nav.projects}</a>
+            <a className="inline-flex min-h-6 items-center hover:text-on-surface" href="#about">{copy.nav.about}</a>
+            <a className="inline-flex min-h-6 items-center hover:text-on-surface" href="#stack">{copy.nav.stack}</a>
+            <a className="inline-flex min-h-6 items-center hover:text-on-surface" href="#experience">{copy.nav.experience}</a>
           </nav>
           <a
             href={`mailto:${translations.general.socials.email}`}
@@ -521,7 +521,7 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setCommandOpen(true)}
-              className="mono-copy mt-8 flex h-5 w-full max-w-[39ch] items-center justify-start gap-2 text-left text-sm text-text-secondary transition hover:text-secondary-300"
+              className="mono-copy mt-8 flex min-h-6 w-full max-w-[39ch] items-center justify-start gap-2 text-left text-sm text-text-secondary transition hover:text-secondary-300"
               aria-label={copy.fr ? 'Ouvrir le deck opérateur' : 'Open operator deck'}
             >
               <span className="inline-block max-w-[36ch] overflow-hidden whitespace-nowrap" aria-live="polite">{terminalText}</span>

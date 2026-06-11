@@ -268,6 +268,85 @@ async function assertFirstViewportDecisionSurface(cdp, target) {
   return value;
 }
 
+async function assertAccessibilitySmoke(cdp, target) {
+  const expression = `(() => {
+    const visible = (element) => {
+      const style = window.getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+      return (
+        style.visibility !== 'hidden' &&
+        style.display !== 'none' &&
+        Number(style.opacity) > 0 &&
+        rect.width > 0 &&
+        rect.height > 0 &&
+        rect.bottom > 0 &&
+        rect.top < window.innerHeight &&
+        rect.right > 0 &&
+        rect.left < window.innerWidth
+      );
+    };
+    const nameOf = (element) => (
+      element.getAttribute('aria-label') ||
+      element.getAttribute('title') ||
+      element.textContent ||
+      element.getAttribute('alt') ||
+      ''
+    ).trim();
+    const controls = [...document.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])')]
+      .filter(visible);
+    const namelessControls = controls
+      .filter((element) => nameOf(element).length === 0)
+      .map((element) => element.tagName.toLowerCase());
+    const undersizedControls = controls
+      .map((element) => ({ name: nameOf(element), rect: element.getBoundingClientRect() }))
+      .filter(({ rect }) => rect.width < 24 || rect.height < 24)
+      .map(({ name, rect }) => ({ name, width: Math.round(rect.width), height: Math.round(rect.height) }));
+    const duplicateIds = [...document.querySelectorAll('[id]')]
+      .map((element) => element.id)
+      .filter((id, index, ids) => ids.indexOf(id) !== index);
+    const imagesMissingAlt = [...document.querySelectorAll('img')]
+      .filter(visible)
+      .filter((image) => !image.hasAttribute('alt'))
+      .map((image) => image.currentSrc || image.src || 'img');
+    const unfocusable = [];
+    const focused = [];
+    for (const control of controls.slice(0, 12)) {
+      control.focus({ preventScroll: true });
+      if (document.activeElement === control || control.contains(document.activeElement)) {
+        focused.push(nameOf(control));
+      } else {
+        unfocusable.push(nameOf(control) || control.tagName.toLowerCase());
+      }
+    }
+    return {
+      landmarks: {
+        main: Boolean(document.querySelector('main')),
+        h1: Boolean(document.querySelector('h1')),
+        labeledNav: Boolean(document.querySelector('nav[aria-label]')),
+      },
+      visibleControlCount: controls.length,
+      focusedCount: focused.length,
+      namelessControls,
+      undersizedControls,
+      duplicateIds: [...new Set(duplicateIds)],
+      imagesMissingAlt,
+      focused,
+    };
+  })()`;
+  const result = await cdp.send('Runtime.evaluate', { expression, returnByValue: true });
+  const value = result.result.value;
+  assert.equal(value.landmarks.main, true, `${target.name} is missing a main landmark`);
+  assert.equal(value.landmarks.h1, true, `${target.name} is missing an h1`);
+  assert.equal(value.landmarks.labeledNav, true, `${target.name} is missing labeled primary navigation`);
+  assert.ok(value.visibleControlCount >= 4, `${target.name} exposes too few visible controls`);
+  assert.deepEqual(value.namelessControls, [], `${target.name} has visible controls without accessible names`);
+  assert.deepEqual(value.undersizedControls, [], `${target.name} has undersized visible controls`);
+  assert.deepEqual(value.duplicateIds, [], `${target.name} has duplicate ids`);
+  assert.deepEqual(value.imagesMissingAlt, [], `${target.name} has visible images without alt text`);
+  assert.ok(value.focusedCount >= Math.min(4, value.visibleControlCount), `${target.name} keyboard focus smoke failed`);
+  return value;
+}
+
 async function assertJourneyEvents(cdp, name, { requireSink }) {
   const expression = `(async () => {
     window.__portfolioJourneyEvents = [];
@@ -399,6 +478,7 @@ async function captureScreenshots() {
 
     const screenshots = [];
     const firstViewport = [];
+    const accessibility = [];
     let journeyEvents = [];
     let journeyAcks = [];
     for (const target of targets) {
@@ -421,6 +501,7 @@ async function captureScreenshots() {
       await assertRuntimeAnchors(cdp, target.name);
       await assertLanguageSwitcherIsClear(cdp, target.name);
       firstViewport.push({ name: target.name, ...await assertFirstViewportDecisionSurface(cdp, target) });
+      accessibility.push({ name: target.name, ...await assertAccessibilitySmoke(cdp, target) });
       if (target.name === 'desktop-en') {
         const journeyProof = await assertJourneyEvents(cdp, target.name, { requireSink: Boolean(providedUrl) });
         journeyEvents = journeyProof.events;
@@ -444,7 +525,7 @@ async function captureScreenshots() {
     }
 
     cdp.close();
-    return { screenshots, firstViewport, journeyEvents, journeyAcks };
+    return { screenshots, firstViewport, accessibility, journeyEvents, journeyAcks };
   } catch (error) {
     throw new Error(`${error.message}\nBrowser output:\n${browserOutput.slice(-2000)}`);
   } finally {
@@ -616,7 +697,7 @@ try {
     verifyImage('/images/profile-shoreline.jpg'),
     verifyImage('/images/developer-workspace.png'),
   ]);
-  const { screenshots, firstViewport, journeyEvents, journeyAcks } = await captureScreenshots();
+  const { screenshots, firstViewport, accessibility, journeyEvents, journeyAcks } = await captureScreenshots();
   const links = await collectLinks(en, fr);
   const commit = await getCommit();
 
@@ -638,6 +719,7 @@ try {
       liveExternalLinks: links.some((link) => link.status === 'provider-blocked') ? 'partial-provider-blocked' : 'pass',
       screenshots: 'pass',
       firstViewportDecisionSurface: 'pass',
+      accessibilitySmoke: 'pass',
       languageSwitcherClear: 'pass',
       telemetry: 'pass-privacy-safe-memory-bus',
       journeyEvents: 'pass',
@@ -646,6 +728,7 @@ try {
     images,
     screenshots,
     firstViewport,
+    accessibility,
     journeyEvents,
     journeyAcks,
     links,
@@ -676,6 +759,10 @@ try {
       '## First Viewport Decision Surface',
       '',
       ...firstViewport.map((viewport) => `- ${viewport.name}: ${viewport.proofItemCount} visible proof items, ${viewport.viewport.width}x${viewport.viewport.height}`),
+      '',
+      '## Accessibility Smoke',
+      '',
+      ...accessibility.map((item) => `- ${item.name}: ${item.visibleControlCount} visible controls, ${item.focusedCount} focusable, landmarks main/h1/nav pass`),
       '',
       '## Live Links',
       '',
