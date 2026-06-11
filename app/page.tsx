@@ -99,6 +99,25 @@ function useVisitCounter() {
   return visitCount;
 }
 
+async function copyTextToClipboard(text: string) {
+  if (navigator.clipboard?.writeText && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.left = '-9999px';
+  textarea.style.top = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  const copied = document.execCommand('copy');
+  document.body.removeChild(textarea);
+  if (!copied) throw new Error('copy_failed');
+}
+
 function ArrowIcon({ className = 'h-4 w-4' }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -384,8 +403,10 @@ function CommandDeck({
 export default function Home() {
   const { translations, loading, language, setLanguage } = useLanguage();
   const [commandOpen, setCommandOpen] = useState(false);
+  const [contactCopyStatus, setContactCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
   const commandTriggerRef = useRef<HTMLButtonElement | null>(null);
   const lastFocusedElementRef = useRef<HTMLElement | null>(null);
+  const contactCopyResetRef = useRef<number | null>(null);
   const visitCount = useVisitCounter();
 
   const copy = useMemo(() => {
@@ -416,6 +437,9 @@ export default function Home() {
       contactBody: fr
         ? 'Discutons de ton idée, de tes contraintes ou de la release à stabiliser.'
         : 'Send the idea, constraints, or release that needs to ship cleanly.',
+      copyEmail: fr ? 'Copier email' : 'Copy email',
+      contactCopied: fr ? 'Email copié' : 'Email copied',
+      contactCopyFailed: fr ? 'Email visible' : 'Email visible',
       commandTitle: fr ? 'OPERATOR DECK' : 'OPERATOR DECK',
       commandStatus: fr ? 'Chemins rapides pour évaluer le travail.' : 'Fast paths for evaluating the work.',
       heroStatus: 'Canada / Remote US',
@@ -446,6 +470,33 @@ export default function Home() {
     window.setTimeout(() => {
       (lastFocusedElementRef.current ?? commandTriggerRef.current)?.focus({ preventScroll: true });
     }, 0);
+  }, []);
+
+  const copyContactEmail = useCallback(async (source: string) => {
+    if (!translations) return;
+    if (contactCopyResetRef.current !== null) {
+      window.clearTimeout(contactCopyResetRef.current);
+    }
+
+    try {
+      await copyTextToClipboard(translations.general.socials.email);
+      setContactCopyStatus('copied');
+      recordJourneyEvent('contact_copy', source);
+    } catch {
+      setContactCopyStatus('failed');
+      recordJourneyEvent('contact_copy', `${source}:failed`);
+    }
+
+    contactCopyResetRef.current = window.setTimeout(() => {
+      setContactCopyStatus('idle');
+      contactCopyResetRef.current = null;
+    }, 2400);
+  }, [translations]);
+
+  useEffect(() => () => {
+    if (contactCopyResetRef.current !== null) {
+      window.clearTimeout(contactCopyResetRef.current);
+    }
   }, []);
 
   useEffect(() => {
@@ -810,14 +861,43 @@ export default function Home() {
           <div className="space-y-6">
             <SectionLabel>{copy.contactTitle}</SectionLabel>
             <p className="mt-4 max-w-md text-text-secondary">{copy.contactBody}</p>
-            <a
-              href={`mailto:${translations.cta.email}`}
-              className="mono-copy inline-flex items-center justify-center gap-3 border border-secondary-300 px-8 py-5 text-secondary-300 transition hover:bg-secondary-300 hover:text-surface-100"
-              onClick={() => recordJourneyEvent('contact_click', 'contact-section')}
-            >
-              {translations.cta.buttonText}
-              <ArrowIcon />
-            </a>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start">
+              <a
+                href={`mailto:${translations.cta.email}`}
+                className="mono-copy inline-flex items-center justify-center gap-3 border border-secondary-300 px-8 py-5 text-secondary-300 transition hover:bg-secondary-300 hover:text-surface-100"
+                onClick={() => recordJourneyEvent('contact_click', 'contact-section')}
+              >
+                {translations.cta.buttonText}
+                <ArrowIcon />
+              </a>
+              <div className="flex flex-col">
+                <button
+                  type="button"
+                  data-proof="contact-copy"
+                  aria-describedby="contact-copy-status"
+                  className="mono-copy inline-flex min-h-[3.625rem] items-center justify-center border border-border px-8 py-5 text-text-secondary transition hover:border-secondary-300 hover:text-secondary-300 focus-visible:border-secondary-300 focus-visible:text-secondary-300"
+                  onClick={() => copyContactEmail('contact-section')}
+                >
+                  {contactCopyStatus === 'copied'
+                    ? copy.contactCopied
+                    : contactCopyStatus === 'failed'
+                      ? copy.contactCopyFailed
+                      : copy.copyEmail}
+                </button>
+                <span
+                  id="contact-copy-status"
+                  data-proof="contact-copy-status"
+                  aria-live="polite"
+                  className="mono-copy mt-1 min-h-4 max-w-[24rem] text-[0.68rem] text-secondary-300"
+                >
+                  {contactCopyStatus === 'idle'
+                    ? ''
+                    : contactCopyStatus === 'copied'
+                      ? copy.contactCopied
+                      : translations.general.socials.email}
+                </span>
+              </div>
+            </div>
           </div>
 
           <div className="md:justify-self-end">

@@ -1,6 +1,6 @@
 'use client';
 
-export type JourneyEventName = 'contact_click' | 'project_open' | 'external_profile_click' | 'language_switch';
+export type JourneyEventName = 'contact_click' | 'contact_copy' | 'project_open' | 'external_profile_click' | 'language_switch';
 
 export type JourneyEvent = {
   name: JourneyEventName;

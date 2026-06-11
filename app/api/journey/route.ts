@@ -3,6 +3,7 @@ import type { JourneyEventName } from '@/lib/journey-events';
 
 const allowedEvents = new Set<JourneyEventName>([
   'contact_click',
+  'contact_copy',
   'project_open',
   'external_profile_click',
   'language_switch',
