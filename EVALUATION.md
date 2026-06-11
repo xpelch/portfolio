@@ -1,6 +1,6 @@
 # TARGET FINAL: BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 
-# SCORE ACTUEL: 86/100
+# SCORE ACTUEL: 90/100
 
 <!-- AUTO-EVALUATION:START -->
 
@@ -81,7 +81,7 @@ flowchart TD
 BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 
 ## SCORE
-86/100
+90/100
 
 ## SCORE MEANING
 - 50/100 : bearable, but fragile; enough structure to work with, not enough proof to trust deeply.
@@ -90,20 +90,20 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - Current tier : pretty good: the project is useful and coherent, but still has visible caps to lift before it becomes exceptional.
 
 ## PROGRESS DELTA
-- Previous score : 86/100.
-- Current score : 86/100.
+- Previous score : 90/100.
+- Current score : 90/100.
 - Delta : +0.
 - Advancement judgment : flat; the project did not prove meaningful advancement since the previous evaluation.
 
 ## CAUSAL SCORE DELTA
-- Score delta : +0 (86/100 -> 86/100), direction `flat`.
+- Score delta : +0 (90/100 -> 90/100), direction `flat`.
 - Goal signal : `VISION.md` has a concrete destination, so target calibration is stronger.
 - Proof signal : canonical command detected `npm run test`; passing it can move proof confidence.
-- Active cap : Active cap: 89 until deployed journey proof is repeatable and current..
+- Active cap : 92 cap: observed CI artifacts and connector-backed or durable field visitor-intent evidence are missing..
 - Weakest lever : `Tests` must move before broad feature work is credible.
 
 ## STATE INSIGHTS
-- Durable state : previous recorded score was 86/100.
+- Durable state : previous recorded score was 90/100.
 - Recurring blockers : jugement Codex indisponible; fallback heuristique conservateur; Current cap: 88 until production/analytics evidence is connected to the complete visitor journey.; 94 cap: cannot pass without accessibility and performance evidence on the real runtime.
 - State directive : stop restating recurring blockers; choose an escape lane or measurement lane.
 
@@ -160,7 +160,7 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - No matching deep checks.
 
 ## ONE MOVE THAT MATTERS
-Make the deployed visitor journey proof repeatable, current, and tied to privacy-safe success-event telemetry.
+Create and verify a latest-proof control artifact that reconciles deployed proof, CI status, telemetry source status, commit, screenshots, accessibility/performance smoke, event acknowledgements, and the active 92 cap. This is the highest-leverage move because it converts existing proof into operating evidence and exposes the next real blocker without changing product UI.
 
 ## SCORE ROADMAP
 - 0-49 : define target, owner, runtime, verification, and the first real journey.
@@ -168,7 +168,7 @@ Make the deployed visitor journey proof repeatable, current, and tied to privacy
 - 75-89 : make it feel good: polish UX/QoL, reduce steps, automate proof, and expose outcomes.
 - 90-99 : make it exceptional: benchmark, harden, measure, remove friction, and prove edge cases.
 - 100 : maintain magnum opus evidence; freshness and restraint matter more than more features.
-- Current band directive for fullstack : polish the core experience, remove friction, automate verification, and harden release paths.
+- Current band directive for fullstack : benchmark against top references, prove edge cases, compress workflows, and eliminate remaining caps.
 
 ## AUTONOMY ROADMAP 930+
 - Current Autogrowth maturity reference : 890/1000 means the local runtime is robust, but field integration and long-run autonomy still gate 930+.
@@ -180,20 +180,20 @@ Make the deployed visitor journey proof repeatable, current, and tied to privacy
 - Project application : for `fullstack`, do not claim 930+ unless the evaluation proves terrain data, autonomous loop safety, and user/operator outcome evidence, not only static repo quality.
 
 ## OPERATING DIRECTIVE
-- Score actuel : 86/100
+- Score actuel : 90/100
 - Type detecte : fullstack
-- Plafond actif : Active cap: 89 until deployed journey proof is repeatable and current.
+- Plafond actif : 92 cap: observed CI artifacts and connector-backed or durable field visitor-intent evidence are missing.
 - Commandes canoniques visibles : npm run test, npm run build, npm run lint
-- Blockers primaires : Active cap: 89 until deployed journey proof is repeatable and current.; Next cap: 92 until privacy-safe telemetry proves visitors can open work, switch language, and contact from production.; UX cap: 93 until selected work is inspectable enough to prove production judgment without internal docs.; Tests faible ou prioritaire; Fiabilite faible ou prioritaire
+- Blockers primaires : 92 cap: observed CI artifacts and connector-backed or durable field visitor-intent evidence are missing.; 94 cap: selected-work proof is not yet deep and inspectable enough, especially for confidential production work.; 96 cap: benchmark-calibrated UX deltas and target-user comprehension evidence are not proven.; Tests faible ou prioritaire; Fiabilite faible ou prioritaire
 - Prochaine meilleure action : lever le premier plafond applique avec une preuve directe
 
 ## EFFICIENCY SELF-CHECK
-- The current next move is efficient only if it stays focused on production/analytics evidence.
-- Keep `npm test`, bilingual parity checks, integrated visual proof, and the work-first product principle.
-- Change production proof from an occasional artifact into a repeatable gate.
-- Remove or defer new workflow tooling, broad redesign, and additional decorative systems until the active blocker clears.
-- Automate production screenshot/link checks, latest-proof pointer creation, and telemetry contract validation.
-- Measure deployed load health, CTA/work/language events, external link integrity, and first-viewport activation signals.
+- Keep `npm test`, `proof:production`, bilingual parity checks, screenshots, accessibility smoke, performance budget, and privacy-safe event acknowledgement.
+- Change the next move from feature polish to proof-control reconciliation plus CI/field evidence ingestion.
+- Remove or archive product-plan noise that optimizes for admin/auth/checkout surfaces instead of the portfolio evaluator journey.
+- Automate latest-proof pointer creation before adding more Atlas/autogrowth tooling.
+- Measure success by work opens, contact intent, language switch, and under-two-minute comprehension, not docs volume or fixture count.
+- Do not spend cycles bypassing LinkedIn bot protection; document provider-blocked status and validate URL format instead.
 
 ## CONTEXT RUBRIC
 - Complete journeys: UI-to-API flow, shared contracts, visible errors, persistence, deployment path.
@@ -205,11 +205,11 @@ Make the deployed visitor journey proof repeatable, current, and tied to privacy
 - Fullstack: isoler client, serveur et contrats partages; prouver un flux bout-en-bout avec seed/demo et commande unique.
 
 ## GROWTH / UI-UX DIRECTION
-Optimize for evaluator speed: role, work, proof, and contact must be immediately legible.
-Make proof native to project cards and CTAs, not hidden in internal docs.
-Keep French content authored and layout-stable, not merely translated.
-Strengthen selected-work inspectability before adding new sections.
-Keep practical AI workflow as a credibility layer, not a chatbot-first or agent-spectacle experience.
+Shift from `site works` to `evaluator decides quickly`. Every change should reduce time to understand role, strongest proof, selected work, and contact path.
+Make proof visible at the decision point: project cards and proof panels should carry evidence instead of relying on internal logs.
+Preserve the human, tactile, work-first direction; avoid chatbot-first, fake autonomy, dashboard cosplay, or visual flourishes that hide projects.
+Treat bilingual UX as authored product quality: verify French hierarchy, line breaks, CTA clarity, and proof density, not only translation key parity.
+Use AI/agentic content as operating credibility. It should explain how Xavier works, not become the main character.
 
 ## BENCHMARK CALIBRATION
 - Manual benchmark targets:
@@ -277,18 +277,18 @@ Keep practical AI workflow as a credibility layer, not a chatbot-first or agent-
 - Ne pas baisser les gates pour creer de l'activite; ameliorer sourcing, simulation, validation, UX, observabilite ou apprentissage.
 
 ## BLOCKER ESCAPE LANES
-If analytics setup is blocked, add the event contract and a production-safe no-op adapter, then document the provider dependency.
-If production deployment access is blocked, run the same proof against a preview deployment and make deployment access the next blocker.
-If CI screenshots are blocked, run production proof locally and preserve the artifact path and command.
-If telemetry raises privacy concerns, measure only aggregate CTA/work/language events with no personal identifiers.
-If visual polish is requested first, constrain it to first viewport and selected-work comprehension, then rerun journey proof.
+If GitHub connector access is unavailable, use a manually exported GitHub Actions run summary and artifact URL as a temporary CI evidence source, clearly labeled weaker than connector-backed telemetry.
+If external analytics is not configured, ingest the existing production journey acknowledgement artifact as smoke proof and define the exact event contract for the future durable source.
+If LinkedIn remains provider-blocked, keep it as `provider-blocked`, validate format, and avoid retry loops that pretend to prove the provider path.
+If confidential Logix details cannot be exposed, create a redacted proof format with allowed fields: role, constraint, architecture category, measurable class of improvement, stack, proof type, and explicit omissions.
+If target-user review is unavailable, run a screenshot-only cold reviewer test and label it as weaker than real field validation.
 
 ## AGENT PROMPT LOOP
-Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, package scripts, and latest journey proof. Evidence inputs: target, score cap, active blocker, canonical commands, production URL. Stop condition: one blocker and one proof command are named. Learning update: record active score cap and latest proof path.
-Reusable prompt: clear the active score cap without broad redesign by making production visitor journey proof repeatable for the bilingual portfolio, verifying deployed desktop/mobile/French paths, checking contact/work links, and recording the result as the latest proof artifact. Evidence inputs: `npm test`, production URL, current proof artifact, selected work/link data. Stop condition: production proof artifact exists or blocker is reduced to one external dependency.
-Execute the slice: add only the smallest script/test/config needed to prove production journey health and event readiness. Evidence inputs: package scripts, existing runtime proof test, screenshot/log conventions. Stop condition: command runs locally without weakening existing gates. Learning update: record what became automated and what remains manual.
-Verify proof: run `npm test` and the production proof command, then inspect screenshots/artifacts for first-viewport and selected-work integrity. Evidence inputs: command output, screenshots, link report, telemetry report. Stop condition: pass/fail is unambiguous and tied to the visitor journey. Learning update: update proof journal with command, result, score impact, and next cap.
-Decide next prompt: if production/analytics proof passes, improve selected-work evidence density; if blocked, resolve the named external dependency or run preview-deploy proof. Evidence inputs: latest proof artifact and blocker log. Stop condition: next action fits one vertical slice and has a concrete verification path.
+Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `.autogrowth/state.json`, `logs/visual/portfolio-production-proof.md`, `.autogrowth/product-proof/integrated-production-proof.json`, `.autogrowth/signals/normalized.json`, and `.github/workflows/ci.yml`. Evidence inputs: score/cap fields, proof timestamp, commit, production URL, telemetry source counts, CI workflow/status. Stop condition: one active cap and one stale or missing proof link are named. Learning update: record whether the blocker is CI, telemetry, selected-work depth, or comprehension.
+Reusable prompt: `Reconcile the portfolio proof control plane without changing product UI. Create or update one latest-proof artifact that points to current deployed journey proof, CI evidence, telemetry source status, screenshots, accessibility/performance smoke, event acknowledgements, commit, and active cap. Keep the score at 90 unless new external evidence lifts the 92 cap. Verify referenced paths exist and stop.` Evidence inputs: production proof markdown/json, integrated proof, normalized telemetry, CI workflow or run export. Stop condition: latest-proof exists or the missing external dependency is explicitly named. Learning update: record automated versus manual proof sources.
+Execute the slice: touch only generated diagnostic/proof-index artifacts and any minimal script needed to build the latest-proof pointer. Evidence inputs: existing proof scripts, `logs/visual` conventions, `.autogrowth/signals` conventions. Stop condition: no redesign, no new framework, no unrelated Atlas/autogrowth expansion. Learning update: note which proof source became canonical.
+Verify proof: run the narrowest available checks, ideally path existence plus `npm run proof:production` and `npm test` when write/exec permissions allow. Evidence inputs: command output, artifact timestamp, CI status, telemetry source counts. Stop condition: pass/fail is unambiguous. Learning update: update proof journal with timestamp, command, result, and remaining cap.
+Decide next prompt: if latest-proof and CI/telemetry reconciliation pass, move to selected-work inspectability; if CI/analytics remains blocked, choose the safe adjacent lane that creates weaker but labeled evidence without lowering gates. Evidence inputs: latest cap and proof checklist. Stop condition: next action is one vertical slice with one validation artifact.
 
 ## SHORT PRIORITY BACKLOG
 - DO NOW: Score-cap sprint: choose one feature that moves Tests only; validate with a before/after artifact; do not spread effort across unrelated categories.; proof clarity 8/10; risk 3/10; stop when it no longer attacks a named cap.
@@ -297,18 +297,19 @@ Decide next prompt: if production/analytics proof passes, improve selected-work 
 - DO NOT BUILD YET: avoid broad surface expansion until proof improves; proof: tie to active cap; stop: no evidence gain.
 
 ## NEXT 10 POINTS PROOF CHECKLIST
-`npm test` passes locally.
-Production proof runs against the deployed URL and records a dated artifact.
-Desktop and mobile production screenshots show no overflow, clipped text, missing images, broken accents, or obscured CTAs.
-English and French journeys expose identity, role, offer, proof strip, selected work, language switch, and contact path.
-Core external links and contact links are verified in production.
-Aggregate telemetry proves work open, language switch, contact click, and external profile click, or documents the exact setup blocker.
-Latest proof artifact names score cap, command, environment, timestamp, result, and next action.
+`npm test` passes on the current commit.
+`npm run proof:production` passes against `https://xpelch.vercel.app` on the current commit.
+Latest-proof artifact records commit, timestamp, production URL, proof markdown/json, screenshots, live links, event acknowledgements, accessibility smoke, performance budget, CI status, telemetry source, active cap, and next move.
+Normalized telemetry includes observed CI status or explicitly documents why CI is unavailable.
+Normalized telemetry includes durable visitor-intent source or clearly labels the deployed endpoint acknowledgement as smoke proof only.
+At least one selected-work proof panel is verified in EN and FR screenshots.
+Desktop EN, mobile EN, and mobile FR screenshots show no overflow, clipped accents, missing images, broken anchors, or overlapping controls.
+`EVALUATION.md`, `.autogrowth/state.json`, `.autogrowth/context-pack.json`, and latest-proof agree on score, cap, and next action.
 
 ## NEXT 2 HOURS
-1. Scope the slice: Make the deployed visitor journey proof repeatable, current, and tied to privacy-safe success-event telemetry.
+1. Scope the slice: Create and verify a latest-proof control artifact that reconciles deployed proof, CI status, telemetry source status, commit, screenshots, accessibility/performance smoke, event acknowledgements, and the active 92 cap. This is the highest-leverage move because it converts existing proof into operating evidence and exposes the next real blocker without changing product UI.
 2. Touch only the files needed for that slice; avoid parallel refactors.
-3. Run proof: Production proof runs against the deployed URL and records a dated artifact.
+3. Run proof: `npm run proof:production` passes against `https://xpelch.vercel.app` on the current commit.
 4. Capture one before/after artifact or status result.
 5. Update the blocker/proof note in `AUTOGROWTH.md` if the result changes direction.
 6. Rerun `$autogrowth` and compare the progress delta.
@@ -355,57 +356,58 @@ Latest proof artifact names score cap, command, environment, timestamp, result, 
 - Observabilite : log/trace/metric signal present
 
 ## FINDINGS GOAL-DRIVEN
-- Active score cap is production evidence, not local readiness: the repo has local proof, but remote production and analytics evidence are explicitly not connected.
-- Do not raise above 86 until the deployed visitor journey is proven: land, inspect work, switch language, contact/open project.
-- Workflow tooling is abundant, but it only counts when it proves an integrated product outcome. Avoid rewarding docs, logs, or tool inventory by themselves.
-- The highest-risk gap is that the portfolio may be locally polished but still unproven in the environment evaluators actually use.
-- The stated goal is evaluator confidence under two minutes; the next proof must show that the deployed first viewport and selected work section create that confidence quickly.
-- No provided proof that production telemetry captures work opens, language switches, contact clicks, or external profile clicks.
-- No current production screenshot proof tied to the deployed URL and latest UI state.
-- No clear evidence of deployed runtime health: console errors, asset loading, broken links, or mobile overflow in production.
-- No explicit performance or accessibility budget evidence, despite speed and clarity being part of the portfolio trust signal.
-- No single latest-proof index connecting score cap, CI/local proof, production proof, active blocker, and next action.
+- Active cap is 92/100: production journey proof exists, but observed CI artifacts and connector-backed or durable field visitor-intent evidence are still missing from the operating loop.
+- Primary blocker is no longer local runtime proof. `logs/visual/portfolio-production-proof.md` and `.autogrowth/product-proof/integrated-production-proof.json` show deployed proof on 2026-06-11T15:20:41Z for screenshots, link contracts, accessibility smoke, performance budget, command deck keyboard behavior, language switcher clarity, and journey event acknowledgement.
+- The current next move is efficient only if it stops re-proving local readiness and turns production proof into one current operator-readable proof index with CI status and durable visitor-intent source. More UI work before that risks improving the surface while leaving the score cap untouched.
+- Telemetry is still smoke-grade. The `/api/journey` endpoint validates and acknowledges contact, project, profile, and language events, but `.autogrowth/signals/normalized.json` reports `ci: 0`, `usage_events: 0`, and `connectors: 0`. This proves wiring, not real evaluator behavior.
+- Selected work is credible but capped for decision-grade hiring proof. The confidential Logix work is summarized as stack and outcomes, but it lacks a sanitized architecture trace, before/after metric, role-specific evidence, or a private-case proof path that a hiring manager can inspect without internal docs.
+- The proof system is strong for a portfolio, but it is distributed across `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `.autogrowth/state.json`, `.autogrowth/product-proof`, `.autogrowth/signals`, and `logs/visual`. Future agents can waste cycles reconciling stale or duplicated proof surfaces.
+- The portfolio is already past the bearable/useful threshold because the stated journey is covered by content tests, build/lint, production proof, screenshots, accessibility smoke, performance budget, and event acknowledgement. It is not beyond 92 because success is still simulated or smoke-tested rather than observed in the field.
+- LinkedIn live proof remains provider-blocked with HTTP 999. That is acceptable when documented, but it should stay classified as provider-blocked, not as a fully live-checked external path.
+- No fresh commands were executed in this read-only review; assessment relies on repo artifacts and the current generated proof records.
+- No observed GitHub Actions run URL/status or uploaded artifact reference is connected to normalized telemetry.
 
 ## PLAFONDS APPLIQUES
-- Active cap: 89 until deployed journey proof is repeatable and current.
-- Next cap: 92 until privacy-safe telemetry proves visitors can open work, switch language, and contact from production.
-- UX cap: 93 until selected work is inspectable enough to prove production judgment without internal docs.
-- Trust cap: 94 until deployed performance, accessibility, runtime, and link health are proven.
-- 100 cap: unreachable from current evidence because exceptional outcomes require measured production behavior and externally credible proof, not only local screenshots or plans.
+- 92 cap: observed CI artifacts and connector-backed or durable field visitor-intent evidence are missing.
+- 94 cap: selected-work proof is not yet deep and inspectable enough, especially for confidential production work.
+- 96 cap: benchmark-calibrated UX deltas and target-user comprehension evidence are not proven.
+- 98 cap: no repeated real-world outcome signal shows visitors inspect work or start contact over time.
+- 100 cap: exceptional sustained evidence is absent; current artifacts prove a strong smoke-tested product path, not magnum-opus field outcomes.
 
 ## JUGEMENT CODEX
 - Confidence : high
-- Resume : The repository has high context strength, a clear product vision, canonical local tests, and an existing 86/100 score. Its own strategy names the active blocker: remote production and analytics evidence are not connected. The highest-leverage move is therefore a repeatable deployed journey proof with privacy-safe event validation, not more tooling or broad redesign.
+- Resume : I reviewed the repo control surfaces, current generated evaluation, context pack, state file, package scripts, core app, translation contracts, journey event endpoint/client, CI workflow, normalized telemetry, and current production proof artifacts. The evidence supports 90/100: the deployed visitor journey is strongly smoke-tested, but the next score band is capped by missing observed CI evidence, durable field visitor-intent telemetry, deeper selected-work proof, and target-user comprehension validation.
 
 ## REVUE FEATURE / QOL / UI-UX
 ### Feature depth
 - Les contrats et cas d'erreur des surfaces API devraient etre valides par des tests d'integration lisibles.
-- Production telemetry contract: reason: clears the named evidence cap; validation proof: aggregate production events for work_open, language_switch, contact_click, external_profile_click; do not build an analytics dashboard yet.
-- Selected-work proof expansion: reason: strengthens production-minded credibility; validation proof: each project exposes problem, role, stack, constraint, outcome, and proof link; do not add more projects yet.
-- Latest proof index: reason: reduces operator friction and stale score claims; validation proof: one generated artifact points to local proof, production proof, CI status, score cap, and next action; do not create a broad docs portal.
-- First-viewport comprehension test: reason: attacks the under-two-minute evaluator goal; validation proof: desktop/mobile assertions confirm name, role, offer, proof strip, CTAs, and language control are visible without overlap; do not redesign lower sections first.
+- Do not add broad new sections yet; the only justified product feature is deeper selected-work inspectability because it directly attacks the 94 cap.
+- A compact confidential-case proof panel for Logix is justified if it exposes role, constraint, system shape, outcome, proof artifact, and redaction boundary without turning the site into a long case-study archive.
+- A latest-proof index is justified because it attacks the 92 cap by tying commit, production URL, screenshots, performance/accessibility smoke, event acknowledgement, CI status, telemetry source, and current cap into one artifact.
+- A real analytics connector or accepted export ingestion is justified only after defining the minimum portfolio event contract: `project_open`, `contact_click`, `external_profile_click`, and `language_switch`.
+- The command deck is a useful evaluator shortcut, but it should remain secondary. It should not become a chatbot-like or process-heavy feature that competes with selected work.
 ### QoL
-- Make `npm run proof:production` as repeatable and trusted as `npm test`.
-- Keep local visual proof, but stop treating it as sufficient once a production URL exists.
-- Add timestamps, environment, command, result, and next blocker to every proof artifact.
-- Reduce next-agent ambiguity by issuing one bounded prompt per slice instead of broad product-improvement prompts.
-- Keep runtime state local unless explicitly versioned, but make the latest proof path easy to find.
+- Future agents need one canonical proof pointer. Current proof lookup requires checking several generated files and logs.
+- The language loading path logs translation fetch failures and falls back on initial load, but the explicit language switch path has no visible fallback or retry state if a translation fetch fails.
+- Operators need a short public-health proof answer: current commit, deployed URL, proof status, CI status, telemetry status, and next cap without reading multiple generated reports.
+- The private Logix card is intentionally non-link, but the visitor experience could read as a dead end. A clear `private, sanitized proof available` affordance would reduce friction without exposing confidential details.
+- The proof scripts are capable but heavyweight; keep them, but add a latest-proof summary so humans do not have to parse raw proof JSON for routine decisions.
 ### UI/UX
 - Aucun signal accessibilite explicite; verifier clavier, focus, labels, contrastes et etats d'erreur.
-- The first viewport remains the decisive UX surface: name, role, offer, proof strip, work CTA, contact CTA, and language control must be visible without scroll or crowding.
-- Selected work should be more inspectable than the AI workflow signal. AI should read as operating evidence, not the main character.
-- Bilingual switching must be obvious but quiet, especially on mobile where header density can compete with primary CTAs.
-- Dark tactile visual direction is appropriate only if it makes proof faster to scan; avoid visual drama that hides project evidence.
-- The next UI pressure should be comprehension speed: can a recruiter identify Xavier's role, strongest work, stack signal, and contact path in under 20 seconds?
+- Next UX pressure is comprehension, not decoration. The product should answer `who is Xavier, what is his strongest production proof, why trust him, and how do I contact him` faster than a polished generic portfolio.
+- The dark tactile direction matches the stated bar, but project evidence should become more inspectable than the visual treatment. Visual craft must support work inspection, not obscure it.
+- French parity is tested for contracts and screenshots, but benchmark-grade bilingual UX also needs review of line rhythm, hierarchy, CTA clarity, and proof density in French.
+- Project visuals are abstract/systemic. For higher polish, proof visuals should communicate actual system evidence where possible: flow, architecture slice, metric, interface artifact, or redacted operational map.
+- Accessibility smoke exists and is valuable, but the next band needs it attached to the latest proof index and CI artifact, not buried in generated runtime proof only.
 ### Next excellence actions
 - Choisir 3 parcours critiques et les evaluer comme des features completes: entree, succes, erreur, reprise, preuve.
 - Ajouter une checklist 'feature done' couvrant valeur utilisateur, friction QoL, accessibilite, tests et observabilite.
 - Creer une revue UI/UX recurrente avec captures avant/apres et criteres responsive/accessibilite.
 - Cartographier les contrats API par feature avec validation, erreurs attendues et exemples d'appel.
-- Run or create repeatable production journey proof against `https://xpelch.vercel.app`.
-- Capture production desktop and mobile screenshots for English and French journeys.
-- Verify production contact, GitHub, LinkedIn, selected work, and anchor links.
-- Add privacy-safe event validation for language switch, work open, and contact click.
+- Create `latest-proof` as the single operating artifact for current commit, deployed URL, production proof, screenshots, accessibility/performance budgets, event acknowledgements, CI status, telemetry source, active cap, and next move.
+- Connect a GitHub Actions run artifact or status export into normalized telemetry so CI becomes observed evidence, not merely a workflow file.
+- Create one sanitized Logix proof panel or proof artifact with redaction rules, architecture slice, measurable improvement, and explicit omitted details.
+- Run a cold-reviewer comprehension test using only the deployed page or screenshots: role, stack, strongest proof, selected project, and contact path must be recovered in under two minutes.
 
 ## ALLER PLUS LOIN
 ### Scoreboard moves
@@ -414,27 +416,27 @@ Latest proof artifact names score cap, command, environment, timestamp, result, 
 - Creer une revue UI/UX recurrente avec captures avant/apres et criteres responsive/accessibilite.
 - Cartographier les contrats API par feature avec validation, erreurs attendues et exemples d'appel.
 - Tenir un scoreboard apres chaque iteration: score actuel, plafond actif, top 3 deltas, preuve ajoutee, prochain pari.
-- 86 -> 88: refresh local journey proof after any UI/content change and confirm desktop/mobile/French screenshots remain clean.
-- 88 -> 90: make production proof pass against the deployed URL with screenshots and link checks.
-- 90 -> 92: prove aggregate production telemetry for work_open, language_switch, contact_click, and external_profile_click.
+- 90 -> 92: connect observed CI artifact status plus durable visitor-intent evidence into normalized telemetry; proof is a latest-proof artifact with CI run URL/status and event source summary.
+- 92 -> 94: make selected work decision-grade; proof is one bilingual Logix proof panel with redacted architecture/outcome evidence and screenshots showing it does not hide the primary cards.
+- 94 -> 96: run benchmark-calibrated UI/comprehension review against the stated references; proof is before/after screenshots plus a closed delta list.
 ### Research questions
 - Quels sont les 3 parcours critiques que l'utilisateur ou l'operateur doit reussir sans aide?
 - Quels irritants reviennent dans l'usage quotidien: attente, confusion, ressaisie, erreurs muettes, commandes trop longues?
 - Quelles preuves objectives montreraient que la prochaine iteration est meilleure: temps de parcours, taux d'erreur, couverture, captures, logs?
 - Quels ecrans doivent avoir des etats empty/loading/error/success impeccables avant d'augmenter le score?
 - Quels contrats API casseraient la confiance utilisateur s'ils echouent silencieusement ou avec une erreur vague?
-- Which privacy-safe analytics option best proves portfolio success events without over-instrumenting a personal site?
-- Can engineering managers understand Xavier's role, strongest work, and contact path from the first viewport in under 20 seconds?
-- Which project gives the strongest credibility signal: production delivery, AI workflow judgment, bilingual polish, or systems tooling?
+- Can a hiring manager identify Xavier's strongest production proof, not just his stack, within 30 seconds of the first viewport?
+- Which selected project creates the most hiring signal: confidential Logix production work, Blockhead AI Chatbot, Sweep Token Consolidation, or the portfolio system itself?
+- What is the minimum privacy-safe telemetry source that counts as durable visitor-intent evidence for this portfolio?
 ### Benchmark targets
 - Comparer l'onboarding, les commandes et les etats d'erreur avec 2 projets de reference du meme type.
 - Comparer les parcours critiques avec les standards du domaine: accessibilite, performance percue, messages d'erreur, recuperation.
 - Comparer les ecrans clefs a des produits de reference pour densite, hierarchie visuelle, focus clavier et responsive.
-- First viewport: at 390px and 1440px, name, role, offer, proof strip, work CTA, contact CTA, and language control are visible without overlap.
-- Selected work: every featured project exposes problem, role, stack, constraint, outcome, and proof link visible or one interaction away.
-- Production reliability: deployed proof passes with screenshots, link checks, and no runtime console errors.
-- Telemetry: aggregate events exist for work_open, language_switch, contact_click, and external_profile_click with no personal data captured.
-- Visual craft: compare against `references/ui-ref.png` and `references/ui-ref2.png` with three concrete deltas on hierarchy, material feel, and project inspectability.
+- First viewport: name, role, production offer, proof strip, work CTA, contact CTA, and language control are visible with no scroll on desktop and mobile.
+- Two-minute evaluator task: cold reviewer can state role, stack, strongest proof, selected-work example, and contact path in under two minutes.
+- Selected-work benchmark: each major project has role, constraint, outcome, stack, proof artifact, and next action visible in EN and FR.
+- Production-proof benchmark: public URL, current commit, screenshots, link health, accessibility smoke, performance budget, event acknowledgement, and CI status are captured in one latest artifact.
+- Telemetry benchmark: durable aggregate production evidence proves at least `project_open`, `contact_click`, `external_profile_click`, and `language_switch` from an accepted external or connector-backed source.
 ### Experiments
 - Faire une passe 'moins de friction': supprimer une etape, rendre un defaut plus intelligent, ajouter un feedback immediat.
 - Faire une passe 'preuve': ajouter un test, une capture, un scenario ou un rapport qui demontre la feature au lieu de la decrire.
@@ -446,29 +448,30 @@ Latest proof artifact names score cap, command, environment, timestamp, result, 
 - Proof harness: add one executable scenario for the critical journey; attacks Tests/Reliability caps; validate with the narrow test command; do not build broad fixtures first.
 - Critical-flow polish pass: add empty/loading/error/success states and responsive proof; attacks UI/UX and feature completeness caps; validate with Playwright screenshots; do not add secondary screens first.
 - Score-cap sprint: choose one feature that moves Tests only; validate with a before/after artifact; do not spread effort across unrelated categories.
-- Production telemetry contract: reason: attacks the remote evidence cap; validation proof: dated report showing aggregate production events; do not build dashboards yet.
-- Case-study evidence expansion: reason: improves production credibility at the project decision point; validation proof: content tests and screenshots for complete project evidence; do not add unproven project inventory.
-- Latest proof index: reason: prevents stale score claims; validation proof: generated artifact links latest local proof, production proof, CI status, score cap, and next action; do not create a documentation portal.
-- First-viewport comprehension proof: reason: supports the stated two-minute evaluator goal; validation proof: scripted DOM or screenshot checklist across desktop and mobile; do not polish lower sections first.
+- Latest-proof index: attacks the 92 cap by making deployed proof, CI status, telemetry, and next cap current in one place; validation proof is a generated artifact plus path existence checks and `npm run proof:production`; do not build a dashboard yet.
+- Sanitized Logix proof panel: attacks the 94 cap by making the strongest confidential production work inspectable; validation proof is EN/FR screenshots plus content assertions for role, constraint, system shape, outcome, and redaction boundary; do not build full long-form case studies for every project yet.
+- Cold evaluator comprehension test: attacks the 96 cap by proving the target user can understand the offer quickly; validation proof is a timed checklist from screenshot/page review; do not add decorative hero changes until the failed comprehension item is known.
+- Telemetry connector/export ingestion: attacks the 92 and 98 caps by turning smoke events into durable visitor-intent evidence; validation proof is normalized telemetry with nonzero accepted external source counts; do not collect personal identifiers or build granular analytics UI yet.
 
 ## FEATURE BET SCORING
 - DO NOW: Score-cap sprint: choose one feature that moves Tests only; validate with a before/after artifact; do not spread effort across unrelated categories. (impact 8/10, cost 4/10, proof 8/10, growth/UX 6/10, risk 3/10)
 - DO NOW: Critical-flow polish pass: add empty/loading/error/success states and responsive proof; attacks UI/UX and feature completeness caps; validate with Playwright screenshots; do not add secondary screens first. (impact 7/10, cost 4/10, proof 8/10, growth/UX 8/10, risk 3/10)
-- DO NOW: Case-study evidence expansion: reason: improves production credibility at the project decision point; validation proof: content tests and screenshots for complete project evidence; do not add unproven project inventory. (impact 7/10, cost 4/10, proof 8/10, growth/UX 6/10, risk 3/10)
-- DO NOW: Latest proof index: reason: prevents stale score claims; validation proof: generated artifact links latest local proof, production proof, CI status, score cap, and next action; do not create a documentation portal. (impact 7/10, cost 4/10, proof 8/10, growth/UX 6/10, risk 3/10)
-- DO NOW: First-viewport comprehension proof: reason: supports the stated two-minute evaluator goal; validation proof: scripted DOM or screenshot checklist across desktop and mobile; do not polish lower sections first. (impact 7/10, cost 4/10, proof 8/10, growth/UX 6/10, risk 3/10)
+- DO NOW: Sanitized Logix proof panel: attacks the 94 cap by making the strongest confidential production work inspectable; validation proof is EN/FR screenshots plus content assertions for role, constraint, system shape, outcome, and redaction boundary; do not build full long-form case studies for every project yet. (impact 7/10, cost 4/10, proof 8/10, growth/UX 8/10, risk 3/10)
+- DO NOW: Cold evaluator comprehension test: attacks the 96 cap by proving the target user can understand the offer quickly; validation proof is a timed checklist from screenshot/page review; do not add decorative hero changes until the failed comprehension item is known. (impact 7/10, cost 4/10, proof 8/10, growth/UX 8/10, risk 3/10)
+- DO NOW: Telemetry connector/export ingestion: attacks the 92 and 98 caps by turning smoke events into durable visitor-intent evidence; validation proof is normalized telemetry with nonzero accepted external source counts; do not collect personal identifiers or build granular analytics UI yet. (impact 7/10, cost 4/10, proof 8/10, growth/UX 8/10, risk 3/10)
 - DO NOW: Proof harness: add one executable scenario for the critical journey; attacks Tests/Reliability caps; validate with the narrow test command; do not build broad fixtures first. (impact 7/10, cost 5/10, proof 8/10, growth/UX 8/10, risk 3/10)
-- DO NOW: Production telemetry contract: reason: attacks the remote evidence cap; validation proof: dated report showing aggregate production events; do not build dashboards yet. (impact 7/10, cost 5/10, proof 8/10, growth/UX 8/10, risk 3/10)
+- DO NOW: Latest-proof index: attacks the 92 cap by making deployed proof, CI status, telemetry, and next cap current in one place; validation proof is a generated artifact plus path existence checks and `npm run proof:production`; do not build a dashboard yet. (impact 7/10, cost 5/10, proof 8/10, growth/UX 8/10, risk 5/10)
 
 ## SUGGESTIONS CONCRETES
 - Ajouter des tests automatises couvrant les chemins principaux et les cas d'erreur.
 - Couvrir les flux bout-en-bout et verrouiller les contrats partages entre UI et API.
-- Do not raise the score until production proof and telemetry evidence are connected.
-- Make production proof the next narrow action; then improve selected-work evidence density.
-- Treat CI/local build as readiness and production journey proof as success.
-- Use logs as proof only when they demonstrate the visitor or operator outcome.
-- Prefer one high-signal case-study interaction over more sections, badges, or process language.
+- Treat 90/100 as the current score with high local confidence and a hard 92 cap until CI and field-intent evidence are connected.
+- Do not add more broad workflow tooling until the proof-control drift is solved.
+- Make the next implementation slice non-visual unless it directly deepens selected-work proof or resolves proof freshness.
+- Add a small stale-proof guard so future evaluations cannot keep old caps after newer production proof exists.
+- Narrow product-plan docs to the real portfolio domain so future agents stop optimizing for irrelevant admin/auth/checkout surfaces.
+- Use screenshots as proof only when tied to commit, locale, viewport, journey, and current cap.
 
-_Genere automatiquement le 2026-06-11T15:16:27Z. Le score reste borne entre 30 et 100; 100 demande une preuve magnum opus._
+_Genere automatiquement le 2026-06-11T15:26:29Z. Le score reste borne entre 30 et 100; 100 demande une preuve magnum opus._
 
 <!-- AUTO-EVALUATION:END -->

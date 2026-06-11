@@ -1,13 +1,14 @@
 {
-  "schema": "portfolio-integrated-production-proof-v1",
-  "generatedAt": "2026-06-11T01:51:05.770Z",
+  "schema": "portfolio-integrated-production-proof-v2",
+  "generatedAt": "2026-06-11T15:20:41.583Z",
   "url": "https://xpelch.vercel.app",
-  "commit": "1c53598",
+  "environment": "production",
+  "commit": "4da6e68",
   "result": "pass",
   "sourceArtifacts": {
-    "runtimeProofJson": "logs/visual/portfolio-production-proof.json",
-    "runtimeProofMarkdown": "logs/visual/portfolio-production-proof.md",
-    "githubActionsRun": "https://github.com/xpelch/portfolio/actions/runs/27318420599"
+    "runtimeProofJson": "logs\\visual\\portfolio-production-proof.json",
+    "runtimeProofMarkdown": "logs\\visual\\portfolio-production-proof.md",
+    "autogrowthSignal": ".autogrowth\\signals\\analytics\\portfolio-production-journey-latest.json"
   },
   "checks": {
     "htmlIdentity": "pass",
@@ -16,58 +17,193 @@
     "translationsServed": "pass",
     "accentIntegrity": "pass",
     "selectedWork": "pass",
+    "projectCardAffordance": "pass",
     "imageLoading": "pass",
     "linkContracts": "pass",
     "liveExternalLinks": "partial-provider-blocked",
     "screenshots": "pass",
     "firstViewportDecisionSurface": "pass",
     "accessibilitySmoke": "pass",
+    "performanceBudget": "pass",
+    "commandDeckKeyboard": "pass",
     "languageSwitcherClear": "pass",
+    "telemetry": "pass-privacy-safe-memory-bus",
     "journeyEvents": "pass",
-    "journeyEventSink": "pass-production-acknowledged",
-    "ci": "pass"
+    "journeyEventSink": "pass-production-acknowledged"
   },
   "screenshots": [
     {
       "name": "desktop-en",
-      "viewport": "1440x1100",
-      "path": "logs/visual/portfolio-production-desktop-en.png",
-      "scrollWidth": 1440
+      "path": "logs\\visual\\portfolio-production-desktop-en.png",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "language": "en"
     },
     {
       "name": "mobile-en",
-      "viewport": "390x900",
-      "path": "logs/visual/portfolio-production-mobile-en.png",
-      "scrollWidth": 390
+      "path": "logs\\visual\\portfolio-production-mobile-en.png",
+      "width": 390,
+      "scrollWidth": 390,
+      "language": "en"
     },
     {
       "name": "mobile-fr",
-      "viewport": "390x900",
-      "path": "logs/visual/portfolio-production-mobile-fr.png",
-      "scrollWidth": 390
+      "path": "logs\\visual\\portfolio-production-mobile-fr.png",
+      "width": 390,
+      "scrollWidth": 390,
+      "language": "fr"
     }
   ],
-  "accessibilitySmoke": [
+  "firstViewport": [
     {
       "name": "desktop-en",
-      "visibleControls": 12,
-      "focusableControls": 12,
-      "landmarks": "main/h1/nav",
-      "violations": []
+      "proofItemCount": 3,
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      }
     },
     {
       "name": "mobile-en",
-      "visibleControls": 7,
-      "focusableControls": 7,
-      "landmarks": "main/h1/nav",
-      "violations": []
+      "proofItemCount": 3,
+      "viewport": {
+        "width": 390,
+        "height": 900
+      }
     },
     {
       "name": "mobile-fr",
-      "visibleControls": 7,
-      "focusableControls": 7,
-      "landmarks": "main/h1/nav",
-      "violations": []
+      "proofItemCount": 3,
+      "viewport": {
+        "width": 390,
+        "height": 900
+      }
+    }
+  ],
+  "accessibility": [
+    {
+      "name": "desktop-en",
+      "visibleControlCount": 12,
+      "focusedCount": 12,
+      "landmarks": {
+        "main": true,
+        "h1": true,
+        "labeledNav": true
+      },
+      "namelessControls": [],
+      "undersizedControls": [],
+      "duplicateIds": [],
+      "imagesMissingAlt": []
+    },
+    {
+      "name": "mobile-en",
+      "visibleControlCount": 7,
+      "focusedCount": 7,
+      "landmarks": {
+        "main": true,
+        "h1": true,
+        "labeledNav": true
+      },
+      "namelessControls": [],
+      "undersizedControls": [],
+      "duplicateIds": [],
+      "imagesMissingAlt": []
+    },
+    {
+      "name": "mobile-fr",
+      "visibleControlCount": 7,
+      "focusedCount": 7,
+      "landmarks": {
+        "main": true,
+        "h1": true,
+        "labeledNav": true
+      },
+      "namelessControls": [],
+      "undersizedControls": [],
+      "duplicateIds": [],
+      "imagesMissingAlt": []
+    }
+  ],
+  "performance": {
+    "budget": {
+      "domContentLoadedMs": 3500,
+      "loadCompleteMs": 6000,
+      "responseEndMs": 3500,
+      "resourceCount": 70,
+      "transferKiB": 2500,
+      "largestResourceKiB": 1500
+    },
+    "viewports": [
+      {
+        "name": "desktop-en",
+        "domContentLoadedMs": 130,
+        "loadCompleteMs": 130,
+        "responseEndMs": 82,
+        "firstContentfulPaintMs": 140,
+        "resourceCount": 12,
+        "transferKiB": 155,
+        "largestResourceKiB": 89
+      },
+      {
+        "name": "mobile-en",
+        "domContentLoadedMs": 89,
+        "loadCompleteMs": 92,
+        "responseEndMs": 39,
+        "firstContentfulPaintMs": 96,
+        "resourceCount": 10,
+        "transferKiB": 155,
+        "largestResourceKiB": 89
+      },
+      {
+        "name": "mobile-fr",
+        "domContentLoadedMs": 70,
+        "loadCompleteMs": 79,
+        "responseEndMs": 29,
+        "firstContentfulPaintMs": 76,
+        "resourceCount": 13,
+        "transferKiB": 1355,
+        "largestResourceKiB": 1200
+      }
+    ]
+  },
+  "commandDeck": [
+    {
+      "name": "desktop-en",
+      "commandCount": 6,
+      "restoredAfterClose": true,
+      "restoredAfterEscape": true
+    },
+    {
+      "name": "mobile-en",
+      "commandCount": 6,
+      "restoredAfterClose": true,
+      "restoredAfterEscape": true
+    },
+    {
+      "name": "mobile-fr",
+      "commandCount": 6,
+      "restoredAfterClose": true,
+      "restoredAfterEscape": true
+    }
+  ],
+  "projectCards": [
+    {
+      "name": "desktop-en",
+      "privateCount": 1,
+      "publicCount": 2,
+      "deadProjectLinks": 0
+    },
+    {
+      "name": "mobile-en",
+      "privateCount": 1,
+      "publicCount": 2,
+      "deadProjectLinks": 0
+    },
+    {
+      "name": "mobile-fr",
+      "privateCount": 1,
+      "publicCount": 2,
+      "deadProjectLinks": 0
     }
   ],
   "journeyEvents": {
@@ -78,22 +214,56 @@
       "language_switch"
     ],
     "acknowledgedEventNames": [
-      "language_switch",
       "contact_click",
       "project_open",
+      "language_switch",
       "external_profile_click"
     ],
     "eventCount": 4,
     "acknowledgementCount": 4
   },
+  "linkHealth": [
+    {
+      "label": "email",
+      "status": "mailto-format-checked",
+      "httpStatus": null
+    },
+    {
+      "label": "github",
+      "status": "live-checked",
+      "httpStatus": 200
+    },
+    {
+      "label": "linkedin",
+      "status": "provider-blocked",
+      "httpStatus": 999
+    },
+    {
+      "label": "projet:Logix Opérations",
+      "status": "private-anchor",
+      "httpStatus": null
+    },
+    {
+      "label": "projet:Blockhead AI Chatbot",
+      "status": "live-checked",
+      "httpStatus": 200
+    },
+    {
+      "label": "projet:Sweep Token Consolidation",
+      "status": "live-checked",
+      "httpStatus": 200
+    },
+    {
+      "label": "projet:Portfolio System",
+      "status": "live-checked",
+      "httpStatus": 200
+    }
+  ],
   "privacy": {
     "storesTargets": false,
     "storesUserIdentifiers": false,
     "storesIpAddress": false,
     "storesUserAgent": false
   },
-  "remainingGaps": [
-    "LinkedIn blocks automated live checks with provider status 999.",
-    "Product-proof Playwright screenshots are not installed; runtime CDP screenshots are the current screenshot source."
-  ]
+  "nextAction": "Keep this packet fresh after every deployed UI/content change; next cap is privacy-safe aggregate visitor telemetry."
 }

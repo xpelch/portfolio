@@ -1,10 +1,10 @@
 {
   "schema": "portfolio-journey-analytics-signal-v1",
-  "generatedAt": "2026-06-11T15:10:36.988Z",
+  "generatedAt": "2026-06-11T15:20:41.583Z",
   "sourceProof": "logs\\visual\\portfolio-production-proof.json",
   "environment": "production",
   "url": "https://xpelch.vercel.app",
-  "commit": "de92353",
+  "commit": "4da6e68",
   "result": "pass",
   "analytics": {
     "eventNames": [
@@ -14,10 +14,10 @@
       "language_switch"
     ],
     "acknowledgedEventNames": [
-      "language_switch",
       "contact_click",
-      "external_profile_click",
-      "project_open"
+      "project_open",
+      "language_switch",
+      "external_profile_click"
     ],
     "eventCount": 4,
     "acknowledgementCount": 4
@@ -34,33 +34,33 @@
     "viewports": [
       {
         "name": "desktop-en",
-        "domContentLoadedMs": 76,
-        "loadCompleteMs": 97,
-        "responseEndMs": 38,
-        "firstContentfulPaintMs": 92,
-        "resourceCount": 10,
+        "domContentLoadedMs": 130,
+        "loadCompleteMs": 130,
+        "responseEndMs": 82,
+        "firstContentfulPaintMs": 140,
+        "resourceCount": 12,
         "transferKiB": 155,
         "largestResourceKiB": 89
       },
       {
         "name": "mobile-en",
-        "domContentLoadedMs": 83,
-        "loadCompleteMs": 99,
+        "domContentLoadedMs": 89,
+        "loadCompleteMs": 92,
         "responseEndMs": 39,
-        "firstContentfulPaintMs": 88,
+        "firstContentfulPaintMs": 96,
         "resourceCount": 10,
         "transferKiB": 155,
         "largestResourceKiB": 89
       },
       {
         "name": "mobile-fr",
-        "domContentLoadedMs": 76,
-        "loadCompleteMs": 98,
-        "responseEndMs": 34,
-        "firstContentfulPaintMs": 84,
-        "resourceCount": 10,
-        "transferKiB": 155,
-        "largestResourceKiB": 89
+        "domContentLoadedMs": 70,
+        "loadCompleteMs": 79,
+        "responseEndMs": 29,
+        "firstContentfulPaintMs": 76,
+        "resourceCount": 13,
+        "transferKiB": 1355,
+        "largestResourceKiB": 1200
       }
     ]
   },

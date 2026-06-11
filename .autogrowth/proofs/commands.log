@@ -1,12 +1,12 @@
 [pass] runtime.command.npm-run-test
   `npm run test` exit 0
-  duration 13.64s
+  duration 12.61s
   owser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baselin
 [pass] runtime.command.npm-run-build
   `npm run build` exit 0
-  duration 5.33s
+  duration 5.04s
   owser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baselin
 [pass] runtime.command.npm-run-lint
   `npm run lint` exit 0
-  duration 2.32s
+  duration 2.2s
   > portfolio@0.1.0 lint > eslint

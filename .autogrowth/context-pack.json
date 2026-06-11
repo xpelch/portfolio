@@ -1,32 +1,32 @@
 {
   "schema": "autogrowth-context-pack-v1",
-  "updated_at": "2026-06-11T15:16:27Z",
+  "updated_at": "2026-06-11T15:26:29Z",
   "repo": "portfolio",
   "context_type": "fullstack",
   "target": "BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A",
-  "score": 86,
-  "active_score_cap": "Active cap: 89 until deployed journey proof is repeatable and current.",
+  "score": 90,
+  "active_score_cap": "92 cap: observed CI artifacts and connector-backed or durable field visitor-intent evidence are missing.",
   "caps": [
-    "Active cap: 89 until deployed journey proof is repeatable and current.",
-    "Next cap: 92 until privacy-safe telemetry proves visitors can open work, switch language, and contact from production.",
-    "UX cap: 93 until selected work is inspectable enough to prove production judgment without internal docs.",
-    "Trust cap: 94 until deployed performance, accessibility, runtime, and link health are proven.",
-    "100 cap: unreachable from current evidence because exceptional outcomes require measured production behavior and externally credible proof, not only local screenshots or plans."
+    "92 cap: observed CI artifacts and connector-backed or durable field visitor-intent evidence are missing.",
+    "94 cap: selected-work proof is not yet deep and inspectable enough, especially for confidential production work.",
+    "96 cap: benchmark-calibrated UX deltas and target-user comprehension evidence are not proven.",
+    "98 cap: no repeated real-world outcome signal shows visitors inspect work or start contact over time.",
+    "100 cap: exceptional sustained evidence is absent; current artifacts prove a strong smoke-tested product path, not magnum-opus field outcomes."
   ],
   "one_move": [
-    "Make the deployed visitor journey proof repeatable, current, and tied to privacy-safe success-event telemetry."
+    "Create and verify a latest-proof control artifact that reconciles deployed proof, CI status, telemetry source status, commit, screenshots, accessibility/performance smoke, event acknowledgements, and the active 92 cap. This is the highest-leverage move because it converts existing proof into operating evidence and exposes the next real blocker without changing product UI."
   ],
   "proof_command": "npm run test",
   "agent_prompt_loop": [
-    "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, package scripts, and latest journey proof. Evidence inputs: target, score cap, active blocker, canonical commands, production URL. Stop condition: one blocker and one proof command are named. Learning update: record active score cap and latest proof path.",
-    "Reusable prompt: clear the active score cap without broad redesign by making production visitor journey proof repeatable for the bilingual portfolio, verifying deployed desktop/mobile/French paths, checking contact/work links, and recording the result as the latest proof artifact. Evidence inputs: `npm test`, production URL, current proof artifact, selected work/link data. Stop condition: production proof artifact exists or blocker is reduced to one external dependency.",
-    "Execute the slice: add only the smallest script/test/config needed to prove production journey health and event readiness. Evidence inputs: package scripts, existing runtime proof test, screenshot/log conventions. Stop condition: command runs locally without weakening existing gates. Learning update: record what became automated and what remains manual.",
-    "Verify proof: run `npm test` and the production proof command, then inspect screenshots/artifacts for first-viewport and selected-work integrity. Evidence inputs: command output, screenshots, link report, telemetry report. Stop condition: pass/fail is unambiguous and tied to the visitor journey. Learning update: update proof journal with command, result, score impact, and next cap."
+    "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `.autogrowth/state.json`, `logs/visual/portfolio-production-proof.md`, `.autogrowth/product-proof/integrated-production-proof.json`, `.autogrowth/signals/normalized.json`, and `.github/workflows/ci.yml`. Evidence inputs: score/cap fields, proof timestamp, commit, production URL, telemetry source counts, CI workflow/status. Stop condition: one active cap and one stale or missing proof link are named. Learning update: record whether the blocker is CI, telemetry, selected-work depth, or comprehension.",
+    "Reusable prompt: `Reconcile the portfolio proof control plane without changing product UI. Create or update one latest-proof artifact that points to current deployed journey proof, CI evidence, telemetry source status, screenshots, accessibility/performance smoke, event acknowledgements, commit, and active cap. Keep the score at 90 unless new external evidence lifts the 92 cap. Verify referenced paths exist and stop.` Evidence inputs: production proof markdown/json, integrated proof, normalized telemetry, CI workflow or run export. Stop condition: latest-proof exists or the missing external dependency is explicitly named. Learning update: record automated versus manual proof sources.",
+    "Execute the slice: touch only generated diagnostic/proof-index artifacts and any minimal script needed to build the latest-proof pointer. Evidence inputs: existing proof scripts, `logs/visual` conventions, `.autogrowth/signals` conventions. Stop condition: no redesign, no new framework, no unrelated Atlas/autogrowth expansion. Learning update: note which proof source became canonical.",
+    "Verify proof: run the narrowest available checks, ideally path existence plus `npm run proof:production` and `npm test` when write/exec permissions allow. Evidence inputs: command output, artifact timestamp, CI status, telemetry source counts. Stop condition: pass/fail is unambiguous. Learning update: update proof journal with timestamp, command, result, and remaining cap."
   ],
   "next_two_hours": [
-    "1. Scope the slice: Make the deployed visitor journey proof repeatable, current, and tied to privacy-safe success-event telemetry.",
+    "1. Scope the slice: Create and verify a latest-proof control artifact that reconciles deployed proof, CI status, telemetry source status, commit, screenshots, accessibility/performance smoke, event acknowledgements, and the active 92 cap. This is the highest-leverage move because it converts existing proof into operating evidence and exposes the next real blocker without changing product UI.",
     "2. Touch only the files needed for that slice; avoid parallel refactors.",
-    "3. Run proof: Production proof runs against the deployed URL and records a dated artifact.",
+    "3. Run proof: `npm run proof:production` passes against `https://xpelch.vercel.app` on the current commit.",
     "4. Capture one before/after artifact or status result."
   ],
   "short_backlog": [
