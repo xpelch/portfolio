@@ -606,9 +606,23 @@ async function assertJourneyEvents(cdp, name, { requireSink }) {
 }
 
 async function captureScreenshots() {
+  let lastError;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      return await captureScreenshotsAttempt(attempt);
+    } catch (error) {
+      lastError = error;
+      await wait(750);
+    }
+  }
+
+  throw lastError;
+}
+
+async function captureScreenshotsAttempt(attempt) {
   const browserPath = await findBrowserPath();
   const debugPort = 41000 + Math.floor(Math.random() * 1000);
-  const profileDir = path.join(os.tmpdir(), `portfolio-proof-${Date.now()}`);
+  const profileDir = path.join(os.tmpdir(), `portfolio-proof-${Date.now()}-${attempt}`);
   await mkdir(outputDir, { recursive: true });
   await mkdir(profileDir, { recursive: true });
 
@@ -622,6 +636,7 @@ async function captureScreenshots() {
     '--no-first-run',
     '--no-default-browser-check',
     `--user-data-dir=${profileDir}`,
+    '--remote-debugging-address=127.0.0.1',
     `--remote-debugging-port=${debugPort}`,
     'about:blank',
   ], { stdio: ['ignore', 'pipe', 'pipe'] });
