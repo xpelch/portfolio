@@ -1,16 +1,16 @@
 {
   "schema": "portfolio-latest-proof-v1",
-  "generatedAt": "2026-06-11T15:50:42.180Z",
+  "generatedAt": "2026-06-11T16:19:51.277Z",
   "scoreContext": {
-    "currentScore": 91,
-    "activeCap": "92 cap: observed CI artifacts are stale for the proof commit and visitor-intent evidence is not connector-backed or durable.",
+    "currentScore": 88,
+    "activeCap": "jugement Codex indisponible; fallback heuristique conservateur.",
     "capStatus": "active"
   },
   "subject": {
     "product": "bilingual developer portfolio",
     "url": "https://xpelch.vercel.app",
     "environment": "production",
-    "commit": "9d30e51",
+    "commit": "0c3b64a",
     "result": "pass"
   },
   "sourceArtifacts": {
@@ -50,6 +50,13 @@
       "duplicateIds": 0,
       "imagesMissingAlt": 0
     },
+    "visitCounters": {
+      "viewports": 3,
+      "statuses": [
+        "not-deployed-yet"
+      ],
+      "deployedEverywhere": false
+    },
     "performance": {
       "budget": {
         "domContentLoadedMs": 3500,
@@ -59,8 +66,8 @@
         "transferKiB": 2500,
         "largestResourceKiB": 1500
       },
-      "worstLoadCompleteMs": 107,
-      "worstTransferKiB": 155
+      "worstLoadCompleteMs": 150,
+      "worstTransferKiB": 1489
     },
     "commandDeck": {
       "viewports": 3,
@@ -80,9 +87,9 @@
       ],
       "acknowledgedEventNames": [
         "project_open",
-        "contact_click",
+        "external_profile_click",
         "language_switch",
-        "external_profile_click"
+        "contact_click"
       ],
       "eventCount": 4,
       "acknowledgementCount": 4
@@ -128,10 +135,10 @@
   "fieldEvidence": {
     "ci": {
       "status": "observed-stale",
-      "source": ".autogrowth\\signals\\ci\\github-actions-run-27318420599.json",
+      "source": ".autogrowth\\signals\\ci\\github-actions-run-27360079343.json",
       "commitMatched": false,
       "conclusion": "success",
-      "runUrl": "https://github.com/xpelch/portfolio/actions/runs/27318420599",
+      "runUrl": "https://github.com/xpelch/portfolio/actions/runs/27360079343",
       "note": "No CI signal matched the proof commit; the 92 cap remains active until remote CI evidence is refreshed."
     },
     "telemetry": {

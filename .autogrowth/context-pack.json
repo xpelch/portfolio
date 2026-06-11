@@ -1,32 +1,31 @@
 {
   "schema": "autogrowth-context-pack-v1",
-  "updated_at": "2026-06-11T15:59:44Z",
+  "updated_at": "2026-06-11T16:25:24Z",
   "repo": "portfolio",
   "context_type": "fullstack",
   "target": "BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A",
-  "score": 91,
-  "active_score_cap": "Active score cap: remote production and analytics evidence is not connected to the visitor journey.",
+  "score": 88,
+  "active_score_cap": "88 cap: fallback judgment and stale/missing current proof evidence.",
   "caps": [
-    "Active score cap: remote production and analytics evidence is not connected to the visitor journey.",
-    "Secondary cap: local proof is strong but can drift from deployed reality.",
-    "Tertiary cap: visitor success is defined but not yet measured through real intent signals.",
-    "UI/UX cap: first-viewport clarity and bilingual mobile polish must remain proven after every change.",
-    "Product cap: AI workflow signal must not outrank selected work, proof, and contact clarity."
+    "88 cap: fallback judgment and stale/missing current proof evidence.",
+    "90 cap: production journey plus observability not fully connected.",
+    "94 cap: accessibility and performance evidence must be current and surfaced.",
+    "100 cap: requires exceptional benchmarked production outcome evidence, not plans, docs, internal logs, or fixture-only proof."
   ],
   "one_move": [
-    "Close the production evidence cap: run live proof against `https://xpelch.vercel.app`, capture bilingual desktop/mobile screenshots, verify contact and outbound links, record exact results in `logs/visual/portfolio-journey-proof.md`, then let the evaluator decide whether 91 can move."
+    "Attack only the 88 -> 90 cap: run fresh deployed visitor journey proof, fix only blockers that prevent proof, and align the proof/control artifacts with URL, commit, screenshots, accessibility/performance summary, CI status, telemetry status, and remaining blocker."
   ],
   "proof_command": "npm run test",
   "agent_prompt_loop": [
-    "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, package scripts, and `logs/visual/portfolio-journey-proof.md`; evidence inputs are current score, active cap, latest proof commands, screenshots, and production URL; stop condition is identifying one cap tied to the visitor journey.",
-    "Reusable prompt: Close the active production evidence cap for the bilingual portfolio without broad redesign. Verify the live visitor journey from landing to selected work, language switch, and contact; capture desktop/mobile bilingual proof; update only real evidence artifacts; report the next score cap.",
-    "Execute the slice: run `npm test`, run `npm run proof:production`, capture production screenshots for English and French, verify external/contact links, and compare results against the VISION success metrics; stop condition is pass/fail proof tied to a real visitor outcome.",
-    "Record learning: update Autogrowth/Evaluation only through the evaluator or a scoped evidence edit with exact commands, screenshots, URL, and remaining blocker; stop and re-plan if live evidence contradicts local proof."
+    "Observe: read `.autogrowth/context-pack.json`, `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `package.json`, `tests/portfolio-runtime-proof.mjs`, and the latest proof artifact. Evidence inputs: score 88, active cap, proof artifact date, current commit, production URL. Stop if production proof is already fresh for the current commit.",
+    "Prompt: `Attack only the 88 -> 90 cap. Run fresh local and production visitor journey proof for land -> understand offer -> inspect selected work -> switch language -> contact/open project. Fix only blockers that prevent executable proof. Do not add features or planning docs. Update proof/control artifacts only after evidence exists.`",
+    "Execute: make the smallest safe change if proof fails. Evidence inputs: failing command output, affected test/script/content file, screenshot or JSON artifact. Stop after one scoped fix, one concrete external blocker, or one passing production proof.",
+    "Verify: require command output plus dated artifact paths. Proof gate: `npm test` and `npm run proof:production` pass or the production blocker is recorded with local proof intact. Stop condition: no executable proof path or no cap movement."
   ],
   "next_two_hours": [
-    "1. Scope the slice: Close the production evidence cap: run live proof against `https://xpelch.vercel.app`, capture bilingual desktop/mobile screenshots, verify contact and outbound links, record exact results in `logs/visual/portfolio-journey-proof.md`, then let the evaluator decide whether 91 can move.",
+    "1. Scope the slice: Attack only the 88 -> 90 cap: run fresh deployed visitor journey proof, fix only blockers that prevent proof, and align the proof/control artifacts with URL, commit, screenshots, accessibility/performance summary, CI status, telemetry status, and remaining blocker.",
     "2. Touch only the files needed for that slice; avoid parallel refactors.",
-    "3. Run proof: `npm run proof:production` passes against `https://xpelch.vercel.app` or records a concrete failure.",
+    "3. Run proof: `npm run proof:production` passes or records a concrete blocker for `https://xpelch.vercel.app`.",
     "4. Capture one before/after artifact or status result."
   ],
   "short_backlog": [
@@ -42,8 +41,8 @@
     "preset": "standard",
     "run_mode": "auto",
     "codex_enabled": true,
-    "deep": true,
-    "loop": false,
+    "deep": false,
+    "loop": true,
     "benchmark": false,
     "score_contracts": false,
     "product_proof": false,

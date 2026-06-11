@@ -1,17 +1,16 @@
 {
   "schema": "autogrowth-state-v2",
-  "updated_at": "2026-06-11T15:59:44Z",
+  "updated_at": "2026-06-11T16:25:24Z",
   "repo": "portfolio",
   "context_type": "fullstack",
-  "previous_score": 91,
-  "current_score": 91,
+  "previous_score": 88,
+  "current_score": 88,
   "score_delta": 0,
   "current_caps": [
-    "Active score cap: remote production and analytics evidence is not connected to the visitor journey.",
-    "Secondary cap: local proof is strong but can drift from deployed reality.",
-    "Tertiary cap: visitor success is defined but not yet measured through real intent signals.",
-    "UI/UX cap: first-viewport clarity and bilingual mobile polish must remain proven after every change.",
-    "Product cap: AI workflow signal must not outrank selected work, proof, and contact clarity."
+    "88 cap: fallback judgment and stale/missing current proof evidence.",
+    "90 cap: production journey plus observability not fully connected.",
+    "94 cap: accessibility and performance evidence must be current and surfaced.",
+    "100 cap: requires exceptional benchmarked production outcome evidence, not plans, docs, internal logs, or fixture-only proof."
   ],
   "current_weakest": [
     "Tests",
@@ -19,22 +18,21 @@
     "Securite"
   ],
   "current_one_move": [
-    "Close the production evidence cap: run live proof against `https://xpelch.vercel.app`, capture bilingual desktop/mobile screenshots, verify contact and outbound links, record exact results in `logs/visual/portfolio-journey-proof.md`, then let the evaluator decide whether 91 can move."
+    "Attack only the 88 -> 90 cap: run fresh deployed visitor journey proof, fix only blockers that prevent proof, and align the proof/control artifacts with URL, commit, screenshots, accessibility/performance summary, CI status, telemetry status, and remaining blocker."
   ],
   "current_agent_prompt_loop": [
-    "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, package scripts, and `logs/visual/portfolio-journey-proof.md`; evidence inputs are current score, active cap, latest proof commands, screenshots, and production URL; stop condition is identifying one cap tied to the visitor journey.",
-    "Reusable prompt: Close the active production evidence cap for the bilingual portfolio without broad redesign. Verify the live visitor journey from landing to selected work, language switch, and contact; capture desktop/mobile bilingual proof; update only real evidence artifacts; report the next score cap.",
-    "Execute the slice: run `npm test`, run `npm run proof:production`, capture production screenshots for English and French, verify external/contact links, and compare results against the VISION success metrics; stop condition is pass/fail proof tied to a real visitor outcome.",
-    "Record learning: update Autogrowth/Evaluation only through the evaluator or a scoped evidence edit with exact commands, screenshots, URL, and remaining blocker; stop and re-plan if live evidence contradicts local proof.",
-    "Decide next prompt: if production proof passes, prompt the next agent to add privacy-preserving intent telemetry; if it fails, prompt the next agent to fix only the failing live journey element and rerun the same proof."
+    "Observe: read `.autogrowth/context-pack.json`, `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `package.json`, `tests/portfolio-runtime-proof.mjs`, and the latest proof artifact. Evidence inputs: score 88, active cap, proof artifact date, current commit, production URL. Stop if production proof is already fresh for the current commit.",
+    "Prompt: `Attack only the 88 -> 90 cap. Run fresh local and production visitor journey proof for land -> understand offer -> inspect selected work -> switch language -> contact/open project. Fix only blockers that prevent executable proof. Do not add features or planning docs. Update proof/control artifacts only after evidence exists.`",
+    "Execute: make the smallest safe change if proof fails. Evidence inputs: failing command output, affected test/script/content file, screenshot or JSON artifact. Stop after one scoped fix, one concrete external blocker, or one passing production proof.",
+    "Verify: require command output plus dated artifact paths. Proof gate: `npm test` and `npm run proof:production` pass or the production blocker is recorded with local proof intact. Stop condition: no executable proof path or no cap movement.",
+    "Learn: record blocker lifted, remaining blocker, rejected paths, and the next prompt candidate in Autogrowth control surfaces only when evidence changed."
   ],
   "current_causal_score_delta": [
-    "- Score delta : +0 (91/100 -> 91/100), direction `flat`.",
+    "- Score delta : +0 (88/100 -> 88/100), direction `flat`.",
     "- Goal signal : `VISION.md` has a concrete destination, so target calibration is stronger.",
     "- Proof signal : canonical command detected `npm run test`; passing it can move proof confidence.",
-    "- Active cap : Active score cap: remote production and analytics evidence is not connected to the visitor journey..",
-    "- Weakest lever : `Tests` must move before broad feature work is credible.",
-    "- Deep evidence : no failing deep checks in this run."
+    "- Active cap : 88 cap: fallback judgment and stale/missing current proof evidence..",
+    "- Weakest lever : `Tests` must move before broad feature work is credible."
   ],
   "current_short_backlog": [
     "- DO NOW: Score-cap sprint: choose one feature that moves Tests only; validate with a before/after artifact; do not spread effort across unrelated categories.; proof clarity 8/10; risk 3/10; stop when it no longer attacks a named cap.",
@@ -62,7 +60,43 @@
       "decision": "DO NOW"
     },
     {
+      "bet": "Selected-work inspectability polish. Reason: improves the core evaluator journey only if proof shows project cards are easier to scan and open. Validation proof: before/after screenshots plus link and keyboard checks. Do not build yet: more projects, animations, or decorative case-study pages.",
+      "impact": 7,
+      "cost": 4,
+      "proof_clarity": 8,
+      "growth_ux_value": 8,
+      "risk": 3,
+      "decision": "DO NOW"
+    },
+    {
       "bet": "Proof harness: add one executable scenario for the critical journey; attacks Tests/Reliability caps; validate with the narrow test command; do not build broad fixtures first.",
+      "impact": 7,
+      "cost": 5,
+      "proof_clarity": 8,
+      "growth_ux_value": 8,
+      "risk": 3,
+      "decision": "DO NOW"
+    },
+    {
+      "bet": "Production proof packet. Reason: attacks the 88 and 90 caps directly by proving the deployed visitor journey. Validation proof: `npm run proof:production` creates dated runtime, integrated, and latest proof artifacts for the current commit. Do not build yet: new UI sections or dashboard features.",
+      "impact": 7,
+      "cost": 5,
+      "proof_clarity": 8,
+      "growth_ux_value": 8,
+      "risk": 5,
+      "decision": "DO NOW"
+    },
+    {
+      "bet": "Proof freshness gate. Reason: prevents stale artifacts from inflating score. Validation proof: a failing check when proof artifact date, URL, commit, screenshots, or production status are missing. Do not build yet: broad CI overhaul or multi-agent review.",
+      "impact": 7,
+      "cost": 5,
+      "proof_clarity": 8,
+      "growth_ux_value": 8,
+      "risk": 3,
+      "decision": "DO NOW"
+    },
+    {
+      "bet": "Visitor-intent telemetry slice. Reason: attacks the 90+ observability cap by proving real decision actions. Validation proof: privacy-safe aggregate events for project open, language switch, contact click, GitHub/LinkedIn click, visible in normalized telemetry. Do not build yet: personal tracking, session replay, user identifiers, or analytics dashboards.",
       "impact": 7,
       "cost": 5,
       "proof_clarity": 8,
@@ -79,7 +113,7 @@
     "Next cap: 95/100 until selected work evidence is visibly deep, bilingual, and confidentiality-safe.": 1,
     "Next cap: 97/100 until contact/project-open success is measured or deterministically verified.": 1,
     "Hard cap below 100 unless repeated proof shows exceptional bilingual UX, benchmark-grade polish, reliable build/test/visual evidence, and real visitor-outcome readiness.": 1,
-    "jugement Codex indisponible; fallback heuristique conservateur": 12,
+    "jugement Codex indisponible; fallback heuristique conservateur": 13,
     "Current cap: 90/100 until production/analytics evidence is connected.": 1,
     "Readiness cap: local `npm test` plus local screenshots can justify high-80s but not proven public success.": 1,
     "Feature cap: new UI features should not raise score unless they unblock inspect-work/contact or create measurable proof.": 1,
@@ -257,101 +291,20 @@
     "Secondary cap: local proof is strong but can drift from deployed reality.": 1,
     "Tertiary cap: visitor success is defined but not yet measured through real intent signals.": 1,
     "UI/UX cap: first-viewport clarity and bilingual mobile polish must remain proven after every change.": 1,
-    "Product cap: AI workflow signal must not outrank selected work, proof, and contact clarity.": 1
+    "Product cap: AI workflow signal must not outrank selected work, proof, and contact clarity.": 1,
+    "Current cap: dirty local changes and proof artifacts mean the latest deployed proof may not represent the workspace being evaluated.": 1,
+    "Primary product cap: durable visitor-intent evidence is missing beyond smoke-test journey acknowledgements.": 1,
+    "Secondary cap: proof freshness is split across multiple artifacts that can contradict each other.": 1,
+    "UI/UX cap: any new tactile/easter-egg detail must be deployed and screenshot-proven not to distract or overlap.": 1,
+    "Score ceiling: stay at 91 until current-state proof and durable field evidence are connected.": 1,
+    "88 cap: fallback judgment and stale/missing current proof evidence.": 2,
+    "90 cap: production journey plus observability not fully connected.": 2,
+    "94 cap: accessibility/performance evidence must be current and surfaced.": 1,
+    "100 cap: requires exceptional benchmarked production outcome evidence, not plans or internal logs.": 1,
+    "94 cap: accessibility and performance evidence must be current and surfaced.": 1,
+    "100 cap: requires exceptional benchmarked production outcome evidence, not plans, docs, internal logs, or fixture-only proof.": 1
   },
   "history": [
-    {
-      "at": "2026-06-11T02:00:37Z",
-      "score": 88,
-      "type": "fullstack",
-      "caps": [
-        "jugement Codex indisponible; fallback heuristique conservateur"
-      ],
-      "weakest": [
-        "Tests",
-        "Fiabilite",
-        "Securite"
-      ],
-      "one_move": [
-        "- Move : lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence.",
-        "- Why this beats alternatives : it is the active ceiling; other work cannot honestly raise confidence until this cap moves.",
-        "- Proof : `npm run test` plus one artifact that shows the before/after result."
-      ],
-      "agent_prompt_loop": [
-        "- Loop shape : observe state -> prompt agent -> execute slice -> verify proof -> record learning -> choose next prompt.",
-        "- State packet : target `BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A`; score 88/100; weakest category `Tests`; active blocker `jugement Codex indisponible; fallback heuristique conservateur`.",
-        "- Agent prompt : Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `jugement Codex indisponible; fallback heuristique conservateur` by doing only this move: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker."
-      ]
-    },
-    {
-      "at": "2026-06-11T02:02:46Z",
-      "score": 88,
-      "type": "fullstack",
-      "caps": [],
-      "weakest": [
-        "Tests",
-        "Fiabilite",
-        "Securite"
-      ],
-      "one_move": [
-        "- Move : raise `Tests` with one complete journey proof.",
-        "- Why this beats alternatives : it is the weakest category and likely gates the next score band.",
-        "- Proof : `npm run test` plus one artifact that shows the before/after result."
-      ],
-      "agent_prompt_loop": [
-        "- Loop shape : observe state -> prompt agent -> execute slice -> verify proof -> record learning -> choose next prompt.",
-        "- State packet : target `BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A`; score 88/100; weakest category `Tests`; active blocker `current weakest score category`.",
-        "- Agent prompt : Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `current weakest score category` by doing only this move: raise `Tests` with one complete journey proof. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker."
-      ]
-    },
-    {
-      "at": "2026-06-11T02:06:34Z",
-      "score": 90,
-      "type": "fullstack",
-      "caps": [
-        "Score cap 92: blocked until production journey events are durable and externally inspectable, not only acknowledged in browser/runtime proof.",
-        "Score cap 94: blocked until production accessibility and performance evidence are captured for desktop and mobile.",
-        "Score cap 96: blocked until visual and UX benchmark criteria are applied to real screenshots with recorded deltas.",
-        "Score cap 98: blocked until real reviewer or field-usage evidence proves the under-two-minute success moment.",
-        "Score cap 100: blocked until proof freshness is maintained across repeated runs and the portfolio shows exceptional outcome evidence, not just strong scaffolding."
-      ],
-      "weakest": [
-        "Tests",
-        "Fiabilite",
-        "Securite"
-      ],
-      "one_move": [
-        "Update the next slice from Tests to durable production journey evidence: wire or prove a privacy-preserving analytics sink for the four journey events, run production proof from the deployed URL, update normalized telemetry, and stop when the artifact shows durable ingestion rather than browser-only acknowledgement."
-      ],
-      "agent_prompt_loop": [
-        "Observe current state: read VISION.md, AUTOGROWTH.md, EVALUATION.md, .autogrowth/context-pack.json, .autogrowth/signals/normalized.json, logs/visual/portfolio-production-proof.json, app/api/journey/route.ts, and lib/journey-events.ts.",
-        "Reusable prompt: Use Autogrowth on the portfolio workspace. Current score is 90/100. Do one bounded slice: convert journey analytics from browser ACK proof into durable privacy-preserving production evidence for contact_click, project_open, external_profile_click, and language_switch. Touch only the event route/client proof files and Autogrowth evidence files needed. Run npm test and npm run proof:production. Stop if durable ingestion cannot be proven.",
-        "Evidence inputs: latest CI run JSON, production proof JSON/Markdown, screenshots, normalized telemetry, privacy constraints, deployed URL, commit SHA, and the four allowed journey events."
-      ]
-    },
-    {
-      "at": "2026-06-11T02:06:47Z",
-      "score": 88,
-      "type": "fullstack",
-      "caps": [
-        "jugement Codex indisponible; fallback heuristique conservateur"
-      ],
-      "weakest": [
-        "Tests",
-        "Fiabilite",
-        "Securite"
-      ],
-      "one_move": [
-        "- Move : lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence.",
-        "- Why this beats alternatives : it is the active ceiling; other work cannot honestly raise confidence until this cap moves.",
-        "- Proof : `npm run test` plus one artifact that shows the before/after result."
-      ],
-      "agent_prompt_loop": [
-        "- Loop shape : observe state -> prompt agent -> execute slice -> verify proof -> record learning -> choose next prompt.",
-        "- State packet : target `BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A`; score 88/100; weakest category `Tests`; active blocker `jugement Codex indisponible; fallback heuristique conservateur`.",
-        "- Agent prompt : Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `jugement Codex indisponible; fallback heuristique conservateur` by doing only this move: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker."
-      ]
-    },
     {
       "at": "2026-06-11T02:11:13Z",
       "score": 88,
@@ -967,6 +920,102 @@
         "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, package scripts, and `logs/visual/portfolio-journey-proof.md`; evidence inputs are current score, active cap, latest proof commands, screenshots, and production URL; stop condition is identifying one cap tied to the visitor journey.",
         "Reusable prompt: Close the active production evidence cap for the bilingual portfolio without broad redesign. Verify the live visitor journey from landing to selected work, language switch, and contact; capture desktop/mobile bilingual proof; update only real evidence artifacts; report the next score cap.",
         "Execute the slice: run `npm test`, run `npm run proof:production`, capture production screenshots for English and French, verify external/contact links, and compare results against the VISION success metrics; stop condition is pass/fail proof tied to a real visitor outcome."
+      ]
+    },
+    {
+      "at": "2026-06-11T16:11:15Z",
+      "score": 91,
+      "type": "fullstack",
+      "caps": [
+        "Current cap: dirty local changes and proof artifacts mean the latest deployed proof may not represent the workspace being evaluated.",
+        "Primary product cap: durable visitor-intent evidence is missing beyond smoke-test journey acknowledgements.",
+        "Secondary cap: proof freshness is split across multiple artifacts that can contradict each other.",
+        "UI/UX cap: any new tactile/easter-egg detail must be deployed and screenshot-proven not to distract or overlap.",
+        "Score ceiling: stay at 91 until current-state proof and durable field evidence are connected."
+      ],
+      "weakest": [
+        "Tests",
+        "Fiabilite",
+        "Securite"
+      ],
+      "one_move": [
+        "Reconcile the current dirty visit-counter/proof changes, then either deploy-and-prove them or remove them from score consideration; immediately after that, attach durable privacy-safe visitor-intent evidence as the next real cap-lifter."
+      ],
+      "agent_prompt_loop": [
+        "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `.autogrowth/product-proof/latest-proof.json`, `git status --short`, and the visit-counter diff; evidence inputs are dirty files, latest proof commit, CI signal, production URL, and active cap; stop condition is identifying whether proof drift or field telemetry is the blocker.",
+        "Reusable prompt: Resolve the portfolio proof freshness cap without broad redesign. Decide whether the local visit-counter slice ships or stays score-neutral, verify the exact current state locally and in production, then attach or define the smallest durable visitor-intent evidence source.",
+        "Execute the slice: run `npm test`, deploy or intentionally defer the visit-counter change, run `npm run proof:production`, confirm CI for the same commit, and capture the latest anonymized journey-event aggregate; stop condition is one coherent proof packet or a named blocked dependency."
+      ]
+    },
+    {
+      "at": "2026-06-11T16:14:28Z",
+      "score": 88,
+      "type": "fullstack",
+      "caps": [
+        "jugement Codex indisponible; fallback heuristique conservateur"
+      ],
+      "weakest": [
+        "Tests",
+        "Fiabilite",
+        "Securite"
+      ],
+      "one_move": [
+        "- Move : lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence.",
+        "- Why this beats alternatives : it is the active ceiling; other work cannot honestly raise confidence until this cap moves.",
+        "- Proof : `npm run test` plus one artifact that shows the before/after result."
+      ],
+      "agent_prompt_loop": [
+        "- Loop shape : observe state -> prompt agent -> execute slice -> verify proof -> record learning -> choose next prompt.",
+        "- State packet : target `BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A`; score 88/100; weakest category `Tests`; active blocker `jugement Codex indisponible; fallback heuristique conservateur`.",
+        "- Agent prompt : Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `jugement Codex indisponible; fallback heuristique conservateur` by doing only this move: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker."
+      ]
+    },
+    {
+      "at": "2026-06-11T16:23:12Z",
+      "score": 88,
+      "type": "fullstack",
+      "caps": [
+        "88 cap: fallback judgment and stale/missing current proof evidence.",
+        "90 cap: production journey plus observability not fully connected.",
+        "94 cap: accessibility/performance evidence must be current and surfaced.",
+        "100 cap: requires exceptional benchmarked production outcome evidence, not plans or internal logs."
+      ],
+      "weakest": [
+        "Tests",
+        "Fiabilite",
+        "Securite"
+      ],
+      "one_move": [
+        "Run a fresh deployed visitor journey proof and align the control plane: production URL, desktop/mobile, English/French, selected work, language switch, contact/external links, accessibility/performance summary, CI/telemetry status, and corrected score gates."
+      ],
+      "agent_prompt_loop": [
+        "Observe: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `package.json`, `tests/portfolio-runtime-proof.mjs`, and latest visual proof. Evidence inputs: score 88, active cap, latest proof artifact. Stop if proof is already fresh for the current commit and production URL.",
+        "Prompt: `Attack only the 88 -> 90 cap. Run fresh local and production visitor journey proof for land -> inspect work -> switch language -> contact/open project. Fix only blockers that prevent proof. Update proof/control artifacts only after executable evidence exists.`",
+        "Execute: make the smallest safe change if proof fails. Evidence inputs: failing command, affected test/script/content file. Stop after one pass, one concrete block, or one scoped fix."
+      ]
+    },
+    {
+      "at": "2026-06-11T16:25:24Z",
+      "score": 88,
+      "type": "fullstack",
+      "caps": [
+        "88 cap: fallback judgment and stale/missing current proof evidence.",
+        "90 cap: production journey plus observability not fully connected.",
+        "94 cap: accessibility and performance evidence must be current and surfaced.",
+        "100 cap: requires exceptional benchmarked production outcome evidence, not plans, docs, internal logs, or fixture-only proof."
+      ],
+      "weakest": [
+        "Tests",
+        "Fiabilite",
+        "Securite"
+      ],
+      "one_move": [
+        "Attack only the 88 -> 90 cap: run fresh deployed visitor journey proof, fix only blockers that prevent proof, and align the proof/control artifacts with URL, commit, screenshots, accessibility/performance summary, CI status, telemetry status, and remaining blocker."
+      ],
+      "agent_prompt_loop": [
+        "Observe: read `.autogrowth/context-pack.json`, `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `package.json`, `tests/portfolio-runtime-proof.mjs`, and the latest proof artifact. Evidence inputs: score 88, active cap, proof artifact date, current commit, production URL. Stop if production proof is already fresh for the current commit.",
+        "Prompt: `Attack only the 88 -> 90 cap. Run fresh local and production visitor journey proof for land -> understand offer -> inspect selected work -> switch language -> contact/open project. Fix only blockers that prevent executable proof. Do not add features or planning docs. Update proof/control artifacts only after evidence exists.`",
+        "Execute: make the smallest safe change if proof fails. Evidence inputs: failing command output, affected test/script/content file, screenshot or JSON artifact. Stop after one scoped fix, one concrete external blocker, or one passing production proof."
       ]
     }
   ]
