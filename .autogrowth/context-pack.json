@@ -1,6 +1,6 @@
 {
   "schema": "autogrowth-context-pack-v1",
-  "updated_at": "2026-06-11T02:13:10Z",
+  "updated_at": "2026-06-11T02:24:48Z",
   "repo": "portfolio",
   "context_type": "fullstack",
   "target": "BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A",
@@ -52,7 +52,7 @@
     "product_graph_execute": false,
     "product_graph_apply": false,
     "multi_agent_review": false,
-    "max_command_seconds": 120
+    "max_command_seconds": 180
   },
   "read_first": [
     ".autogrowth/context-pack.json",
