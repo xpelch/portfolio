@@ -1,0 +1,246 @@
+{
+  "schema": "autogrowth-loop-run-v2",
+  "started_at": "2026-06-11T02:06:47Z",
+  "iteration": 1,
+  "score_before": 88,
+  "caps_before": [
+    "jugement Codex indisponible; fallback heuristique conservateur"
+  ],
+  "active_blocker_before": "jugement Codex indisponible; fallback heuristique conservateur",
+  "prompt": "Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `jugement Codex indisponible; fallback heuristique conservateur` by doing only this move: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker.",
+  "proof_command": "npm run test",
+  "guardrails": {
+    "max_files_changed": 8,
+    "forbidden_paths": [
+      "infra/prod",
+      "secrets",
+      ".git",
+      "node_modules",
+      ".env"
+    ],
+    "required_proof_command": "npm run test",
+    "stop_on_proof_failure": true,
+    "no_second_eval_without_artifact": true,
+    "require_human_approval_above_risk": 7,
+    "estimated_risk": 3,
+    "patch_acceptance": {
+      "enabled": true,
+      "reject_on_proof_failure": true,
+      "reject_on_guardrail_violation": true,
+      "max_backup_bytes": 2000000
+    },
+    "multi_agent_roles": [
+      "scout",
+      "builder",
+      "critic",
+      "judge"
+    ]
+  },
+  "multi_agent_roles": [
+    {
+      "role": "scout",
+      "responsibility": "find evidence gaps and blocker context"
+    },
+    {
+      "role": "builder",
+      "responsibility": "make the smallest safe patch"
+    },
+    {
+      "role": "critic",
+      "responsibility": "run proof and identify regressions"
+    },
+    {
+      "role": "judge",
+      "responsibility": "accept or reject based on gates"
+    }
+  ],
+  "sandbox": {
+    "active": true,
+    "mode": "copy",
+    "path": "C:\\Programming\\portfolio\\.autogrowth\\sandbox\\20260611T020647Z-copy",
+    "created_by": "file copy"
+  },
+  "sandbox_patch_preview": {
+    "schema": "autogrowth-sandbox-patch-preview-v1",
+    "changed_files_count": 0,
+    "counts": {
+      "added": 0,
+      "modified": 0,
+      "deleted": 0,
+      "other": 0
+    },
+    "files": [],
+    "truncated": false
+  },
+  "agent": {
+    "status": "skipped",
+    "stdout": "",
+    "stderr": "Codex CLI not found; prompt was not executed."
+  },
+  "changed_files": [],
+  "changed_files_count": 0,
+  "forbidden_path_hits": [],
+  "proof": {
+    "command": "npm run test",
+    "status": "failed",
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "'npm' is not recognized as an internal or external command,\noperable program or batch file.\n"
+  },
+  "score_after": 88,
+  "caps_after": [],
+  "active_blocker_after": "",
+  "score_delta": 0,
+  "learning": "Loop produced a runtime trace; inspect proof, changed files, and score delta before the next prompt.",
+  "blocker_lifted": true,
+  "guardrail_violations": [
+    "proof failed"
+  ],
+  "patch_rejected": true,
+  "patch_rejection_reasons": [
+    "guardrail violation",
+    "proof failed"
+  ],
+  "restored_files": [],
+  "score_after_revert": 88,
+  "decision_eval": {
+    "schema": "autogrowth-decision-quality-v1",
+    "blocker_selection": "pass",
+    "prompt_boundedness": "pass",
+    "proof_validity": "fail",
+    "causal_score_movement": "review",
+    "guardrail_clean": "fail"
+  },
+  "judge_decision": {
+    "schema": "autogrowth-judge-decision-v1",
+    "decision": "reject",
+    "reason": "patch rejected or guardrail violation",
+    "role_assessments": [
+      {
+        "role": "scout",
+        "decision": "pass",
+        "rationale": "active blocker captured"
+      },
+      {
+        "role": "builder",
+        "decision": "pass",
+        "rationale": "changed_files=0"
+      },
+      {
+        "role": "critic",
+        "decision": "reject",
+        "rationale": "proof_status=failed"
+      },
+      {
+        "role": "judge",
+        "decision": "reject",
+        "rationale": "guardrail violations present"
+      },
+      {
+        "role": "prompt-auditor",
+        "decision": "pass",
+        "rationale": "prompt_length=439"
+      }
+    ],
+    "reject_votes": 2,
+    "review_votes": 0,
+    "proof_status": "failed",
+    "score_delta": 0,
+    "changed_files_count": 0
+  },
+  "otel": {
+    "schema": "autogrowth-otel-projection-v1",
+    "resource": {
+      "attributes": {
+        "service.name": "autogrowth",
+        "service.namespace": "codex-skill",
+        "telemetry.sdk.name": "autogrowth"
+      }
+    },
+    "scope": {
+      "name": "autogrowth.loop",
+      "version": "2"
+    },
+    "span": {
+      "trace_id": "b965d11c9e85e343ebf36141a488f0d9",
+      "span_id": "4e095c60be6c1b2d",
+      "name": "autogrowth.loop.iteration",
+      "kind": "INTERNAL",
+      "start_time": "2026-06-11T02:06:47Z",
+      "attributes": {
+        "autogrowth.loop.iteration": 1,
+        "autogrowth.agent.prompt": "Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `jugement Codex indisponible; fallback heuristique conservateur` by doing only this move: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker.",
+        "autogrowth.proof.command": "npm run test",
+        "autogrowth.proof.status": "failed",
+        "autogrowth.score.before": 88,
+        "autogrowth.score.after": 88,
+        "autogrowth.score.delta": 0,
+        "autogrowth.blocker.before": "jugement Codex indisponible; fallback heuristique conservateur",
+        "autogrowth.blocker.after": "",
+        "autogrowth.blocker.lifted": true,
+        "autogrowth.files.changed": 0,
+        "autogrowth.guardrail.violations": 1,
+        "autogrowth.agent.status": "skipped",
+        "autogrowth.patch.rejected": true,
+        "autogrowth.patch.restored_files": 0,
+        "autogrowth.sandbox.mode": "copy",
+        "autogrowth.sandbox.active": true,
+        "autogrowth.judge.decision": "reject"
+      },
+      "events": [
+        {
+          "name": "agent.prompt",
+          "attributes": {
+            "prompt": "Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `jugement Codex indisponible; fallback heuristique conservateur` by doing only this move: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker."
+          }
+        },
+        {
+          "name": "proof.command",
+          "attributes": {
+            "command": "npm run test",
+            "status": "failed"
+          }
+        },
+        {
+          "name": "score.delta",
+          "attributes": {
+            "before": 88,
+            "after": 88,
+            "delta": 0
+          }
+        },
+        {
+          "name": "judge.decision",
+          "attributes": {
+            "decision": "reject",
+            "reason": "patch rejected or guardrail violation"
+          }
+        }
+      ],
+      "status": {
+        "code": "ERROR"
+      }
+    },
+    "metrics": {
+      "autogrowth.score.delta": 0,
+      "autogrowth.files.changed": 0,
+      "autogrowth.guardrail.violations": 1
+    },
+    "logs": [
+      {
+        "body": "Loop produced a runtime trace; inspect proof, changed files, and score delta before the next prompt.",
+        "attributes": {
+          "autogrowth.loop.iteration": 1,
+          "autogrowth.agent.status": "skipped",
+          "autogrowth.proof.status": "failed",
+          "autogrowth.judge.decision": "reject"
+        }
+      }
+    ]
+  },
+  "sandbox_patch": {
+    "accepted": false,
+    "reason": "sandbox patch left isolated or rejected"
+  },
+  "decision_eval_path": "C:\\Programming\\portfolio\\.autogrowth\\evals\\latest-decision-quality.json"
+}
