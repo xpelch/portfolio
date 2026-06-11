@@ -1,31 +1,31 @@
 {
   "schema": "autogrowth-context-pack-v1",
-  "updated_at": "2026-06-11T16:25:24Z",
+  "updated_at": "2026-06-11T16:35:58Z",
   "repo": "portfolio",
   "context_type": "fullstack",
   "target": "BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A",
   "score": 88,
-  "active_score_cap": "88 cap: fallback judgment and stale/missing current proof evidence.",
+  "active_score_cap": "88 cap: stale/missing current proof and fallback judgment; active until fresh production proof is tied to current commit and control files agree.",
   "caps": [
-    "88 cap: fallback judgment and stale/missing current proof evidence.",
-    "90 cap: production journey plus observability not fully connected.",
+    "88 cap: stale/missing current proof and fallback judgment; active until fresh production proof is tied to current commit and control files agree.",
+    "90 cap: production journey plus observability not fully connected; opens with deployed journey proof plus privacy-safe event and CI status evidence.",
     "94 cap: accessibility and performance evidence must be current and surfaced.",
-    "100 cap: requires exceptional benchmarked production outcome evidence, not plans, docs, internal logs, or fixture-only proof."
+    "100 cap: exceptional benchmarked production outcome evidence only; plans, docs, internal logs, and fixture-only proof are insufficient."
   ],
   "one_move": [
-    "Attack only the 88 -> 90 cap: run fresh deployed visitor journey proof, fix only blockers that prevent proof, and align the proof/control artifacts with URL, commit, screenshots, accessibility/performance summary, CI status, telemetry status, and remaining blocker."
+    "Run and reconcile one fresh production journey proof for the current commit: npm test plus npm run proof:production, then update only the proof/control artifacts needed to make EVALUATION, AUTOGROWTH, and context-pack agree."
   ],
   "proof_command": "npm run test",
   "agent_prompt_loop": [
-    "Observe: read `.autogrowth/context-pack.json`, `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `package.json`, `tests/portfolio-runtime-proof.mjs`, and the latest proof artifact. Evidence inputs: score 88, active cap, proof artifact date, current commit, production URL. Stop if production proof is already fresh for the current commit.",
-    "Prompt: `Attack only the 88 -> 90 cap. Run fresh local and production visitor journey proof for land -> understand offer -> inspect selected work -> switch language -> contact/open project. Fix only blockers that prevent executable proof. Do not add features or planning docs. Update proof/control artifacts only after evidence exists.`",
-    "Execute: make the smallest safe change if proof fails. Evidence inputs: failing command output, affected test/script/content file, screenshot or JSON artifact. Stop after one scoped fix, one concrete external blocker, or one passing production proof.",
-    "Verify: require command output plus dated artifact paths. Proof gate: `npm test` and `npm run proof:production` pass or the production blocker is recorded with local proof intact. Stop condition: no executable proof path or no cap movement."
+    "Observe: read .autogrowth/context-pack.json, VISION.md, AUTOGROWTH.md, EVALUATION.md, package.json, tests/portfolio-runtime-proof.mjs, latest production proof, and structured event/export artifacts. Evidence inputs: score, caps, commit, deployed URL, proof timestamps, CI status, telemetry status. Stop if proof is already fresh and control files agree.",
+    "Prompt: Attack only the proof freshness/control-plane mismatch blocking 88->90. Run npm test and npm run proof:production for the current commit/deployed URL. Fix only executable-proof blockers. Do not add features, planning docs, or broad refactors.",
+    "Execute: if proof fails, make one scoped fix in the proof harness, link/content contract, or UI/content path causing the failure. Stop after one fix, one concrete external blocker, or one passing proof lane.",
+    "Verify: require command output plus dated artifact paths. Proof gate: npm test and npm run proof:production pass, or production is blocked with local proof intact and a specific blocker."
   ],
   "next_two_hours": [
-    "1. Scope the slice: Attack only the 88 -> 90 cap: run fresh deployed visitor journey proof, fix only blockers that prevent proof, and align the proof/control artifacts with URL, commit, screenshots, accessibility/performance summary, CI status, telemetry status, and remaining blocker.",
+    "1. Scope the slice: Run and reconcile one fresh production journey proof for the current commit: npm test plus npm run proof:production, then update only the proof/control artifacts needed to make EVALUATION, AUTOGROWTH, and context-pack agree.",
     "2. Touch only the files needed for that slice; avoid parallel refactors.",
-    "3. Run proof: `npm run proof:production` passes or records a concrete blocker for `https://xpelch.vercel.app`.",
+    "3. Run proof: Production URL recorded and reachable.",
     "4. Capture one before/after artifact or status result."
   ],
   "short_backlog": [

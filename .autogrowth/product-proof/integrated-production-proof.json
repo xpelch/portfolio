@@ -1,9 +1,9 @@
 {
   "schema": "portfolio-integrated-production-proof-v2",
-  "generatedAt": "2026-06-11T16:19:51.277Z",
+  "generatedAt": "2026-06-11T16:30:15.620Z",
   "url": "https://xpelch.vercel.app",
   "environment": "production",
-  "commit": "0c3b64a",
+  "commit": "2d1bf01",
   "result": "pass",
   "sourceArtifacts": {
     "runtimeProofJson": "logs\\visual\\portfolio-production-proof.json",
@@ -23,7 +23,7 @@
     "liveExternalLinks": "partial-provider-blocked",
     "screenshots": "pass",
     "firstViewportDecisionSurface": "pass",
-    "visitCounter": "not-required-production-deploy-window",
+    "visitCounter": "pass",
     "accessibilitySmoke": "pass",
     "performanceBudget": "pass",
     "commandDeckKeyboard": "pass",
@@ -84,24 +84,24 @@
   "visitCounters": [
     {
       "name": "desktop-en",
-      "status": "not-deployed-yet",
-      "text": null,
-      "width": null,
-      "height": null
+      "status": "present",
+      "text": "trace01",
+      "width": 66,
+      "height": 64
     },
     {
       "name": "mobile-en",
-      "status": "not-deployed-yet",
-      "text": null,
-      "width": null,
-      "height": null
+      "status": "present",
+      "text": "trace01",
+      "width": 66,
+      "height": 64
     },
     {
       "name": "mobile-fr",
-      "status": "not-deployed-yet",
-      "text": null,
-      "width": null,
-      "height": null
+      "status": "present",
+      "text": "passage01",
+      "width": 79,
+      "height": 65
     }
   ],
   "accessibility": [
@@ -160,30 +160,30 @@
     "viewports": [
       {
         "name": "desktop-en",
-        "domContentLoadedMs": 82,
-        "loadCompleteMs": 150,
-        "responseEndMs": 42,
-        "firstContentfulPaintMs": 96,
+        "domContentLoadedMs": 78,
+        "loadCompleteMs": 116,
+        "responseEndMs": 43,
+        "firstContentfulPaintMs": 92,
         "resourceCount": 13,
-        "transferKiB": 1489,
+        "transferKiB": 1355,
         "largestResourceKiB": 1200
       },
       {
         "name": "mobile-en",
-        "domContentLoadedMs": 82,
-        "loadCompleteMs": 100,
-        "responseEndMs": 41,
-        "firstContentfulPaintMs": 88,
+        "domContentLoadedMs": 63,
+        "loadCompleteMs": 95,
+        "responseEndMs": 28,
+        "firstContentfulPaintMs": 68,
         "resourceCount": 10,
         "transferKiB": 155,
         "largestResourceKiB": 89
       },
       {
         "name": "mobile-fr",
-        "domContentLoadedMs": 123,
-        "loadCompleteMs": 139,
-        "responseEndMs": 87,
-        "firstContentfulPaintMs": 132,
+        "domContentLoadedMs": 67,
+        "loadCompleteMs": 87,
+        "responseEndMs": 32,
+        "firstContentfulPaintMs": 72,
         "resourceCount": 10,
         "transferKiB": 155,
         "largestResourceKiB": 89
@@ -238,10 +238,10 @@
       "language_switch"
     ],
     "acknowledgedEventNames": [
-      "project_open",
-      "external_profile_click",
       "language_switch",
-      "contact_click"
+      "contact_click",
+      "project_open",
+      "external_profile_click"
     ],
     "eventCount": 4,
     "acknowledgementCount": 4

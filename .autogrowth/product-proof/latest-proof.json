@@ -1,16 +1,16 @@
 {
   "schema": "portfolio-latest-proof-v1",
-  "generatedAt": "2026-06-11T16:19:51.277Z",
+  "generatedAt": "2026-06-11T16:30:15.620Z",
   "scoreContext": {
     "currentScore": 88,
-    "activeCap": "jugement Codex indisponible; fallback heuristique conservateur.",
-    "capStatus": "active"
+    "activeCap": "88 cap: fallback judgment and stale/missing current proof evidence.",
+    "capStatus": "partially-lifted-ci-current-field-evidence-missing"
   },
   "subject": {
     "product": "bilingual developer portfolio",
     "url": "https://xpelch.vercel.app",
     "environment": "production",
-    "commit": "0c3b64a",
+    "commit": "2d1bf01",
     "result": "pass"
   },
   "sourceArtifacts": {
@@ -20,7 +20,7 @@
     "autogrowthSignal": ".autogrowth\\signals\\analytics\\portfolio-production-journey-latest.json"
   },
   "proofSummary": {
-    "checksPassed": 18,
+    "checksPassed": 19,
     "checksPartial": 1,
     "screenshots": 3,
     "viewports": [
@@ -53,9 +53,9 @@
     "visitCounters": {
       "viewports": 3,
       "statuses": [
-        "not-deployed-yet"
+        "present"
       ],
-      "deployedEverywhere": false
+      "deployedEverywhere": true
     },
     "performance": {
       "budget": {
@@ -66,8 +66,8 @@
         "transferKiB": 2500,
         "largestResourceKiB": 1500
       },
-      "worstLoadCompleteMs": 150,
-      "worstTransferKiB": 1489
+      "worstLoadCompleteMs": 116,
+      "worstTransferKiB": 1355
     },
     "commandDeck": {
       "viewports": 3,
@@ -86,10 +86,10 @@
         "language_switch"
       ],
       "acknowledgedEventNames": [
-        "project_open",
-        "external_profile_click",
         "language_switch",
-        "contact_click"
+        "contact_click",
+        "project_open",
+        "external_profile_click"
       ],
       "eventCount": 4,
       "acknowledgementCount": 4
@@ -134,12 +134,12 @@
   },
   "fieldEvidence": {
     "ci": {
-      "status": "observed-stale",
-      "source": ".autogrowth\\signals\\ci\\github-actions-run-27360079343.json",
-      "commitMatched": false,
+      "status": "observed-current",
+      "source": ".autogrowth\\signals\\ci\\github-actions-run-27361688360.json",
+      "commitMatched": true,
       "conclusion": "success",
-      "runUrl": "https://github.com/xpelch/portfolio/actions/runs/27360079343",
-      "note": "No CI signal matched the proof commit; the 92 cap remains active until remote CI evidence is refreshed."
+      "runUrl": "https://github.com/xpelch/portfolio/actions/runs/27361688360",
+      "note": "CI signal matches the proof commit."
     },
     "telemetry": {
       "status": "smoke-proof-production-endpoint",
@@ -154,5 +154,5 @@
     "storesIpAddress": false,
     "storesUserAgent": false
   },
-  "nextAction": "Refresh CI evidence for this commit, then attach durable visitor-intent telemetry from a connector-backed or production-log source."
+  "nextAction": "Attach durable visitor-intent telemetry from a connector-backed or production-log source."
 }
