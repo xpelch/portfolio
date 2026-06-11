@@ -1,9 +1,9 @@
 {
-  "schema": "portfolio-journey-analytics-signal-v1",
-  "generatedAt": "2026-06-11T02:11:36.661Z",
-  "sourceProof": "logs\\visual\\portfolio-runtime-proof.json",
-  "environment": "production-local-next-start",
-  "url": "http://127.0.0.1:3107",
+  "schema": "portfolio-journey-analytics-evidence-v1",
+  "generatedAt": "2026-06-11T01:51:44.473Z",
+  "sourceProof": "logs/visual/portfolio-production-proof.json",
+  "environment": "production",
+  "url": "https://xpelch.vercel.app",
   "commit": "1c53598",
   "result": "pass",
   "analytics": {
@@ -21,6 +21,14 @@
     ],
     "eventCount": 4,
     "acknowledgementCount": 4
+  },
+  "accessibility": {
+    "smoke": "pass",
+    "viewports": [
+      "desktop-en",
+      "mobile-en",
+      "mobile-fr"
+    ]
   },
   "privacy": {
     "storesTargets": false,

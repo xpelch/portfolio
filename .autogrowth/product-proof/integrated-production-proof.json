@@ -1,0 +1,99 @@
+{
+  "schema": "portfolio-integrated-production-proof-v1",
+  "generatedAt": "2026-06-11T01:51:05.770Z",
+  "url": "https://xpelch.vercel.app",
+  "commit": "1c53598",
+  "result": "pass",
+  "sourceArtifacts": {
+    "runtimeProofJson": "logs/visual/portfolio-production-proof.json",
+    "runtimeProofMarkdown": "logs/visual/portfolio-production-proof.md",
+    "githubActionsRun": "https://github.com/xpelch/portfolio/actions/runs/27318420599"
+  },
+  "checks": {
+    "htmlIdentity": "pass",
+    "sourceAnchorContracts": "pass",
+    "runtimeAnchorContracts": "pass",
+    "translationsServed": "pass",
+    "accentIntegrity": "pass",
+    "selectedWork": "pass",
+    "imageLoading": "pass",
+    "linkContracts": "pass",
+    "liveExternalLinks": "partial-provider-blocked",
+    "screenshots": "pass",
+    "firstViewportDecisionSurface": "pass",
+    "accessibilitySmoke": "pass",
+    "languageSwitcherClear": "pass",
+    "journeyEvents": "pass",
+    "journeyEventSink": "pass-production-acknowledged",
+    "ci": "pass"
+  },
+  "screenshots": [
+    {
+      "name": "desktop-en",
+      "viewport": "1440x1100",
+      "path": "logs/visual/portfolio-production-desktop-en.png",
+      "scrollWidth": 1440
+    },
+    {
+      "name": "mobile-en",
+      "viewport": "390x900",
+      "path": "logs/visual/portfolio-production-mobile-en.png",
+      "scrollWidth": 390
+    },
+    {
+      "name": "mobile-fr",
+      "viewport": "390x900",
+      "path": "logs/visual/portfolio-production-mobile-fr.png",
+      "scrollWidth": 390
+    }
+  ],
+  "accessibilitySmoke": [
+    {
+      "name": "desktop-en",
+      "visibleControls": 12,
+      "focusableControls": 12,
+      "landmarks": "main/h1/nav",
+      "violations": []
+    },
+    {
+      "name": "mobile-en",
+      "visibleControls": 7,
+      "focusableControls": 7,
+      "landmarks": "main/h1/nav",
+      "violations": []
+    },
+    {
+      "name": "mobile-fr",
+      "visibleControls": 7,
+      "focusableControls": 7,
+      "landmarks": "main/h1/nav",
+      "violations": []
+    }
+  ],
+  "journeyEvents": {
+    "eventNames": [
+      "project_open",
+      "contact_click",
+      "external_profile_click",
+      "language_switch"
+    ],
+    "acknowledgedEventNames": [
+      "language_switch",
+      "contact_click",
+      "project_open",
+      "external_profile_click"
+    ],
+    "eventCount": 4,
+    "acknowledgementCount": 4
+  },
+  "privacy": {
+    "storesTargets": false,
+    "storesUserIdentifiers": false,
+    "storesIpAddress": false,
+    "storesUserAgent": false
+  },
+  "remainingGaps": [
+    "LinkedIn blocks automated live checks with provider status 999.",
+    "Product-proof Playwright screenshots are not installed; runtime CDP screenshots are the current screenshot source."
+  ]
+}

@@ -1,10 +1,12 @@
 {
   "schema": "autogrowth-field-signals-v1",
-  "updated_at": "2026-06-10T22:13:18Z",
+  "updated_at": "2026-06-11T01:51:51Z",
   "sources": {
-    "logs": [],
+    "logs": [
+      "log signal: C:\\Programming\\portfolio\\.autogrowth\\evidence-packets\\journey-observability-latest\\github-actions.json"
+    ],
     "analytics": [
-      "analytics signal: C:\\Programming\\portfolio\\.autogrowth\\signals\\analytics\\portfolio-production-journey-latest.json"
+      "analytics signal: C:\\Programming\\portfolio\\.autogrowth\\evidence-packets\\journey-observability-latest\\analytics.json"
     ],
     "errors": [],
     "ci": [],
@@ -20,7 +22,7 @@
     "abandonment_signal": ""
   },
   "ingestion": {
-    "source": "C:\\Programming\\portfolio\\.autogrowth\\signals\\analytics\\portfolio-production-journey-latest.json",
-    "files_seen": 1
+    "source": "C:\\Programming\\portfolio\\.autogrowth\\evidence-packets\\journey-observability-latest",
+    "files_seen": 2
   }
 }

@@ -1,6 +1,6 @@
 {
   "schema": "autogrowth-score-contract-run-v1",
-  "ran_at": "2026-06-10T19:35:34Z",
+  "ran_at": "2026-06-11T02:11:44Z",
   "passed": 11,
   "max": 11,
   "status": "passed",
@@ -18,7 +18,7 @@
     {
       "id": "high-score-field-benchmark-gate",
       "passed": true,
-      "evidence": "score=88, field_signals=False, benchmarks=True"
+      "evidence": "score=88, field_signals=True, benchmarks=True"
     },
     {
       "id": "missing-ci-cap",
@@ -43,7 +43,7 @@
     {
       "id": "missing-product-polish-proof-cap",
       "passed": true,
-      "evidence": "score=88, context=fullstack, product_polish_proof=False"
+      "evidence": "score=88, context=fullstack, product_polish_proof=True"
     },
     {
       "id": "missing-product-plan-cap",
@@ -58,7 +58,7 @@
     {
       "id": "missing-normalized-telemetry-cap",
       "passed": true,
-      "evidence": "score=88, normalized_telemetry=False"
+      "evidence": "score=88, normalized_telemetry=True"
     }
   ]
 }

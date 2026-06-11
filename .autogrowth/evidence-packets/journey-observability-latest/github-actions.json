@@ -1,0 +1,31 @@
+{
+  "schema": "portfolio-github-actions-evidence-v1",
+  "createdAt": "2026-06-11T01:50:02Z",
+  "runId": 27318420599,
+  "headSha": "1c53598fe4b62478aa0b1c62d54f0ec6b0693179",
+  "displayTitle": "test(portfolio): add accessibility smoke proof",
+  "status": "completed",
+  "conclusion": "success",
+  "url": "https://github.com/xpelch/portfolio/actions/runs/27318420599",
+  "job": {
+    "name": "lint-build",
+    "conclusion": "success",
+    "startedAt": "2026-06-11T01:50:04Z",
+    "completedAt": "2026-06-11T01:50:42Z"
+  },
+  "passedSteps": [
+    "Install",
+    "Test",
+    "Production journey proof",
+    "Upload journey proof artifacts"
+  ],
+  "artifactEvidence": {
+    "uploaded": true,
+    "name": "portfolio-journey-proof",
+    "contains": [
+      "portfolio-runtime-proof",
+      "portfolio-production-proof",
+      "desktop/mobile screenshots"
+    ]
+  }
+}

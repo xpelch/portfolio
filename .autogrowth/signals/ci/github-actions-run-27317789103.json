@@ -1,0 +1,30 @@
+{
+  "conclusion": "success",
+  "createdAt": "2026-06-11T01:31:58Z",
+  "databaseId": 27317789103,
+  "displayTitle": "test(ci): harden chrome proof startup",
+  "headSha": "e728eab0cc41b65505532075d1c2d04c3bb2b9fb",
+  "jobs": [
+    {
+      "completedAt": "2026-06-11T01:32:45Z",
+      "conclusion": "success",
+      "databaseId": 80702074795,
+      "name": "lint-build",
+      "startedAt": "2026-06-11T01:32:01Z",
+      "status": "completed",
+      "steps": [
+        { "completedAt": "2026-06-11T01:32:02Z", "conclusion": "success", "name": "Set up job", "number": 1, "startedAt": "2026-06-11T01:32:01Z", "status": "completed" },
+        { "completedAt": "2026-06-11T01:32:03Z", "conclusion": "success", "name": "Checkout", "number": 2, "startedAt": "2026-06-11T01:32:02Z", "status": "completed" },
+        { "completedAt": "2026-06-11T01:32:05Z", "conclusion": "success", "name": "Setup Node", "number": 3, "startedAt": "2026-06-11T01:32:03Z", "status": "completed" },
+        { "completedAt": "2026-06-11T01:32:15Z", "conclusion": "success", "name": "Install", "number": 4, "startedAt": "2026-06-11T01:32:05Z", "status": "completed" },
+        { "completedAt": "2026-06-11T01:32:37Z", "conclusion": "success", "name": "Test", "number": 5, "startedAt": "2026-06-11T01:32:15Z", "status": "completed" },
+        { "completedAt": "2026-06-11T01:32:42Z", "conclusion": "success", "name": "Production journey proof", "number": 6, "startedAt": "2026-06-11T01:32:37Z", "status": "completed" },
+        { "completedAt": "2026-06-11T01:32:43Z", "conclusion": "success", "name": "Upload journey proof artifacts", "number": 7, "startedAt": "2026-06-11T01:32:42Z", "status": "completed" }
+      ],
+      "url": "https://github.com/xpelch/portfolio/actions/runs/27317789103/job/80702074795"
+    }
+  ],
+  "status": "completed",
+  "updatedAt": "2026-06-11T01:32:46Z",
+  "url": "https://github.com/xpelch/portfolio/actions/runs/27317789103"
+}
