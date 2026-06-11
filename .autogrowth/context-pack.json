@@ -1,30 +1,32 @@
 {
   "schema": "autogrowth-context-pack-v1",
-  "updated_at": "2026-06-11T19:55:21Z",
+  "updated_at": "2026-06-11T20:10:37Z",
   "repo": "portfolio",
   "context_type": "fullstack",
   "target": "BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A",
-  "score": 88,
-  "active_score_cap": "jugement Codex indisponible; fallback heuristique conservateur",
+  "score": 90,
+  "active_score_cap": "90 cap: authoritative proof/control artifacts disagree and must be reconciled before further score movement.",
   "caps": [
-    "jugement Codex indisponible; fallback heuristique conservateur"
+    "90 cap: authoritative proof/control artifacts disagree and must be reconciled before further score movement.",
+    "92 cap: durable privacy-safe visitor-intent evidence is missing beyond smoke-proofed production events.",
+    "94 cap: deployed accessibility and performance evidence needs stricter threshold-based proof.",
+    "96 cap: benchmark comparison and real behavior signal are not yet strong enough.",
+    "100 cap: unavailable until proof is fresh, reproducible, benchmarked, field-backed, accessible, performant, and free of contradictory control-plane state."
   ],
   "one_move": [
-    "- Move : lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence.",
-    "- Why this beats alternatives : it is the active ceiling; other work cannot honestly raise confidence until this cap moves.",
-    "- Proof : `npm run test` plus one artifact that shows the before/after result."
+    "Reconcile the authoritative score/proof state around the latest deployed commit, then attach durable privacy-safe visitor-intent telemetry; stop at 90 until those two facts are consistent."
   ],
   "proof_command": "npm run test",
   "agent_prompt_loop": [
-    "- Loop shape : observe state -> prompt agent -> execute slice -> verify proof -> record learning -> choose next prompt.",
-    "- State packet : target `BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A`; score 88/100; weakest category `Tests`; active blocker `jugement Codex indisponible; fallback heuristique conservateur`.",
-    "- Agent prompt : Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `jugement Codex indisponible; fallback heuristique conservateur` by doing only this move: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker.",
-    "- Evidence input : current `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/state.json` when present, relevant source files, and the canonical proof command."
+    "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `.autogrowth/product-proof/latest-proof.json`, `.autogrowth/product-proof/integrated-production-proof.json`, and the latest production proof markdown.",
+    "Reusable prompt: Attack only the active 90 cap by reconciling stale control-plane state and attaching durable visitor-intent evidence for land -> inspect work -> switch language -> contact. Do not add product features unless proof fails because of a concrete visitor defect.",
+    "Evidence inputs: current production URL, deploy commit, CI run artifact, `npm test`, `npm run proof:production`, production screenshots, analytics/log source, and latest proof JSON.",
+    "Execution slice: run local proof, run production proof, verify CI commit match, inspect analytics/log source, then update only the authoritative proof/control artifacts needed to remove contradiction."
   ],
   "next_two_hours": [
-    "1. Scope the slice: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence.",
+    "1. Scope the slice: Reconcile the authoritative score/proof state around the latest deployed commit, then attach durable privacy-safe visitor-intent telemetry; stop at 90 until those two facts are consistent.",
     "2. Touch only the files needed for that slice; avoid parallel refactors.",
-    "3. Run proof: `npm run test`.",
+    "3. Run proof: `npm run proof:production` passes against `https://xpelch.vercel.app` for the current deploy commit.",
     "4. Capture one before/after artifact or status result."
   ],
   "short_backlog": [
@@ -35,7 +37,7 @@
   ],
   "product_proof": {
     "schema": "autogrowth-product-proof-v1",
-    "ran_at": "2026-06-11T19:48:04Z",
+    "ran_at": "2026-06-11T20:08:20Z",
     "status": "passed",
     "summary": {
       "product_polish_ready": true,
@@ -85,15 +87,8 @@
       ".autogrowth/runs/20260611T022448Z-iter1.json",
       ".autogrowth/runs/20260611T024138Z-iter1.json",
       ".autogrowth/runs/20260611T161815Z-iter1.json",
-      ".autogrowth/runs/README.md",
-      ".autogrowth/score-contracts.json",
-      ".autogrowth/score-contracts.latest.json",
-      ".autogrowth/signals/analytics/journey-event-sink-27308411602.json",
-      ".autogrowth/signals/analytics/portfolio-production-journey-latest.json",
-      ".autogrowth/signals/analytics/portfolio-runtime-journey-latest.json",
-      ".autogrowth/signals/ci/github-actions-run-27307132798.json",
-      ".autogrowth/signals/ci/github-actions-run-27308411602.json",
-      ".autogrowth/signals/ci/github-actions-run-27317789103.json"
+      ".autogrowth/runs/20260611T195521Z-iter1.json",
+      ".autogrowth/runs/README.md"
     ],
     "signals": {
       "frontend_surface": true,

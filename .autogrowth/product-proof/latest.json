@@ -1,6 +1,6 @@
 {
   "schema": "autogrowth-product-proof-v1",
-  "ran_at": "2026-06-11T19:48:04Z",
+  "ran_at": "2026-06-11T20:08:20Z",
   "status": "passed",
   "summary": {
     "product_polish_ready": true,
@@ -50,15 +50,8 @@
     ".autogrowth/runs/20260611T022448Z-iter1.json",
     ".autogrowth/runs/20260611T024138Z-iter1.json",
     ".autogrowth/runs/20260611T161815Z-iter1.json",
-    ".autogrowth/runs/README.md",
-    ".autogrowth/score-contracts.json",
-    ".autogrowth/score-contracts.latest.json",
-    ".autogrowth/signals/analytics/journey-event-sink-27308411602.json",
-    ".autogrowth/signals/analytics/portfolio-production-journey-latest.json",
-    ".autogrowth/signals/analytics/portfolio-runtime-journey-latest.json",
-    ".autogrowth/signals/ci/github-actions-run-27307132798.json",
-    ".autogrowth/signals/ci/github-actions-run-27308411602.json",
-    ".autogrowth/signals/ci/github-actions-run-27317789103.json"
+    ".autogrowth/runs/20260611T195521Z-iter1.json",
+    ".autogrowth/runs/README.md"
   ],
   "signals": {
     "frontend_surface": true,

@@ -1,6 +1,6 @@
 {
   "schema": "autogrowth-score-contract-run-v1",
-  "ran_at": "2026-06-11T19:51:32Z",
+  "ran_at": "2026-06-11T20:10:37Z",
   "passed": 11,
   "max": 11,
   "status": "passed",
@@ -8,57 +8,57 @@
     {
       "id": "missing-tests-cap",
       "passed": true,
-      "evidence": "score=88, tests=True"
+      "evidence": "score=90, tests=True"
     },
     {
       "id": "generic-context-cap",
       "passed": true,
-      "evidence": "score=88, context=fullstack"
+      "evidence": "score=90, context=fullstack"
     },
     {
       "id": "high-score-field-benchmark-gate",
       "passed": true,
-      "evidence": "score=88, field_signals=True, benchmarks=True"
+      "evidence": "score=90, field_signals=True, benchmarks=True"
     },
     {
       "id": "missing-ci-cap",
       "passed": true,
-      "evidence": "score=88, ci=True"
+      "evidence": "score=90, ci=True"
     },
     {
       "id": "missing-docs-truth-cap",
       "passed": true,
-      "evidence": "score=88, docs_truth=True"
+      "evidence": "score=90, docs_truth=True"
     },
     {
       "id": "missing-journey-proof-cap",
       "passed": true,
-      "evidence": "score=88, journey_proof=True"
+      "evidence": "score=90, journey_proof=True"
     },
     {
       "id": "missing-observability-cap",
       "passed": true,
-      "evidence": "score=88, observability=True"
+      "evidence": "score=90, observability=True"
     },
     {
       "id": "missing-product-polish-proof-cap",
       "passed": true,
-      "evidence": "score=88, context=fullstack, product_polish_proof=True"
+      "evidence": "score=90, context=fullstack, product_polish_proof=True"
     },
     {
       "id": "missing-product-plan-cap",
       "passed": true,
-      "evidence": "score=88, context=fullstack, product_plan=True"
+      "evidence": "score=90, context=fullstack, product_plan=True"
     },
     {
       "id": "missing-execution-graph-cap",
       "passed": true,
-      "evidence": "score=88, context=fullstack, execution_graph=True"
+      "evidence": "score=90, context=fullstack, execution_graph=True"
     },
     {
       "id": "missing-normalized-telemetry-cap",
       "passed": true,
-      "evidence": "score=88, normalized_telemetry=True"
+      "evidence": "score=90, normalized_telemetry=True"
     }
   ]
 }
