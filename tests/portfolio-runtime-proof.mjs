@@ -347,6 +347,59 @@ async function assertAccessibilitySmoke(cdp, target) {
   return value;
 }
 
+const performanceBudget = {
+  domContentLoadedMs: 3500,
+  loadCompleteMs: 6000,
+  responseEndMs: 3500,
+  resourceCount: 70,
+  transferKiB: 2500,
+  largestResourceKiB: 1500,
+};
+
+async function waitForDocumentComplete(cdp, name) {
+  for (let attempt = 0; attempt < 80; attempt += 1) {
+    const result = await cdp.send('Runtime.evaluate', {
+      expression: 'document.readyState',
+      returnByValue: true,
+    });
+    if (result.result.value === 'complete') return;
+    await wait(125);
+  }
+  throw new Error(`${name} document did not reach complete readyState`);
+}
+
+async function assertPerformanceBudget(cdp, target) {
+  await waitForDocumentComplete(cdp, target.name);
+  const expression = `(() => {
+    const navigation = performance.getEntriesByType('navigation')[0];
+    const resources = performance.getEntriesByType('resource');
+    const paintEntries = Object.fromEntries(
+      performance.getEntriesByType('paint').map((entry) => [entry.name, Math.round(entry.startTime)])
+    );
+    const transferBytes = resources.reduce((total, item) => total + (item.transferSize || 0), 0);
+    const largestResourceBytes = resources.reduce((max, item) => Math.max(max, item.transferSize || item.decodedBodySize || 0), 0);
+    const navValue = (key) => Math.max(0, Math.round(navigation?.[key] ?? 0));
+    return {
+      domContentLoadedMs: navValue('domContentLoadedEventEnd'),
+      loadCompleteMs: navValue('loadEventEnd') || navValue('domComplete') || Math.round(performance.now()),
+      responseEndMs: navValue('responseEnd'),
+      firstContentfulPaintMs: paintEntries['first-contentful-paint'] ?? null,
+      resourceCount: resources.length,
+      transferKiB: Math.round(transferBytes / 1024),
+      largestResourceKiB: Math.round(largestResourceBytes / 1024),
+    };
+  })()`;
+  const result = await cdp.send('Runtime.evaluate', { expression, returnByValue: true });
+  const metrics = result.result.value;
+  assert.ok(metrics.domContentLoadedMs <= performanceBudget.domContentLoadedMs, `${target.name} DOMContentLoaded exceeded budget: ${metrics.domContentLoadedMs}ms`);
+  assert.ok(metrics.loadCompleteMs <= performanceBudget.loadCompleteMs, `${target.name} load complete exceeded budget: ${metrics.loadCompleteMs}ms`);
+  assert.ok(metrics.responseEndMs <= performanceBudget.responseEndMs, `${target.name} response end exceeded budget: ${metrics.responseEndMs}ms`);
+  assert.ok(metrics.resourceCount <= performanceBudget.resourceCount, `${target.name} resource count exceeded budget: ${metrics.resourceCount}`);
+  assert.ok(metrics.transferKiB <= performanceBudget.transferKiB, `${target.name} transfer size exceeded budget: ${metrics.transferKiB}KiB`);
+  assert.ok(metrics.largestResourceKiB <= performanceBudget.largestResourceKiB, `${target.name} largest resource exceeded budget: ${metrics.largestResourceKiB}KiB`);
+  return { name: target.name, budget: performanceBudget, ...metrics };
+}
+
 async function assertJourneyEvents(cdp, name, { requireSink }) {
   const expression = `(async () => {
     window.__portfolioJourneyEvents = [];
@@ -479,6 +532,7 @@ async function captureScreenshots() {
     const screenshots = [];
     const firstViewport = [];
     const accessibility = [];
+    const performance = [];
     let journeyEvents = [];
     let journeyAcks = [];
     for (const target of targets) {
@@ -502,6 +556,7 @@ async function captureScreenshots() {
       await assertLanguageSwitcherIsClear(cdp, target.name);
       firstViewport.push({ name: target.name, ...await assertFirstViewportDecisionSurface(cdp, target) });
       accessibility.push({ name: target.name, ...await assertAccessibilitySmoke(cdp, target) });
+      performance.push(await assertPerformanceBudget(cdp, target));
       if (target.name === 'desktop-en') {
         const journeyProof = await assertJourneyEvents(cdp, target.name, { requireSink: Boolean(providedUrl) });
         journeyEvents = journeyProof.events;
@@ -525,7 +580,7 @@ async function captureScreenshots() {
     }
 
     cdp.close();
-    return { screenshots, firstViewport, accessibility, journeyEvents, journeyAcks };
+    return { screenshots, firstViewport, accessibility, performance, journeyEvents, journeyAcks };
   } catch (error) {
     throw new Error(`${error.message}\nBrowser output:\n${browserOutput.slice(-2000)}`);
   } finally {
@@ -619,6 +674,19 @@ async function writeAutogrowthJourneySignal(proof) {
       eventCount: proof.journeyEvents.length,
       acknowledgementCount: proof.journeyAcks.length,
     },
+    performance: {
+      budget: proof.performanceBudget,
+      viewports: proof.performance.map((item) => ({
+        name: item.name,
+        domContentLoadedMs: item.domContentLoadedMs,
+        loadCompleteMs: item.loadCompleteMs,
+        responseEndMs: item.responseEndMs,
+        firstContentfulPaintMs: item.firstContentfulPaintMs,
+        resourceCount: item.resourceCount,
+        transferKiB: item.transferKiB,
+        largestResourceKiB: item.largestResourceKiB,
+      })),
+    },
     privacy: {
       storesTargets: false,
       storesUserIdentifiers: false,
@@ -697,7 +765,7 @@ try {
     verifyImage('/images/profile-shoreline.jpg'),
     verifyImage('/images/developer-workspace.png'),
   ]);
-  const { screenshots, firstViewport, accessibility, journeyEvents, journeyAcks } = await captureScreenshots();
+  const { screenshots, firstViewport, accessibility, performance, journeyEvents, journeyAcks } = await captureScreenshots();
   const links = await collectLinks(en, fr);
   const commit = await getCommit();
 
@@ -720,6 +788,7 @@ try {
       screenshots: 'pass',
       firstViewportDecisionSurface: 'pass',
       accessibilitySmoke: 'pass',
+      performanceBudget: 'pass',
       languageSwitcherClear: 'pass',
       telemetry: 'pass-privacy-safe-memory-bus',
       journeyEvents: 'pass',
@@ -729,6 +798,8 @@ try {
     screenshots,
     firstViewport,
     accessibility,
+    performanceBudget,
+    performance,
     journeyEvents,
     journeyAcks,
     links,
@@ -763,6 +834,10 @@ try {
       '## Accessibility Smoke',
       '',
       ...accessibility.map((item) => `- ${item.name}: ${item.visibleControlCount} visible controls, ${item.focusedCount} focusable, landmarks main/h1/nav pass`),
+      '',
+      '## Performance Budget',
+      '',
+      ...performance.map((item) => `- ${item.name}: DCL ${item.domContentLoadedMs}ms, load ${item.loadCompleteMs}ms, response ${item.responseEndMs}ms, transfer ${item.transferKiB}KiB, ${item.resourceCount} resources`),
       '',
       '## Live Links',
       '',
