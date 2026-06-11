@@ -1,6 +1,6 @@
 # TARGET FINAL: BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 
-# SCORE ACTUEL: 88/100
+# SCORE ACTUEL: 86/100
 
 <!-- AUTO-EVALUATION:START -->
 
@@ -11,7 +11,7 @@
 - Frameworks : Next.js, React, Tailwind CSS
 - Domaine detecte : autogrowth, sandbox, copy, portfolio, atlas, proof, logs, jarvis
 - Structure : app, components, api, server, tests, test, docs, context, playbooks, tools
-- Fichiers analyses : 2586
+- Fichiers analyses : 2923
 
 ## VISION / DESTINATION
 - Build a bilingual developer portfolio that makes Xavier Pelchat feel like a
@@ -49,15 +49,15 @@ flowchart TD
     N6 --> N6_5["safe-refactor (3)"]
     R --> N7[".github (1 files)"]
     N7 --> N7_1["workflows (1)"]
-    R --> N8[".autogrowth (2301 files)"]
-    N8 --> N8_1["sandbox (2251)"]
+    R --> N8[".autogrowth (2637 files)"]
+    N8 --> N8_1["sandbox (2587)"]
     N8 --> N8_2["product-plan (11)"]
     N8 --> N8_3["signals (10)"]
     N8 --> N8_4["runs (8)"]
     N8 --> N8_5["proofs (4)"]
-    R --> N9["logs (132 files)"]
+    R --> N9["logs (133 files)"]
     N9 --> N9_1["atlas (56)"]
-    N9 --> N9_2["autogrowth (31)"]
+    N9 --> N9_2["autogrowth (32)"]
     N9 --> N9_3["visual (30)"]
     N9 --> N9_4["dev-server (10)"]
     N9 --> N9_5["reports (3)"]
@@ -81,7 +81,7 @@ flowchart TD
 BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 
 ## SCORE
-88/100
+86/100
 
 ## SCORE MEANING
 - 50/100 : bearable, but fragile; enough structure to work with, not enough proof to trust deeply.
@@ -90,20 +90,20 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - Current tier : pretty good: the project is useful and coherent, but still has visible caps to lift before it becomes exceptional.
 
 ## PROGRESS DELTA
-- Previous score : 88/100.
-- Current score : 88/100.
+- Previous score : 86/100.
+- Current score : 86/100.
 - Delta : +0.
 - Advancement judgment : flat; the project did not prove meaningful advancement since the previous evaluation.
 
 ## CAUSAL SCORE DELTA
-- Score delta : +0 (88/100 -> 88/100), direction `flat`.
+- Score delta : +0 (86/100 -> 86/100), direction `flat`.
 - Goal signal : `VISION.md` has a concrete destination, so target calibration is stronger.
 - Proof signal : canonical command detected `npm run test`; passing it can move proof confidence.
-- Active cap : jugement Codex indisponible; fallback heuristique conservateur.
+- Active cap : Active cap: 89 until deployed journey proof is repeatable and current..
 - Weakest lever : `Tests` must move before broad feature work is credible.
 
 ## STATE INSIGHTS
-- Durable state : previous recorded score was 88/100.
+- Durable state : previous recorded score was 86/100.
 - Recurring blockers : jugement Codex indisponible; fallback heuristique conservateur; Current cap: 88 until production/analytics evidence is connected to the complete visitor journey.; 94 cap: cannot pass without accessibility and performance evidence on the real runtime.
 - State directive : stop restating recurring blockers; choose an escape lane or measurement lane.
 
@@ -116,7 +116,7 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - Trace format : native JSON plus `otel` projection with attributes `autogrowth.loop.iteration`, `autogrowth.agent.prompt`, `autogrowth.proof.command`, `autogrowth.score.before`, `autogrowth.score.after`, `autogrowth.blocker.lifted`, and `autogrowth.files.changed`.
 - Recent traces : 3 loaded from `.autogrowth/runs/`.
 - Dashboard : `C:\Programming\portfolio\.autogrowth\dashboard.html`
-- Pattern memory : 4 winning moves, 3 failing moves.
+- Pattern memory : 5 winning moves, 3 failing moves.
 - Decision eval fixture : `C:\Programming\portfolio\.autogrowth\evals\decision-quality.fixture.json`
 - Active guardrails : max_iterations=1, max_files_changed=8, required_proof=`auto-detect`, approval_risk>=7.
 
@@ -130,7 +130,7 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - critical-api-or-cli-flow : The main API/CLI workflow handles happy path and one failure path. Proof: Fixture, integration test, or command transcript.
 
 ## PROMOTION GATES
-- 60/100 gate : runnable proof -> pass.
+- 60/100 gate : runnable proof -> blocked.
 - 75/100 gate : tests + docs truth -> pass.
 - 90/100 gate : journey proof + observability -> blocked.
 - 100/100 gate : benchmark + production evidence -> pass.
@@ -160,11 +160,7 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - No matching deep checks.
 
 ## ONE MOVE THAT MATTERS
-- Move : lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence.
-- Why this beats alternatives : it is the active ceiling; other work cannot honestly raise confidence until this cap moves.
-- Proof : `npm run test` plus one artifact that shows the before/after result.
-- Stop condition : stop when the cap is lifted, the proof fails, or the change no longer targets the named blocker.
-- Do not do yet : broad feature expansion, parallel refactors, or extra documentation that does not prove this move.
+Make the deployed visitor journey proof repeatable, current, and tied to privacy-safe success-event telemetry.
 
 ## SCORE ROADMAP
 - 0-49 : define target, owner, runtime, verification, and the first real journey.
@@ -184,21 +180,20 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - Project application : for `fullstack`, do not claim 930+ unless the evaluation proves terrain data, autonomous loop safety, and user/operator outcome evidence, not only static repo quality.
 
 ## OPERATING DIRECTIVE
-- Score actuel : 88/100
+- Score actuel : 86/100
 - Type detecte : fullstack
-- Plafond actif : jugement Codex indisponible; fallback heuristique conservateur
+- Plafond actif : Active cap: 89 until deployed journey proof is repeatable and current.
 - Commandes canoniques visibles : npm run test, npm run build, npm run lint
-- Blockers primaires : jugement Codex indisponible; fallback heuristique conservateur; Tests faible ou prioritaire; Fiabilite faible ou prioritaire; Securite faible ou prioritaire
+- Blockers primaires : Active cap: 89 until deployed journey proof is repeatable and current.; Next cap: 92 until privacy-safe telemetry proves visitors can open work, switch language, and contact from production.; UX cap: 93 until selected work is inspectable enough to prove production judgment without internal docs.; Tests faible ou prioritaire; Fiabilite faible ou prioritaire
 - Prochaine meilleure action : lever le premier plafond applique avec une preuve directe
 
 ## EFFICIENCY SELF-CHECK
-- Highest-leverage move now : lift the active cap first: jugement Codex indisponible; fallback heuristique conservateur.
-- Efficiency question : will the next change shorten the path to the target outcome, or only add inventory? Prefer the shortest proof through `npm run test`.
-- Keep : evidence-backed flows, canonical commands, contracts, diagnostics, and docs that reduce decision time.
-- Change : any workflow that needs manual glue, stale notes, unclear ownership, or repeated local memory to succeed.
-- Remove or defer : speculative surfaces, broad refactors, checklist inflation, and features without a named cap or proof path.
-- Automate or measure : repeated verification steps, status collection, journey proof, failure learning, and score-cap evidence.
-- UX efficiency : capture desktop/mobile proof for the critical path before adding new screens.
+- The current next move is efficient only if it stays focused on production/analytics evidence.
+- Keep `npm test`, bilingual parity checks, integrated visual proof, and the work-first product principle.
+- Change production proof from an occasional artifact into a repeatable gate.
+- Remove or defer new workflow tooling, broad redesign, and additional decorative systems until the active blocker clears.
+- Automate production screenshot/link checks, latest-proof pointer creation, and telemetry contract validation.
+- Measure deployed load health, CTA/work/language events, external link integrity, and first-viewport activation signals.
 
 ## CONTEXT RUBRIC
 - Complete journeys: UI-to-API flow, shared contracts, visible errors, persistence, deployment path.
@@ -210,12 +205,11 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - Fullstack: isoler client, serveur et contrats partages; prouver un flux bout-en-bout avec seed/demo et commande unique.
 
 ## GROWTH / UI-UX DIRECTION
-- Growth lens : optimize for the moment a real user/operator gets value, not for internal completeness.
-- Friction lens : remove the slowest repeated step, the vaguest error, or the most confusing state before adding surface area.
-- Trust lens : make current status, outcome, failure reason, and next action visible where the user/operator needs them.
-- UI/UX bar : critical screens need clear hierarchy, responsive layout, keyboard/focus behavior, empty/loading/error/success states, and polished copy.
-- Growth bet : improve activation and repeat use by making the first successful journey obvious and fast.
-- Current growth constraint : the project is useful; now reduce friction and make proof effortless.
+Optimize for evaluator speed: role, work, proof, and contact must be immediately legible.
+Make proof native to project cards and CTAs, not hidden in internal docs.
+Keep French content authored and layout-stable, not merely translated.
+Strengthen selected-work inspectability before adding new sections.
+Keep practical AI workflow as a credibility layer, not a chatbot-first or agent-spectacle experience.
 
 ## BENCHMARK CALIBRATION
 - Manual benchmark targets:
@@ -283,22 +277,18 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - Ne pas baisser les gates pour creer de l'activite; ameliorer sourcing, simulation, validation, UX, observabilite ou apprentissage.
 
 ## BLOCKER ESCAPE LANES
-- Primary blocker : jugement Codex indisponible; fallback heuristique conservateur.
-- Proof spike : create the smallest artifact that proves or falsifies the blocker, then run `npm run test`.
-- Adjacent slice : build around the blocker only if it creates reusable evidence for the blocked path.
-- Measurement lane : add status, trace, screenshot, fixture, benchmark, or journal entry that reveals why the blocker persists.
-- Recovery lane : if the same blocker repeats, write the missing assumption, safest next probe, stop condition, and rollback path.
-- UX lane : prototype the blocked state, error state, or empty state before changing core architecture.
-- Gate : do not lower safety, security, data, or quality gates just to show movement.
+If analytics setup is blocked, add the event contract and a production-safe no-op adapter, then document the provider dependency.
+If production deployment access is blocked, run the same proof against a preview deployment and make deployment access the next blocker.
+If CI screenshots are blocked, run production proof locally and preserve the artifact path and command.
+If telemetry raises privacy concerns, measure only aggregate CTA/work/language events with no personal identifiers.
+If visual polish is requested first, constrain it to first viewport and selected-work comprehension, then rerun journey proof.
 
 ## AGENT PROMPT LOOP
-- Loop shape : observe state -> prompt agent -> execute slice -> verify proof -> record learning -> choose next prompt.
-- State packet : target `BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A`; score 88/100; weakest category `Tests`; active blocker `jugement Codex indisponible; fallback heuristique conservateur`.
-- Agent prompt : Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `jugement Codex indisponible; fallback heuristique conservateur` by doing only this move: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker.
-- Evidence input : current `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/state.json` when present, relevant source files, and the canonical proof command.
-- Proof gate : run `npm run test` or document why no narrower executable proof exists.
-- Learning update : write the changed blocker, proof result, rejected path, and next prompt candidate before rerunning evaluation.
-- Stop condition : do not spawn another loop until there is a code change, runtime artifact, status result, or failed-proof learning.
+Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, package scripts, and latest journey proof. Evidence inputs: target, score cap, active blocker, canonical commands, production URL. Stop condition: one blocker and one proof command are named. Learning update: record active score cap and latest proof path.
+Reusable prompt: clear the active score cap without broad redesign by making production visitor journey proof repeatable for the bilingual portfolio, verifying deployed desktop/mobile/French paths, checking contact/work links, and recording the result as the latest proof artifact. Evidence inputs: `npm test`, production URL, current proof artifact, selected work/link data. Stop condition: production proof artifact exists or blocker is reduced to one external dependency.
+Execute the slice: add only the smallest script/test/config needed to prove production journey health and event readiness. Evidence inputs: package scripts, existing runtime proof test, screenshot/log conventions. Stop condition: command runs locally without weakening existing gates. Learning update: record what became automated and what remains manual.
+Verify proof: run `npm test` and the production proof command, then inspect screenshots/artifacts for first-viewport and selected-work integrity. Evidence inputs: command output, screenshots, link report, telemetry report. Stop condition: pass/fail is unambiguous and tied to the visitor journey. Learning update: update proof journal with command, result, score impact, and next cap.
+Decide next prompt: if production/analytics proof passes, improve selected-work evidence density; if blocked, resolve the named external dependency or run preview-deploy proof. Evidence inputs: latest proof artifact and blocker log. Stop condition: next action fits one vertical slice and has a concrete verification path.
 
 ## SHORT PRIORITY BACKLOG
 - DO NOW: Score-cap sprint: choose one feature that moves Tests only; validate with a before/after artifact; do not spread effort across unrelated categories.; proof clarity 8/10; risk 3/10; stop when it no longer attacks a named cap.
@@ -307,19 +297,18 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - DO NOT BUILD YET: avoid broad surface expansion until proof improves; proof: tie to active cap; stop: no evidence gain.
 
 ## NEXT 10 POINTS PROOF CHECKLIST
-- Target next band : 90/100.
-- Run proof : `npm run test`.
-- Add one before/after artifact tied to the active cap.
-- Prove one complete journey, including at least one failure or recovery path.
-- Freshen docs or quickstart only where they shorten the verified path.
-- Record the blocker, result, and next action so the next run can measure delta.
-- Weakest category to move first : Tests.
-- Cap to lift first : jugement Codex indisponible; fallback heuristique conservateur.
+`npm test` passes locally.
+Production proof runs against the deployed URL and records a dated artifact.
+Desktop and mobile production screenshots show no overflow, clipped text, missing images, broken accents, or obscured CTAs.
+English and French journeys expose identity, role, offer, proof strip, selected work, language switch, and contact path.
+Core external links and contact links are verified in production.
+Aggregate telemetry proves work open, language switch, contact click, and external profile click, or documents the exact setup blocker.
+Latest proof artifact names score cap, command, environment, timestamp, result, and next action.
 
 ## NEXT 2 HOURS
-1. Scope the slice: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence.
+1. Scope the slice: Make the deployed visitor journey proof repeatable, current, and tied to privacy-safe success-event telemetry.
 2. Touch only the files needed for that slice; avoid parallel refactors.
-3. Run proof: `npm run test`.
+3. Run proof: Production proof runs against the deployed URL and records a dated artifact.
 4. Capture one before/after artifact or status result.
 5. Update the blocker/proof note in `AUTOGROWTH.md` if the result changes direction.
 6. Rerun `$autogrowth` and compare the progress delta.
@@ -357,29 +346,66 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - Contexte et objectif : README present; agent/context documentation present; workspace objective/config artifact present
 - Architecture : recognizable folders: app, components, api, server, tests; project manifest/config present; multi-file structured workspace
 - Qualite code : lint/type/config signal present; languages detected: TypeScript, PowerShell, Shell, JavaScript; dependency lock signal present
-- Tests : 182 test/fixture paths detected
+- Tests : 208 test/fixture paths detected
 - Fiabilite : health/retry/validation/recovery signal present; schema contract signal present
 - Securite : .gitignore present; auth/policy signal present; security/risk documentation or code signal present
 - Couverture metier : domain terms: autogrowth, sandbox, copy, portfolio, atlas; examples/fixtures/templates present; contract/DTO/event signal present
 - Automatisation : CI directory present; scripts/tools present
-- Documentation : 635 markdown docs detected; docs/context/playbooks present
+- Documentation : 715 markdown docs detected; docs/context/playbooks present
 - Observabilite : log/trace/metric signal present
 
+## FINDINGS GOAL-DRIVEN
+- Active score cap is production evidence, not local readiness: the repo has local proof, but remote production and analytics evidence are explicitly not connected.
+- Do not raise above 86 until the deployed visitor journey is proven: land, inspect work, switch language, contact/open project.
+- Workflow tooling is abundant, but it only counts when it proves an integrated product outcome. Avoid rewarding docs, logs, or tool inventory by themselves.
+- The highest-risk gap is that the portfolio may be locally polished but still unproven in the environment evaluators actually use.
+- The stated goal is evaluator confidence under two minutes; the next proof must show that the deployed first viewport and selected work section create that confidence quickly.
+- No provided proof that production telemetry captures work opens, language switches, contact clicks, or external profile clicks.
+- No current production screenshot proof tied to the deployed URL and latest UI state.
+- No clear evidence of deployed runtime health: console errors, asset loading, broken links, or mobile overflow in production.
+- No explicit performance or accessibility budget evidence, despite speed and clarity being part of the portfolio trust signal.
+- No single latest-proof index connecting score cap, CI/local proof, production proof, active blocker, and next action.
+
 ## PLAFONDS APPLIQUES
-- jugement Codex indisponible; fallback heuristique conservateur
+- Active cap: 89 until deployed journey proof is repeatable and current.
+- Next cap: 92 until privacy-safe telemetry proves visitors can open work, switch language, and contact from production.
+- UX cap: 93 until selected work is inspectable enough to prove production judgment without internal docs.
+- Trust cap: 94 until deployed performance, accessibility, runtime, and link health are proven.
+- 100 cap: unreachable from current evidence because exceptional outcomes require measured production behavior and externally credible proof, not only local screenshots or plans.
+
+## JUGEMENT CODEX
+- Confidence : high
+- Resume : The repository has high context strength, a clear product vision, canonical local tests, and an existing 86/100 score. Its own strategy names the active blocker: remote production and analytics evidence are not connected. The highest-leverage move is therefore a repeatable deployed journey proof with privacy-safe event validation, not more tooling or broad redesign.
 
 ## REVUE FEATURE / QOL / UI-UX
 ### Feature depth
 - Les contrats et cas d'erreur des surfaces API devraient etre valides par des tests d'integration lisibles.
+- Production telemetry contract: reason: clears the named evidence cap; validation proof: aggregate production events for work_open, language_switch, contact_click, external_profile_click; do not build an analytics dashboard yet.
+- Selected-work proof expansion: reason: strengthens production-minded credibility; validation proof: each project exposes problem, role, stack, constraint, outcome, and proof link; do not add more projects yet.
+- Latest proof index: reason: reduces operator friction and stale score claims; validation proof: one generated artifact points to local proof, production proof, CI status, score cap, and next action; do not create a broad docs portal.
+- First-viewport comprehension test: reason: attacks the under-two-minute evaluator goal; validation proof: desktop/mobile assertions confirm name, role, offer, proof strip, CTAs, and language control are visible without overlap; do not redesign lower sections first.
 ### QoL
-- Aucun delta specifique detecte
+- Make `npm run proof:production` as repeatable and trusted as `npm test`.
+- Keep local visual proof, but stop treating it as sufficient once a production URL exists.
+- Add timestamps, environment, command, result, and next blocker to every proof artifact.
+- Reduce next-agent ambiguity by issuing one bounded prompt per slice instead of broad product-improvement prompts.
+- Keep runtime state local unless explicitly versioned, but make the latest proof path easy to find.
 ### UI/UX
 - Aucun signal accessibilite explicite; verifier clavier, focus, labels, contrastes et etats d'erreur.
+- The first viewport remains the decisive UX surface: name, role, offer, proof strip, work CTA, contact CTA, and language control must be visible without scroll or crowding.
+- Selected work should be more inspectable than the AI workflow signal. AI should read as operating evidence, not the main character.
+- Bilingual switching must be obvious but quiet, especially on mobile where header density can compete with primary CTAs.
+- Dark tactile visual direction is appropriate only if it makes proof faster to scan; avoid visual drama that hides project evidence.
+- The next UI pressure should be comprehension speed: can a recruiter identify Xavier's role, strongest work, stack signal, and contact path in under 20 seconds?
 ### Next excellence actions
 - Choisir 3 parcours critiques et les evaluer comme des features completes: entree, succes, erreur, reprise, preuve.
 - Ajouter une checklist 'feature done' couvrant valeur utilisateur, friction QoL, accessibilite, tests et observabilite.
 - Creer une revue UI/UX recurrente avec captures avant/apres et criteres responsive/accessibilite.
 - Cartographier les contrats API par feature avec validation, erreurs attendues et exemples d'appel.
+- Run or create repeatable production journey proof against `https://xpelch.vercel.app`.
+- Capture production desktop and mobile screenshots for English and French journeys.
+- Verify production contact, GitHub, LinkedIn, selected work, and anchor links.
+- Add privacy-safe event validation for language switch, work open, and contact click.
 
 ## ALLER PLUS LOIN
 ### Scoreboard moves
@@ -388,16 +414,27 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - Creer une revue UI/UX recurrente avec captures avant/apres et criteres responsive/accessibilite.
 - Cartographier les contrats API par feature avec validation, erreurs attendues et exemples d'appel.
 - Tenir un scoreboard apres chaque iteration: score actuel, plafond actif, top 3 deltas, preuve ajoutee, prochain pari.
+- 86 -> 88: refresh local journey proof after any UI/content change and confirm desktop/mobile/French screenshots remain clean.
+- 88 -> 90: make production proof pass against the deployed URL with screenshots and link checks.
+- 90 -> 92: prove aggregate production telemetry for work_open, language_switch, contact_click, and external_profile_click.
 ### Research questions
 - Quels sont les 3 parcours critiques que l'utilisateur ou l'operateur doit reussir sans aide?
 - Quels irritants reviennent dans l'usage quotidien: attente, confusion, ressaisie, erreurs muettes, commandes trop longues?
 - Quelles preuves objectives montreraient que la prochaine iteration est meilleure: temps de parcours, taux d'erreur, couverture, captures, logs?
 - Quels ecrans doivent avoir des etats empty/loading/error/success impeccables avant d'augmenter le score?
 - Quels contrats API casseraient la confiance utilisateur s'ils echouent silencieusement ou avec une erreur vague?
+- Which privacy-safe analytics option best proves portfolio success events without over-instrumenting a personal site?
+- Can engineering managers understand Xavier's role, strongest work, and contact path from the first viewport in under 20 seconds?
+- Which project gives the strongest credibility signal: production delivery, AI workflow judgment, bilingual polish, or systems tooling?
 ### Benchmark targets
 - Comparer l'onboarding, les commandes et les etats d'erreur avec 2 projets de reference du meme type.
 - Comparer les parcours critiques avec les standards du domaine: accessibilite, performance percue, messages d'erreur, recuperation.
 - Comparer les ecrans clefs a des produits de reference pour densite, hierarchie visuelle, focus clavier et responsive.
+- First viewport: at 390px and 1440px, name, role, offer, proof strip, work CTA, contact CTA, and language control are visible without overlap.
+- Selected work: every featured project exposes problem, role, stack, constraint, outcome, and proof link visible or one interaction away.
+- Production reliability: deployed proof passes with screenshots, link checks, and no runtime console errors.
+- Telemetry: aggregate events exist for work_open, language_switch, contact_click, and external_profile_click with no personal data captured.
+- Visual craft: compare against `references/ui-ref.png` and `references/ui-ref2.png` with three concrete deltas on hierarchy, material feel, and project inspectability.
 ### Experiments
 - Faire une passe 'moins de friction': supprimer une etape, rendre un defaut plus intelligent, ajouter un feedback immediat.
 - Faire une passe 'preuve': ajouter un test, une capture, un scenario ou un rapport qui demontre la feature au lieu de la decrire.
@@ -409,16 +446,29 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - Proof harness: add one executable scenario for the critical journey; attacks Tests/Reliability caps; validate with the narrow test command; do not build broad fixtures first.
 - Critical-flow polish pass: add empty/loading/error/success states and responsive proof; attacks UI/UX and feature completeness caps; validate with Playwright screenshots; do not add secondary screens first.
 - Score-cap sprint: choose one feature that moves Tests only; validate with a before/after artifact; do not spread effort across unrelated categories.
+- Production telemetry contract: reason: attacks the remote evidence cap; validation proof: dated report showing aggregate production events; do not build dashboards yet.
+- Case-study evidence expansion: reason: improves production credibility at the project decision point; validation proof: content tests and screenshots for complete project evidence; do not add unproven project inventory.
+- Latest proof index: reason: prevents stale score claims; validation proof: generated artifact links latest local proof, production proof, CI status, score cap, and next action; do not create a documentation portal.
+- First-viewport comprehension proof: reason: supports the stated two-minute evaluator goal; validation proof: scripted DOM or screenshot checklist across desktop and mobile; do not polish lower sections first.
 
 ## FEATURE BET SCORING
 - DO NOW: Score-cap sprint: choose one feature that moves Tests only; validate with a before/after artifact; do not spread effort across unrelated categories. (impact 8/10, cost 4/10, proof 8/10, growth/UX 6/10, risk 3/10)
 - DO NOW: Critical-flow polish pass: add empty/loading/error/success states and responsive proof; attacks UI/UX and feature completeness caps; validate with Playwright screenshots; do not add secondary screens first. (impact 7/10, cost 4/10, proof 8/10, growth/UX 8/10, risk 3/10)
+- DO NOW: Case-study evidence expansion: reason: improves production credibility at the project decision point; validation proof: content tests and screenshots for complete project evidence; do not add unproven project inventory. (impact 7/10, cost 4/10, proof 8/10, growth/UX 6/10, risk 3/10)
+- DO NOW: Latest proof index: reason: prevents stale score claims; validation proof: generated artifact links latest local proof, production proof, CI status, score cap, and next action; do not create a documentation portal. (impact 7/10, cost 4/10, proof 8/10, growth/UX 6/10, risk 3/10)
+- DO NOW: First-viewport comprehension proof: reason: supports the stated two-minute evaluator goal; validation proof: scripted DOM or screenshot checklist across desktop and mobile; do not polish lower sections first. (impact 7/10, cost 4/10, proof 8/10, growth/UX 6/10, risk 3/10)
 - DO NOW: Proof harness: add one executable scenario for the critical journey; attacks Tests/Reliability caps; validate with the narrow test command; do not build broad fixtures first. (impact 7/10, cost 5/10, proof 8/10, growth/UX 8/10, risk 3/10)
+- DO NOW: Production telemetry contract: reason: attacks the remote evidence cap; validation proof: dated report showing aggregate production events; do not build dashboards yet. (impact 7/10, cost 5/10, proof 8/10, growth/UX 8/10, risk 3/10)
 
 ## SUGGESTIONS CONCRETES
 - Ajouter des tests automatises couvrant les chemins principaux et les cas d'erreur.
 - Couvrir les flux bout-en-bout et verrouiller les contrats partages entre UI et API.
+- Do not raise the score until production proof and telemetry evidence are connected.
+- Make production proof the next narrow action; then improve selected-work evidence density.
+- Treat CI/local build as readiness and production journey proof as success.
+- Use logs as proof only when they demonstrate the visitor or operator outcome.
+- Prefer one high-signal case-study interaction over more sections, badges, or process language.
 
-_Genere automatiquement le 2026-06-11T02:41:25Z. Le score reste borne entre 30 et 100; 100 demande une preuve magnum opus._
+_Genere automatiquement le 2026-06-11T15:16:27Z. Le score reste borne entre 30 et 100; 100 demande une preuve magnum opus._
 
 <!-- AUTO-EVALUATION:END -->

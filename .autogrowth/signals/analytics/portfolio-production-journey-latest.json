@@ -1,10 +1,10 @@
 {
   "schema": "portfolio-journey-analytics-signal-v1",
-  "generatedAt": "2026-06-11T02:40:47.847Z",
+  "generatedAt": "2026-06-11T15:10:36.988Z",
   "sourceProof": "logs\\visual\\portfolio-production-proof.json",
   "environment": "production",
   "url": "https://xpelch.vercel.app",
-  "commit": "5fefd98",
+  "commit": "de92353",
   "result": "pass",
   "analytics": {
     "eventNames": [
@@ -16,8 +16,8 @@
     "acknowledgedEventNames": [
       "language_switch",
       "contact_click",
-      "project_open",
-      "external_profile_click"
+      "external_profile_click",
+      "project_open"
     ],
     "eventCount": 4,
     "acknowledgementCount": 4
@@ -34,33 +34,33 @@
     "viewports": [
       {
         "name": "desktop-en",
-        "domContentLoadedMs": 142,
-        "loadCompleteMs": 161,
-        "responseEndMs": 97,
-        "firstContentfulPaintMs": 160,
-        "resourceCount": 15,
-        "transferKiB": 265,
+        "domContentLoadedMs": 76,
+        "loadCompleteMs": 97,
+        "responseEndMs": 38,
+        "firstContentfulPaintMs": 92,
+        "resourceCount": 10,
+        "transferKiB": 155,
         "largestResourceKiB": 89
       },
       {
         "name": "mobile-en",
-        "domContentLoadedMs": 134,
-        "loadCompleteMs": 145,
-        "responseEndMs": 91,
-        "firstContentfulPaintMs": 152,
-        "resourceCount": 14,
-        "transferKiB": 1467,
-        "largestResourceKiB": 1200
+        "domContentLoadedMs": 83,
+        "loadCompleteMs": 99,
+        "responseEndMs": 39,
+        "firstContentfulPaintMs": 88,
+        "resourceCount": 10,
+        "transferKiB": 155,
+        "largestResourceKiB": 89
       },
       {
         "name": "mobile-fr",
         "domContentLoadedMs": 76,
-        "loadCompleteMs": 79,
-        "responseEndMs": 32,
-        "firstContentfulPaintMs": 80,
-        "resourceCount": 16,
-        "transferKiB": 1465,
-        "largestResourceKiB": 1200
+        "loadCompleteMs": 98,
+        "responseEndMs": 34,
+        "firstContentfulPaintMs": 84,
+        "resourceCount": 10,
+        "transferKiB": 155,
+        "largestResourceKiB": 89
       }
     ]
   },
@@ -91,6 +91,29 @@
       "activeInside": true,
       "restoredAfterClose": true,
       "restoredAfterEscape": true
+    }
+  ],
+  "projectCards": [
+    {
+      "name": "desktop-en",
+      "cardCount": 3,
+      "privateCount": 1,
+      "publicCount": 2,
+      "deadProjectLinks": 0
+    },
+    {
+      "name": "mobile-en",
+      "cardCount": 3,
+      "privateCount": 1,
+      "publicCount": 2,
+      "deadProjectLinks": 0
+    },
+    {
+      "name": "mobile-fr",
+      "cardCount": 3,
+      "privateCount": 1,
+      "publicCount": 2,
+      "deadProjectLinks": 0
     }
   ],
   "privacy": {

@@ -1,30 +1,32 @@
 {
   "schema": "autogrowth-context-pack-v1",
-  "updated_at": "2026-06-11T02:41:38Z",
+  "updated_at": "2026-06-11T15:16:27Z",
   "repo": "portfolio",
   "context_type": "fullstack",
   "target": "BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A",
-  "score": 88,
-  "active_score_cap": "jugement Codex indisponible; fallback heuristique conservateur",
+  "score": 86,
+  "active_score_cap": "Active cap: 89 until deployed journey proof is repeatable and current.",
   "caps": [
-    "jugement Codex indisponible; fallback heuristique conservateur"
+    "Active cap: 89 until deployed journey proof is repeatable and current.",
+    "Next cap: 92 until privacy-safe telemetry proves visitors can open work, switch language, and contact from production.",
+    "UX cap: 93 until selected work is inspectable enough to prove production judgment without internal docs.",
+    "Trust cap: 94 until deployed performance, accessibility, runtime, and link health are proven.",
+    "100 cap: unreachable from current evidence because exceptional outcomes require measured production behavior and externally credible proof, not only local screenshots or plans."
   ],
   "one_move": [
-    "- Move : lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence.",
-    "- Why this beats alternatives : it is the active ceiling; other work cannot honestly raise confidence until this cap moves.",
-    "- Proof : `npm run test` plus one artifact that shows the before/after result."
+    "Make the deployed visitor journey proof repeatable, current, and tied to privacy-safe success-event telemetry."
   ],
   "proof_command": "npm run test",
   "agent_prompt_loop": [
-    "- Loop shape : observe state -> prompt agent -> execute slice -> verify proof -> record learning -> choose next prompt.",
-    "- State packet : target `BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A`; score 88/100; weakest category `Tests`; active blocker `jugement Codex indisponible; fallback heuristique conservateur`.",
-    "- Agent prompt : Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `jugement Codex indisponible; fallback heuristique conservateur` by doing only this move: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker.",
-    "- Evidence input : current `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/state.json` when present, relevant source files, and the canonical proof command."
+    "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, package scripts, and latest journey proof. Evidence inputs: target, score cap, active blocker, canonical commands, production URL. Stop condition: one blocker and one proof command are named. Learning update: record active score cap and latest proof path.",
+    "Reusable prompt: clear the active score cap without broad redesign by making production visitor journey proof repeatable for the bilingual portfolio, verifying deployed desktop/mobile/French paths, checking contact/work links, and recording the result as the latest proof artifact. Evidence inputs: `npm test`, production URL, current proof artifact, selected work/link data. Stop condition: production proof artifact exists or blocker is reduced to one external dependency.",
+    "Execute the slice: add only the smallest script/test/config needed to prove production journey health and event readiness. Evidence inputs: package scripts, existing runtime proof test, screenshot/log conventions. Stop condition: command runs locally without weakening existing gates. Learning update: record what became automated and what remains manual.",
+    "Verify proof: run `npm test` and the production proof command, then inspect screenshots/artifacts for first-viewport and selected-work integrity. Evidence inputs: command output, screenshots, link report, telemetry report. Stop condition: pass/fail is unambiguous and tied to the visitor journey. Learning update: update proof journal with command, result, score impact, and next cap."
   ],
   "next_two_hours": [
-    "1. Scope the slice: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence.",
+    "1. Scope the slice: Make the deployed visitor journey proof repeatable, current, and tied to privacy-safe success-event telemetry.",
     "2. Touch only the files needed for that slice; avoid parallel refactors.",
-    "3. Run proof: `npm run test`.",
+    "3. Run proof: Production proof runs against the deployed URL and records a dated artifact.",
     "4. Capture one before/after artifact or status result."
   ],
   "short_backlog": [
@@ -52,7 +54,7 @@
     "product_graph_execute": false,
     "product_graph_apply": false,
     "multi_agent_review": false,
-    "max_command_seconds": 180
+    "max_command_seconds": 60
   },
   "read_first": [
     ".autogrowth/context-pack.json",
