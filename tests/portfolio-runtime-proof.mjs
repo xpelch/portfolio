@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
 import os from 'node:os';
@@ -897,6 +897,171 @@ async function writeIntegratedProductionProof(proof) {
   return path.relative(root, integratedPath);
 }
 
+async function readLatestCiSignal(commit) {
+  const ciDir = path.join(root, '.autogrowth', 'signals', 'ci');
+  try {
+    const files = (await readdir(ciDir)).filter((file) => file.endsWith('.json'));
+    const signals = [];
+    for (const file of files) {
+      try {
+        const value = JSON.parse(await readFile(path.join(ciDir, file), 'utf8'));
+        signals.push({ file, value });
+      } catch {
+        // Ignore malformed historical signals; the latest proof should reflect usable evidence only.
+      }
+    }
+
+    signals.sort((a, b) => {
+      const left = Date.parse(a.value.updatedAt ?? a.value.createdAt ?? '');
+      const right = Date.parse(b.value.updatedAt ?? b.value.createdAt ?? '');
+      return (Number.isNaN(left) ? 0 : left) - (Number.isNaN(right) ? 0 : right);
+    });
+
+    const matching = signals.find(({ value }) => {
+      const headSha = typeof value.headSha === 'string' ? value.headSha : '';
+      return headSha.startsWith(commit) || JSON.stringify(value).includes(commit);
+    });
+    const latest = signals.at(-1);
+    const source = matching ?? latest;
+
+    return {
+      status: matching ? 'observed-current' : latest ? 'observed-stale' : 'missing',
+      source: source ? path.join('.autogrowth', 'signals', 'ci', source.file) : null,
+      commitMatched: Boolean(matching),
+      conclusion: source?.value?.conclusion ?? null,
+      runUrl: source?.value?.url ?? null,
+      note: matching
+        ? 'CI signal matches the proof commit.'
+        : 'No CI signal matched the proof commit; the 92 cap remains active until remote CI evidence is refreshed.',
+    };
+  } catch {
+    return {
+      status: 'missing',
+      source: null,
+      commitMatched: false,
+      conclusion: null,
+      runUrl: null,
+      note: 'No CI signal directory is available; the 92 cap remains active.',
+    };
+  }
+}
+
+async function readScoreContext() {
+  const fallback = {
+    currentScore: 90,
+    activeCap: '92 cap: observed CI artifacts and connector-backed or durable field visitor-intent evidence are missing.',
+  };
+
+  try {
+    const evaluation = await readFile(path.join(root, 'EVALUATION.md'), 'utf8');
+    const scoreMatch = evaluation.match(/# SCORE ACTUEL:\s*(\d+)\/100/i)
+      ?? evaluation.match(/- Score actuel\s*:\s*(\d+)\/100/i);
+    const capMatch = evaluation.match(/- Active cap\s*:\s*([^\r\n]+)/i)
+      ?? evaluation.match(/- Plafond actif\s*:\s*([^\r\n]+)/i);
+    return {
+      currentScore: scoreMatch ? Number(scoreMatch[1]) : fallback.currentScore,
+      activeCap: capMatch ? capMatch[1].replace(/\.+$/, '.').trim() : fallback.activeCap,
+    };
+  } catch {
+    return fallback;
+  }
+}
+
+async function writeLatestProof(proof) {
+  if (!providedUrl) return null;
+
+  const proofDir = path.join(root, '.autogrowth', 'product-proof');
+  await mkdir(proofDir, { recursive: true });
+  const latestPath = path.join(proofDir, 'latest-proof.json');
+  const ci = await readLatestCiSignal(proof.commit);
+  const scoreContext = await readScoreContext();
+  const latest = {
+    schema: 'portfolio-latest-proof-v1',
+    generatedAt: proof.generatedAt,
+    scoreContext: {
+      currentScore: scoreContext.currentScore,
+      activeCap: scoreContext.activeCap,
+      capStatus: ci.commitMatched ? 'partially-lifted-ci-current-field-evidence-missing' : 'active',
+    },
+    subject: {
+      product: 'bilingual developer portfolio',
+      url: proof.url,
+      environment: proof.environment,
+      commit: proof.commit,
+      result: 'pass',
+    },
+    sourceArtifacts: {
+      runtimeProofJson: path.relative(root, proofJsonPath),
+      runtimeProofMarkdown: path.relative(root, proofMdPath),
+      integratedProductionProof: proof.integratedProductionProof,
+      autogrowthSignal: proof.autogrowthSignal,
+    },
+    proofSummary: {
+      checksPassed: Object.values(proof.checks).filter((value) => String(value).startsWith('pass')).length,
+      checksPartial: Object.values(proof.checks).filter((value) => String(value).startsWith('partial')).length,
+      screenshots: proof.screenshots.length,
+      viewports: proof.screenshots.map((item) => ({
+        name: item.name,
+        width: item.width,
+        scrollWidth: item.scrollWidth,
+        language: item.language,
+      })),
+      accessibility: {
+        viewports: proof.accessibility.length,
+        namelessControls: proof.accessibility.reduce((total, item) => total + item.namelessControls.length, 0),
+        undersizedControls: proof.accessibility.reduce((total, item) => total + item.undersizedControls.length, 0),
+        duplicateIds: proof.accessibility.reduce((total, item) => total + item.duplicateIds.length, 0),
+        imagesMissingAlt: proof.accessibility.reduce((total, item) => total + item.imagesMissingAlt.length, 0),
+      },
+      performance: {
+        budget: proof.performanceBudget,
+        worstLoadCompleteMs: Math.max(...proof.performance.map((item) => item.loadCompleteMs)),
+        worstTransferKiB: Math.max(...proof.performance.map((item) => item.transferKiB)),
+      },
+      commandDeck: {
+        viewports: proof.commandDeck.length,
+        minCommandCount: Math.min(...proof.commandDeck.map((item) => item.commandCount)),
+        focusRestoredEverywhere: proof.commandDeck.every((item) => item.restoredAfterClose && item.restoredAfterEscape),
+      },
+      projectCards: {
+        deadProjectLinks: proof.projectCards.reduce((total, item) => total + item.deadProjectLinks, 0),
+        privateCardsWithoutDeadAnchors: proof.projectCards.every((item) => item.privateAnchors === 0),
+      },
+      journeyEvents: {
+        eventNames: [...new Set(proof.journeyEvents.map((event) => event.name))],
+        acknowledgedEventNames: [...new Set(proof.journeyAcks.map((ack) => ack.name))],
+        eventCount: proof.journeyEvents.length,
+        acknowledgementCount: proof.journeyAcks.length,
+      },
+      linkHealth: proof.links.map((item) => ({
+        label: item.label,
+        status: item.status,
+        httpStatus: item.httpStatus ?? null,
+      })),
+    },
+    fieldEvidence: {
+      ci,
+      telemetry: {
+        status: 'smoke-proof-production-endpoint',
+        durableVisitorIntentSource: 'missing',
+        source: proof.autogrowthSignal,
+        note: 'Journey acknowledgements prove the production endpoint contract; durable field visitor-intent evidence still requires an external analytics or log source.',
+      },
+    },
+    privacy: {
+      storesTargets: false,
+      storesUserIdentifiers: false,
+      storesIpAddress: false,
+      storesUserAgent: false,
+    },
+    nextAction: ci.commitMatched
+      ? 'Attach durable visitor-intent telemetry from a connector-backed or production-log source.'
+      : 'Refresh CI evidence for this commit, then attach durable visitor-intent telemetry from a connector-backed or production-log source.',
+  };
+  await writeFile(latestPath, `${JSON.stringify(latest, null, 2)}\n`, 'utf8');
+  return path.relative(root, latestPath);
+}
+
 function startServer() {
   if (providedUrl) return null;
 
@@ -1009,6 +1174,7 @@ try {
   };
   proof.autogrowthSignal = await writeAutogrowthJourneySignal(proof);
   proof.integratedProductionProof = await writeIntegratedProductionProof(proof);
+  proof.latestProof = await writeLatestProof(proof);
 
   await mkdir(outputDir, { recursive: true });
   await writeFile(proofJsonPath, `${JSON.stringify(proof, null, 2)}\n`, 'utf8');
@@ -1067,6 +1233,7 @@ try {
       '',
       `- ${proof.autogrowthSignal}`,
       ...(proof.integratedProductionProof ? ['', '## Integrated Production Proof', '', `- ${proof.integratedProductionProof}`] : []),
+      ...(proof.latestProof ? ['', '## Latest Proof Control Artifact', '', `- ${proof.latestProof}`] : []),
       '',
       '## Remaining Runtime Gaps',
       '',
