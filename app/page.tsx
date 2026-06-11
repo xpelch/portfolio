@@ -64,6 +64,41 @@ function isFrench(translations: Translations) {
   return translations.general.greeting.hello.toLowerCase().includes('bonjour');
 }
 
+function useVisitCounter() {
+  const [visitCount, setVisitCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    const storageKey = 'portfolio-visit-ledger';
+    const sessionKey = 'portfolio-visit-counted';
+    let timeout: number | null = null;
+    const updateCount = (count: number) => {
+      timeout = window.setTimeout(() => setVisitCount(count), 0);
+    };
+
+    try {
+      const storedCount = Number.parseInt(window.localStorage.getItem(storageKey) ?? '0', 10);
+      const currentCount = Number.isFinite(storedCount) ? Math.max(0, storedCount) : 0;
+      const hasCountedThisSession = window.sessionStorage.getItem(sessionKey) === 'true';
+      const nextCount = hasCountedThisSession ? currentCount || 1 : Math.min(currentCount + 1, 999);
+
+      if (!hasCountedThisSession) {
+        window.localStorage.setItem(storageKey, String(nextCount));
+        window.sessionStorage.setItem(sessionKey, 'true');
+      }
+
+      updateCount(nextCount);
+    } catch {
+      updateCount(1);
+    }
+
+    return () => {
+      if (timeout !== null) window.clearTimeout(timeout);
+    };
+  }, []);
+
+  return visitCount;
+}
+
 function ArrowIcon({ className = 'h-4 w-4' }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -339,6 +374,7 @@ export default function Home() {
   const [commandOpen, setCommandOpen] = useState(false);
   const commandTriggerRef = useRef<HTMLButtonElement | null>(null);
   const lastFocusedElementRef = useRef<HTMLElement | null>(null);
+  const visitCount = useVisitCounter();
 
   const copy = useMemo(() => {
     if (!translations) return null;
@@ -371,6 +407,8 @@ export default function Home() {
       commandTitle: fr ? 'OPERATOR DECK' : 'OPERATOR DECK',
       commandStatus: fr ? 'Chemins rapides pour évaluer le travail.' : 'Fast paths for evaluating the work.',
       heroStatus: 'Canada / Remote US',
+      visitLabel: fr ? 'passage' : 'trace',
+      visitTitle: fr ? 'Compteur local de passage' : 'Local visit counter',
       note: fr ? ['idée', 'construire', 'valider', 'livrer'] : ['idea', 'build', 'validate', 'ship'],
       labels: {
         outcome: fr ? 'IMPACT' : 'OUTCOME',
@@ -599,6 +637,17 @@ export default function Home() {
                     <li key={item} className="whitespace-nowrap">&gt; {item}</li>
                   ))}
                 </ul>
+              </div>
+              <div
+                className="absolute -left-2 bottom-10 z-20 rotate-[-8deg] border border-secondary-300/55 bg-surface-100/92 px-3 py-2 shadow-xl sm:-left-7"
+                aria-label={`${copy.visitTitle}: ${visitCount ?? 1}`}
+                data-proof="visit-counter"
+                title={copy.visitTitle}
+              >
+                <span className="mono-copy block text-[0.58rem] uppercase tracking-[0.16em] text-text-muted">{copy.visitLabel}</span>
+                <span className="serif-display block text-2xl leading-none text-secondary-300">
+                  {String(visitCount ?? 1).padStart(2, '0')}
+                </span>
               </div>
             </div>
 

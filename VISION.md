@@ -32,6 +32,10 @@ workflow signal, and a fast path to contact.
 - Prefer human, specific, proof-backed copy over generic portfolio slogans.
 - Preserve bilingual content parity.
 - Keep the page fast, accessible, and easy to verify.
+- Keep the current tactile dark design, but add small artisanal details that
+  reward attention without slowing the visitor down.
+- Easter eggs should be privacy-safe, subtle, and useful enough to feel like
+  craft rather than decoration.
 
 ## Non-Goals
 

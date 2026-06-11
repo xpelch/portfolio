@@ -268,6 +268,39 @@ async function assertFirstViewportDecisionSurface(cdp, target) {
   return value;
 }
 
+async function assertVisitCounter(cdp, target, { required }) {
+  const expression = `(() => {
+    const counter = document.querySelector('[data-proof="visit-counter"]');
+    if (!counter) return { status: 'missing' };
+    const rect = counter.getBoundingClientRect();
+    const label = counter.getAttribute('aria-label') ?? '';
+    const text = counter.textContent.trim();
+    return {
+      status: 'present',
+      label,
+      text,
+      width: Math.round(rect.width),
+      height: Math.round(rect.height),
+      top: Math.round(rect.top),
+      left: Math.round(rect.left),
+      visible: rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.right > 0,
+    };
+  })()`;
+  const result = await cdp.send('Runtime.evaluate', { expression, returnByValue: true });
+  const value = result.result.value;
+
+  if (!required && value.status === 'missing') {
+    return { name: target.name, status: 'not-deployed-yet' };
+  }
+
+  assert.equal(value.status, 'present', `${target.name} is missing the local visit counter`);
+  assert.equal(value.visible, true, `${target.name} visit counter is not visible`);
+  assert.ok(value.width >= 36 && value.height >= 36, `${target.name} visit counter is too small`);
+  assert.match(value.label, /visit counter|compteur local/i, `${target.name} visit counter needs an accessible label`);
+  assert.match(value.text, /\d{2,3}/, `${target.name} visit counter should render a padded count`);
+  return { name: target.name, ...value };
+}
+
 async function assertAccessibilitySmoke(cdp, target) {
   const expression = `(() => {
     const visible = (element) => {
@@ -621,6 +654,7 @@ async function captureScreenshots() {
 
     const screenshots = [];
     const firstViewport = [];
+    const visitCounters = [];
     const accessibility = [];
     const performance = [];
     const commandDeck = [];
@@ -647,6 +681,7 @@ async function captureScreenshots() {
       await assertRuntimeAnchors(cdp, target.name);
       await assertLanguageSwitcherIsClear(cdp, target.name);
       firstViewport.push({ name: target.name, ...await assertFirstViewportDecisionSurface(cdp, target) });
+      visitCounters.push(await assertVisitCounter(cdp, target, { required: !providedUrl }));
       accessibility.push({ name: target.name, ...await assertAccessibilitySmoke(cdp, target) });
       performance.push(await assertPerformanceBudget(cdp, target));
       commandDeck.push(await assertCommandDeckWorkflow(cdp, target));
@@ -674,7 +709,7 @@ async function captureScreenshots() {
     }
 
     cdp.close();
-    return { screenshots, firstViewport, accessibility, performance, commandDeck, projectCards, journeyEvents, journeyAcks };
+    return { screenshots, firstViewport, visitCounters, accessibility, performance, commandDeck, projectCards, journeyEvents, journeyAcks };
   } catch (error) {
     throw new Error(`${error.message}\nBrowser output:\n${browserOutput.slice(-2000)}`);
   } finally {
@@ -839,6 +874,13 @@ async function writeIntegratedProductionProof(proof) {
       proofItemCount: item.proofItemCount,
       viewport: item.viewport,
     })),
+    visitCounters: proof.visitCounters.map((item) => ({
+      name: item.name,
+      status: item.status,
+      text: item.text ?? null,
+      width: item.width ?? null,
+      height: item.height ?? null,
+    })),
     accessibility: proof.accessibility.map((item) => ({
       name: item.name,
       visibleControlCount: item.visibleControlCount,
@@ -904,7 +946,7 @@ async function readLatestCiSignal(commit) {
     const signals = [];
     for (const file of files) {
       try {
-        const value = JSON.parse(await readFile(path.join(ciDir, file), 'utf8'));
+        const value = JSON.parse((await readFile(path.join(ciDir, file), 'utf8')).replace(/^\uFEFF/, ''));
         signals.push({ file, value });
       } catch {
         // Ignore malformed historical signals; the latest proof should reflect usable evidence only.
@@ -1012,6 +1054,11 @@ async function writeLatestProof(proof) {
         undersizedControls: proof.accessibility.reduce((total, item) => total + item.undersizedControls.length, 0),
         duplicateIds: proof.accessibility.reduce((total, item) => total + item.duplicateIds.length, 0),
         imagesMissingAlt: proof.accessibility.reduce((total, item) => total + item.imagesMissingAlt.length, 0),
+      },
+      visitCounters: {
+        viewports: proof.visitCounters.length,
+        statuses: [...new Set(proof.visitCounters.map((item) => item.status))],
+        deployedEverywhere: proof.visitCounters.every((item) => item.status === 'present'),
       },
       performance: {
         budget: proof.performanceBudget,
@@ -1129,7 +1176,7 @@ try {
     verifyImage('/images/profile-shoreline.jpg'),
     verifyImage('/images/developer-workspace.png'),
   ]);
-  const { screenshots, firstViewport, accessibility, performance, commandDeck, projectCards, journeyEvents, journeyAcks } = await captureScreenshots();
+  const { screenshots, firstViewport, visitCounters, accessibility, performance, commandDeck, projectCards, journeyEvents, journeyAcks } = await captureScreenshots();
   const links = await collectLinks(en, fr);
   const commit = await getCommit();
 
@@ -1152,6 +1199,7 @@ try {
       liveExternalLinks: links.some((link) => link.status === 'provider-blocked') ? 'partial-provider-blocked' : 'pass',
       screenshots: 'pass',
       firstViewportDecisionSurface: 'pass',
+      visitCounter: visitCounters.every((item) => item.status === 'present') ? 'pass' : 'not-required-production-deploy-window',
       accessibilitySmoke: 'pass',
       performanceBudget: 'pass',
       commandDeckKeyboard: 'pass',
@@ -1163,6 +1211,7 @@ try {
     images,
     screenshots,
     firstViewport,
+    visitCounters,
     accessibility,
     performanceBudget,
     performance,
@@ -1200,6 +1249,10 @@ try {
       '## First Viewport Decision Surface',
       '',
       ...firstViewport.map((viewport) => `- ${viewport.name}: ${viewport.proofItemCount} visible proof items, ${viewport.viewport.width}x${viewport.viewport.height}`),
+      '',
+      '## Visit Counter',
+      '',
+      ...visitCounters.map((item) => `- ${item.name}: ${item.status}${item.text ? ` (${item.text})` : ''}`),
       '',
       '## Accessibility Smoke',
       '',
