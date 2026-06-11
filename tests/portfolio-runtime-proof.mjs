@@ -465,6 +465,31 @@ async function assertCommandDeckWorkflow(cdp, target) {
   return { name: target.name, ...value };
 }
 
+async function assertProjectCardAffordances(cdp, target) {
+  const expression = `(() => {
+    const cards = [...document.querySelectorAll('[data-proof="project-card"]')];
+    const privateCards = cards.filter((card) => card.getAttribute('data-project-state') === 'private');
+    const publicCards = cards.filter((card) => card.getAttribute('data-project-state') === 'public');
+    return {
+      cardCount: cards.length,
+      privateCount: privateCards.length,
+      publicCount: publicCards.length,
+      privateAnchors: privateCards.filter((card) => card.tagName.toLowerCase() === 'a' || card.getAttribute('href') === '#').length,
+      publicAnchors: publicCards.filter((card) => card.tagName.toLowerCase() === 'a' && card.getAttribute('href')?.startsWith('https://')).length,
+      deadProjectLinks: cards.filter((card) => card.tagName.toLowerCase() === 'a' && card.getAttribute('href') === '#').length,
+    };
+  })()`;
+  const result = await cdp.send('Runtime.evaluate', { expression, returnByValue: true });
+  const value = result.result.value;
+  assert.ok(value.cardCount >= 3, `${target.name} exposes too few project cards`);
+  assert.ok(value.privateCount >= 1, `${target.name} should expose a private project card`);
+  assert.ok(value.publicCount >= 2, `${target.name} should expose public project cards`);
+  assert.equal(value.privateAnchors, 0, `${target.name} private project cards must not be dead links`);
+  assert.equal(value.deadProjectLinks, 0, `${target.name} has dead project card links`);
+  assert.equal(value.publicAnchors, value.publicCount, `${target.name} public project cards must remain external links`);
+  return { name: target.name, ...value };
+}
+
 async function assertJourneyEvents(cdp, name, { requireSink }) {
   const expression = `(async () => {
     window.__portfolioJourneyEvents = [];
@@ -475,7 +500,7 @@ async function assertJourneyEvents(cdp, name, { requireSink }) {
       if (anchor) event.preventDefault();
     }, { capture: true });
 
-    const projectCard = document.querySelector('[data-proof="project-card"]');
+    const projectCard = document.querySelector('[data-proof="project-card"][data-project-state="public"]');
     const emailLink = [...document.querySelectorAll('a')]
       .find((anchor) => anchor.href.startsWith('mailto:'));
     const githubLink = [...document.querySelectorAll('a')]
@@ -599,6 +624,7 @@ async function captureScreenshots() {
     const accessibility = [];
     const performance = [];
     const commandDeck = [];
+    const projectCards = [];
     let journeyEvents = [];
     let journeyAcks = [];
     for (const target of targets) {
@@ -624,6 +650,7 @@ async function captureScreenshots() {
       accessibility.push({ name: target.name, ...await assertAccessibilitySmoke(cdp, target) });
       performance.push(await assertPerformanceBudget(cdp, target));
       commandDeck.push(await assertCommandDeckWorkflow(cdp, target));
+      projectCards.push(await assertProjectCardAffordances(cdp, target));
       if (target.name === 'desktop-en') {
         const journeyProof = await assertJourneyEvents(cdp, target.name, { requireSink: Boolean(providedUrl) });
         journeyEvents = journeyProof.events;
@@ -647,7 +674,7 @@ async function captureScreenshots() {
     }
 
     cdp.close();
-    return { screenshots, firstViewport, accessibility, performance, commandDeck, journeyEvents, journeyAcks };
+    return { screenshots, firstViewport, accessibility, performance, commandDeck, projectCards, journeyEvents, journeyAcks };
   } catch (error) {
     throw new Error(`${error.message}\nBrowser output:\n${browserOutput.slice(-2000)}`);
   } finally {
@@ -763,6 +790,13 @@ async function writeAutogrowthJourneySignal(proof) {
       restoredAfterClose: item.restoredAfterClose,
       restoredAfterEscape: item.restoredAfterEscape,
     })),
+    projectCards: proof.projectCards.map((item) => ({
+      name: item.name,
+      cardCount: item.cardCount,
+      privateCount: item.privateCount,
+      publicCount: item.publicCount,
+      deadProjectLinks: item.deadProjectLinks,
+    })),
     privacy: {
       storesTargets: false,
       storesUserIdentifiers: false,
@@ -841,7 +875,7 @@ try {
     verifyImage('/images/profile-shoreline.jpg'),
     verifyImage('/images/developer-workspace.png'),
   ]);
-  const { screenshots, firstViewport, accessibility, performance, commandDeck, journeyEvents, journeyAcks } = await captureScreenshots();
+  const { screenshots, firstViewport, accessibility, performance, commandDeck, projectCards, journeyEvents, journeyAcks } = await captureScreenshots();
   const links = await collectLinks(en, fr);
   const commit = await getCommit();
 
@@ -858,6 +892,7 @@ try {
       translationsServed: 'pass',
       accentIntegrity: 'pass',
       selectedWork: 'pass',
+      projectCardAffordance: 'pass',
       imageLoading: 'pass',
       linkContracts: 'pass',
       liveExternalLinks: links.some((link) => link.status === 'provider-blocked') ? 'partial-provider-blocked' : 'pass',
@@ -878,6 +913,7 @@ try {
     performanceBudget,
     performance,
     commandDeck,
+    projectCards,
     journeyEvents,
     journeyAcks,
     links,
@@ -920,6 +956,10 @@ try {
       '## Command Deck Keyboard',
       '',
       ...commandDeck.map((item) => `- ${item.name}: ${item.commandCount} commands, focus restored after close and Escape`),
+      '',
+      '## Project Card Affordance',
+      '',
+      ...projectCards.map((item) => `- ${item.name}: ${item.privateCount} private non-link card, ${item.publicCount} public links, ${item.deadProjectLinks} dead links`),
       '',
       '## Live Links',
       '',

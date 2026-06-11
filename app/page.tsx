@@ -125,16 +125,12 @@ function ProjectCard({
   index: number;
   labels: { outcome: string; proof: string; private: string; open: string };
 }) {
-  return (
-    <a
-      href={project.href}
-      target={project.href === '#' ? undefined : '_blank'}
-      rel={project.href === '#' ? undefined : 'noopener noreferrer'}
-      className="scrap-card group block overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-secondary-300/70"
-      aria-label={`${project.name}: ${project.description}`}
-      data-proof="project-card"
-      onClick={() => recordJourneyEvent('project_open', project.name)}
-    >
+  const isPrivate = project.href === '#';
+  const cardClassName = `scrap-card group block overflow-hidden transition duration-300 ${
+    isPrivate ? 'cursor-default' : 'hover:-translate-y-1 hover:border-secondary-300/70'
+  }`;
+  const cardBody = (
+    <>
       <ProjectVisual project={project} index={index} />
       <div className="space-y-5 p-5">
         <div className="flex items-start justify-between gap-3">
@@ -166,6 +162,34 @@ function ProjectCard({
           {project.href !== '#' && <ExternalIcon />}
         </div>
       </div>
+    </>
+  );
+
+  if (isPrivate) {
+    return (
+      <article
+        className={cardClassName}
+        aria-label={`${project.name}: ${project.description}`}
+        data-proof="project-card"
+        data-project-state="private"
+      >
+        {cardBody}
+      </article>
+    );
+  }
+
+  return (
+    <a
+      href={project.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={cardClassName}
+      aria-label={`${project.name}: ${project.description}`}
+      data-proof="project-card"
+      data-project-state="public"
+      onClick={() => recordJourneyEvent('project_open', project.name)}
+    >
+      {cardBody}
     </a>
   );
 }
