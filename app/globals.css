@@ -30,9 +30,9 @@
   --color-border-accent: oklch(0.76 0.115 97);
   --color-hover: oklch(0.82 0.086 106);
 
-  --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-display), Georgia, serif;
-  --font-mono: var(--font-mono), "SFMono-Regular", Consolas, monospace;
+  --font-body: "Work Sans", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  --font-mono: "Azeret Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
 @layer base {
