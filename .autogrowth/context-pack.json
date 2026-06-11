@@ -1,31 +1,32 @@
 {
   "schema": "autogrowth-context-pack-v1",
-  "updated_at": "2026-06-11T16:35:58Z",
+  "updated_at": "2026-06-11T16:53:12Z",
   "repo": "portfolio",
   "context_type": "fullstack",
   "target": "BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A",
-  "score": 88,
-  "active_score_cap": "88 cap: stale/missing current proof and fallback judgment; active until fresh production proof is tied to current commit and control files agree.",
+  "score": 90,
+  "active_score_cap": "90 cap: control-plane artifacts disagree even though later production proof may pass.",
   "caps": [
-    "88 cap: stale/missing current proof and fallback judgment; active until fresh production proof is tied to current commit and control files agree.",
-    "90 cap: production journey plus observability not fully connected; opens with deployed journey proof plus privacy-safe event and CI status evidence.",
-    "94 cap: accessibility and performance evidence must be current and surfaced.",
-    "100 cap: exceptional benchmarked production outcome evidence only; plans, docs, internal logs, and fixture-only proof are insufficient."
+    "90 cap: control-plane artifacts disagree even though later production proof may pass.",
+    "92 cap: remote CI evidence is stale or not matched to deployed commit b38bbdc or the current deployed commit.",
+    "94 cap: durable privacy-safe field evidence is missing beyond proof-session acknowledgement.",
+    "96 cap: accessibility and performance evidence must be proven on the real runtime.",
+    "100 cap: exceptional score is blocked by lack of reconciled production, field, benchmark, and human-outcome evidence."
   ],
   "one_move": [
-    "Run and reconcile one fresh production journey proof for the current commit: npm test plus npm run proof:production, then update only the proof/control artifacts needed to make EVALUATION, AUTOGROWTH, and context-pack agree."
+    "Create one authoritative production proof packet for the deployed commit, then refresh EVALUATION.md and `.autogrowth/context-pack.json` only after CI is either matched or explicitly blocked and telemetry is labeled durable, smoke-only, unavailable, or blocked."
   ],
   "proof_command": "npm run test",
   "agent_prompt_loop": [
-    "Observe: read .autogrowth/context-pack.json, VISION.md, AUTOGROWTH.md, EVALUATION.md, package.json, tests/portfolio-runtime-proof.mjs, latest production proof, and structured event/export artifacts. Evidence inputs: score, caps, commit, deployed URL, proof timestamps, CI status, telemetry status. Stop if proof is already fresh and control files agree.",
-    "Prompt: Attack only the proof freshness/control-plane mismatch blocking 88->90. Run npm test and npm run proof:production for the current commit/deployed URL. Fix only executable-proof blockers. Do not add features, planning docs, or broad refactors.",
-    "Execute: if proof fails, make one scoped fix in the proof harness, link/content contract, or UI/content path causing the failure. Stop after one fix, one concrete external blocker, or one passing proof lane.",
-    "Verify: require command output plus dated artifact paths. Proof gate: npm test and npm run proof:production pass, or production is blocked with local proof intact and a specific blocker."
+    "Observe current state: read VISION.md, AUTOGROWTH.md, EVALUATION.md, `.autogrowth/context-pack.json`, package.json, runtime proof script, CI workflow, latest production proof, and latest screenshots; evidence inputs: current score, active cap, deployed URL, commit b38bbdc or current deployed commit, CI status, screenshots, link checks, telemetry notes; stop condition: exact proof disagreement is identified; learning update: resolved cap statement.",
+    "Reusable prompt: Create one authoritative production proof packet for the portfolio: match deployed commit, CI result, production runtime proof, EN/FR desktop/mobile screenshots, link checks, and telemetry durability; do not redesign UI or add broad docs.",
+    "Execute the slice: run the narrowest available production proof path, inspect commit/CI mismatch, classify telemetry, and update only required proof artifacts or tiny proof-code gaps; stop condition: one packet a future agent can trust.",
+    "Verify the proof: rerun `npm test` and production proof when available; evidence inputs: command output, screenshot paths, link results, telemetry classification; stop condition: no unsupported readiness claim remains."
   ],
   "next_two_hours": [
-    "1. Scope the slice: Run and reconcile one fresh production journey proof for the current commit: npm test plus npm run proof:production, then update only the proof/control artifacts needed to make EVALUATION, AUTOGROWTH, and context-pack agree.",
+    "1. Scope the slice: Create one authoritative production proof packet for the deployed commit, then refresh EVALUATION.md and `.autogrowth/context-pack.json` only after CI is either matched or explicitly blocked and telemetry is labeled durable, smoke-only, unavailable, or blocked.",
     "2. Touch only the files needed for that slice; avoid parallel refactors.",
-    "3. Run proof: Production URL recorded and reachable.",
+    "3. Run proof: CI result is matched to that commit or explicitly marked stale/blocked.",
     "4. Capture one before/after artifact or status result."
   ],
   "short_backlog": [

@@ -1,16 +1,16 @@
 {
   "schema": "portfolio-latest-proof-v1",
-  "generatedAt": "2026-06-11T16:30:15.620Z",
+  "generatedAt": "2026-06-11T16:48:04.674Z",
   "scoreContext": {
-    "currentScore": 88,
-    "activeCap": "88 cap: fallback judgment and stale/missing current proof evidence.",
+    "currentScore": 90,
+    "activeCap": "90 cap: control-plane artifacts disagree even though later production proof passes; score should not rise until the authoritative state is reconciled.",
     "capStatus": "partially-lifted-ci-current-field-evidence-missing"
   },
   "subject": {
     "product": "bilingual developer portfolio",
     "url": "https://xpelch.vercel.app",
     "environment": "production",
-    "commit": "2d1bf01",
+    "commit": "3c01b11",
     "result": "pass"
   },
   "sourceArtifacts": {
@@ -66,7 +66,7 @@
         "transferKiB": 2500,
         "largestResourceKiB": 1500
       },
-      "worstLoadCompleteMs": 116,
+      "worstLoadCompleteMs": 146,
       "worstTransferKiB": 1355
     },
     "commandDeck": {
@@ -88,8 +88,8 @@
       "acknowledgedEventNames": [
         "language_switch",
         "contact_click",
-        "project_open",
-        "external_profile_click"
+        "external_profile_click",
+        "project_open"
       ],
       "eventCount": 4,
       "acknowledgementCount": 4
@@ -135,10 +135,10 @@
   "fieldEvidence": {
     "ci": {
       "status": "observed-current",
-      "source": ".autogrowth\\signals\\ci\\github-actions-run-27361688360.json",
+      "source": ".autogrowth\\signals\\ci\\github-actions-run-27362846125.json",
       "commitMatched": true,
       "conclusion": "success",
-      "runUrl": "https://github.com/xpelch/portfolio/actions/runs/27361688360",
+      "runUrl": "https://github.com/xpelch/portfolio/actions/runs/27362846125",
       "note": "CI signal matches the proof commit."
     },
     "telemetry": {
