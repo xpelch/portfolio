@@ -1,6 +1,6 @@
 {
   "schema": "autogrowth-product-proof-v1",
-  "ran_at": "2026-06-11T02:11:24Z",
+  "ran_at": "2026-06-11T19:48:04Z",
   "status": "passed",
   "summary": {
     "product_polish_ready": true,
@@ -35,6 +35,7 @@
     ".autogrowth/product-plan/PRODUCTION_READINESS.md",
     ".autogrowth/product-plan/TELEMETRY_LOOP.md",
     ".autogrowth/product-proof/integrated-production-proof.json",
+    ".autogrowth/product-proof/latest-proof.json",
     ".autogrowth/product-proof/latest.json",
     ".autogrowth/product-proof/visual-baseline.json",
     ".autogrowth/proofs/findings.json",
@@ -44,6 +45,11 @@
     ".autogrowth/runs/20260610T202649Z-iter1.json",
     ".autogrowth/runs/20260611T020522Z-iter1.json",
     ".autogrowth/runs/20260611T020649Z-iter1.json",
+    ".autogrowth/runs/20260611T021221Z-iter1.json",
+    ".autogrowth/runs/20260611T021310Z-iter1.json",
+    ".autogrowth/runs/20260611T022448Z-iter1.json",
+    ".autogrowth/runs/20260611T024138Z-iter1.json",
+    ".autogrowth/runs/20260611T161815Z-iter1.json",
     ".autogrowth/runs/README.md",
     ".autogrowth/score-contracts.json",
     ".autogrowth/score-contracts.latest.json",
@@ -52,20 +58,7 @@
     ".autogrowth/signals/analytics/portfolio-runtime-journey-latest.json",
     ".autogrowth/signals/ci/github-actions-run-27307132798.json",
     ".autogrowth/signals/ci/github-actions-run-27308411602.json",
-    ".autogrowth/signals/ci/github-actions-run-27317789103.json",
-    ".autogrowth/signals/ci/github-actions-run-27318420599.json",
-    ".autogrowth/signals/field-signals.template.json",
-    ".autogrowth/signals/ingested.json",
-    ".autogrowth/signals/normalized.json",
-    ".autogrowth/state.json",
-    ".vercel/project.json",
-    "agent-context/IDENTITY.md",
-    "AGENTS.md",
-    "app/api/journey/route.ts",
-    "app/globals.css",
-    "app/layout.tsx",
-    "app/page.tsx",
-    "AUTOGROWTH.md"
+    ".autogrowth/signals/ci/github-actions-run-27317789103.json"
   ],
   "signals": {
     "frontend_surface": true,
@@ -78,7 +71,7 @@
     "empty_state": true,
     "error_state": true,
     "performance": true,
-    "layout_risk": true,
+    "layout_risk": false,
     "visual_proof": true,
     "journey_proof": true
   },
@@ -129,7 +122,7 @@
   "visual_qa": {
     "schema": "autogrowth-visual-qa-v1",
     "status": "review",
-    "passed": 5,
+    "passed": 6,
     "max": 10,
     "checks": [
       {
@@ -166,7 +159,7 @@
       },
       {
         "id": "layout-risk-static-scan",
-        "passed": false
+        "passed": true
       },
       {
         "id": "performance-static-signal",
