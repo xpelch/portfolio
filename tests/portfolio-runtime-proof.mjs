@@ -514,11 +514,13 @@ async function assertCommandDeckWorkflow(cdp, target) {
   return { name: target.name, ...value };
 }
 
-async function assertProjectCardAffordances(cdp, target) {
+async function assertProjectCardAffordances(cdp, target, { requireInspectability }) {
   const expression = `(() => {
     const cards = [...document.querySelectorAll('[data-proof="project-card"]')];
     const privateCards = cards.filter((card) => card.getAttribute('data-project-state') === 'private');
     const publicCards = cards.filter((card) => card.getAttribute('data-project-state') === 'public');
+    const roleRows = [...document.querySelectorAll('[data-proof="project-role"]')];
+    const constraintRows = [...document.querySelectorAll('[data-proof="project-constraint"]')];
     return {
       cardCount: cards.length,
       privateCount: privateCards.length,
@@ -526,6 +528,9 @@ async function assertProjectCardAffordances(cdp, target) {
       privateAnchors: privateCards.filter((card) => card.tagName.toLowerCase() === 'a' || card.getAttribute('href') === '#').length,
       publicAnchors: publicCards.filter((card) => card.tagName.toLowerCase() === 'a' && card.getAttribute('href')?.startsWith('https://')).length,
       deadProjectLinks: cards.filter((card) => card.tagName.toLowerCase() === 'a' && card.getAttribute('href') === '#').length,
+      roleCount: roleRows.length,
+      constraintCount: constraintRows.length,
+      privateCardsWithConstraint: privateCards.filter((card) => card.querySelector('[data-proof="project-constraint"]')).length,
     };
   })()`;
   const result = await cdp.send('Runtime.evaluate', { expression, returnByValue: true });
@@ -536,7 +541,18 @@ async function assertProjectCardAffordances(cdp, target) {
   assert.equal(value.privateAnchors, 0, `${target.name} private project cards must not be dead links`);
   assert.equal(value.deadProjectLinks, 0, `${target.name} has dead project card links`);
   assert.equal(value.publicAnchors, value.publicCount, `${target.name} public project cards must remain external links`);
-  return { name: target.name, ...value };
+  if (requireInspectability) {
+    assert.equal(value.roleCount, value.cardCount, `${target.name} must expose role on every project card`);
+    assert.equal(value.constraintCount, value.cardCount, `${target.name} must expose constraint on every project card`);
+    assert.equal(value.privateCardsWithConstraint, value.privateCount, `${target.name} private cards must explain confidentiality constraints`);
+  }
+  const inspectabilityStatus =
+    value.roleCount === value.cardCount && value.constraintCount === value.cardCount
+      ? 'present'
+      : requireInspectability
+        ? 'missing'
+        : 'not-deployed-yet';
+  return { name: target.name, inspectabilityStatus, ...value };
 }
 
 async function assertJourneyEvents(cdp, name, { requireSink }) {
@@ -716,7 +732,7 @@ async function captureScreenshotsAttempt(attempt) {
       accessibility.push({ name: target.name, ...await assertAccessibilitySmoke(cdp, target) });
       performance.push(await assertPerformanceBudget(cdp, target));
       commandDeck.push(await assertCommandDeckWorkflow(cdp, target));
-      projectCards.push(await assertProjectCardAffordances(cdp, target));
+      projectCards.push(await assertProjectCardAffordances(cdp, target, { requireInspectability: !providedUrl }));
       if (target.name === 'desktop-en') {
         const journeyProof = await assertJourneyEvents(cdp, target.name, { requireSink: Boolean(providedUrl) });
         journeyEvents = journeyProof.events;
@@ -861,6 +877,9 @@ async function writeAutogrowthJourneySignal(proof) {
       cardCount: item.cardCount,
       privateCount: item.privateCount,
       publicCount: item.publicCount,
+      roleCount: item.roleCount,
+      constraintCount: item.constraintCount,
+      inspectabilityStatus: item.inspectabilityStatus,
       deadProjectLinks: item.deadProjectLinks,
     })),
     privacy: {
@@ -945,6 +964,9 @@ async function writeIntegratedProductionProof(proof) {
       name: item.name,
       privateCount: item.privateCount,
       publicCount: item.publicCount,
+      roleCount: item.roleCount,
+      constraintCount: item.constraintCount,
+      inspectabilityStatus: item.inspectabilityStatus,
       deadProjectLinks: item.deadProjectLinks,
     })),
     journeyEvents: {
@@ -1104,6 +1126,9 @@ async function writeLatestProof(proof) {
       projectCards: {
         deadProjectLinks: proof.projectCards.reduce((total, item) => total + item.deadProjectLinks, 0),
         privateCardsWithoutDeadAnchors: proof.projectCards.every((item) => item.privateAnchors === 0),
+        inspectabilityStatuses: [...new Set(proof.projectCards.map((item) => item.inspectabilityStatus))],
+        roleRows: Math.min(...proof.projectCards.map((item) => item.roleCount)),
+        constraintRows: Math.min(...proof.projectCards.map((item) => item.constraintCount)),
       },
       journeyEvents: {
         eventNames: [...new Set(proof.journeyEvents.map((event) => event.name))],
@@ -1225,6 +1250,7 @@ try {
       accentIntegrity: 'pass',
       selectedWork: 'pass',
       projectCardAffordance: 'pass',
+      selectedWorkInspectability: projectCards.every((item) => item.inspectabilityStatus === 'present') ? 'pass' : 'not-required-production-deploy-window',
       imageLoading: 'pass',
       linkContracts: 'pass',
       liveExternalLinks: links.some((link) => link.status === 'provider-blocked') ? 'partial-provider-blocked' : 'pass',
@@ -1299,7 +1325,7 @@ try {
       '',
       '## Project Card Affordance',
       '',
-      ...projectCards.map((item) => `- ${item.name}: ${item.privateCount} private non-link card, ${item.publicCount} public links, ${item.deadProjectLinks} dead links`),
+      ...projectCards.map((item) => `- ${item.name}: ${item.privateCount} private non-link card, ${item.publicCount} public links, ${item.roleCount} role rows, ${item.constraintCount} constraint rows, inspectability ${item.inspectabilityStatus}, ${item.deadProjectLinks} dead links`),
       '',
       '## Live Links',
       '',

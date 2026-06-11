@@ -158,7 +158,7 @@ function ProjectCard({
 }: {
   project: Project;
   index: number;
-  labels: { outcome: string; proof: string; private: string; open: string };
+  labels: { role: string; constraint: string; outcome: string; proof: string; private: string; open: string };
 }) {
   const isPrivate = project.href === '#';
   const cardClassName = `scrap-card group block overflow-hidden transition duration-300 ${
@@ -179,6 +179,18 @@ function ProjectCard({
         </div>
         <p className="text-sm leading-6 text-text-secondary">{project.description}</p>
         <dl className="space-y-3 border-t border-border pt-4 text-sm">
+          {project.role && (
+            <div data-proof="project-role">
+              <dt className="mono-copy text-[0.68rem] tracking-[0.12em] text-text-muted">{labels.role}</dt>
+              <dd className="mt-1 text-on-background">{project.role}</dd>
+            </div>
+          )}
+          {project.constraint && (
+            <div data-proof="project-constraint">
+              <dt className="mono-copy text-[0.68rem] tracking-[0.12em] text-text-muted">{labels.constraint}</dt>
+              <dd className="mt-1 text-text-secondary">{project.constraint}</dd>
+            </div>
+          )}
           {project.outcome && (
             <div>
               <dt className="mono-copy text-[0.68rem] tracking-[0.12em] text-text-muted">{labels.outcome}</dt>
@@ -411,6 +423,8 @@ export default function Home() {
       visitTitle: fr ? 'Compteur local de passage' : 'Local visit counter',
       note: fr ? ['idée', 'construire', 'valider', 'livrer'] : ['idea', 'build', 'validate', 'ship'],
       labels: {
+        role: fr ? 'ROLE' : 'ROLE',
+        constraint: fr ? 'CONTRAINTE' : 'CONSTRAINT',
         outcome: fr ? 'IMPACT' : 'OUTCOME',
         proof: fr ? 'PREUVE' : 'PROOF',
         private: fr ? 'Cas privé' : 'Private case study',
