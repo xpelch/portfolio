@@ -808,6 +808,95 @@ async function writeAutogrowthJourneySignal(proof) {
   return path.relative(root, signalPath);
 }
 
+async function writeIntegratedProductionProof(proof) {
+  if (!providedUrl) return null;
+
+  const proofDir = path.join(root, '.autogrowth', 'product-proof');
+  await mkdir(proofDir, { recursive: true });
+  const integratedPath = path.join(proofDir, 'integrated-production-proof.json');
+  const integrated = {
+    schema: 'portfolio-integrated-production-proof-v2',
+    generatedAt: proof.generatedAt,
+    url: proof.url,
+    environment: proof.environment,
+    commit: proof.commit,
+    result: 'pass',
+    sourceArtifacts: {
+      runtimeProofJson: path.relative(root, proofJsonPath),
+      runtimeProofMarkdown: path.relative(root, proofMdPath),
+      autogrowthSignal: proof.autogrowthSignal,
+    },
+    checks: proof.checks,
+    screenshots: proof.screenshots.map((item) => ({
+      name: item.name,
+      path: item.path,
+      width: item.width,
+      scrollWidth: item.scrollWidth,
+      language: item.language,
+    })),
+    firstViewport: proof.firstViewport.map((item) => ({
+      name: item.name,
+      proofItemCount: item.proofItemCount,
+      viewport: item.viewport,
+    })),
+    accessibility: proof.accessibility.map((item) => ({
+      name: item.name,
+      visibleControlCount: item.visibleControlCount,
+      focusedCount: item.focusedCount,
+      landmarks: item.landmarks,
+      namelessControls: item.namelessControls,
+      undersizedControls: item.undersizedControls,
+      duplicateIds: item.duplicateIds,
+      imagesMissingAlt: item.imagesMissingAlt,
+    })),
+    performance: {
+      budget: proof.performanceBudget,
+      viewports: proof.performance.map((item) => ({
+        name: item.name,
+        domContentLoadedMs: item.domContentLoadedMs,
+        loadCompleteMs: item.loadCompleteMs,
+        responseEndMs: item.responseEndMs,
+        firstContentfulPaintMs: item.firstContentfulPaintMs,
+        resourceCount: item.resourceCount,
+        transferKiB: item.transferKiB,
+        largestResourceKiB: item.largestResourceKiB,
+      })),
+    },
+    commandDeck: proof.commandDeck.map((item) => ({
+      name: item.name,
+      commandCount: item.commandCount,
+      restoredAfterClose: item.restoredAfterClose,
+      restoredAfterEscape: item.restoredAfterEscape,
+    })),
+    projectCards: proof.projectCards.map((item) => ({
+      name: item.name,
+      privateCount: item.privateCount,
+      publicCount: item.publicCount,
+      deadProjectLinks: item.deadProjectLinks,
+    })),
+    journeyEvents: {
+      eventNames: [...new Set(proof.journeyEvents.map((event) => event.name))],
+      acknowledgedEventNames: [...new Set(proof.journeyAcks.map((ack) => ack.name))],
+      eventCount: proof.journeyEvents.length,
+      acknowledgementCount: proof.journeyAcks.length,
+    },
+    linkHealth: proof.links.map((item) => ({
+      label: item.label,
+      status: item.status,
+      httpStatus: item.httpStatus ?? null,
+    })),
+    privacy: {
+      storesTargets: false,
+      storesUserIdentifiers: false,
+      storesIpAddress: false,
+      storesUserAgent: false,
+    },
+    nextAction: 'Keep this packet fresh after every deployed UI/content change; next cap is privacy-safe aggregate visitor telemetry.',
+  };
+  await writeFile(integratedPath, `${JSON.stringify(integrated, null, 2)}\n`, 'utf8');
+  return path.relative(root, integratedPath);
+}
+
 function startServer() {
   if (providedUrl) return null;
 
@@ -919,6 +1008,7 @@ try {
     links,
   };
   proof.autogrowthSignal = await writeAutogrowthJourneySignal(proof);
+  proof.integratedProductionProof = await writeIntegratedProductionProof(proof);
 
   await mkdir(outputDir, { recursive: true });
   await writeFile(proofJsonPath, `${JSON.stringify(proof, null, 2)}\n`, 'utf8');
@@ -976,6 +1066,7 @@ try {
       '## Autogrowth Signal',
       '',
       `- ${proof.autogrowthSignal}`,
+      ...(proof.integratedProductionProof ? ['', '## Integrated Production Proof', '', `- ${proof.integratedProductionProof}`] : []),
       '',
       '## Remaining Runtime Gaps',
       '',
