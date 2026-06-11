@@ -555,6 +555,68 @@ async function assertProjectCardAffordances(cdp, target, { requireInspectability
   return { name: target.name, inspectabilityStatus, ...value };
 }
 
+async function assertLanguageRecoveryState(cdp) {
+  await cdp.send('Emulation.setDeviceMetricsOverride', {
+    width: 390,
+    height: 900,
+    deviceScaleFactor: 2,
+    mobile: true,
+  });
+  const recoveryScript = await cdp.send('Page.addScriptToEvaluateOnNewDocument', {
+    source: `try { localStorage.setItem('portfolio-language', 'zz'); } catch (_) {}`,
+  });
+
+  await cdp.send('Page.navigate', { url: baseUrl });
+  await waitForText(cdp, 'Xavier Pelchat');
+  await cdp.send('Page.removeScriptToEvaluateOnNewDocument', {
+    identifier: recoveryScript.identifier,
+  });
+
+  const recovered = await cdp.send('Runtime.evaluate', {
+    expression: `(() => {
+      const banner = document.querySelector('[data-proof="language-recovery"]');
+      const action = document.querySelector('[data-proof="language-recovery-action"]');
+      const rect = banner?.getBoundingClientRect();
+      return {
+        bannerPresent: Boolean(banner),
+        actionPresent: Boolean(action),
+        actionText: action?.textContent?.trim() ?? '',
+        body: banner?.textContent?.trim() ?? '',
+        savedLanguage: localStorage.getItem('portfolio-language'),
+        visible: Boolean(rect && rect.width > 0 && rect.height > 0),
+      };
+    })()`,
+    returnByValue: true,
+  });
+  const value = recovered.result.value;
+  assert.equal(value.bannerPresent, true, 'language recovery banner is missing');
+  assert.equal(value.actionPresent, true, 'language recovery action is missing');
+  assert.equal(value.visible, true, 'language recovery banner is not visible');
+  assert.match(value.body, /language recovered|loaded in an available language/i, 'language recovery copy is unclear');
+  assert.equal(value.savedLanguage, 'en', 'invalid language preference should recover to English');
+
+  await cdp.send('Runtime.evaluate', {
+    expression: `document.querySelector('[data-proof="language-recovery-action"]')?.click()`,
+  });
+  await waitForText(cdp, "M'\u00e9crire");
+
+  const resolved = await cdp.send('Runtime.evaluate', {
+    expression: `(() => ({
+      bannerPresent: Boolean(document.querySelector('[data-proof="language-recovery"]')),
+      savedLanguage: localStorage.getItem('portfolio-language'),
+      body: document.body.innerText.slice(0, 500),
+    }))()`,
+    returnByValue: true,
+  });
+  assert.equal(resolved.result.value.bannerPresent, false, 'language recovery banner should clear after a successful language switch');
+  assert.equal(resolved.result.value.savedLanguage, 'fr', 'language recovery action should switch to French');
+
+  return {
+    recovered: value,
+    resolved: resolved.result.value,
+  };
+}
+
 async function assertJourneyEvents(cdp, name, { requireSink, requireContactCopy }) {
   const expression = `(async () => {
     window.__portfolioJourneyEvents = [];
@@ -720,6 +782,7 @@ async function captureScreenshotsAttempt(attempt) {
     let journeyEvents = [];
     let journeyAcks = [];
     let contactCopy = { buttonPresent: false, status: '' };
+    let languageRecovery = null;
     for (const target of targets) {
       await cdp.send('Emulation.setDeviceMetricsOverride', target.viewport);
       const languagePreference = await installLanguagePreference(cdp, target.language);
@@ -773,9 +836,10 @@ async function captureScreenshotsAttempt(attempt) {
         language: target.language,
       });
     }
+    languageRecovery = await assertLanguageRecoveryState(cdp);
 
     cdp.close();
-    return { screenshots, firstViewport, visitCounters, accessibility, performance, commandDeck, projectCards, contactCopy, journeyEvents, journeyAcks };
+    return { screenshots, firstViewport, visitCounters, accessibility, performance, commandDeck, projectCards, contactCopy, languageRecovery, journeyEvents, journeyAcks };
   } catch (error) {
     throw new Error(`${error.message}\nBrowser output:\n${browserOutput.slice(-2000)}`);
   } finally {
@@ -902,6 +966,7 @@ async function writeAutogrowthJourneySignal(proof) {
       deadProjectLinks: item.deadProjectLinks,
     })),
     contactCopy: proof.contactCopy,
+    languageRecovery: proof.languageRecovery,
     privacy: {
       storesTargets: false,
       storesUserIdentifiers: false,
@@ -990,6 +1055,7 @@ async function writeIntegratedProductionProof(proof) {
       deadProjectLinks: item.deadProjectLinks,
     })),
     contactCopy: proof.contactCopy,
+    languageRecovery: proof.languageRecovery,
     journeyEvents: {
       eventNames: [...new Set(proof.journeyEvents.map((event) => event.name))],
       acknowledgedEventNames: [...new Set(proof.journeyAcks.map((ack) => ack.name))],
@@ -1152,6 +1218,7 @@ async function writeLatestProof(proof) {
         constraintRows: Math.min(...proof.projectCards.map((item) => item.constraintCount)),
       },
       contactCopy: proof.contactCopy,
+      languageRecovery: proof.languageRecovery,
       journeyEvents: {
         eventNames: [...new Set(proof.journeyEvents.map((event) => event.name))],
         acknowledgedEventNames: [...new Set(proof.journeyAcks.map((ack) => ack.name))],
@@ -1254,7 +1321,7 @@ try {
     verifyImage('/images/profile-shoreline.jpg'),
     verifyImage('/images/developer-workspace.png'),
   ]);
-  const { screenshots, firstViewport, visitCounters, accessibility, performance, commandDeck, projectCards, contactCopy, journeyEvents, journeyAcks } = await captureScreenshots();
+  const { screenshots, firstViewport, visitCounters, accessibility, performance, commandDeck, projectCards, contactCopy, languageRecovery, journeyEvents, journeyAcks } = await captureScreenshots();
   const links = await collectLinks(en, fr);
   const commit = await getCommit();
 
@@ -1274,6 +1341,7 @@ try {
       projectCardAffordance: 'pass',
       selectedWorkInspectability: projectCards.every((item) => item.inspectabilityStatus === 'present') ? 'pass' : 'not-required-production-deploy-window',
       contactCopy: contactCopy.buttonPresent && /copied|copi|xpelch\.dev@proton\.me/i.test(contactCopy.status) ? 'pass' : 'not-required-production-deploy-window',
+      languageRecovery: languageRecovery ? 'pass' : 'not-required-production-deploy-window',
       imageLoading: 'pass',
       linkContracts: 'pass',
       liveExternalLinks: links.some((link) => link.status === 'provider-blocked') ? 'partial-provider-blocked' : 'pass',
@@ -1298,6 +1366,7 @@ try {
     commandDeck,
     projectCards,
     contactCopy,
+    languageRecovery,
     journeyEvents,
     journeyAcks,
     links,
@@ -1355,6 +1424,11 @@ try {
       '',
       `- button: ${contactCopy.buttonPresent ? 'present' : 'missing'}`,
       `- status: ${contactCopy.status || 'not-required-production-deploy-window'}`,
+      '',
+      '## Language Recovery',
+      '',
+      `- recovered preference: ${languageRecovery?.recovered?.savedLanguage ?? 'not-required-production-deploy-window'}`,
+      `- resolved preference: ${languageRecovery?.resolved?.savedLanguage ?? 'not-required-production-deploy-window'}`,
       '',
       '## Live Links',
       '',

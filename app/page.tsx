@@ -401,7 +401,7 @@ function CommandDeck({
 }
 
 export default function Home() {
-  const { translations, loading, language, setLanguage } = useLanguage();
+  const { translations, loading, language, setLanguage, languageNotice } = useLanguage();
   const [commandOpen, setCommandOpen] = useState(false);
   const [contactCopyStatus, setContactCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
   const commandTriggerRef = useRef<HTMLButtonElement | null>(null);
@@ -440,6 +440,11 @@ export default function Home() {
       copyEmail: fr ? 'Copier email' : 'Copy email',
       contactCopied: fr ? 'Email copié' : 'Email copied',
       contactCopyFailed: fr ? 'Email visible' : 'Email visible',
+      languageRecoveryTitle: fr ? 'Langue récupérée' : 'Language recovered',
+      languageRecoveryBody: fr
+        ? "Les textes ont été rechargés dans une langue disponible."
+        : 'Text loaded in an available language after a saved preference failed.',
+      languageRecoveryAction: fr ? 'Passer en anglais' : 'Try French',
       commandTitle: fr ? 'OPERATOR DECK' : 'OPERATOR DECK',
       commandStatus: fr ? 'Chemins rapides pour évaluer le travail.' : 'Fast paths for evaluating the work.',
       heroStatus: 'Canada / Remote US',
@@ -610,6 +615,29 @@ export default function Home() {
             {translations.general.buttons.getInTouch}
           </a>
         </header>
+
+        {languageNotice === 'recovered' && (
+          <div
+            role="status"
+            data-proof="language-recovery"
+            className="mt-5 grid gap-3 border border-secondary-300/45 bg-secondary-300/10 p-4 text-sm text-text-secondary sm:grid-cols-[1fr_auto] sm:items-center"
+          >
+            <div>
+              <p className="mono-copy text-xs tracking-[0.14em] text-secondary-300">{copy.languageRecoveryTitle}</p>
+              <p className="mt-2 max-w-2xl leading-6">{copy.languageRecoveryBody}</p>
+            </div>
+            <button
+              type="button"
+              data-proof="language-recovery-action"
+              className="mono-copy inline-flex min-h-11 items-center justify-center border border-secondary-300 px-4 py-3 text-xs text-secondary-300 transition hover:bg-secondary-300 hover:text-surface-100 focus-visible:bg-secondary-300 focus-visible:text-surface-100"
+              onClick={() => {
+                void setLanguage(language === 'fr' ? 'en' : 'fr');
+              }}
+            >
+              {copy.languageRecoveryAction}
+            </button>
+          </div>
+        )}
 
         <section id="top" className="relative grid min-h-[calc(100dvh-6rem)] items-start gap-10 py-6 sm:gap-12 sm:py-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:py-14">
           <div className="space-y-6 sm:space-y-9">

@@ -7,9 +7,10 @@ type Language = 'en' | 'fr';
 
 interface LanguageContextType {
   language: Language;
-  setLanguage: (lang: Language) => void;
+  setLanguage: (lang: Language) => Promise<void>;
   translations: Translations | null;
   loading: boolean;
+  languageNotice: 'recovered' | null;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -30,40 +31,55 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   const [language, setLanguageState] = useState<Language>('en');
   const [translations, setTranslations] = useState<Translations | null>(null);
   const [loading, setLoading] = useState(true);
+  const [languageNotice, setLanguageNotice] = useState<'recovered' | null>(null);
+
+  const loadTranslations = async (lang: Language) => {
+    const response = await fetch(`/translations/${lang}.json`);
+    if (!response.ok) {
+      throw new Error(`translation_${lang}_unavailable`);
+    }
+    return response.json() as Promise<Translations>;
+  };
 
   const setLanguage = async (lang: Language) => {
-    setLanguageState(lang);
-    localStorage.setItem('portfolio-language', lang);
-    
     try {
-      const response = await fetch(`/translations/${lang}.json`);
-      const data = await response.json() as Translations;
+      const data = await loadTranslations(lang);
+      setLanguageState(lang);
+      localStorage.setItem('portfolio-language', lang);
       setTranslations(data);
+      setLanguageNotice(null);
     } catch (error) {
       console.error('Failed to load translations:', error);
+      setLanguageNotice('recovered');
     }
   };
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('portfolio-language') as Language || 'en';
-    setLanguageState(savedLanguage);
+    const savedLanguage = localStorage.getItem('portfolio-language');
+    const initialLanguage: Language = savedLanguage === 'fr' || savedLanguage === 'en' ? savedLanguage : 'en';
+    if (savedLanguage && savedLanguage !== initialLanguage) {
+      localStorage.setItem('portfolio-language', initialLanguage);
+      setLanguageNotice('recovered');
+    }
+    setLanguageState(initialLanguage);
     
-    const loadTranslations = async () => {
+    const loadInitialTranslations = async () => {
       try {
-        const response = await fetch(`/translations/${savedLanguage}.json`);
-        const data = await response.json() as Translations;
+        const data = await loadTranslations(initialLanguage);
         setTranslations(data);
       } catch (error) {
         console.error('Failed to load translations:', error);
-        const fallbackResponse = await fetch('/translations/en.json');
-        const fallbackData = await fallbackResponse.json() as Translations;
+        const fallbackData = await loadTranslations('en');
+        setLanguageState('en');
+        localStorage.setItem('portfolio-language', 'en');
         setTranslations(fallbackData);
+        setLanguageNotice('recovered');
       } finally {
         setLoading(false);
       }
     };
 
-    loadTranslations();
+    loadInitialTranslations();
   }, []);
 
   const value = {
@@ -71,6 +87,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     setLanguage,
     translations,
     loading,
+    languageNotice,
   };
 
   return (
