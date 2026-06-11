@@ -136,14 +136,30 @@ async function waitForDevTools(port) {
 
 async function createPageTarget(port) {
   const endpoint = `http://127.0.0.1:${port}/json/new?about:blank`;
-  let response = await fetch(endpoint, { method: 'PUT' });
-  if (!response.ok) {
-    response = await fetch(endpoint);
+  let lastError;
+
+  for (let attempt = 0; attempt < 24; attempt += 1) {
+    try {
+      let response = await fetch(endpoint, { method: 'PUT' });
+      if (!response.ok) {
+        response = await fetch(endpoint);
+      }
+
+      if (response.ok) {
+        const target = await response.json();
+        assert.ok(target.webSocketDebuggerUrl, 'Chrome page target did not expose a debugger URL');
+        return target.webSocketDebuggerUrl;
+      }
+
+      lastError = new Error(`Chrome target creation returned ${response.status}`);
+    } catch (error) {
+      lastError = error;
+    }
+
+    await wait(250);
   }
-  assert.ok(response.ok, `Chrome target creation failed with ${response.status}`);
-  const target = await response.json();
-  assert.ok(target.webSocketDebuggerUrl, 'Chrome page target did not expose a debugger URL');
-  return target.webSocketDebuggerUrl;
+
+  throw lastError;
 }
 
 function createCdpClient(webSocketUrl) {
