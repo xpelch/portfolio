@@ -90,21 +90,21 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - Current tier : pretty good: the project is useful and coherent, but still has visible caps to lift before it becomes exceptional.
 
 ## PROGRESS DELTA
-- Previous score : 88/100.
+- Previous score : 90/100.
 - Current score : 90/100.
-- Delta : +2.
-- Advancement judgment : advanced by +2; keep the proof that moved the score and attack the next cap.
+- Delta : +0.
+- Advancement judgment : flat; the project did not prove meaningful advancement since the previous evaluation.
 
 ## CAUSAL SCORE DELTA
-- Score delta : +2 (88/100 -> 90/100), direction `up`.
+- Score delta : +0 (90/100 -> 90/100), direction `flat`.
 - Goal signal : `VISION.md` has a concrete destination, so target calibration is stronger.
 - Proof signal : canonical command detected `npm run test`; passing it can move proof confidence.
-- Active cap : 90 cap: authoritative proof/control artifacts disagree and must be reconciled before further score movement..
+- Active cap : Current score cap: 90 until same-commit CI evidence and canonical proof consistency are proven..
 - Weakest lever : `Tests` must move before broad feature work is credible.
 - Deep evidence : no failing deep checks in this run.
 
 ## STATE INSIGHTS
-- Durable state : previous recorded score was 88/100.
+- Durable state : previous recorded score was 90/100.
 - Recurring blockers : jugement Codex indisponible; fallback heuristique conservateur; Current cap: 88 until production/analytics evidence is connected to the complete visitor journey.; 94 cap: cannot pass without accessibility and performance evidence on the real runtime.
 - State directive : stop restating recurring blockers; choose an escape lane or measurement lane.
 
@@ -165,9 +165,9 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 | `runtime.command.npm-run-lint` | Runtime proof | pass | P3 | 0.95 | Fix the command failure or record why it is not the canonical proof path. |
 
 ## EXECUTED COMMANDS
-- `runtime.command.npm-run-test` [pass/P3] : `npm run test` exit 0; duration 13.53s; owser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baselin
-- `runtime.command.npm-run-build` [pass/P3] : `npm run build` exit 0; duration 5.73s; owser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baselin
-- `runtime.command.npm-run-lint` [pass/P3] : `npm run lint` exit 0; duration 2.3s; > portfolio@0.1.0 lint > eslint
+- `runtime.command.npm-run-test` [pass/P3] : `npm run test` exit 0; duration 13.63s; owser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baselin
+- `runtime.command.npm-run-build` [pass/P3] : `npm run build` exit 0; duration 5.33s; owser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D` [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baselin
+- `runtime.command.npm-run-lint` [pass/P3] : `npm run lint` exit 0; duration 2.31s; > portfolio@0.1.0 lint > eslint
 
 ## DOCS TRUTH CHECK
 - `docs.commands-truth` [warn/P3] : README.md present; 0 command-like README entries detected
@@ -182,7 +182,7 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - `automation.ci-present` [pass/P3] : CI workflow/config detected
 
 ## ONE MOVE THAT MATTERS
-Reconcile the authoritative score/proof state around the latest deployed commit, then attach durable privacy-safe visitor-intent telemetry; stop at 90 until those two facts are consistent.
+Build the current-commit evidence bridge: make the latest product-proof/control artifact consume the integrated production proof, match it to a successful CI run for the same commit, and clearly leave only durable aggregate visitor telemetry as the remaining cap.
 
 ## SCORE ROADMAP
 - 0-49 : define target, owner, runtime, verification, and the first real journey.
@@ -204,19 +204,18 @@ Reconcile the authoritative score/proof state around the latest deployed commit,
 ## OPERATING DIRECTIVE
 - Score actuel : 90/100
 - Type detecte : fullstack
-- Plafond actif : 90 cap: authoritative proof/control artifacts disagree and must be reconciled before further score movement.
+- Plafond actif : Current score cap: 90 until same-commit CI evidence and canonical proof consistency are proven.
 - Commandes canoniques visibles : npm run test, npm run build, npm run lint
-- Blockers primaires : 90 cap: authoritative proof/control artifacts disagree and must be reconciled before further score movement.; 92 cap: durable privacy-safe visitor-intent evidence is missing beyond smoke-proofed production events.; 94 cap: deployed accessibility and performance evidence needs stricter threshold-based proof.; Tests faible ou prioritaire; Fiabilite faible ou prioritaire
+- Blockers primaires : Current score cap: 90 until same-commit CI evidence and canonical proof consistency are proven.; Next cap: 92 until durable production visitor-intent telemetry exists beyond proof-session acknowledgements.; Selected-work cap: 94 until every project has inspectable bilingual evidence or an explicit confidentiality-safe substitute.; Tests faible ou prioritaire; Fiabilite faible ou prioritaire
 - Prochaine meilleure action : lever le premier plafond applique avec une preuve directe
 
 ## EFFICIENCY SELF-CHECK
-- Current next move is efficient only if it reconciles the proof/control-plane contradiction and attaches durable telemetry; another static evaluation pass is low leverage.
-- Keep `npm test`, `npm run proof:production`, bilingual content contracts, production screenshots, and CI artifact upload.
-- Change the score loop so latest production proof can update or invalidate stale evaluation caps atomically.
-- Remove or defer command-center expansion, new visual effects, and extra docs until the telemetry/control-plane cap is lifted.
-- Automate proof state reconciliation because stale caps are now the main operator friction.
-- Measure selected-work opens, contact starts, language switches, outbound profile clicks, deployed a11y/performance, and proof freshness.
-- Simplify the next slice to one narrow control-plane reconciliation plus durable telemetry check.
+- Efficient: keeping the integrated production visitor journey as the central proof path.
+- Change: stop treating the old remote production/analytics blocker as unsolved in generic terms; narrow it to current-commit CI plus durable field telemetry.
+- Keep: `npm test`, production proof, bilingual contracts, screenshot proof, accessibility smoke, performance budgets, and privacy-safe event names.
+- Remove or demote: any visitor-facing workflow/process language that slows project inspection or contact confidence.
+- Automate: commit-to-CI matching, production screenshots, journey event acknowledgement, visual diff status, and proof artifact freshness checks.
+- Measure: project opens, contact clicks, GitHub clicks, LinkedIn attempts, language switches, first-viewport CTA visibility, CI pass rate, and proof artifact age.
 
 ## CONTEXT RUBRIC
 - Complete journeys: UI-to-API flow, shared contracts, visible errors, persistence, deployment path.
@@ -228,12 +227,11 @@ Reconcile the authoritative score/proof state around the latest deployed commit,
 - Fullstack: isoler client, serveur et contrats partages; prouver un flux bout-en-bout avec seed/demo et commande unique.
 
 ## GROWTH / UI-UX DIRECTION
-Optimize for the two-minute evaluator: understand Xavier, trust the work, inspect proof, and start contact.
-Make selected work more inspectable before adding new interactive surfaces.
-Keep AI/agentic workflow as operating evidence, not a headline product claim.
-Treat bilingual parity as proof of care: equal clarity, equal CTAs, equal proof access, no clipped French accents.
-Use tactile dark craft only where it improves hierarchy, memorability, and confidence.
-Prefer fewer, stronger proof cues over more internal workflow language.
+Make the work the fastest thing to inspect: project outcome, role, proof, and constraint should beat internal workflow language in visual priority.
+Keep AI/agentic signal as evidence of operating judgment, not as the page’s main character.
+Turn the first viewport into a decision surface: identity, offer, proof, selected work path, contact path, and language control must remain visible and uncluttered.
+Move from smoke proof to behavioral proof: the next growth signal is real visitor intent, not another local fixture.
+Use craft details only when they improve trust, orientation, or memorability without hiding project evidence.
 
 ## BENCHMARK CALIBRATION
 - Manual benchmark targets:
@@ -301,19 +299,18 @@ Prefer fewer, stronger proof cues over more internal workflow language.
 - Ne pas baisser les gates pour creer de l'activite; ameliorer sourcing, simulation, validation, UX, observabilite ou apprentissage.
 
 ## BLOCKER ESCAPE LANES
-If analytics provider access is unavailable, use production server logs or CI-scheduled synthetic journey events labeled as synthetic, and keep the real-field blocker open.
-If LinkedIn remains provider-blocked, prove GitHub and email as primary contact lanes and document LinkedIn as best-effort external link.
-If score artifacts keep disagreeing, make the evaluator refuse score movement and emit a single stale-artifact repair task.
-If deployed screenshots cannot be refreshed, fall back to production-local proof only as a regression guard, not as evidence for 90+ movement.
-If benchmark review is subjective, create a rubric with visible work, hierarchy, tactile craft, mobile clarity, and contact speed, then score screenshots against it.
+If GitHub Actions access is unavailable, record the missing auth as the blocker and use local `npm test` plus `npm run proof:production` as adjacent evidence without raising the score.
+If analytics vendor setup is blocked, persist only privacy-safe aggregate event counts from the existing `/api/journey` path and document the storage/privacy boundary.
+If production deployment is blocked, run production-local `next start` proof and keep the deployment cap explicit.
+If LinkedIn remains provider-blocked, treat it as a known external-provider exception and verify link format plus visible fallback profile text.
+If visual-diff tooling is too heavy, start with deterministic screenshot existence, dimensions, scroll-width, and artifact freshness checks before pixel diffing.
 
 ## AGENT PROMPT LOOP
-Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `.autogrowth/product-proof/latest-proof.json`, `.autogrowth/product-proof/integrated-production-proof.json`, and the latest production proof markdown.
-Reusable prompt: Attack only the active 90 cap by reconciling stale control-plane state and attaching durable visitor-intent evidence for land -> inspect work -> switch language -> contact. Do not add product features unless proof fails because of a concrete visitor defect.
-Evidence inputs: current production URL, deploy commit, CI run artifact, `npm test`, `npm run proof:production`, production screenshots, analytics/log source, and latest proof JSON.
-Execution slice: run local proof, run production proof, verify CI commit match, inspect analytics/log source, then update only the authoritative proof/control artifacts needed to remove contradiction.
-Stop condition: stop when state agrees at one score/cap, durable field evidence is attached, or the missing external source is named with a safe fallback lane.
-Learning update: record blocker lifted or remaining, exact artifact paths, command results, rejected broader work, and the next prompt candidate in `AUTOGROWTH.md` or the proof artifact.
+Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `.autogrowth/product-proof/latest.json`, `.autogrowth/product-proof/integrated-production-proof.json`, latest CI evidence, and latest production analytics signal.
+Reusable prompt: Execute one bounded evidence-freshness slice. Do not redesign. Make the latest proof/control artifact reflect the integrated production proof for the current commit, attach or record matching CI evidence, and leave durable field telemetry as the only remaining cap if no real visitor aggregate exists.
+Evidence inputs: `package.json` scripts, `tests/portfolio-runtime-proof.mjs`, integrated production proof JSON, GitHub Actions evidence JSON, production journey analytics JSON, deployed URL, and latest screenshots.
+Stop condition: stop when the latest control artifact either matches the current production proof and same-commit CI run, or names exactly which external evidence is unavailable and preserves the 90 cap.
+Learning update: record the lifted blocker, remaining cap, proof command, artifact paths, and next single prompt in `AUTOGROWTH.md` or the scoped proof artifact.
 
 ## SHORT PRIORITY BACKLOG
 - DO NOW [BOLD]: BOLD: End-to-end command center: merge the highest-value user action, backend status, validation errors, and recovery into one operational surface; prototype one complete UI-to-API flow; proof is an E2E run with success and failure paths; kill if contracts or permissions stay implicit.; proof clarity 8/10; risk 4/10; stop when it no longer attacks a named cap.
@@ -322,19 +319,19 @@ Learning update: record blocker lifted or remaining, exact artifact paths, comma
 - DO NOT BUILD YET: avoid broad surface expansion until proof improves; proof: tie to active cap; stop: no evidence gain.
 
 ## NEXT 10 POINTS PROOF CHECKLIST
-`npm test` passes on the current checkout.
-`npm run proof:production` passes against `https://xpelch.vercel.app` for the current deploy commit.
-Desktop EN, mobile EN, and mobile FR screenshots are current and show no horizontal overflow.
-First viewport exposes name, role, offer, proof strip, selected-work CTA, contact CTA, and language control.
-Selected work, email, GitHub, LinkedIn fallback, and private project behavior are verified or documented.
-Accessibility evidence covers focus order, labels, landmarks, contrast, reduced motion, and image alt text.
-Performance evidence records deployed mobile and desktop metrics with thresholds.
-CI run matches the same commit as the production proof artifact, or the mismatch blocks score movement explicitly.
+`npm test` passes on the current commit.
+`npm run proof:production` passes against `https://xpelch.vercel.app`.
+GitHub Actions success is observed for the same commit as the production proof.
+Uploaded CI artifact contains runtime proof, production proof, and desktop/mobile screenshots.
+Production screenshots exist for desktop EN, mobile EN, and mobile FR with no horizontal overflow.
+Journey events and acknowledgements include project open, contact click, external profile click, and language switch.
+Accessibility smoke covers named controls, focusability, landmarks, alt text, duplicate IDs, and undersized controls.
+Performance budget passes on the same production run as the screenshots.
 
 ## NEXT 2 HOURS
-1. Scope the slice: Reconcile the authoritative score/proof state around the latest deployed commit, then attach durable privacy-safe visitor-intent telemetry; stop at 90 until those two facts are consistent.
+1. Scope the slice: Build the current-commit evidence bridge: make the latest product-proof/control artifact consume the integrated production proof, match it to a successful CI run for the same commit, and clearly leave only durable aggregate visitor telemetry as the remaining cap.
 2. Touch only the files needed for that slice; avoid parallel refactors.
-3. Run proof: `npm run proof:production` passes against `https://xpelch.vercel.app` for the current deploy commit.
+3. Run proof: `npm run proof:production` passes against `https://xpelch.vercel.app`.
 4. Capture one before/after artifact or status result.
 5. Update the blocker/proof note in `AUTOGROWTH.md` if the result changes direction.
 6. Rerun `$autogrowth` and compare the progress delta.
@@ -366,8 +363,8 @@ CI run matches the same commit as the production proof artifact, or the mismatch
 - Move : Remonter Tests de 5/10 vers 7/10 avec une preuve executable.
 - Move : Remonter Fiabilite de 5/7 vers 7/7 avec une preuve executable.
 - Move : Remonter Securite de 6/8 vers 8/8 avec une preuve executable.
-- Move : Lever le plafond principal avant de poursuivre l'optimisation fine: 90 cap: authoritative proof/control artifacts disagree and must be reconciled before further score movement.
-- Move : Traiter les 25 deltas feature/QoL/UI-UX comme backlog d'excellence priorise.
+- Move : Lever le plafond principal avant de poursuivre l'optimisation fine: Current score cap: 90 until same-commit CI evidence and canonical proof consistency are proven.
+- Move : Traiter les 22 deltas feature/QoL/UI-UX comme backlog d'excellence priorise.
 
 ## PREUVES
 - Contexte et objectif : README present; agent/context documentation present; workspace objective/config artifact present
@@ -382,58 +379,55 @@ CI run matches the same commit as the production proof artifact, or the mismatch
 - Observabilite : log/trace/metric signal present
 
 ## FINDINGS GOAL-DRIVEN
-- Active cap is now control-plane trust, not basic product proof: `EVALUATION.md` and the context pack still report 88/missing production evidence, while later proof artifacts show production journey proof passing and `latest-proof.json` at 90.
-- Do not raise the score above 90 until the authoritative evaluation state, latest proof packet, CI signal, production URL, and telemetry status agree on one current commit.
-- The remaining blocker is durable field evidence: production smoke events prove the endpoint contract, but not real visitor intent from an external analytics/log source.
-- LinkedIn link health is provider-blocked with HTTP 999; this is acceptable as a documented external limitation, but contact conversion cannot depend on it.
-- The repo has strong workflow infrastructure, but additional Atlas/autogrowth tooling will not improve the product score unless it proves the visitor journey or release confidence.
-- No durable visitor-intent source is connected; analytics currently appears to be privacy-safe smoke proof rather than real aggregate field behavior.
-- Authoritative score artifacts disagree: 88 in generated evaluation/context pack versus 90 in latest proof/autogrowth journal.
-- No benchmark comparison artifact is shown against the stated visual references or portfolio competitors.
-- Production proof is strong, but freshness must stay tied to current deploy commit after every UI/content change.
-- The proof set does not yet show a real recovery/failure UX path beyond link-provider blocking and negative unsafe-link content tests.
+- Active score cap has shifted from basic production proof to evidence freshness and real visitor intent: production journey proof exists, but latest control artifacts still report skipped screenshots/missing visual diff and stale CI commit evidence.
+- The current next move in EVALUATION.md is partly obsolete. Re-running the same deployed journey proof is useful only if it binds the latest commit, CI artifact, screenshots, and event evidence into one current packet.
+- Readiness is stronger than success: `npm test`, production proof, screenshots, accessibility smoke, performance budget, and privacy-safe event acknowledgements prove capability, but they do not yet prove real recruiter/founder comprehension or contact intent.
+- Primary blocker: durable field evidence is missing. The event sink proves the deployed endpoint contract, not aggregate visitor behavior from real sessions.
+- Secondary blocker: selected-work proof is credible but still mostly portfolio-authored. Public project cards need faster inspection of what shipped, what Xavier owned, and what can be verified without trusting copy.
+- Operating-control blocker: proof sources disagree. `AUTOGROWTH.md` records production analytics proof, `.autogrowth/product-proof/integrated-production-proof.json` passes, while `.autogrowth/product-proof/latest.json` says screenshots were skipped and visual diff is missing.
+- The repository should not chase more workflow tooling right now. Atlas/Autogrowth is already visible enough; more internal-process surface risks competing with work inspection and contact clarity.
+- No current-commit CI evidence matched the latest integrated production proof commit observed in the proof artifact.
+- No durable aggregate analytics source proves real visitor project opens, contact clicks, language switches, or outbound profile clicks over time.
+- No explicit conversion scoreboard ties the stated success moment to observed behavior: project opened or contact started within the two-minute evaluation window.
 
 ## PLAFONDS APPLIQUES
-- 90 cap: authoritative proof/control artifacts disagree and must be reconciled before further score movement.
-- 92 cap: durable privacy-safe visitor-intent evidence is missing beyond smoke-proofed production events.
-- 94 cap: deployed accessibility and performance evidence needs stricter threshold-based proof.
-- 96 cap: benchmark comparison and real behavior signal are not yet strong enough.
-- 100 cap: unavailable until proof is fresh, reproducible, benchmarked, field-backed, accessible, performant, and free of contradictory control-plane state.
+- Current score cap: 90 until same-commit CI evidence and canonical proof consistency are proven.
+- Next cap: 92 until durable production visitor-intent telemetry exists beyond proof-session acknowledgements.
+- Selected-work cap: 94 until every project has inspectable bilingual evidence or an explicit confidentiality-safe substitute.
+- Polish cap: 96 until production visual diff, accessibility, and performance checks are wired into CI without conflicting artifacts.
+- Success cap: real evaluator behavior is not yet measured; proof commands show readiness, not confirmed hiring/contact outcomes.
 
 ## JUGEMENT CODEX
 - Confidence : high
-- Resume : The workspace has high context strength and strong fresh production proof, so the previous 88 cap is partially contradicted by repository evidence. A score of 90 is defensible, but only as a capped score: the main risk is no longer whether the portfolio can prove the visitor journey, but whether the operating control plane can reconcile that proof and connect durable real-world visitor evidence without inflating the score from internal tooling.
+- Resume : The repo has high context strength and unusually strong runtime evidence: local tests, CI configuration, production journey proof, screenshots, accessibility smoke, performance budgets, and privacy-safe event acknowledgements. I kept the score at 90 because the latest control surfaces conflict with each other, CI evidence appears stale relative to the newest production proof commit, and durable field visitor-intent evidence is still missing. The highest-leverage next action is not another redesign or broad evaluation; it is a current-commit evidence bridge that makes the proof plane trustworthy and narrows the remaining cap to real aggregate visitor behavior.
 
 ## REVUE FEATURE / QOL / UI-UX
 ### Feature depth
 - Les contrats et cas d'erreur des surfaces API devraient etre valides par des tests d'integration lisibles.
-- Selected work remains the right feature center; new features should make project evidence more inspectable, not make AI workflow the main attraction.
-- The command deck/working-loop signal is useful only if it stays restrained and helps visitors inspect proof, contact, or project context faster.
-- The contact path is conversion-critical and should be treated as a feature with email, GitHub, LinkedIn fallback behavior, event proof, and bilingual parity.
-- The bilingual switch is already part of the core journey; keep proving it preserves context, layout, accents, and CTA visibility.
-- A visitor-facing proof freshness strip could help only if it is concise: last verified, current availability, selected work proof, and contact action.
+- Production journey proof is the right feature surface, but it needs one canonical source of truth that merges runtime proof, production proof, CI run, screenshots, event acknowledgements, and remaining blockers.
+- The privacy-safe journey endpoint is valuable, but it is still smoke telemetry. Add a minimal durable rollup or connector-backed export before claiming analytics evidence.
+- Selected work cards cover role/outcome/proof/constraint, but public projects should expose one inspectable artifact per card: repo file, live demo, screenshot, architecture note, or release constraint.
+- The operator deck can remain as an advanced affordance, but it should not become the main proof mechanism for hiring visitors.
 ### QoL
-- Operator QoL is close, but proof state reconciliation is still manual and error-prone.
-- The next evaluator should read latest proof artifacts before repeating stale 88-cap language.
-- A single `proof:production` artifact should update the score packet, blocker state, and proof markdown together or clearly refuse to do so.
-- Repeated blockers should trigger an escape lane automatically after recurrence instead of reappearing as generic evaluation text.
-- Keep the canonical proof path narrow; avoid making operators run broad scans to answer whether the portfolio journey works.
+- Make the proof artifact easier for an operator to trust: one command should say which commit, URL, screenshots, events, CI run, and external-link exceptions are current.
+- Keep the language switcher, contact, and work CTAs in the first-viewport proof contract; they are part of activation, not optional polish.
+- Reduce ambiguity around private work by giving the Logix case a compact confidentiality note plus concrete proof categories that do not require client details.
+- Add a small public proof index for evaluators: selected work, production proof, GitHub, LinkedIn, email, and bilingual switch status in one scan.
 ### UI/UX
 - Aucun signal accessibilite explicite; verifier clavier, focus, labels, contrastes et etats d'erreur.
-- First viewport proof is now the highest-value surface: keep name, role, offer, proof strip, work CTA, contact CTA, and language control visible without scroll.
-- The dark tactile direction should be judged from screenshots against `references/ui-ref.png` and `references/ui-ref2.png`, not from design intent text.
-- Mobile French remains a key quality gate because accents, longer strings, and language control placement are the easiest visible failure modes.
-- The portfolio should not require internal docs to understand credibility; project cards need direct outcome, constraint, proof, and next action hierarchy.
-- Accessibility smoke is present, but 94+ needs stronger evidence for contrast, keyboard order, reduced motion, and screen-reader landmark quality on production.
+- The tactile dark direction is appropriate, but the next UI pressure is not more decoration; it is faster work inspection and clearer proof hierarchy.
+- First viewport proof should keep name, role, offer, proof strip, work CTA, contact CTA, and bilingual control visible across desktop and mobile after every change.
+- Project cards should be visually scannable before they are read: role, shipped outcome, proof type, and constraint need stronger hierarchy than stack tags.
+- Accessibility smoke exists, but the next band needs repeatable contrast/focus/reduced-motion proof tied to the same production screenshots.
 ### Next excellence actions
 - Choisir 3 parcours critiques et les evaluer comme des features completes: entree, succes, erreur, reprise, preuve.
 - Ajouter une checklist 'feature done' couvrant valeur utilisateur, friction QoL, accessibilite, tests et observabilite.
 - Creer une revue UI/UX recurrente avec captures avant/apres et criteres responsive/accessibilite.
 - Cartographier les contrats API par feature avec validation, erreurs attendues et exemples d'appel.
-- Reconcile `EVALUATION.md`, `.autogrowth/context-pack.json`, and `.autogrowth/product-proof/latest-proof.json` into one authoritative current state.
-- Connect durable privacy-safe aggregate telemetry from production logs or an analytics provider for project opens, contact starts, outbound profile clicks, and language switches.
-- Add a benchmark review artifact comparing current desktop/mobile screenshots against the two reference images and two strong portfolio examples.
-- Add one recovery-path proof: unavailable external profile, private project card, or blocked analytics endpoint with clear visitor/operator behavior.
+- Create a single `proof:current` or equivalent command that runs production proof against the deployed URL, captures screenshots, reads current CI evidence, checks journey events, and emits one canonical JSON/Markdown packet.
+- Make `.autogrowth/product-proof/latest.json` consume the integrated production proof instead of producing a conflicting skipped-screenshot result when no URL is passed.
+- Add a durable visitor-intent rollup with privacy constraints: counts only for project open, contact click, external profile click, and language switch; no IP, user agent, or identifiers.
+- Tighten selected-work evidence: require each project to include role, outcome, constraint, proof type, and one inspectable link or explicit confidentiality substitute.
 
 ## ALLER PLUS LOIN
 ### Scoreboard moves
@@ -442,9 +436,9 @@ CI run matches the same commit as the production proof artifact, or the mismatch
 - Creer une revue UI/UX recurrente avec captures avant/apres et criteres responsive/accessibilite.
 - Cartographier les contrats API par feature avec validation, erreurs attendues et exemples d'appel.
 - Tenir un scoreboard apres chaque iteration: score actuel, plafond actif, top 3 deltas, preuve ajoutee, prochain pari.
-- Hold score at 90 until control-plane artifacts agree and durable field evidence is attached.
-- Move to 92 by reconciling stale evaluation state and proving CI artifact, production proof, and latest deploy commit match.
-- Move to 94 by adding deployed accessibility and performance evidence with explicit thresholds, not only smoke checks.
+- 90 -> 91: latest commit has matching successful GitHub Actions evidence with uploaded runtime and production screenshots.
+- 91 -> 92: canonical proof artifact has no conflicting status between `latest.json`, integrated production proof, EVALUATION, and AUTOGROWTH.
+- 92 -> 94: durable privacy-safe field telemetry shows real visitor-intent events over a defined window, not only proof-session acknowledgements.
 ### Research questions
 - Quels sont les 3 parcours critiques que l'utilisateur ou l'operateur doit reussir sans aide?
 - Quels irritants reviennent dans l'usage quotidien: attente, confusion, ressaisie, erreurs muettes, commandes trop longues?
@@ -453,16 +447,16 @@ CI run matches the same commit as the production proof artifact, or the mismatch
 - Quels ecrans doivent avoir des etats empty/loading/error/success impeccables avant d'augmenter le score?
 - Quel moment magique rendrait le premier succes evident sans lecture de documentation?
 - Quels contrats API casseraient la confiance utilisateur s'ils echouent silencieusement ou avec une erreur vague?
-- Which source should count as durable visitor-intent evidence: Vercel logs, analytics provider, GitHub Actions artifact, or another privacy-safe backend log?
+- Which proof artifact should be canonical for operators: `EVALUATION.md`, `.autogrowth/context-pack.json`, `.autogrowth/product-proof/latest.json`, or integrated production proof?
 ### Benchmark targets
 - Comparer l'onboarding, les commandes et les etats d'erreur avec 2 projets de reference du meme type.
 - Comparer les parcours critiques avec les standards du domaine: accessibilite, performance percue, messages d'erreur, recuperation.
 - Comparer le temps-to-value, la memorabilite du workflow et le niveau de guidance avec un produit de reference ambitieux, pas seulement avec des repos similaires.
 - Comparer les ecrans clefs a des produits de reference pour densite, hierarchie visuelle, focus clavier et responsive.
-- Against `references/ui-ref.png` and `references/ui-ref2.png`: tactile depth, typography hierarchy, artifact details, and inspectable work must be visible in screenshots.
-- Against Awwwards/Creative Bloq portfolio bar: visual craft must support selected work rather than obscure it.
-- Against Linear/Vercel proof bar translated to portfolio: status, proof, constraints, and next action should be obvious without internal docs.
-- Against production-grade portfolio expectations: mobile contact is one tap, language switch is obvious, proof is current, and no CTA is hidden.
+- Awwwards/Creative Bloq portfolio bar: selected work remains immediately visible and inspectable; visual craft supports rather than competes with project evidence.
+- Linear/Vercel proof bar translated to portfolio: status, proof, constraints, and next action are obvious without internal docs.
+- First viewport target: name, role, offer, proof strip, work CTA, contact CTA, and language control visible on desktop and mobile.
+- Selected-work target: each project answers what shipped, Xavier’s role, hard constraint, stack, and proof in one scan.
 ### Experiments
 - Faire une passe 'moins de friction': supprimer une etape, rendre un defaut plus intelligent, ajouter un feedback immediat.
 - Faire une passe 'preuve': ajouter un test, une capture, un scenario ou un rapport qui demontre la feature au lieu de la decrire.
@@ -490,13 +484,13 @@ CI run matches the same commit as the production proof artifact, or the mismatch
 ## SUGGESTIONS CONCRETES
 - Ajouter des tests automatises couvrant les chemins principaux et les cas d'erreur.
 - Couvrir les flux bout-en-bout et verrouiller les contrats partages entre UI et API.
-- Make the next iteration a proof-control sprint, not a redesign sprint.
-- Treat `.autogrowth/product-proof/latest-proof.json` as the current handoff artifact and make stale evaluation state subordinate to it only after reconciliation.
-- Add a small field-evidence adapter before adding any new UI surface.
-- Normalize score gates so 100 cannot appear pass while 90 is blocked.
-- Keep feature bets tied to named caps: telemetry, a11y/performance, recovery behavior, benchmark evidence.
-- Do not count file volume, docs volume, or tool inventory as score movement unless tied to visitor or operator outcome proof.
+- Do not add new sections until proof freshness and selected-work inspectability are tightened.
+- Treat stale/conflicting artifacts as a product risk because future agents will optimize the wrong blocker.
+- Prefer one evidence bridge over another broad Autogrowth pass.
+- Use the existing journey-event abstraction before introducing an analytics platform.
+- Update stale proof notes that still claim production analytics are missing once the canonical artifact proves the narrower remaining gap.
+- Keep root/file-count cleanup out of the critical path unless it blocks proof execution or operator comprehension.
 
-_Genere automatiquement le 2026-06-11T20:10:37Z. Le score reste borne entre 30 et 100; 100 demande une preuve magnum opus._
+_Genere automatiquement le 2026-06-11T20:22:27Z. Le score reste borne entre 30 et 100; 100 demande une preuve magnum opus._
 
 <!-- AUTO-EVALUATION:END -->

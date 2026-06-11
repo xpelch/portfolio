@@ -1,32 +1,32 @@
 {
   "schema": "autogrowth-context-pack-v1",
-  "updated_at": "2026-06-11T20:10:37Z",
+  "updated_at": "2026-06-11T20:22:27Z",
   "repo": "portfolio",
   "context_type": "fullstack",
   "target": "BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A",
   "score": 90,
-  "active_score_cap": "90 cap: authoritative proof/control artifacts disagree and must be reconciled before further score movement.",
+  "active_score_cap": "Current score cap: 90 until same-commit CI evidence and canonical proof consistency are proven.",
   "caps": [
-    "90 cap: authoritative proof/control artifacts disagree and must be reconciled before further score movement.",
-    "92 cap: durable privacy-safe visitor-intent evidence is missing beyond smoke-proofed production events.",
-    "94 cap: deployed accessibility and performance evidence needs stricter threshold-based proof.",
-    "96 cap: benchmark comparison and real behavior signal are not yet strong enough.",
-    "100 cap: unavailable until proof is fresh, reproducible, benchmarked, field-backed, accessible, performant, and free of contradictory control-plane state."
+    "Current score cap: 90 until same-commit CI evidence and canonical proof consistency are proven.",
+    "Next cap: 92 until durable production visitor-intent telemetry exists beyond proof-session acknowledgements.",
+    "Selected-work cap: 94 until every project has inspectable bilingual evidence or an explicit confidentiality-safe substitute.",
+    "Polish cap: 96 until production visual diff, accessibility, and performance checks are wired into CI without conflicting artifacts.",
+    "Success cap: real evaluator behavior is not yet measured; proof commands show readiness, not confirmed hiring/contact outcomes."
   ],
   "one_move": [
-    "Reconcile the authoritative score/proof state around the latest deployed commit, then attach durable privacy-safe visitor-intent telemetry; stop at 90 until those two facts are consistent."
+    "Build the current-commit evidence bridge: make the latest product-proof/control artifact consume the integrated production proof, match it to a successful CI run for the same commit, and clearly leave only durable aggregate visitor telemetry as the remaining cap."
   ],
   "proof_command": "npm run test",
   "agent_prompt_loop": [
-    "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `.autogrowth/product-proof/latest-proof.json`, `.autogrowth/product-proof/integrated-production-proof.json`, and the latest production proof markdown.",
-    "Reusable prompt: Attack only the active 90 cap by reconciling stale control-plane state and attaching durable visitor-intent evidence for land -> inspect work -> switch language -> contact. Do not add product features unless proof fails because of a concrete visitor defect.",
-    "Evidence inputs: current production URL, deploy commit, CI run artifact, `npm test`, `npm run proof:production`, production screenshots, analytics/log source, and latest proof JSON.",
-    "Execution slice: run local proof, run production proof, verify CI commit match, inspect analytics/log source, then update only the authoritative proof/control artifacts needed to remove contradiction."
+    "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `.autogrowth/product-proof/latest.json`, `.autogrowth/product-proof/integrated-production-proof.json`, latest CI evidence, and latest production analytics signal.",
+    "Reusable prompt: Execute one bounded evidence-freshness slice. Do not redesign. Make the latest proof/control artifact reflect the integrated production proof for the current commit, attach or record matching CI evidence, and leave durable field telemetry as the only remaining cap if no real visitor aggregate exists.",
+    "Evidence inputs: `package.json` scripts, `tests/portfolio-runtime-proof.mjs`, integrated production proof JSON, GitHub Actions evidence JSON, production journey analytics JSON, deployed URL, and latest screenshots.",
+    "Stop condition: stop when the latest control artifact either matches the current production proof and same-commit CI run, or names exactly which external evidence is unavailable and preserves the 90 cap."
   ],
   "next_two_hours": [
-    "1. Scope the slice: Reconcile the authoritative score/proof state around the latest deployed commit, then attach durable privacy-safe visitor-intent telemetry; stop at 90 until those two facts are consistent.",
+    "1. Scope the slice: Build the current-commit evidence bridge: make the latest product-proof/control artifact consume the integrated production proof, match it to a successful CI run for the same commit, and clearly leave only durable aggregate visitor telemetry as the remaining cap.",
     "2. Touch only the files needed for that slice; avoid parallel refactors.",
-    "3. Run proof: `npm run proof:production` passes against `https://xpelch.vercel.app` for the current deploy commit.",
+    "3. Run proof: `npm run proof:production` passes against `https://xpelch.vercel.app`.",
     "4. Capture one before/after artifact or status result."
   ],
   "short_backlog": [
@@ -37,7 +37,7 @@
   ],
   "product_proof": {
     "schema": "autogrowth-product-proof-v1",
-    "ran_at": "2026-06-11T20:08:20Z",
+    "ran_at": "2026-06-11T20:19:39Z",
     "status": "passed",
     "summary": {
       "product_polish_ready": true,
@@ -88,7 +88,11 @@
       ".autogrowth/runs/20260611T024138Z-iter1.json",
       ".autogrowth/runs/20260611T161815Z-iter1.json",
       ".autogrowth/runs/20260611T195521Z-iter1.json",
-      ".autogrowth/runs/README.md"
+      ".autogrowth/runs/README.md",
+      ".autogrowth/score-contracts.json",
+      ".autogrowth/score-contracts.latest.json",
+      ".autogrowth/signals/analytics/journey-event-sink-27308411602.json",
+      ".autogrowth/signals/analytics/portfolio-production-journey-latest.json"
     ],
     "signals": {
       "frontend_surface": true,
