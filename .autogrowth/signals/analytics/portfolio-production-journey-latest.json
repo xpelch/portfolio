@@ -1,10 +1,10 @@
 {
   "schema": "portfolio-journey-analytics-signal-v1",
-  "generatedAt": "2026-06-11T02:19:08.055Z",
+  "generatedAt": "2026-06-11T02:40:47.847Z",
   "sourceProof": "logs\\visual\\portfolio-production-proof.json",
   "environment": "production",
   "url": "https://xpelch.vercel.app",
-  "commit": "24d1e8b",
+  "commit": "5fefd98",
   "result": "pass",
   "analytics": {
     "eventNames": [
@@ -14,10 +14,10 @@
       "language_switch"
     ],
     "acknowledgedEventNames": [
-      "project_open",
-      "external_profile_click",
+      "language_switch",
       "contact_click",
-      "language_switch"
+      "project_open",
+      "external_profile_click"
     ],
     "eventCount": 4,
     "acknowledgementCount": 4
@@ -34,36 +34,65 @@
     "viewports": [
       {
         "name": "desktop-en",
-        "domContentLoadedMs": 122,
-        "loadCompleteMs": 138,
-        "responseEndMs": 82,
-        "firstContentfulPaintMs": 148,
+        "domContentLoadedMs": 142,
+        "loadCompleteMs": 161,
+        "responseEndMs": 97,
+        "firstContentfulPaintMs": 160,
         "resourceCount": 15,
-        "transferKiB": 264,
+        "transferKiB": 265,
         "largestResourceKiB": 89
       },
       {
         "name": "mobile-en",
-        "domContentLoadedMs": 69,
-        "loadCompleteMs": 103,
-        "responseEndMs": 29,
-        "firstContentfulPaintMs": 120,
-        "resourceCount": 13,
-        "transferKiB": 264,
-        "largestResourceKiB": 89
+        "domContentLoadedMs": 134,
+        "loadCompleteMs": 145,
+        "responseEndMs": 91,
+        "firstContentfulPaintMs": 152,
+        "resourceCount": 14,
+        "transferKiB": 1467,
+        "largestResourceKiB": 1200
       },
       {
         "name": "mobile-fr",
         "domContentLoadedMs": 76,
-        "loadCompleteMs": 86,
-        "responseEndMs": 33,
-        "firstContentfulPaintMs": 88,
-        "resourceCount": 13,
-        "transferKiB": 264,
-        "largestResourceKiB": 89
+        "loadCompleteMs": 79,
+        "responseEndMs": 32,
+        "firstContentfulPaintMs": 80,
+        "resourceCount": 16,
+        "transferKiB": 1465,
+        "largestResourceKiB": 1200
       }
     ]
   },
+  "commandDeck": [
+    {
+      "name": "desktop-en",
+      "commandCount": 6,
+      "dialogRole": "dialog",
+      "modal": "true",
+      "activeInside": true,
+      "restoredAfterClose": true,
+      "restoredAfterEscape": true
+    },
+    {
+      "name": "mobile-en",
+      "commandCount": 6,
+      "dialogRole": "dialog",
+      "modal": "true",
+      "activeInside": true,
+      "restoredAfterClose": true,
+      "restoredAfterEscape": true
+    },
+    {
+      "name": "mobile-fr",
+      "commandCount": 6,
+      "dialogRole": "dialog",
+      "modal": "true",
+      "activeInside": true,
+      "restoredAfterClose": true,
+      "restoredAfterEscape": true
+    }
+  ],
   "privacy": {
     "storesTargets": false,
     "storesUserIdentifiers": false,

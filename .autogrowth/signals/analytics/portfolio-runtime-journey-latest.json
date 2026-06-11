@@ -1,10 +1,10 @@
 {
   "schema": "portfolio-journey-analytics-signal-v1",
-  "generatedAt": "2026-06-11T02:21:29.340Z",
+  "generatedAt": "2026-06-11T02:41:09.039Z",
   "sourceProof": "logs\\visual\\portfolio-runtime-proof.json",
   "environment": "production-local-next-start",
   "url": "http://127.0.0.1:3107",
-  "commit": "24d1e8b",
+  "commit": "5fefd98",
   "result": "pass",
   "analytics": {
     "eventNames": [
@@ -34,36 +34,65 @@
     "viewports": [
       {
         "name": "desktop-en",
-        "domContentLoadedMs": 19,
-        "loadCompleteMs": 30,
+        "domContentLoadedMs": 16,
+        "loadCompleteMs": 28,
         "responseEndMs": 3,
-        "firstContentfulPaintMs": 44,
+        "firstContentfulPaintMs": 32,
         "resourceCount": 16,
-        "transferKiB": 1459,
+        "transferKiB": 1460,
         "largestResourceKiB": 1200
       },
       {
         "name": "mobile-en",
-        "domContentLoadedMs": 19,
-        "loadCompleteMs": 27,
+        "domContentLoadedMs": 14,
+        "loadCompleteMs": 23,
         "responseEndMs": 3,
-        "firstContentfulPaintMs": 36,
+        "firstContentfulPaintMs": 56,
         "resourceCount": 16,
-        "transferKiB": 1459,
+        "transferKiB": 1460,
         "largestResourceKiB": 1200
       },
       {
         "name": "mobile-fr",
-        "domContentLoadedMs": 15,
-        "loadCompleteMs": 20,
+        "domContentLoadedMs": 13,
+        "loadCompleteMs": 22,
         "responseEndMs": 3,
-        "firstContentfulPaintMs": 20,
+        "firstContentfulPaintMs": 52,
         "resourceCount": 16,
-        "transferKiB": 1459,
+        "transferKiB": 1460,
         "largestResourceKiB": 1200
       }
     ]
   },
+  "commandDeck": [
+    {
+      "name": "desktop-en",
+      "commandCount": 6,
+      "dialogRole": "dialog",
+      "modal": "true",
+      "activeInside": true,
+      "restoredAfterClose": true,
+      "restoredAfterEscape": true
+    },
+    {
+      "name": "mobile-en",
+      "commandCount": 6,
+      "dialogRole": "dialog",
+      "modal": "true",
+      "activeInside": true,
+      "restoredAfterClose": true,
+      "restoredAfterEscape": true
+    },
+    {
+      "name": "mobile-fr",
+      "commandCount": 6,
+      "dialogRole": "dialog",
+      "modal": "true",
+      "activeInside": true,
+      "restoredAfterClose": true,
+      "restoredAfterEscape": true
+    }
+  ],
   "privacy": {
     "storesTargets": false,
     "storesUserIdentifiers": false,

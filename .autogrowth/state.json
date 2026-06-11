@@ -1,6 +1,6 @@
 {
   "schema": "autogrowth-state-v2",
-  "updated_at": "2026-06-11T02:24:33Z",
+  "updated_at": "2026-06-11T02:41:25Z",
   "repo": "portfolio",
   "context_type": "fullstack",
   "previous_score": 88,
@@ -80,7 +80,7 @@
     "Next cap: 95/100 until selected work evidence is visibly deep, bilingual, and confidentiality-safe.": 1,
     "Next cap: 97/100 until contact/project-open success is measured or deterministically verified.": 1,
     "Hard cap below 100 unless repeated proof shows exceptional bilingual UX, benchmark-grade polish, reliable build/test/visual evidence, and real visitor-outcome readiness.": 1,
-    "jugement Codex indisponible; fallback heuristique conservateur": 9,
+    "jugement Codex indisponible; fallback heuristique conservateur": 12,
     "Current cap: 90/100 until production/analytics evidence is connected.": 1,
     "Readiness cap: local `npm test` plus local screenshots can justify high-80s but not proven public success.": 1,
     "Feature cap: new UI features should not raise score unless they unblock inspect-work/contact or create measurable proof.": 1,
@@ -221,131 +221,6 @@
     "Score guidance: 88 is credible for local readiness; 90-92 requires live journey proof; 92-94 requires measured action or benchmark-backed UX deltas; higher requires real-world signal or exceptional integrated proof.": 1
   },
   "history": [
-    {
-      "at": "2026-06-10T21:30:09Z",
-      "score": 88,
-      "type": "fullstack",
-      "caps": [
-        "Score cap: 90 until deployed production journey proof is current and connected to the visitor path.",
-        "Score cap: 92 until production link/contact/language/project interactions are verified, not only locally simulated.",
-        "Score cap: 94 until success telemetry or equivalent production trace proves real evaluator-intent events.",
-        "Score cap: 96 until benchmark polish and target-user comprehension evidence show the site is exceptional, not just correct.",
-        "Hard anti-goal cap: any chatbot-first, decorative, or process-heavy feature that hides selected work should block score growth even if technically complete."
-      ],
-      "weakest": [
-        "Tests",
-        "Fiabilite",
-        "Securite"
-      ],
-      "one_move": [
-        "Close the active cap by running and recording a production visitor journey proof for the deployed site, then add the smallest telemetry or trace needed to prove selected-work and contact intent in production."
-      ],
-      "agent_prompt_loop": [
-        "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, and the latest `logs/visual/portfolio-journey-proof.md`; evidence inputs: current score, active blocker, canonical command, deployed URL, latest screenshots; stop condition: the single score cap is named in one sentence; learning update: append only stable blocker/proof learning to the proof artifact or `AUTOGROWTH.md`.",
-        "Bounded prompt: Close the remote production evidence cap for the portfolio without changing unrelated UX: run production journey proof for land -> inspect selected work -> switch language -> contact/open project, capture desktop/mobile/French screenshots, verify links, and record failures in the proof artifact; evidence inputs: `npm test`, `npm run proof:production`, production URL, screenshots; stop condition: production proof passes or has one named blocker with an escape lane; learning update: classify blocker as deployment, telemetry, link integrity, or layout.",
-        "Execute the slice: touch only proof harness, telemetry wiring, or minimal UI fixes required by the failed journey; evidence inputs: changed files, command output, screenshots; stop condition: no unrelated refactor or new feature is needed; learning update: note the smallest change that moved the score cap."
-      ]
-    },
-    {
-      "at": "2026-06-10T21:34:10Z",
-      "score": 88,
-      "type": "fullstack",
-      "caps": [
-        "90 cap: deployed production journey proof is not current and connected to visitor path.",
-        "92 cap: production link/contact/language/project interactions are not verified as public runtime behavior.",
-        "94 cap: success telemetry or equivalent production trace does not prove evaluator-intent events.",
-        "96 cap: accessibility and performance evidence on real runtime is not shown.",
-        "100 cap: sustained benchmarked production evidence and real outcome signals are missing."
-      ],
-      "weakest": [
-        "Tests",
-        "Fiabilite",
-        "Securite"
-      ],
-      "one_move": [
-        "Close the 90 cap with fresh deployed visitor journey proof, then attach the smallest production intent signal for selected-work and contact actions."
-      ],
-      "agent_prompt_loop": [
-        "Observe current state. Reusable prompt: Close the 90 cap by proving the deployed portfolio journey, not by adding features. Evidence inputs: `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `package.json`, runtime proof script, latest visual proof. Stop condition: production URL is unreachable or a visitor-path defect appears. Learning update: record exact blocker or pass.",
-        "Execute bounded slice. Reusable prompt: Run or adjust production proof for public EN/FR desktop/mobile selected-work and contact journey. Evidence inputs: command output, screenshots, link statuses. Stop condition: more than one defect class appears. Learning update: document the first defect class and next fix.",
-        "Verify proof. Reusable prompt: After any fix, run `npm test` plus production proof. Evidence inputs: exit codes, screenshots, proof markdown. Stop condition: local passes but production fails. Learning update: mark local-only proof insufficient."
-      ]
-    },
-    {
-      "at": "2026-06-10T21:44:50Z",
-      "score": 88,
-      "type": "fullstack",
-      "caps": [
-        "90 cap: deployed production journey proof is not current and connected to the visitor path in the current evaluation state.",
-        "92 cap: production link/contact/language/project interactions need public-runtime verification and CI artifact linkage.",
-        "94 cap: success telemetry or equivalent production trace must prove evaluator-intent events.",
-        "96 cap: accessibility and performance evidence must run on the real deployed runtime.",
-        "100 cap: sustained benchmarked production evidence and real outcome signals are missing."
-      ],
-      "weakest": [
-        "Tests",
-        "Fiabilite",
-        "Securite"
-      ],
-      "one_move": [
-        "Reconcile the live production proof chain: run npm test, run npm run proof:production against the deployed URL, attach CI/artifact/event status, rerun evaluation, and record the exact cap that remains. This is the narrowest action that can credibly move 88 toward 90 without adding product surface."
-      ],
-      "agent_prompt_loop": [
-        "Observe current state. Reusable prompt: Reconcile the production-proof cap for the portfolio; do not add features. Evidence inputs: VISION.md, AUTOGROWTH.md, EVALUATION.md, package.json, tests/portfolio-runtime-proof.mjs, latest logs/visual production proof, CI workflow status. Stop condition: deployed URL unreachable, CI inaccessible, or proof artifact missing. Learning update: record whether the blocker is product, deployment, CI, telemetry, or evaluator ingestion.",
-        "Execute bounded slice. Reusable prompt: Run npm test and npm run proof:production for the public EN/FR desktop/mobile journey, then collect screenshot, link, event, and CI artifact evidence in one proof note. Evidence inputs: command outputs, screenshot paths, link statuses, event report, deploy URL. Stop condition: more than one defect class appears. Learning update: document first defect class and defer unrelated work.",
-        "Verify proof. Reusable prompt: If one visitor-path defect appears, patch only that defect and rerun npm test plus npm run proof:production. Evidence inputs: before/after screenshots, failing selector/link/event, exit codes. Stop condition: local passes but production fails. Learning update: mark local-only proof insufficient and capture deployment gap."
-      ]
-    },
-    {
-      "at": "2026-06-10T21:48:51Z",
-      "score": 88,
-      "type": "fullstack",
-      "caps": [
-        "90 cap: deployed production journey proof is not current and connected to the visitor path in the current evaluation state.",
-        "92 cap: production link, contact, language, and project interactions need public-runtime verification and CI artifact linkage.",
-        "94 cap: success telemetry or equivalent production trace must prove evaluator-intent events.",
-        "96 cap: accessibility and performance evidence must run on the real deployed runtime.",
-        "100 cap: sustained benchmarked production evidence and real outcome signals are missing."
-      ],
-      "weakest": [
-        "Tests",
-        "Fiabilite",
-        "Securite"
-      ],
-      "one_move": [
-        "Reconcile the live production proof chain: run npm test, run npm run proof:production against the deployed URL, attach CI/artifact/event status, rerun evaluation once, and record the exact remaining cap."
-      ],
-      "agent_prompt_loop": [
-        "Observe current state. Reusable prompt: Reconcile the production-proof cap for the portfolio; do not add features. Evidence inputs: VISION.md, AUTOGROWTH.md, EVALUATION.md, package.json, tests/portfolio-runtime-proof.mjs, latest logs/visual production proof, CI workflow status. Stop condition: deployed URL unreachable, CI inaccessible, or proof artifact missing. Learning update: record whether the blocker is product, deployment, CI, telemetry, or evaluator ingestion.",
-        "Execute bounded slice. Reusable prompt: Run npm test and npm run proof:production for the public EN/FR desktop/mobile journey, then collect screenshot, link, event, and CI artifact evidence in one proof note. Evidence inputs: command outputs, screenshot paths, link statuses, event report, deploy URL. Stop condition: more than one defect class appears. Learning update: document first defect class and defer unrelated work.",
-        "Verify proof. Reusable prompt: If one visitor-path defect appears, patch only that defect and rerun npm test plus npm run proof:production. Evidence inputs: before/after screenshots, failing selector/link/event, exit codes. Stop condition: local passes but production fails. Learning update: mark local-only proof insufficient and capture deployment gap."
-      ]
-    },
-    {
-      "at": "2026-06-10T21:52:41Z",
-      "score": 88,
-      "type": "fullstack",
-      "caps": [
-        "Score cap at 88 until production journey proof is current or a clearly labeled fallback proves release-like behavior.",
-        "Score cap at 90 without remote/deployed proof for the visitor journey.",
-        "Score cap at 92 without privacy-safe evidence that visitors or smoke sessions can trigger the intended success actions on production.",
-        "Score cap at 94 without accessibility and bilingual parity proof beyond visual screenshots.",
-        "Score cap at 96 without benchmark-calibrated UI review and closed high-impact polish deltas."
-      ],
-      "weakest": [
-        "Tests",
-        "Fiabilite",
-        "Securite"
-      ],
-      "one_move": [
-        "Create and run a production journey proof lane for the deployed site, then record the artifact in logs/visual and AUTOGROWTH: same journey, same bilingual checks, same link/image/contact verification, but against https://xpelch.vercel.app with commit/deploy identity and dated screenshots."
-      ],
-      "agent_prompt_loop": [
-        "Observe current state: read VISION.md, AUTOGROWTH.md, EVALUATION.md, README.md, package.json, tests/portfolio-runtime-proof.mjs, and logs/visual/portfolio-journey-proof.md; evidence inputs = current score, active blocker, canonical proof command, latest visual artifacts, deployed URL; bounded prompt = 'Prove the deployed bilingual visitor journey for the current portfolio without changing product scope.'; stop condition = you know whether production proof exists, is stale, or is blocked.",
-        "Execute the slice: add or run the narrowest production journey proof against https://xpelch.vercel.app covering land, inspect selected work, switch language, and contact/open project; evidence inputs = screenshots, link checks, event/smoke trace, command output; bounded prompt = 'Generate one dated production proof artifact for the same journey already proven locally.'; stop condition = artifact clearly says pass/fail/blocker and URL/commit/deploy are recorded.",
-        "Verify proof: run npm test and the production smoke path, then compare local and production outcomes; evidence inputs = test output, production artifact, screenshots, telemetry/smoke events; bounded prompt = 'Reject score advancement unless local and production evidence both support the visitor success moment.'; stop condition = no unresolved broken link, overflow, missing image, language mismatch, or unverified contact route remains."
-      ]
-    },
     {
       "at": "2026-06-10T21:57:11Z",
       "score": 88,
@@ -896,6 +771,117 @@
     },
     {
       "at": "2026-06-11T02:24:33Z",
+      "score": 88,
+      "type": "fullstack",
+      "caps": [
+        "jugement Codex indisponible; fallback heuristique conservateur"
+      ],
+      "weakest": [
+        "Tests",
+        "Fiabilite",
+        "Securite"
+      ],
+      "one_move": [
+        "- Move : lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence.",
+        "- Why this beats alternatives : it is the active ceiling; other work cannot honestly raise confidence until this cap moves.",
+        "- Proof : `npm run test` plus one artifact that shows the before/after result."
+      ],
+      "agent_prompt_loop": [
+        "- Loop shape : observe state -> prompt agent -> execute slice -> verify proof -> record learning -> choose next prompt.",
+        "- State packet : target `BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A`; score 88/100; weakest category `Tests`; active blocker `jugement Codex indisponible; fallback heuristique conservateur`.",
+        "- Agent prompt : Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `jugement Codex indisponible; fallback heuristique conservateur` by doing only this move: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker."
+      ]
+    },
+    {
+      "at": "2026-06-11T02:36:23Z",
+      "score": 88,
+      "type": "fullstack",
+      "caps": [],
+      "weakest": [
+        "Tests",
+        "Fiabilite",
+        "Securite"
+      ],
+      "one_move": [
+        "- Move : raise `Tests` with one complete journey proof.",
+        "- Why this beats alternatives : it is the weakest category and likely gates the next score band.",
+        "- Proof : `npm run test` plus one artifact that shows the before/after result."
+      ],
+      "agent_prompt_loop": [
+        "- Loop shape : observe state -> prompt agent -> execute slice -> verify proof -> record learning -> choose next prompt.",
+        "- State packet : target `BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A`; score 88/100; weakest category `Tests`; active blocker `current weakest score category`.",
+        "- Agent prompt : Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `current weakest score category` by doing only this move: raise `Tests` with one complete journey proof. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker."
+      ]
+    },
+    {
+      "at": "2026-06-11T02:36:58Z",
+      "score": 88,
+      "type": "fullstack",
+      "caps": [
+        "jugement Codex indisponible; fallback heuristique conservateur"
+      ],
+      "weakest": [
+        "Tests",
+        "Fiabilite",
+        "Securite"
+      ],
+      "one_move": [
+        "- Move : lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence.",
+        "- Why this beats alternatives : it is the active ceiling; other work cannot honestly raise confidence until this cap moves.",
+        "- Proof : `npm run test` plus one artifact that shows the before/after result."
+      ],
+      "agent_prompt_loop": [
+        "- Loop shape : observe state -> prompt agent -> execute slice -> verify proof -> record learning -> choose next prompt.",
+        "- State packet : target `BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A`; score 88/100; weakest category `Tests`; active blocker `jugement Codex indisponible; fallback heuristique conservateur`.",
+        "- Agent prompt : Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `jugement Codex indisponible; fallback heuristique conservateur` by doing only this move: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker."
+      ]
+    },
+    {
+      "at": "2026-06-11T02:38:50Z",
+      "score": 88,
+      "type": "fullstack",
+      "caps": [
+        "jugement Codex indisponible; fallback heuristique conservateur"
+      ],
+      "weakest": [
+        "Tests",
+        "Fiabilite",
+        "Securite"
+      ],
+      "one_move": [
+        "- Move : lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence.",
+        "- Why this beats alternatives : it is the active ceiling; other work cannot honestly raise confidence until this cap moves.",
+        "- Proof : `npm run test` plus one artifact that shows the before/after result."
+      ],
+      "agent_prompt_loop": [
+        "- Loop shape : observe state -> prompt agent -> execute slice -> verify proof -> record learning -> choose next prompt.",
+        "- State packet : target `BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A`; score 88/100; weakest category `Tests`; active blocker `jugement Codex indisponible; fallback heuristique conservateur`.",
+        "- Agent prompt : Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `jugement Codex indisponible; fallback heuristique conservateur` by doing only this move: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker."
+      ]
+    },
+    {
+      "at": "2026-06-11T02:41:17Z",
+      "score": 88,
+      "type": "fullstack",
+      "caps": [],
+      "weakest": [
+        "Tests",
+        "Fiabilite",
+        "Securite"
+      ],
+      "one_move": [
+        "- Move : raise `Tests` with one complete journey proof.",
+        "- Why this beats alternatives : it is the weakest category and likely gates the next score band.",
+        "- Proof : `npm run test` plus one artifact that shows the before/after result."
+      ],
+      "agent_prompt_loop": [
+        "- Loop shape : observe state -> prompt agent -> execute slice -> verify proof -> record learning -> choose next prompt.",
+        "- State packet : target `BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A`; score 88/100; weakest category `Tests`; active blocker `current weakest score category`.",
+        "- Agent prompt : Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `current weakest score category` by doing only this move: raise `Tests` with one complete journey proof. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker."
+      ]
+    },
+    {
+      "at": "2026-06-11T02:41:25Z",
       "score": 88,
       "type": "fullstack",
       "caps": [

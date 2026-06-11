@@ -9,9 +9,9 @@
 - Type : fullstack
 - Langages : TypeScript, PowerShell, Shell, JavaScript
 - Frameworks : Next.js, React, Tailwind CSS
-- Domaine detecte : autogrowth, portfolio, sandbox, copy, atlas, proof, logs, jarvis
+- Domaine detecte : autogrowth, sandbox, copy, portfolio, atlas, proof, logs, jarvis
 - Structure : app, components, api, server, tests, test, docs, context, playbooks, tools
-- Fichiers analyses : 1916
+- Fichiers analyses : 2586
 
 ## VISION / DESTINATION
 - Build a bilingual developer portfolio that makes Xavier Pelchat feel like a
@@ -49,16 +49,16 @@ flowchart TD
     N6 --> N6_5["safe-refactor (3)"]
     R --> N7[".github (1 files)"]
     N7 --> N7_1["workflows (1)"]
-    R --> N8[".autogrowth (1633 files)"]
-    N8 --> N8_1["sandbox (1585)"]
+    R --> N8[".autogrowth (2301 files)"]
+    N8 --> N8_1["sandbox (2251)"]
     N8 --> N8_2["product-plan (11)"]
     N8 --> N8_3["signals (10)"]
-    N8 --> N8_4["runs (6)"]
+    N8 --> N8_4["runs (8)"]
     N8 --> N8_5["proofs (4)"]
-    R --> N9["logs (130 files)"]
+    R --> N9["logs (132 files)"]
     N9 --> N9_1["atlas (56)"]
-    N9 --> N9_2["visual (30)"]
-    N9 --> N9_3["autogrowth (29)"]
+    N9 --> N9_2["autogrowth (31)"]
+    N9 --> N9_3["visual (30)"]
     N9 --> N9_4["dev-server (10)"]
     N9 --> N9_5["reports (3)"]
     R --> N10[". (15 files)"]
@@ -116,7 +116,7 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - Trace format : native JSON plus `otel` projection with attributes `autogrowth.loop.iteration`, `autogrowth.agent.prompt`, `autogrowth.proof.command`, `autogrowth.score.before`, `autogrowth.score.after`, `autogrowth.blocker.lifted`, and `autogrowth.files.changed`.
 - Recent traces : 3 loaded from `.autogrowth/runs/`.
 - Dashboard : `C:\Programming\portfolio\.autogrowth\dashboard.html`
-- Pattern memory : 2 winning moves, 3 failing moves.
+- Pattern memory : 4 winning moves, 3 failing moves.
 - Decision eval fixture : `C:\Programming\portfolio\.autogrowth\evals\decision-quality.fixture.json`
 - Active guardrails : max_iterations=1, max_files_changed=8, required_proof=`auto-detect`, approval_risk>=7.
 
@@ -357,12 +357,12 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - Contexte et objectif : README present; agent/context documentation present; workspace objective/config artifact present
 - Architecture : recognizable folders: app, components, api, server, tests; project manifest/config present; multi-file structured workspace
 - Qualite code : lint/type/config signal present; languages detected: TypeScript, PowerShell, Shell, JavaScript; dependency lock signal present
-- Tests : 129 test/fixture paths detected
+- Tests : 182 test/fixture paths detected
 - Fiabilite : health/retry/validation/recovery signal present; schema contract signal present
 - Securite : .gitignore present; auth/policy signal present; security/risk documentation or code signal present
-- Couverture metier : domain terms: autogrowth, portfolio, sandbox, copy, atlas; examples/fixtures/templates present; contract/DTO/event signal present
+- Couverture metier : domain terms: autogrowth, sandbox, copy, portfolio, atlas; examples/fixtures/templates present; contract/DTO/event signal present
 - Automatisation : CI directory present; scripts/tools present
-- Documentation : 475 markdown docs detected; docs/context/playbooks present
+- Documentation : 635 markdown docs detected; docs/context/playbooks present
 - Observabilite : log/trace/metric signal present
 
 ## PLAFONDS APPLIQUES
@@ -419,6 +419,6 @@ BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A
 - Ajouter des tests automatises couvrant les chemins principaux et les cas d'erreur.
 - Couvrir les flux bout-en-bout et verrouiller les contrats partages entre UI et API.
 
-_Genere automatiquement le 2026-06-11T02:24:33Z. Le score reste borne entre 30 et 100; 100 demande une preuve magnum opus._
+_Genere automatiquement le 2026-06-11T02:41:25Z. Le score reste borne entre 30 et 100; 100 demande une preuve magnum opus._
 
 <!-- AUTO-EVALUATION:END -->
