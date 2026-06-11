@@ -1,10 +1,10 @@
 {
   "schema": "portfolio-journey-analytics-signal-v1",
-  "generatedAt": "2026-06-10T22:15:33.499Z",
+  "generatedAt": "2026-06-11T01:31:04.195Z",
   "sourceProof": "logs\\visual\\portfolio-runtime-proof.json",
   "environment": "production-local-next-start",
   "url": "http://127.0.0.1:3107",
-  "commit": "f6b0e42",
+  "commit": "387e79c",
   "result": "pass",
   "analytics": {
     "eventNames": [

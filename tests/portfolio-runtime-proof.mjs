@@ -344,6 +344,9 @@ async function captureScreenshots() {
   const browser = spawn(browserPath, [
     '--headless=new',
     '--disable-gpu',
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+    '--disable-dev-shm-usage',
     '--hide-scrollbars',
     '--no-first-run',
     '--no-default-browser-check',
