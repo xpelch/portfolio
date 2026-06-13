@@ -1,32 +1,32 @@
 {
   "schema": "autogrowth-context-pack-v1",
-  "updated_at": "2026-06-11T20:22:27Z",
+  "updated_at": "2026-06-11T20:48:58Z",
   "repo": "portfolio",
   "context_type": "fullstack",
   "target": "BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A",
   "score": 90,
-  "active_score_cap": "Current score cap: 90 until same-commit CI evidence and canonical proof consistency are proven.",
+  "active_score_cap": "Hard cap at 90 until deployed visitor journey evidence is connected and recorded.",
   "caps": [
-    "Current score cap: 90 until same-commit CI evidence and canonical proof consistency are proven.",
-    "Next cap: 92 until durable production visitor-intent telemetry exists beyond proof-session acknowledgements.",
-    "Selected-work cap: 94 until every project has inspectable bilingual evidence or an explicit confidentiality-safe substitute.",
-    "Polish cap: 96 until production visual diff, accessibility, and performance checks are wired into CI without conflicting artifacts.",
-    "Success cap: real evaluator behavior is not yet measured; proof commands show readiness, not confirmed hiring/contact outcomes."
+    "Hard cap at 90 until deployed visitor journey evidence is connected and recorded.",
+    "Cap at 92 if production proof is synthetic only and no persistent analytics or repeated production trace exists.",
+    "Cap at 94 if analytics exists but selected-work inspection and contact/outbound intent are not both measured.",
+    "Cap at 96 if production proof passes but benchmark comparison remains subjective or undocumented.",
+    "Cap at 98 unless repeated production checks or real visitor/external review evidence shows the portfolio works beyond a single local or synthetic run."
   ],
   "one_move": [
-    "Build the current-commit evidence bridge: make the latest product-proof/control artifact consume the integrated production proof, match it to a successful CI run for the same commit, and clearly leave only durable aggregate visitor telemetry as the remaining cap."
+    "Build one production-journey proof lane: from xpelch.vercel.app, capture desktop/mobile screenshots, validate English/French paths, check all primary CTAs and selected-work links, and record a privacy-safe activation/contact-intent event trace. This directly attacks the active cap and upgrades the score from local readiness toward proven success."
   ],
   "proof_command": "npm run test",
   "agent_prompt_loop": [
-    "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `.autogrowth/product-proof/latest.json`, `.autogrowth/product-proof/integrated-production-proof.json`, latest CI evidence, and latest production analytics signal.",
-    "Reusable prompt: Execute one bounded evidence-freshness slice. Do not redesign. Make the latest proof/control artifact reflect the integrated production proof for the current commit, attach or record matching CI evidence, and leave durable field telemetry as the only remaining cap if no real visitor aggregate exists.",
-    "Evidence inputs: `package.json` scripts, `tests/portfolio-runtime-proof.mjs`, integrated production proof JSON, GitHub Actions evidence JSON, production journey analytics JSON, deployed URL, and latest screenshots.",
-    "Stop condition: stop when the latest control artifact either matches the current production proof and same-commit CI run, or names exactly which external evidence is unavailable and preserves the 90 cap."
+    "Observe current state: read VISION.md, AUTOGROWTH.md, EVALUATION.md, package scripts, current proof artifact, and the production proof script before editing. Evidence inputs: latest screenshots, npm test result, production URL availability, current blocker text. Stop condition: the active cap is confirmed as production journey evidence or replaced by stronger repository evidence. Learning update: write the confirmed cap and proof lane into EVALUATION.md or the scoped Autogrowth artifact only if the repository workflow allows it.",
+    "Reusable prompt: 'Implement the narrowest production journey proof for the portfolio: against the deployed or preview URL, verify first viewport, EN/FR locale switching, selected-work inspection, primary contact/outbound links, and a privacy-safe activation/contact-intent trace; keep edits limited to tests/scripts/proof docs unless a real product defect is found.' Evidence inputs: package.json scripts, tests/portfolio-runtime-proof.mjs, logs/visual/portfolio-journey-proof.md, deployed URL. Stop condition: one command produces a timestamped artifact proving or failing the journey. Learning update: record what failed, what passed, and whether the score cap moved.",
+    "Execute the slice: add or extend the production proof command only enough to capture screenshots, link checks, locale checks, selected-work checks, and event/trace evidence. Evidence inputs: current runtime proof script and public URL. Stop condition: no product code changes are required unless proof exposes a real visitor-path defect. Learning update: document any defect as the next bounded UI/content prompt.",
+    "Verify proof: run npm test plus the new production or preview proof lane. Evidence inputs: command output, screenshots, JSON/markdown trace, link results. Stop condition: artifact is reproducible and tied to the stated visitor journey. Learning update: update proof journal with command, result, score impact, and remaining cap."
   ],
   "next_two_hours": [
-    "1. Scope the slice: Build the current-commit evidence bridge: make the latest product-proof/control artifact consume the integrated production proof, match it to a successful CI run for the same commit, and clearly leave only durable aggregate visitor telemetry as the remaining cap.",
+    "1. Scope the slice: Build one production-journey proof lane: from xpelch.vercel.app, capture desktop/mobile screenshots, validate English/French paths, check all primary CTAs and selected-work links, and record a privacy-safe activation/contact-intent event trace. This directly attacks the active cap and upgrades the score from local readiness toward proven success.",
     "2. Touch only the files needed for that slice; avoid parallel refactors.",
-    "3. Run proof: `npm run proof:production` passes against `https://xpelch.vercel.app`.",
+    "3. Run proof: Run production journey proof against https://xpelch.vercel.app or a clearly labeled preview URL.",
     "4. Capture one before/after artifact or status result."
   ],
   "short_backlog": [
@@ -37,7 +37,7 @@
   ],
   "product_proof": {
     "schema": "autogrowth-product-proof-v1",
-    "ran_at": "2026-06-11T20:19:39Z",
+    "ran_at": "2026-06-11T20:46:06Z",
     "status": "passed",
     "summary": {
       "product_polish_ready": true,
@@ -56,6 +56,7 @@
       ".autogrowth/dashboard.html",
       ".autogrowth/evals/decision-quality.fixture.json",
       ".autogrowth/evals/latest-decision-quality.json",
+      ".autogrowth/evidence-packets/current-proof/github-actions.json",
       ".autogrowth/evidence-packets/journey-observability-latest/analytics.json",
       ".autogrowth/evidence-packets/journey-observability-latest/github-actions.json",
       ".autogrowth/patterns.json",
@@ -71,6 +72,7 @@
       ".autogrowth/product-plan/product-plan.json",
       ".autogrowth/product-plan/PRODUCTION_READINESS.md",
       ".autogrowth/product-plan/TELEMETRY_LOOP.md",
+      ".autogrowth/product-proof/current.json",
       ".autogrowth/product-proof/integrated-production-proof.json",
       ".autogrowth/product-proof/latest-proof.json",
       ".autogrowth/product-proof/latest.json",
@@ -88,11 +90,7 @@
       ".autogrowth/runs/20260611T024138Z-iter1.json",
       ".autogrowth/runs/20260611T161815Z-iter1.json",
       ".autogrowth/runs/20260611T195521Z-iter1.json",
-      ".autogrowth/runs/README.md",
-      ".autogrowth/score-contracts.json",
-      ".autogrowth/score-contracts.latest.json",
-      ".autogrowth/signals/analytics/journey-event-sink-27308411602.json",
-      ".autogrowth/signals/analytics/portfolio-production-journey-latest.json"
+      ".autogrowth/runs/README.md"
     ],
     "signals": {
       "frontend_surface": true,

@@ -1,6 +1,6 @@
 {
   "schema": "autogrowth-product-proof-v1",
-  "ran_at": "2026-06-11T20:19:39Z",
+  "ran_at": "2026-06-11T20:46:06Z",
   "status": "passed",
   "summary": {
     "product_polish_ready": true,
@@ -19,6 +19,7 @@
     ".autogrowth/dashboard.html",
     ".autogrowth/evals/decision-quality.fixture.json",
     ".autogrowth/evals/latest-decision-quality.json",
+    ".autogrowth/evidence-packets/current-proof/github-actions.json",
     ".autogrowth/evidence-packets/journey-observability-latest/analytics.json",
     ".autogrowth/evidence-packets/journey-observability-latest/github-actions.json",
     ".autogrowth/patterns.json",
@@ -34,6 +35,7 @@
     ".autogrowth/product-plan/product-plan.json",
     ".autogrowth/product-plan/PRODUCTION_READINESS.md",
     ".autogrowth/product-plan/TELEMETRY_LOOP.md",
+    ".autogrowth/product-proof/current.json",
     ".autogrowth/product-proof/integrated-production-proof.json",
     ".autogrowth/product-proof/latest-proof.json",
     ".autogrowth/product-proof/latest.json",
@@ -51,11 +53,7 @@
     ".autogrowth/runs/20260611T024138Z-iter1.json",
     ".autogrowth/runs/20260611T161815Z-iter1.json",
     ".autogrowth/runs/20260611T195521Z-iter1.json",
-    ".autogrowth/runs/README.md",
-    ".autogrowth/score-contracts.json",
-    ".autogrowth/score-contracts.latest.json",
-    ".autogrowth/signals/analytics/journey-event-sink-27308411602.json",
-    ".autogrowth/signals/analytics/portfolio-production-journey-latest.json"
+    ".autogrowth/runs/README.md"
   ],
   "signals": {
     "frontend_surface": true,

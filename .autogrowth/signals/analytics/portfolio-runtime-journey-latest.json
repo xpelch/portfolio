@@ -1,10 +1,10 @@
 {
   "schema": "portfolio-journey-analytics-signal-v1",
-  "generatedAt": "2026-06-11T20:24:50.709Z",
+  "generatedAt": "2026-06-13T15:02:39.145Z",
   "sourceProof": "logs\\visual\\portfolio-runtime-proof.json",
   "environment": "production-local-next-start",
   "url": "http://127.0.0.1:3107",
-  "commit": "0a9cc76",
+  "commit": "e9ba8b8",
   "result": "pass",
   "analytics": {
     "eventNames": [
@@ -17,8 +17,8 @@
     "acknowledgedEventNames": [
       "project_open",
       "contact_click",
-      "external_profile_click",
       "language_switch",
+      "external_profile_click",
       "contact_copy"
     ],
     "eventCount": 5,
@@ -36,30 +36,30 @@
     "viewports": [
       {
         "name": "desktop-en",
-        "domContentLoadedMs": 14,
-        "loadCompleteMs": 25,
+        "domContentLoadedMs": 13,
+        "loadCompleteMs": 24,
         "responseEndMs": 4,
-        "firstContentfulPaintMs": 44,
+        "firstContentfulPaintMs": 32,
         "resourceCount": 13,
         "transferKiB": 1351,
         "largestResourceKiB": 1200
       },
       {
         "name": "mobile-en",
-        "domContentLoadedMs": 10,
-        "loadCompleteMs": 19,
+        "domContentLoadedMs": 12,
+        "loadCompleteMs": 20,
         "responseEndMs": 3,
-        "firstContentfulPaintMs": 16,
+        "firstContentfulPaintMs": 20,
         "resourceCount": 13,
         "transferKiB": 1351,
         "largestResourceKiB": 1200
       },
       {
         "name": "mobile-fr",
-        "domContentLoadedMs": 12,
-        "loadCompleteMs": 20,
+        "domContentLoadedMs": 11,
+        "loadCompleteMs": 19,
         "responseEndMs": 3,
-        "firstContentfulPaintMs": 28,
+        "firstContentfulPaintMs": 24,
         "resourceCount": 13,
         "transferKiB": 1351,
         "largestResourceKiB": 1200

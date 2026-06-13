@@ -1,9 +1,9 @@
 {
   "schema": "portfolio-integrated-production-proof-v2",
-  "generatedAt": "2026-06-11T16:48:04.674Z",
+  "generatedAt": "2026-06-11T20:49:21.938Z",
   "url": "https://xpelch.vercel.app",
   "environment": "production",
-  "commit": "3c01b11",
+  "commit": "e9ba8b8",
   "result": "pass",
   "sourceArtifacts": {
     "runtimeProofJson": "logs\\visual\\portfolio-production-proof.json",
@@ -18,6 +18,9 @@
     "accentIntegrity": "pass",
     "selectedWork": "pass",
     "projectCardAffordance": "pass",
+    "selectedWorkInspectability": "pass",
+    "contactCopy": "pass",
+    "languageRecovery": "pass",
     "imageLoading": "pass",
     "linkContracts": "pass",
     "liveExternalLinks": "partial-provider-blocked",
@@ -160,32 +163,32 @@
     "viewports": [
       {
         "name": "desktop-en",
-        "domContentLoadedMs": 132,
-        "loadCompleteMs": 146,
-        "responseEndMs": 36,
-        "firstContentfulPaintMs": 152,
+        "domContentLoadedMs": 74,
+        "loadCompleteMs": 134,
+        "responseEndMs": 35,
+        "firstContentfulPaintMs": 88,
         "resourceCount": 13,
-        "transferKiB": 1355,
+        "transferKiB": 1356,
         "largestResourceKiB": 1200
       },
       {
         "name": "mobile-en",
-        "domContentLoadedMs": 74,
-        "loadCompleteMs": 78,
-        "responseEndMs": 30,
-        "firstContentfulPaintMs": 80,
+        "domContentLoadedMs": 86,
+        "loadCompleteMs": 113,
+        "responseEndMs": 36,
+        "firstContentfulPaintMs": 92,
         "resourceCount": 10,
-        "transferKiB": 155,
+        "transferKiB": 156,
         "largestResourceKiB": 89
       },
       {
         "name": "mobile-fr",
-        "domContentLoadedMs": 82,
-        "loadCompleteMs": 90,
-        "responseEndMs": 34,
-        "firstContentfulPaintMs": 88,
+        "domContentLoadedMs": 115,
+        "loadCompleteMs": 115,
+        "responseEndMs": 39,
+        "firstContentfulPaintMs": 116,
         "resourceCount": 10,
-        "transferKiB": 155,
+        "transferKiB": 156,
         "largestResourceKiB": 89
       }
     ]
@@ -215,36 +218,66 @@
       "name": "desktop-en",
       "privateCount": 1,
       "publicCount": 2,
+      "roleCount": 3,
+      "constraintCount": 3,
+      "inspectabilityStatus": "present",
       "deadProjectLinks": 0
     },
     {
       "name": "mobile-en",
       "privateCount": 1,
       "publicCount": 2,
+      "roleCount": 3,
+      "constraintCount": 3,
+      "inspectabilityStatus": "present",
       "deadProjectLinks": 0
     },
     {
       "name": "mobile-fr",
       "privateCount": 1,
       "publicCount": 2,
+      "roleCount": 3,
+      "constraintCount": 3,
+      "inspectabilityStatus": "present",
       "deadProjectLinks": 0
     }
   ],
+  "contactCopy": {
+    "buttonPresent": true,
+    "status": "xpelch.dev@proton.me"
+  },
+  "languageRecovery": {
+    "recovered": {
+      "bannerPresent": true,
+      "actionPresent": true,
+      "actionText": "Try French",
+      "body": "Language recoveredText loaded in an available language after a saved preference failed.Try French",
+      "savedLanguage": "en",
+      "visible": true
+    },
+    "resolved": {
+      "bannerPresent": false,
+      "savedLanguage": "fr",
+      "body": "XP\nContact\nQuébec, Canada\nCanada / Remote US\nXavier Pelchat\n\nIngénieur full-stack / lead technique\n\nJe construis des systèmes web de production avec .NET, React et des workflows AI pragmatiques.\n\nDéveloppeur full-stack spécialisé en applications web de production, automatisation et workflows AI utiles.\n\nVoir les travaux\nM'écrire\nGitHub\n\nStack production\n\n.NET, React, SQL, Docker\n\nMode d'opération\n\nLivrer, stabiliser, automatiser\n\nAngle AI\n\nWorkflows agentic, OpenAI, Codex\n\ncomprendre. construire"
+    }
+  },
   "journeyEvents": {
     "eventNames": [
       "project_open",
       "contact_click",
       "external_profile_click",
-      "language_switch"
+      "language_switch",
+      "contact_copy"
     ],
     "acknowledgedEventNames": [
+      "project_open",
+      "external_profile_click",
       "language_switch",
       "contact_click",
-      "external_profile_click",
-      "project_open"
+      "contact_copy"
     ],
-    "eventCount": 4,
-    "acknowledgementCount": 4
+    "eventCount": 5,
+    "acknowledgementCount": 5
   },
   "linkHealth": [
     {

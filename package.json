@@ -7,9 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "proof:ci": "node tests/portfolio-ci-proof.mjs",
+    "proof:current": "npm run proof:ci && npm run proof:production && node tests/portfolio-current-proof.mjs",
     "proof:journey": "npm run build && node tests/portfolio-runtime-proof.mjs",
     "proof:production": "node tests/portfolio-runtime-proof.mjs --url https://xpelch.vercel.app --label production",
-    "test": "node tests/portfolio-content.test.mjs && npm run lint && npm run build && node tests/portfolio-runtime-proof.mjs"
+    "test": "node tests/portfolio-content.test.js && node tests/portfolio-assets.test.js && node tests/portfolio-scripts.test.js && npm run lint && npm run build && node tests/portfolio-runtime-proof.mjs"
   },
   "dependencies": {
     "next": "16.0.7",

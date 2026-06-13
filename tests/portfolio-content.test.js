@@ -1,8 +1,7 @@
-import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
-import path from 'node:path';
-
 const root = process.cwd();
+let assert;
+let readFile;
+let path;
 
 async function readJson(filePath) {
   const raw = await readFile(path.join(root, filePath), 'utf8');
@@ -44,17 +43,24 @@ function assertNoMojibake(value, label) {
 function validatePortfolioJourney(locale, data) {
   assertNoMojibake(data, locale);
   assert.equal(data.general.name, 'Xavier Pelchat', `${locale}: name is the first identity signal`);
-  assert.match(data.general.headline, /production|production|systèmes|systems/i, `${locale}: headline must state production value`);
+  assert.match(
+    data.general.headline,
+    /production|production|syst\u00e8mes|systems/i,
+    `${locale}: headline must state production value`,
+  );
   assert.ok(data.general.socials.email.includes('@'), `${locale}: email is available`);
   assertUrlOrAnchor(data.general.socials.github, `${locale}: GitHub`);
   assertUrlOrAnchor(data.general.socials.linkedin, `${locale}: LinkedIn`);
 
   assert.ok(data.general.proofPoints.length >= 3, `${locale}: hero proof strip has at least three proof points`);
   assert.ok(
-    data.general.operatorSignal.steps.some((step) => /verify|vérifier/i.test(step)),
+    data.general.operatorSignal.steps.some((step) => /verify|v\u00e9rifier/i.test(step)),
     `${locale}: operator loop includes verification`,
   );
-  assert.ok(data.general.operatorSignal.steps.length >= 5, `${locale}: operator loop is complete enough to explain working style`);
+  assert.ok(
+    data.general.operatorSignal.steps.length >= 5,
+    `${locale}: operator loop is complete enough to explain working style`,
+  );
 
   const requiredNavigation = ['about', 'skills', 'experiences', 'projects', 'contact'];
   for (const key of requiredNavigation) {
@@ -74,27 +80,39 @@ function validatePortfolioJourney(locale, data) {
 
   assert.ok(data.experiences.length >= 3, `${locale}: experience timeline has enough entries`);
   assert.ok(
-    data.experiences[0].description.includes('React') && data.experiences[0].description.includes('SQL'),
+    data.experiences[0].description.includes('React') &&
+      data.experiences[0].description.includes('SQL'),
     `${locale}: lead experience mentions production stack evidence`,
   );
 }
 
-const en = await readJson('public/translations/en.json');
-const fr = await readJson('public/translations/fr.json');
+async function main() {
+  assert = (await import('node:assert/strict')).default;
+  ({ readFile } = await import('node:fs/promises'));
+  path = await import('node:path');
 
-validatePortfolioJourney('en', en);
-validatePortfolioJourney('fr', fr);
+  const en = await readJson('public/translations/en.json');
+  const fr = await readJson('public/translations/fr.json');
 
-assert.deepEqual(
-  Object.keys(en.general.navigation).sort(),
-  Object.keys(fr.general.navigation).sort(),
-  'navigation contracts must match across locales',
-);
+  validatePortfolioJourney('en', en);
+  validatePortfolioJourney('fr', fr);
 
-assert.throws(
-  () => assertUrlOrAnchor('javascript:alert(1)', 'unsafe link'),
-  /must be an https URL/,
-  'negative link validation catches unsafe URLs',
-);
+  assert.deepEqual(
+    Object.keys(en.general.navigation).sort(),
+    Object.keys(fr.general.navigation).sort(),
+    'navigation contracts must match across locales',
+  );
 
-console.log('portfolio content journey: ok');
+  assert.throws(
+    () => assertUrlOrAnchor('javascript:alert(1)', 'unsafe link'),
+    /must be an https URL/,
+    'negative link validation catches unsafe URLs',
+  );
+
+  console.log('portfolio content journey: ok');
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});

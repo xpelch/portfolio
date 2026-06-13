@@ -1,16 +1,16 @@
 {
   "schema": "portfolio-latest-proof-v1",
-  "generatedAt": "2026-06-11T16:48:04.674Z",
+  "generatedAt": "2026-06-11T20:49:21.938Z",
   "scoreContext": {
     "currentScore": 90,
-    "activeCap": "90 cap: control-plane artifacts disagree even though later production proof passes; score should not rise until the authoritative state is reconciled.",
+    "activeCap": "Hard cap at 90 until deployed visitor journey evidence is connected and recorded.",
     "capStatus": "partially-lifted-ci-current-field-evidence-missing"
   },
   "subject": {
     "product": "bilingual developer portfolio",
     "url": "https://xpelch.vercel.app",
     "environment": "production",
-    "commit": "3c01b11",
+    "commit": "e9ba8b8",
     "result": "pass"
   },
   "sourceArtifacts": {
@@ -20,7 +20,7 @@
     "autogrowthSignal": ".autogrowth\\signals\\analytics\\portfolio-production-journey-latest.json"
   },
   "proofSummary": {
-    "checksPassed": 19,
+    "checksPassed": 22,
     "checksPartial": 1,
     "screenshots": 3,
     "viewports": [
@@ -66,8 +66,8 @@
         "transferKiB": 2500,
         "largestResourceKiB": 1500
       },
-      "worstLoadCompleteMs": 146,
-      "worstTransferKiB": 1355
+      "worstLoadCompleteMs": 134,
+      "worstTransferKiB": 1356
     },
     "commandDeck": {
       "viewports": 3,
@@ -76,23 +76,49 @@
     },
     "projectCards": {
       "deadProjectLinks": 0,
-      "privateCardsWithoutDeadAnchors": true
+      "privateCardsWithoutDeadAnchors": true,
+      "inspectabilityStatuses": [
+        "present"
+      ],
+      "roleRows": 3,
+      "constraintRows": 3
+    },
+    "contactCopy": {
+      "buttonPresent": true,
+      "status": "xpelch.dev@proton.me"
+    },
+    "languageRecovery": {
+      "recovered": {
+        "bannerPresent": true,
+        "actionPresent": true,
+        "actionText": "Try French",
+        "body": "Language recoveredText loaded in an available language after a saved preference failed.Try French",
+        "savedLanguage": "en",
+        "visible": true
+      },
+      "resolved": {
+        "bannerPresent": false,
+        "savedLanguage": "fr",
+        "body": "XP\nContact\nQuébec, Canada\nCanada / Remote US\nXavier Pelchat\n\nIngénieur full-stack / lead technique\n\nJe construis des systèmes web de production avec .NET, React et des workflows AI pragmatiques.\n\nDéveloppeur full-stack spécialisé en applications web de production, automatisation et workflows AI utiles.\n\nVoir les travaux\nM'écrire\nGitHub\n\nStack production\n\n.NET, React, SQL, Docker\n\nMode d'opération\n\nLivrer, stabiliser, automatiser\n\nAngle AI\n\nWorkflows agentic, OpenAI, Codex\n\ncomprendre. construire"
+      }
     },
     "journeyEvents": {
       "eventNames": [
         "project_open",
         "contact_click",
         "external_profile_click",
-        "language_switch"
+        "language_switch",
+        "contact_copy"
       ],
       "acknowledgedEventNames": [
+        "project_open",
+        "external_profile_click",
         "language_switch",
         "contact_click",
-        "external_profile_click",
-        "project_open"
+        "contact_copy"
       ],
-      "eventCount": 4,
-      "acknowledgementCount": 4
+      "eventCount": 5,
+      "acknowledgementCount": 5
     },
     "linkHealth": [
       {
@@ -135,10 +161,10 @@
   "fieldEvidence": {
     "ci": {
       "status": "observed-current",
-      "source": ".autogrowth\\signals\\ci\\github-actions-run-27362846125.json",
+      "source": ".autogrowth\\signals\\ci\\github-actions-run-27375220856.json",
       "commitMatched": true,
       "conclusion": "success",
-      "runUrl": "https://github.com/xpelch/portfolio/actions/runs/27362846125",
+      "runUrl": "https://github.com/xpelch/portfolio/actions/runs/27375220856",
       "note": "CI signal matches the proof commit."
     },
     "telemetry": {

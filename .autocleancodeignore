@@ -1,0 +1,11 @@
+AUTOGROWTH.md
+EVALUATION.md
+components/ContactSection.tsx
+components/Header.tsx
+components/Socials.tsx
+components/education/EducationItem.tsx
+components/experiences/ExperienceItem.tsx
+components/projects/ProjectItem.tsx
+tools/debug-flow/README.md
+tools/generate-feature-spec/README.md
+tools/workflow-restore/README.md

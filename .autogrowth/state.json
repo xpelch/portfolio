@@ -1,17 +1,18 @@
 {
   "schema": "autogrowth-state-v2",
-  "updated_at": "2026-06-11T20:22:27Z",
+  "updated_at": "2026-06-11T20:48:57Z",
   "repo": "portfolio",
   "context_type": "fullstack",
   "previous_score": 90,
   "current_score": 90,
   "score_delta": 0,
   "current_caps": [
-    "Current score cap: 90 until same-commit CI evidence and canonical proof consistency are proven.",
-    "Next cap: 92 until durable production visitor-intent telemetry exists beyond proof-session acknowledgements.",
-    "Selected-work cap: 94 until every project has inspectable bilingual evidence or an explicit confidentiality-safe substitute.",
-    "Polish cap: 96 until production visual diff, accessibility, and performance checks are wired into CI without conflicting artifacts.",
-    "Success cap: real evaluator behavior is not yet measured; proof commands show readiness, not confirmed hiring/contact outcomes."
+    "Hard cap at 90 until deployed visitor journey evidence is connected and recorded.",
+    "Cap at 92 if production proof is synthetic only and no persistent analytics or repeated production trace exists.",
+    "Cap at 94 if analytics exists but selected-work inspection and contact/outbound intent are not both measured.",
+    "Cap at 96 if production proof passes but benchmark comparison remains subjective or undocumented.",
+    "Cap at 98 unless repeated production checks or real visitor/external review evidence shows the portfolio works beyond a single local or synthetic run.",
+    "100 requires exceptional proven outcome evidence, not just clean scripts, more docs, or polished screenshots."
   ],
   "current_weakest": [
     "Tests",
@@ -19,20 +20,20 @@
     "Securite"
   ],
   "current_one_move": [
-    "Build the current-commit evidence bridge: make the latest product-proof/control artifact consume the integrated production proof, match it to a successful CI run for the same commit, and clearly leave only durable aggregate visitor telemetry as the remaining cap."
+    "Build one production-journey proof lane: from xpelch.vercel.app, capture desktop/mobile screenshots, validate English/French paths, check all primary CTAs and selected-work links, and record a privacy-safe activation/contact-intent event trace. This directly attacks the active cap and upgrades the score from local readiness toward proven success."
   ],
   "current_agent_prompt_loop": [
-    "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `.autogrowth/product-proof/latest.json`, `.autogrowth/product-proof/integrated-production-proof.json`, latest CI evidence, and latest production analytics signal.",
-    "Reusable prompt: Execute one bounded evidence-freshness slice. Do not redesign. Make the latest proof/control artifact reflect the integrated production proof for the current commit, attach or record matching CI evidence, and leave durable field telemetry as the only remaining cap if no real visitor aggregate exists.",
-    "Evidence inputs: `package.json` scripts, `tests/portfolio-runtime-proof.mjs`, integrated production proof JSON, GitHub Actions evidence JSON, production journey analytics JSON, deployed URL, and latest screenshots.",
-    "Stop condition: stop when the latest control artifact either matches the current production proof and same-commit CI run, or names exactly which external evidence is unavailable and preserves the 90 cap.",
-    "Learning update: record the lifted blocker, remaining cap, proof command, artifact paths, and next single prompt in `AUTOGROWTH.md` or the scoped proof artifact."
+    "Observe current state: read VISION.md, AUTOGROWTH.md, EVALUATION.md, package scripts, current proof artifact, and the production proof script before editing. Evidence inputs: latest screenshots, npm test result, production URL availability, current blocker text. Stop condition: the active cap is confirmed as production journey evidence or replaced by stronger repository evidence. Learning update: write the confirmed cap and proof lane into EVALUATION.md or the scoped Autogrowth artifact only if the repository workflow allows it.",
+    "Reusable prompt: 'Implement the narrowest production journey proof for the portfolio: against the deployed or preview URL, verify first viewport, EN/FR locale switching, selected-work inspection, primary contact/outbound links, and a privacy-safe activation/contact-intent trace; keep edits limited to tests/scripts/proof docs unless a real product defect is found.' Evidence inputs: package.json scripts, tests/portfolio-runtime-proof.mjs, logs/visual/portfolio-journey-proof.md, deployed URL. Stop condition: one command produces a timestamped artifact proving or failing the journey. Learning update: record what failed, what passed, and whether the score cap moved.",
+    "Execute the slice: add or extend the production proof command only enough to capture screenshots, link checks, locale checks, selected-work checks, and event/trace evidence. Evidence inputs: current runtime proof script and public URL. Stop condition: no product code changes are required unless proof exposes a real visitor-path defect. Learning update: document any defect as the next bounded UI/content prompt.",
+    "Verify proof: run npm test plus the new production or preview proof lane. Evidence inputs: command output, screenshots, JSON/markdown trace, link results. Stop condition: artifact is reproducible and tied to the stated visitor journey. Learning update: update proof journal with command, result, score impact, and remaining cap.",
+    "Decide next prompt: if production proof passes, benchmark the design against references and selected-work inspectability; if it fails, fix the single highest-impact visitor-path failure first. Evidence inputs: failed assertion or benchmark miss. Stop condition: next prompt is one vertical slice with one proof artifact. Learning update: add only stable reusable learning, not session noise."
   ],
   "current_causal_score_delta": [
     "- Score delta : +0 (90/100 -> 90/100), direction `flat`.",
     "- Goal signal : `VISION.md` has a concrete destination, so target calibration is stronger.",
     "- Proof signal : canonical command detected `npm run test`; passing it can move proof confidence.",
-    "- Active cap : Current score cap: 90 until same-commit CI evidence and canonical proof consistency are proven..",
+    "- Active cap : Hard cap at 90 until deployed visitor journey evidence is connected and recorded..",
     "- Weakest lever : `Tests` must move before broad feature work is credible.",
     "- Deep evidence : no failing deep checks in this run."
   ],
@@ -102,7 +103,7 @@
     "Next cap: 95/100 until selected work evidence is visibly deep, bilingual, and confidentiality-safe.": 1,
     "Next cap: 97/100 until contact/project-open success is measured or deterministically verified.": 1,
     "Hard cap below 100 unless repeated proof shows exceptional bilingual UX, benchmark-grade polish, reliable build/test/visual evidence, and real visitor-outcome readiness.": 1,
-    "jugement Codex indisponible; fallback heuristique conservateur": 14,
+    "jugement Codex indisponible; fallback heuristique conservateur": 15,
     "Current cap: 90/100 until production/analytics evidence is connected.": 1,
     "Readiness cap: local `npm test` plus local screenshots can justify high-80s but not proven public success.": 1,
     "Feature cap: new UI features should not raise score unless they unblock inspect-work/contact or create measurable proof.": 1,
@@ -329,133 +330,26 @@
     "Next cap: 92 until durable production visitor-intent telemetry exists beyond proof-session acknowledgements.": 1,
     "Selected-work cap: 94 until every project has inspectable bilingual evidence or an explicit confidentiality-safe substitute.": 1,
     "Polish cap: 96 until production visual diff, accessibility, and performance checks are wired into CI without conflicting artifacts.": 1,
-    "Success cap: real evaluator behavior is not yet measured; proof commands show readiness, not confirmed hiring/contact outcomes.": 1
+    "Success cap: real evaluator behavior is not yet measured; proof commands show readiness, not confirmed hiring/contact outcomes.": 1,
+    "Score cap: 90 until production journey proof and analytics/event evidence are connected to the live site.": 1,
+    "Readiness cap: local `npm test` plus screenshots prove readiness, not live success.": 1,
+    "UI/UX cap: first-viewport and selected-work clarity must remain proven on mobile in both languages.": 1,
+    "Operating cap: workflow artifacts must collapse into a small number of canonical, repeatable proof signals.": 1,
+    "Feature cap: no new feature should be built unless it attacks production proof, contact conversion, selected-work credibility, or bilingual parity.": 1,
+    "Current cap: 90 until score/proof/control artifacts agree on the same current commit and residual blocker.": 1,
+    "92 cap: durable privacy-safe visitor-intent telemetry or production-log evidence is missing beyond proof-session acknowledgement.": 2,
+    "94 cap: selected-work evidence is not yet deep enough to prove every major production-minded claim without internal docs.": 1,
+    "96 cap: production screenshot ingestion, visual diff baseline, accessibility, and performance thresholds are not fully unified in CI.": 2,
+    "98 cap: benchmark-calibrated UI review and target-user comprehension evidence are missing.": 2,
+    "90 cap: score, proof, and control artifacts must agree on the same current commit and residual blocker.": 1,
+    "94 cap: selected-work evidence is not deep enough to prove every major production-minded claim without internal docs.": 1,
+    "Hard cap at 90 until deployed visitor journey evidence is connected and recorded.": 1,
+    "Cap at 92 if production proof is synthetic only and no persistent analytics or repeated production trace exists.": 1,
+    "Cap at 94 if analytics exists but selected-work inspection and contact/outbound intent are not both measured.": 1,
+    "Cap at 96 if production proof passes but benchmark comparison remains subjective or undocumented.": 1,
+    "Cap at 98 unless repeated production checks or real visitor/external review evidence shows the portfolio works beyond a single local or synthetic run.": 1
   },
   "history": [
-    {
-      "at": "2026-06-11T15:04:07Z",
-      "score": 64,
-      "type": "fullstack",
-      "caps": [
-        "Current hard cap: 64/100 due to failed runtime proof command.",
-        "Next cap after local proof: production/analytics evidence is not connected to the complete visitor journey.",
-        "Higher cap: accessibility and performance evidence on the real runtime are missing.",
-        "Operating cap: evaluation gate inconsistency can mislead future agents until corrected."
-      ],
-      "weakest": [
-        "Tests",
-        "Fiabilite",
-        "Securite"
-      ],
-      "one_move": [
-        "Make the canonical proof network-independent by fixing the font/build failure, then rerun `npm test` and update the proof journal with the before/after result."
-      ],
-      "agent_prompt_loop": [
-        "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, package scripts, and the font usage in the Next.js app. Confirm the active cap is the failed runtime proof command.",
-        "Reusable prompt: \"Attack only the active cap: `npm run test` and `npm run build` fail because Next.js cannot fetch Google fonts. Make the smallest safe change that makes the build network-independent, preserve the current visual direction, run `npm run build` and `npm test`, then record the proof result and stop.\"",
-        "Evidence inputs: current EVALUATION failure excerpt, package scripts, app/layout or font imports, visual reference artifacts, and latest journey proof markdown."
-      ]
-    },
-    {
-      "at": "2026-06-11T15:06:40Z",
-      "score": 64,
-      "type": "fullstack",
-      "caps": [
-        "Current effective cap: 64 until stale failed-runtime-proof state is reconciled.",
-        "Next cap: about 82 without production journey proof.",
-        "Higher cap: about 90 without accessibility and performance evidence on the real runtime.",
-        "Top cap: about 94 without analytics or field telemetry proving activation/contact behavior.",
-        "Anti-goal cap: public AI/workflow surfaces that distract from selected work should not be built."
-      ],
-      "weakest": [
-        "Tests",
-        "Fiabilite",
-        "Securite"
-      ],
-      "one_move": [
-        "Recalibrate the proof state: confirm current `npm test`/build status, then update the diagnostic artifacts so the active cap matches reality. If green, the next slice becomes production journey plus accessibility/performance proof."
-      ],
-      "agent_prompt_loop": [
-        "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, package scripts, latest visual proof, and latest runtime logs.",
-        "Reusable prompt: \"Resolve the active score-cap contradiction for the portfolio. Confirm whether `npm test` and `npm run build` currently pass from existing logs or by running them if allowed. If green, update the diagnostic/proof artifacts so the active cap becomes production journey plus accessibility/performance evidence. Do not add features. Stop after one reconciled proof packet.\"",
-        "Evidence inputs: EVALUATION command matrix, context-pack caps, package scripts, latest visual proof markdown, CI status, production URL smoke status."
-      ]
-    },
-    {
-      "at": "2026-06-11T15:14:01Z",
-      "score": 86,
-      "type": "fullstack",
-      "caps": [
-        "Current practical cap: about 88 until generated evaluation/context artifacts reconcile with fresh production proof.",
-        "Next cap: about 90 until CI proof is observed and linked for the same evaluated commit.",
-        "Higher cap: about 94 until external field analytics or equivalent real visitor funnel evidence exists.",
-        "Polish cap: about 96 until benchmark comparison and fuller accessibility/performance artifacts are attached.",
-        "Anti-goal cap: do not add chatbot-first, fake autonomy, broad dashboard, or decorative complexity that distracts from selected work."
-      ],
-      "weakest": [
-        "Tests",
-        "Fiabilite",
-        "Securite"
-      ],
-      "one_move": [
-        "Create a proof-state reconciliation slice: consume the fresh 2026-06-11 production proof, update or regenerate the generated evaluation/context pack/proof index, and make the active cap field analytics plus observed CI, not stale failed runtime proof."
-      ],
-      "agent_prompt_loop": [
-        "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `package.json`, `logs/visual/portfolio-runtime-proof.md`, `logs/visual/portfolio-production-proof.md`, `.autogrowth/signals/normalized.json`, and `.github/workflows/ci.yml`.",
-        "Reusable prompt: \"Resolve the portfolio proof-control contradiction. Use the latest production proof as evidence, then update only the generated diagnostic/context/proof-index artifacts needed so the active cap no longer says failed runtime proof. Do not add features or redesign. Stop after one reconciled proof packet and one canonical verification command.\"",
-        "Evidence inputs: latest proof timestamps, proof checks, production URL, commit hash, package scripts, normalized telemetry status, CI workflow/status if available, and stale cap text from evaluation/context pack."
-      ]
-    },
-    {
-      "at": "2026-06-11T15:16:27Z",
-      "score": 86,
-      "type": "fullstack",
-      "caps": [
-        "Active cap: 89 until deployed journey proof is repeatable and current.",
-        "Next cap: 92 until privacy-safe telemetry proves visitors can open work, switch language, and contact from production.",
-        "UX cap: 93 until selected work is inspectable enough to prove production judgment without internal docs.",
-        "Trust cap: 94 until deployed performance, accessibility, runtime, and link health are proven.",
-        "100 cap: unreachable from current evidence because exceptional outcomes require measured production behavior and externally credible proof, not only local screenshots or plans."
-      ],
-      "weakest": [
-        "Tests",
-        "Fiabilite",
-        "Securite"
-      ],
-      "one_move": [
-        "Make the deployed visitor journey proof repeatable, current, and tied to privacy-safe success-event telemetry."
-      ],
-      "agent_prompt_loop": [
-        "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, package scripts, and latest journey proof. Evidence inputs: target, score cap, active blocker, canonical commands, production URL. Stop condition: one blocker and one proof command are named. Learning update: record active score cap and latest proof path.",
-        "Reusable prompt: clear the active score cap without broad redesign by making production visitor journey proof repeatable for the bilingual portfolio, verifying deployed desktop/mobile/French paths, checking contact/work links, and recording the result as the latest proof artifact. Evidence inputs: `npm test`, production URL, current proof artifact, selected work/link data. Stop condition: production proof artifact exists or blocker is reduced to one external dependency.",
-        "Execute the slice: add only the smallest script/test/config needed to prove production journey health and event readiness. Evidence inputs: package scripts, existing runtime proof test, screenshot/log conventions. Stop condition: command runs locally without weakening existing gates. Learning update: record what became automated and what remains manual."
-      ]
-    },
-    {
-      "at": "2026-06-11T15:23:50Z",
-      "score": 90,
-      "type": "fullstack",
-      "caps": [
-        "92 cap: observed CI artifacts and connector-backed or durable field visitor-intent evidence are missing.",
-        "94 cap: selected-work proof is not yet deep and inspectable enough, especially for confidential production work.",
-        "96 cap: benchmark-calibrated UX deltas and target-user comprehension evidence are not proven.",
-        "98 cap: no repeated real-world outcome signal shows visitors inspect work or start contact over time.",
-        "100 cap: exceptional sustained evidence is absent; current artifacts prove a strong smoke-tested product path, not magnum-opus field outcomes."
-      ],
-      "weakest": [
-        "Tests",
-        "Fiabilite",
-        "Securite"
-      ],
-      "one_move": [
-        "Reconcile the latest deployed proof into the control plane and replace the old production-proof cap with the next real cap: observed CI plus field-grade visitor-intent evidence."
-      ],
-      "agent_prompt_loop": [
-        "Observe current state: read VISION.md, AUTOGROWTH.md, EVALUATION.md, .autogrowth/context-pack.json, logs/visual/portfolio-production-proof.md, .autogrowth/product-proof/integrated-production-proof.json, and .autogrowth/signals/normalized.json. Evidence inputs: score/cap mismatch, latest proof timestamp, production URL, telemetry source counts. Stop condition: one stale control-plane field and one next cap are named. Learning update: record whether the score cap is production proof, CI evidence, telemetry, or selected-work depth.",
-        "Reusable prompt: reconcile the portfolio control plane with the latest deployed journey proof without changing product UI. Update only the score/cap/proof references needed so future agents see the current cap, then verify the referenced proof artifacts exist. Evidence inputs: production proof markdown/json, integrated production proof, normalized telemetry, CI workflow file. Stop condition: EVALUATION/state/context-pack agree or the mismatch is reduced to one blocked external dependency. Learning update: record the active cap and proof artifact path.",
-        "Execute the slice: create or update a latest-proof pointer that ties commit, production URL, screenshots, accessibility/performance smoke, event acknowledgement, CI status, and next cap into one operator-readable artifact. Evidence inputs: existing proof scripts and logs/visual conventions. Stop condition: no broad redesign, no new framework, no unrelated workflow edits. Learning update: note which proof sources are automated versus manually inspected."
-      ]
-    },
     {
       "at": "2026-06-11T15:26:29Z",
       "score": 90,
@@ -1068,6 +962,129 @@
         "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `.autogrowth/product-proof/latest.json`, `.autogrowth/product-proof/integrated-production-proof.json`, latest CI evidence, and latest production analytics signal.",
         "Reusable prompt: Execute one bounded evidence-freshness slice. Do not redesign. Make the latest proof/control artifact reflect the integrated production proof for the current commit, attach or record matching CI evidence, and leave durable field telemetry as the only remaining cap if no real visitor aggregate exists.",
         "Evidence inputs: `package.json` scripts, `tests/portfolio-runtime-proof.mjs`, integrated production proof JSON, GitHub Actions evidence JSON, production journey analytics JSON, deployed URL, and latest screenshots."
+      ]
+    },
+    {
+      "at": "2026-06-11T20:30:47Z",
+      "score": 90,
+      "type": "fullstack",
+      "caps": [
+        "Score cap: 90 until production journey proof and analytics/event evidence are connected to the live site.",
+        "Readiness cap: local `npm test` plus screenshots prove readiness, not live success.",
+        "UI/UX cap: first-viewport and selected-work clarity must remain proven on mobile in both languages.",
+        "Operating cap: workflow artifacts must collapse into a small number of canonical, repeatable proof signals.",
+        "Feature cap: no new feature should be built unless it attacks production proof, contact conversion, selected-work credibility, or bilingual parity."
+      ],
+      "weakest": [
+        "Tests",
+        "Fiabilite",
+        "Securite"
+      ],
+      "one_move": [
+        "Wire the production journey proof loop: run against `https://xpelch.vercel.app`, capture desktop/mobile English/French screenshots, check links/images/overflow, verify or stub telemetry for key actions, and write one concise proof artifact naming the remaining score cap."
+      ],
+      "agent_prompt_loop": [
+        "Observe current state: read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, and `logs/visual/portfolio-journey-proof.md`; evidence inputs = current score cap, proof journal, production URL, package scripts; stop condition = active blocker and one bounded slice are named; learning update = record whether the blocker is production telemetry, live proof, selected-work evidence, or UI clarity.",
+        "Reusable prompt: `Execute one bounded slice that attacks the active score cap for the Xavier portfolio. Prefer production journey evidence over new docs. Do not broaden scope. Preserve bilingual parity, work-first hierarchy, and contact clarity. Return changed files, proof command output, screenshots/artifacts, and remaining cap.`",
+        "Execute the slice: choose one action, ideally production journey proof or minimal telemetry instrumentation; evidence inputs = app components, tests, package scripts, CI config, production URL; stop condition = one public journey path is more provable than before or a concrete external blocker is documented."
+      ]
+    },
+    {
+      "at": "2026-06-11T20:34:24Z",
+      "score": 88,
+      "type": "fullstack",
+      "caps": [
+        "jugement Codex indisponible; fallback heuristique conservateur"
+      ],
+      "weakest": [
+        "Tests",
+        "Fiabilite",
+        "Securite"
+      ],
+      "one_move": [
+        "- Move : lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence.",
+        "- Why this beats alternatives : it is the active ceiling; other work cannot honestly raise confidence until this cap moves.",
+        "- Proof : `npm run test` plus one artifact that shows the before/after result."
+      ],
+      "agent_prompt_loop": [
+        "- Loop shape : observe state -> prompt agent -> execute slice -> verify proof -> record learning -> choose next prompt.",
+        "- State packet : target `BUILD A BILINGUAL DEVELOPER PORTFOLIO THAT MAKES XAVIER PELCHAT FEEL LIKE A`; score 88/100; weakest category `Tests`; active blocker `jugement Codex indisponible; fallback heuristique conservateur`.",
+        "- Agent prompt : Use $autogrowth on this fullstack workspace. Current score is 88/100. Attack `jugement Codex indisponible; fallback heuristique conservateur` by doing only this move: lift `jugement Codex indisponible; fallback heuristique conservateur` with direct evidence. Gather the minimum evidence, make the smallest safe change, run `npm run test`, record the result, and stop when the proof passes, fails, or the move no longer attacks the blocker."
+      ]
+    },
+    {
+      "at": "2026-06-11T20:40:29Z",
+      "score": 90,
+      "type": "fullstack",
+      "caps": [
+        "Current cap: 90 until score/proof/control artifacts agree on the same current commit and residual blocker.",
+        "92 cap: durable privacy-safe visitor-intent telemetry or production-log evidence is missing beyond proof-session acknowledgement.",
+        "94 cap: selected-work evidence is not yet deep enough to prove every major production-minded claim without internal docs.",
+        "96 cap: production screenshot ingestion, visual diff baseline, accessibility, and performance thresholds are not fully unified in CI.",
+        "98 cap: benchmark-calibrated UI review and target-user comprehension evidence are missing."
+      ],
+      "weakest": [
+        "Tests",
+        "Fiabilite",
+        "Securite"
+      ],
+      "one_move": [
+        "Build the current-commit evidence bridge: make one authoritative proof artifact consume integrated production proof, matching GitHub Actions evidence, production screenshots, live link checks, accessibility/performance results, and telemetry classification; leave durable aggregate visitor telemetry as the only remaining cap if no field source exists."
+      ],
+      "agent_prompt_loop": [
+        "Observe current state. Reusable prompt: Read `VISION.md`, `AUTOGROWTH.md`, `EVALUATION.md`, `.autogrowth/context-pack.json`, `.autogrowth/product-proof/latest-proof.json`, `.autogrowth/product-proof/integrated-production-proof.json`, current CI signal, analytics signal, and package scripts. Evidence inputs: score, cap, deployed URL, commit, CI status, screenshot inventory, telemetry status. Stop condition: name the exact disagreement blocking the next score band. Learning update: write the resolved blocker as control-plane mismatch, telemetry durability, screenshot ingestion, or selected-work depth.",
+        "Issue one bounded prompt. Reusable prompt: Execute only the evidence-bridge slice for the Xavier portfolio. Reconcile current commit production proof, CI signal, screenshot ingestion, live link checks, accessibility/performance smoke, and telemetry durability into one authoritative proof packet. Do not redesign UI or add broad docs. Evidence inputs: latest proof JSON, integrated production proof JSON, GitHub Actions JSON, analytics JSON, production proof markdown. Stop condition: one authoritative packet exists or one external blocker is named. Learning update: record the remaining cap and rejected paths.",
+        "Execute the slice. Reusable prompt: If current proof already passes, edit only proof ingestion/control artifacts and add missing classification fields; if proof fails, fix only the concrete product defect that prevents land -> inspect work -> switch language -> contact. Evidence inputs: failing assertion, touched files, before/after proof packet. Stop condition: no more than one scoped fix plus one proof refresh. Learning update: append proof result and next cap to Autogrowth state."
+      ]
+    },
+    {
+      "at": "2026-06-11T20:43:58Z",
+      "score": 90,
+      "type": "fullstack",
+      "caps": [
+        "90 cap: score, proof, and control artifacts must agree on the same current commit and residual blocker.",
+        "92 cap: durable privacy-safe visitor-intent telemetry or production-log evidence is missing beyond proof-session acknowledgement.",
+        "94 cap: selected-work evidence is not deep enough to prove every major production-minded claim without internal docs.",
+        "96 cap: production screenshot ingestion, visual diff baseline, accessibility, and performance thresholds are not fully unified in CI.",
+        "98 cap: benchmark-calibrated UI review and target-user comprehension evidence are missing."
+      ],
+      "weakest": [
+        "Tests",
+        "Fiabilite",
+        "Securite"
+      ],
+      "one_move": [
+        "Build the current-commit evidence bridge: reconcile production proof, matching GitHub Actions evidence, production screenshots, live link checks, accessibility/performance results, and telemetry classification into one authoritative packet; leave durable aggregate visitor telemetry as the only remaining cap if no field source exists."
+      ],
+      "agent_prompt_loop": [
+        "Observe current state. Reusable prompt: Read VISION.md, AUTOGROWTH.md, EVALUATION.md, .autogrowth/context-pack.json, product-proof JSON, current CI signal, analytics signal, and package scripts. Evidence inputs: score, cap, deployed URL, commit, CI status, screenshot inventory, telemetry status. Stop condition: name the exact disagreement blocking the next score band. Learning update: classify the blocker as control-plane mismatch, telemetry durability, screenshot ingestion, or selected-work depth.",
+        "Issue one bounded prompt. Reusable prompt: Execute only the evidence-bridge slice for the Xavier portfolio. Reconcile current commit production proof, CI signal, screenshot ingestion, live link checks, accessibility/performance smoke, and telemetry durability into one authoritative proof packet. Do not redesign UI or add broad docs. Evidence inputs: latest proof JSON, integrated production proof JSON, GitHub Actions JSON, analytics JSON, production proof markdown. Stop condition: one authoritative packet exists or one external blocker is named. Learning update: record remaining cap and rejected paths.",
+        "Execute the slice. Reusable prompt: If current proof already passes, edit only proof ingestion/control artifacts and add missing classification fields; if proof fails, fix only the concrete product defect that prevents land -> inspect work -> switch language -> contact. Evidence inputs: failing assertion, touched files, before/after proof packet. Stop condition: no more than one scoped fix plus one proof refresh. Learning update: append proof result and next cap to Autogrowth state."
+      ]
+    },
+    {
+      "at": "2026-06-11T20:48:57Z",
+      "score": 90,
+      "type": "fullstack",
+      "caps": [
+        "Hard cap at 90 until deployed visitor journey evidence is connected and recorded.",
+        "Cap at 92 if production proof is synthetic only and no persistent analytics or repeated production trace exists.",
+        "Cap at 94 if analytics exists but selected-work inspection and contact/outbound intent are not both measured.",
+        "Cap at 96 if production proof passes but benchmark comparison remains subjective or undocumented.",
+        "Cap at 98 unless repeated production checks or real visitor/external review evidence shows the portfolio works beyond a single local or synthetic run."
+      ],
+      "weakest": [
+        "Tests",
+        "Fiabilite",
+        "Securite"
+      ],
+      "one_move": [
+        "Build one production-journey proof lane: from xpelch.vercel.app, capture desktop/mobile screenshots, validate English/French paths, check all primary CTAs and selected-work links, and record a privacy-safe activation/contact-intent event trace. This directly attacks the active cap and upgrades the score from local readiness toward proven success."
+      ],
+      "agent_prompt_loop": [
+        "Observe current state: read VISION.md, AUTOGROWTH.md, EVALUATION.md, package scripts, current proof artifact, and the production proof script before editing. Evidence inputs: latest screenshots, npm test result, production URL availability, current blocker text. Stop condition: the active cap is confirmed as production journey evidence or replaced by stronger repository evidence. Learning update: write the confirmed cap and proof lane into EVALUATION.md or the scoped Autogrowth artifact only if the repository workflow allows it.",
+        "Reusable prompt: 'Implement the narrowest production journey proof for the portfolio: against the deployed or preview URL, verify first viewport, EN/FR locale switching, selected-work inspection, primary contact/outbound links, and a privacy-safe activation/contact-intent trace; keep edits limited to tests/scripts/proof docs unless a real product defect is found.' Evidence inputs: package.json scripts, tests/portfolio-runtime-proof.mjs, logs/visual/portfolio-journey-proof.md, deployed URL. Stop condition: one command produces a timestamped artifact proving or failing the journey. Learning update: record what failed, what passed, and whether the score cap moved.",
+        "Execute the slice: add or extend the production proof command only enough to capture screenshots, link checks, locale checks, selected-work checks, and event/trace evidence. Evidence inputs: current runtime proof script and public URL. Stop condition: no product code changes are required unless proof exposes a real visitor-path defect. Learning update: document any defect as the next bounded UI/content prompt."
       ]
     }
   ]
