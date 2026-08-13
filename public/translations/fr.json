@@ -2,24 +2,24 @@
   "general": {
     "name": "Xavier Pelchat",
     "role": "Développeur Full-stack",
-    "headline": "Je construis des systèmes web de production avec .NET, React et des workflows AI pragmatiques.",
+    "headline": "Je conçois des produits web et mobiles robustes avec .NET, React, TypeScript et une IA appliquée avec discernement.",
     "location": "Québec, Canada",
     "availability": "Remote",
     "proofPoints": [
-      { "label": "Stack production", "value": ".NET, React, SQL, Docker" },
-      { "label": "Mode d'opération", "value": "Livrer, stabiliser, automatiser" },
-      { "label": "Angle AI", "value": "Workflows agentic, OpenAI, Codex" }
+      { "label": "Stack production", "value": ".NET, React, TypeScript, PostgreSQL" },
+      { "label": "Qualité logicielle", "value": "SOLID, architecture propre, tests automatisés" },
+      { "label": "Web + mobile", "value": "Next.js, React Native, Expo" }
     ],
     "operatorSignal": {
       "title": "Boucle d'opération",
-      "description": "Une façon simple de montrer comment je travaille : comprendre l'état réel, choisir le plus petit mouvement utile, livrer, vérifier, puis garder l'apprentissage visible.",
+      "description": "Une boucle simple pour livrer de la valeur durable : comprendre le besoin, choisir le plus petit mouvement utile, construire, tester, vérifier avec l'équipe, puis garder l'apprentissage visible.",
       "steps": ["Comprendre", "Planifier", "Construire", "Vérifier", "Apprendre"]
     },
     "about": [
-      "Je suis développeur full-stack au Québec, concentré sur des systèmes qui tiennent en production : frontières claires, données typées, preuve visible et chemins de livraison maintenables.",
-      "Mon quotidien touche .NET/C#, React, SQL, l'authentification, les intégrations, les traitements en arrière-plan et le CI/CD. J'aime les zones où les contraintes produit, la qualité des données et la fiabilité technique se rencontrent.",
-      "Récemment, j'explore des workflows agentic et LLM dans des applications d'affaires : pas du théâtre AI, mais des outils qui réduisent le travail manuel, améliorent la prise de décision et s'intègrent aux opérations existantes.",
-      "Je porte beaucoup d'attention aux revues de code, à la planification, au debugging, à la performance et aux détails moins visibles qui rendent une release fiable."
+      "Je suis développeur full-stack au Québec, concentré sur des produits qui tiennent en production : frontières claires, conception orientée objet, données typées et preuve par les tests.",
+      "Mon quotidien touche .NET/C#, React, TypeScript, PostgreSQL, l'authentification, les intégrations, les traitements en arrière-plan, Docker et le CI/CD. J'aime les zones où les besoins produit, la qualité des données et la fiabilité technique se rencontrent.",
+      "J'étends cette pratique au mobile avec React Native et Expo, en gardant les mêmes exigences de maintenabilité, d'expérience utilisateur et de livraison progressive.",
+      "J'utilise l'IA comme un levier concret pour mieux comprendre les systèmes, automatiser le travail répétitif et améliorer la qualité sans sacrifier le jugement d'ingénierie. Les revues de code, les tests automatisés, la collaboration et l'apprentissage continu restent au centre de ma façon de travailler."
     ],
     "socials": {
       "email": "xpelch.dev@proton.me",
@@ -57,8 +57,10 @@
   "skills": {
     "backend": ["C#", "ASP.NET Core", "EF Core", "SQL", "PostgreSQL", "Redis"],
     "frontend": ["React", "Next.js", "TypeScript", "Tailwind"],
+    "mobile": ["React Native", "Expo"],
+    "quality": ["SOLID", "Clean Architecture", "Tests automatisés", "Revue de code"],
     "devops": ["Docker", "GitHub Actions", "Azure DevOps", "AWS", "OVH"],
-    "agentic": ["OpenAI API", "OpenAI Codex", "PostHog", "Workflows agentic", "Automatisation", "Validation de données"],
+    "agentic": ["OpenAI API", "OpenAI Codex", "IA appliquée", "Workflows agentic", "Automatisation", "Validation de données"],
     "web3": ["Solidity", "viem", "wagmi", "Base", "Farcaster"]
   },
   "experienceSummary": {
@@ -67,7 +69,8 @@
       "Conception et maintenance d'applications .NET + React utilisées dans des environnements opérationnels.",
       "Intégration d'APIs REST et WebSocket pour des workflows temps réel et la synchronisation de données.",
       "Conception de flux de validation, réconciliation, caching et delta-sync sur des données d'affaires structurées.",
-      "Optimisation de chemins SQL, EF Core, LINQ et géolocalisation/routage, incluant des réductions de plus de 80 % sur des traitements ciblés."
+      "Optimisation de chemins SQL, EF Core, LINQ et géolocalisation/routage, incluant des réductions de plus de 80 % sur des traitements ciblés.",
+      "Contribution aux revues de code, aux tests automatisés, à la QA et aux pipelines CI/CD pour livrer de façon continue."
     ]
   },
   "cta": {
@@ -83,9 +86,9 @@
       "href": "#",
       "startDate": "03/2023",
       "endDate": "Présent",
-      "description": "Conception et maintenance d'applications web de production avec .NET/C# et React. Intégration d'APIs REST et WebSocket, authentification et contrôle d'accès par rôle, workflows de mapping et validation de données, optimisation SQL et EF Core, contribution aux pipelines Docker et CI/CD, puis coordination de la planification, des revues de code, des priorités backlog, de la QA et de la livraison. Exploration aussi de workflows LLM et agentic dans des systèmes logistiques et internes.",
+      "description": "Conception et maintenance d'applications web de production avec .NET/C# et React. Intégration d'APIs REST et WebSocket, authentification et contrôle d'accès par rôle, workflows de mapping, validation de données et tests automatisés, optimisation SQL et EF Core, contribution aux pipelines Docker et CI/CD, puis coordination de la planification, des revues de code, des priorités backlog, de la QA et de la livraison. Exploration aussi de workflows LLM et agentic dans des systèmes logistiques et internes.",
       "logo": "OP",
-      "skills": [".NET", "React", "TypeScript", "SQL", "REST", "WebSocket", "RBAC", "Docker", "CI/CD", "AI workflows"]
+      "skills": [".NET", "React", "TypeScript", "SQL", "REST", "WebSocket", "RBAC", "Tests automatisés", "Docker", "CI/CD", "AI workflows"]
     },
     {
       "title": "Auxiliaire administratif",
@@ -114,9 +117,9 @@
       "degree": "Baccalauréat",
       "university": "Université Laval",
       "href": "https://www.ulaval.ca",
-      "startDate": "2021",
-      "endDate": "2024",
-      "description": "Spécialisation en conception orientée objet, structures de données, Java, algorithmes et développement d'applications web."
+      "startDate": "09/2021",
+      "endDate": "12/2024",
+      "description": "Formation en conception orientée objet, structures de données, algorithmes, Java, architecture logicielle, tests automatisés et développement d'applications web."
     },
     {
       "subject": "Programmation informatique",

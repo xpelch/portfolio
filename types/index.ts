@@ -53,6 +53,8 @@ export interface GeneralData {
 export interface Skills {
   backend: string[];
   frontend: string[];
+  mobile?: string[];
+  quality?: string[];
   devops: string[];
   web3?: string[];
   agentic?: string[];

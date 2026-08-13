@@ -5,8 +5,8 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import DynamicLang from "@/components/DynamicLang";
 import HydrationBoundary from "@/components/ui/HydrationBoundary";
 
-const title = "Xavier Pelchat - Full-Stack Developer & AI Workflows";
-const description = "Full-stack engineer in Quebec building production-ready .NET, React, and practical AI workflow systems.";
+const title = "Xavier Pelchat - Full-Stack Developer | Web, Mobile & Applied AI";
+const description = "Full-stack developer in Quebec building reliable web and mobile products with .NET, React, TypeScript, and applied AI.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://xpelch.vercel.app"),

@@ -52,12 +52,18 @@ function validatePortfolioJourney(locale, data) {
   assert.equal(data.cta.title, 'Remote', `${locale}: CTA availability matches the hero`);
   assert.match(
     data.general.headline,
-    /production|production|syst\u00e8mes|systems/i,
-    `${locale}: headline must state production value`,
+    /production|produits|products|robustes?|systems|syst\u00e8mes/i,
+    `${locale}: headline must state durable product value`,
   );
   assert.ok(data.general.socials.email.includes('@'), `${locale}: email is available`);
   assertUrlOrAnchor(data.general.socials.github, `${locale}: GitHub`);
   assertUrlOrAnchor(data.general.socials.linkedin, `${locale}: LinkedIn`);
+  assert.deepEqual(data.skills.mobile, ['React Native', 'Expo'], `${locale}: mobile stack exposes React Native and Expo`);
+  assert.equal(data.skills.agentic.includes('PostHog'), false, `${locale}: unrelated analytics tooling is removed`);
+  assert.ok(
+    data.skills.quality.some((skill) => /test/i.test(skill)),
+    `${locale}: software quality stack includes automated testing`,
+  );
 
   assert.ok(data.general.proofPoints.length >= 3, `${locale}: hero proof strip has at least three proof points`);
   assert.ok(
@@ -91,6 +97,19 @@ function validatePortfolioJourney(locale, data) {
       data.experiences[0].description.includes('SQL'),
     `${locale}: lead experience mentions production stack evidence`,
   );
+  assert.equal(data.education[0].university, 'Université Laval', `${locale}: primary degree is from Université Laval`);
+  assert.equal(
+    data.education[0].subject,
+    locale === 'fr' ? 'Informatique' : 'Computer Science',
+    `${locale}: primary field of study is explicit`,
+  );
+  assert.equal(
+    data.education[0].degree,
+    locale === 'fr' ? 'Baccalauréat' : "Bachelor's degree",
+    `${locale}: primary degree is explicit`,
+  );
+  assert.equal(data.education[0].startDate, '09/2021', `${locale}: degree start month is explicit`);
+  assert.equal(data.education[0].endDate, '12/2024', `${locale}: degree completion month is explicit`);
 }
 
 async function main() {
@@ -100,9 +119,16 @@ async function main() {
 
   const en = await readJson('public/translations/en.json');
   const fr = await readJson('public/translations/fr.json');
+  const homePage = await readFile(path.join(root, 'app/page.tsx'), 'utf8');
 
   validatePortfolioJourney('en', en);
   validatePortfolioJourney('fr', fr);
+
+  assert.match(
+    homePage,
+    /primaryEducation\.(degree|subject)/,
+    'the primary degree is rendered on the portfolio page',
+  );
 
   assert.deepEqual(
     Object.keys(en.general.navigation).sort(),

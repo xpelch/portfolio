@@ -41,6 +41,8 @@ export function StackTable({ translations }: { translations: Translations }) {
   const lanes = [
     ['Backend', translations.skills.backend],
     ['Frontend', translations.skills.frontend],
+    ['Mobile', translations.skills.mobile ?? []],
+    ['Quality', translations.skills.quality ?? []],
     ['DevOps', translations.skills.devops],
     ['Agentic', translations.skills.agentic ?? []],
     ['Web3', translations.skills.web3 ?? []],

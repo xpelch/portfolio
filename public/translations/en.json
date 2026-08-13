@@ -2,24 +2,24 @@
   "general": {
     "name": "Xavier Pelchat",
     "role": "Full-stack Developer",
-    "headline": "I build production web systems with .NET, React, and practical AI workflows.",
+    "headline": "I build robust web and mobile products with .NET, React, TypeScript, and responsibly applied AI.",
     "location": "Quebec, Canada",
     "availability": "Remote",
     "proofPoints": [
-      { "label": "Production stack", "value": ".NET, React, SQL, Docker" },
-      { "label": "Operating mode", "value": "Ship, stabilize, automate" },
-      { "label": "AI angle", "value": "Agentic workflows, OpenAI, Codex" }
+      { "label": "Production stack", "value": ".NET, React, TypeScript, PostgreSQL" },
+      { "label": "Software quality", "value": "SOLID, clean architecture, automated tests" },
+      { "label": "Web + mobile", "value": "Next.js, React Native, Expo" }
     ],
     "operatorSignal": {
       "title": "Operating loop",
-      "description": "A lightweight way to show how I work: define the state, choose the smallest useful move, ship it, verify it, and keep the learning visible.",
+      "description": "A lightweight loop for durable value: understand the need, choose the smallest useful move, build, test, verify with the team, and keep the learning visible.",
       "steps": ["Sense", "Plan", "Build", "Verify", "Learn"]
     },
     "about": [
-      "I am a full-stack developer in Quebec focused on systems that survive real production use: clear boundaries, typed data, visible proof, and maintainable delivery paths.",
-      "My day-to-day work sits at the intersection of .NET/C#, React, SQL, authentication, integrations, background processing, and CI/CD. I like the parts where product constraints, data quality, and engineering reliability meet.",
-      "Recently, I have been exploring practical agentic and LLM-powered workflows inside business applications: not AI theater, but tools that reduce manual work, surface better decisions, and fit existing operations.",
-      "I care about code reviews, planning, debugging, performance, and the unglamorous details that make a release trustworthy."
+      "I am a full-stack developer in Quebec focused on products that survive real production use: clear boundaries, object-oriented design, typed data, and proof through tests.",
+      "My day-to-day work spans .NET/C#, React, TypeScript, PostgreSQL, authentication, integrations, background processing, Docker, and CI/CD. I enjoy the point where product needs, data quality, and engineering reliability meet.",
+      "I am extending that practice to mobile development with React Native and Expo while keeping the same standards for maintainability, user experience, and incremental delivery.",
+      "I use AI as a practical lever to understand systems, automate repetitive work, and improve quality without replacing engineering judgment. Code review, automated testing, collaboration, and continuous learning remain central to how I work."
     ],
     "socials": {
       "email": "xpelch.dev@proton.me",
@@ -57,8 +57,10 @@
   "skills": {
     "backend": ["C#", "ASP.NET Core", "EF Core", "SQL", "PostgreSQL", "Redis"],
     "frontend": ["React", "Next.js", "TypeScript", "Tailwind"],
+    "mobile": ["React Native", "Expo"],
+    "quality": ["SOLID", "Clean Architecture", "Automated testing", "Code review"],
     "devops": ["Docker", "GitHub Actions", "Azure DevOps", "AWS", "OVH"],
-    "agentic": ["OpenAI API", "OpenAI Codex", "PostHog", "Agentic workflows", "Automation", "Data validation"],
+    "agentic": ["OpenAI API", "OpenAI Codex", "Applied AI", "Agentic workflows", "Automation", "Data validation"],
     "web3": ["Solidity", "viem", "wagmi", "Base", "Farcaster"]
   },
   "experienceSummary": {
@@ -67,7 +69,8 @@
       "Built and maintained .NET + React applications used in operational environments.",
       "Integrated REST and WebSocket APIs for real-time workflows and data synchronization.",
       "Designed validation, reconciliation, caching, and delta-sync flows across structured business data.",
-      "Improved SQL, EF Core, LINQ, and routing/geolocation workloads, including reductions above 80% on targeted processing paths."
+      "Improved SQL, EF Core, LINQ, and routing/geolocation workloads, including reductions above 80% on targeted processing paths.",
+      "Contributed to code reviews, automated tests, QA, and CI/CD pipelines to support continuous delivery."
     ]
   },
   "cta": {
@@ -83,9 +86,9 @@
       "href": "#",
       "startDate": "03/2023",
       "endDate": "Present",
-      "description": "Built and maintained production web applications with .NET/C# and React. Integrated REST and WebSocket APIs, implemented authentication and role-based access control, designed data mapping and validation workflows, optimized SQL and EF Core paths, contributed to Docker and CI/CD pipelines, and helped coordinate planning, code review, backlog priorities, QA, and stakeholder delivery. Also explored LLM-powered and agentic workflow concepts inside practical logistics and internal business systems.",
+      "description": "Built and maintained production web applications with .NET/C# and React. Integrated REST and WebSocket APIs, implemented authentication and role-based access control, designed data mapping, validation, and automated testing workflows, optimized SQL and EF Core paths, contributed to Docker and CI/CD pipelines, and helped coordinate planning, code review, backlog priorities, QA, and stakeholder delivery. Also explored LLM-powered and agentic workflow concepts inside practical logistics and internal business systems.",
       "logo": "OP",
-      "skills": [".NET", "React", "TypeScript", "SQL", "REST", "WebSocket", "RBAC", "Docker", "CI/CD", "AI workflows"]
+      "skills": [".NET", "React", "TypeScript", "SQL", "REST", "WebSocket", "RBAC", "Automated testing", "Docker", "CI/CD", "AI workflows"]
     },
     {
       "title": "Administrative Assistant",
@@ -111,12 +114,12 @@
   "education": [
     {
       "subject": "Computer Science",
-      "degree": "Bachelor's Degree",
+      "degree": "Bachelor's degree",
       "university": "Université Laval",
       "href": "https://www.ulaval.ca",
-      "startDate": "2021",
-      "endDate": "2024",
-      "description": "Focused on object-oriented design, data structures, Java programming, algorithms, and web application development."
+      "startDate": "09/2021",
+      "endDate": "12/2024",
+      "description": "Coursework in object-oriented design, data structures, algorithms, Java, software architecture, automated testing, and web application development."
     },
     {
       "subject": "Computer Programming",

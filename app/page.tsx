@@ -59,8 +59,8 @@ export default function Home() {
         ? "comprendre. construire. tester. améliorer."
         : 'understand. build. test. improve.',
       sub: fr
-        ? "Développeur full-stack spécialisé en applications web de production, automatisation et workflows AI utiles."
-        : 'Full-stack developer focused on production web apps, automation, and useful AI workflows.',
+        ? "Développeur full-stack orienté produit, qualité logicielle, tests automatisés et livraison continue."
+        : 'Product-minded full-stack developer focused on software quality, automated testing, and continuous delivery.',
       terminalMessages: fr
         ? ['> construire, vérifier, apprendre...', '> cadrer, construire, valider...', '> livrer, mesurer, améliorer...']
         : ['> build, verify, learn...', '> frame, build, validate...', '> ship, measure, improve...'],
@@ -142,6 +142,7 @@ export default function Home() {
   const remainingProject = translations.projects[3];
   const proofPoints = translations.general.proofPoints ?? [];
   const operator = translations.general.operatorSignal;
+  const primaryEducation = translations.education[0];
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -460,6 +461,34 @@ export default function Home() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
+
+            {primaryEducation && (
+              <div className="border-y border-border py-6">
+                <div className="grid gap-5 sm:grid-cols-[9rem_1fr]">
+                  <div>
+                    <SectionLabel>{translations.general.sections.education}</SectionLabel>
+                    <p className="mono-copy mt-3 text-xs text-text-muted">
+                      {primaryEducation.startDate} — {primaryEducation.endDate}
+                    </p>
+                  </div>
+                  <div>
+                    <a
+                      href={primaryEducation.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-lg font-semibold text-on-surface transition-colors hover:text-secondary-300"
+                    >
+                      {primaryEducation.degree} · {primaryEducation.subject}
+                      <ExternalIcon />
+                    </a>
+                    <p className="mt-1 text-secondary-300">{primaryEducation.university}</p>
+                    <p className="mt-3 max-w-2xl text-sm leading-6 text-text-secondary">
+                      {primaryEducation.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {operator && (
               <div className="border-y border-border py-6">
