@@ -1,10 +1,10 @@
 {
   "general": {
     "name": "Xavier Pelchat",
-    "role": "Full-stack engineer / technical lead",
+    "role": "Full-stack Developer",
     "headline": "I build production web systems with .NET, React, and practical AI workflows.",
     "location": "Quebec, Canada",
-    "availability": "Canada / Remote US",
+    "availability": "Remote",
     "proofPoints": [
       { "label": "Production stack", "value": ".NET, React, SQL, Docker" },
       { "label": "Operating mode", "value": "Ship, stabilize, automate" },
@@ -71,7 +71,7 @@
     ]
   },
   "cta": {
-    "title": "Canada / Remote US",
+    "title": "Remote",
     "subtitle": "Send the problem, the constraints, and the release target. I will reply with a practical next step.",
     "buttonText": "Email me",
     "email": "xpelch.dev@proton.me"

@@ -617,7 +617,7 @@ async function assertLanguageRecoveryState(cdp) {
   };
 }
 
-async function assertJourneyEvents(cdp, name, { requireSink, requireContactCopy }) {
+async function assertJourneyEvents(cdp, name, { requireSink }) {
   const expression = `(async () => {
     window.__portfolioJourneyEvents = [];
     window.__portfolioJourneyAcks = [];
@@ -630,14 +630,12 @@ async function assertJourneyEvents(cdp, name, { requireSink, requireContactCopy 
     const projectCard = document.querySelector('[data-proof="project-card"][data-project-state="public"]');
     const emailLink = [...document.querySelectorAll('a')]
       .find((anchor) => anchor.href.startsWith('mailto:'));
-    const copyButton = document.querySelector('[data-proof="contact-copy"]');
     const githubLink = [...document.querySelectorAll('a')]
       .find((anchor) => anchor.href.includes('github.com'));
     const frenchButton = [...document.querySelectorAll('[data-proof="language-switcher"] button')]
       .find((button) => button.textContent.trim() === 'FR');
 
     projectCard?.click();
-    copyButton?.click();
     emailLink?.click();
     githubLink?.click();
     frenchButton?.click();
@@ -645,17 +643,13 @@ async function assertJourneyEvents(cdp, name, { requireSink, requireContactCopy 
     for (let attempt = 0; attempt < 80; attempt += 1) {
       const ackNames = new Set((window.__portfolioJourneyAcks ?? []).map((ack) => ack.name));
       const requiredAcks = ['project_open', 'contact_click', 'external_profile_click', 'language_switch'];
-      if (copyButton) requiredAcks.push('contact_copy');
       if (requiredAcks.every((eventName) => ackNames.has(eventName))) {
         break;
       }
       await new Promise((resolve) => setTimeout(resolve, 125));
     }
 
-    const copyStatus = document.querySelector('[data-proof="contact-copy-status"]')?.textContent?.trim() ?? '';
     return {
-      copyButtonPresent: Boolean(copyButton),
-      copyStatus,
       events: (window.__portfolioJourneyEvents ?? []).map((event) => ({
         name: event.name,
         target: event.target,
@@ -670,19 +664,12 @@ async function assertJourneyEvents(cdp, name, { requireSink, requireContactCopy 
     };
   })()`;
   const result = await cdp.send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true });
-  const copyButtonPresent = result.result.value?.copyButtonPresent === true;
-  const copyStatus = result.result.value?.copyStatus ?? '';
   const events = result.result.value?.events ?? [];
   const acknowledgements = result.result.value?.acknowledgements ?? [];
   const names = new Set(events.map((event) => event.name));
   const ackNames = new Set(acknowledgements.map((ack) => ack.name));
 
   const requiredEvents = ['project_open', 'contact_click', 'external_profile_click', 'language_switch'];
-  if (requireContactCopy) {
-    assert.equal(copyButtonPresent, true, `${name} is missing the contact copy action`);
-    assert.match(copyStatus, /copied|copi|xpelch\.dev@proton\.me/i, `${name} did not show contact copy success or recovery`);
-    requiredEvents.push('contact_copy');
-  }
 
   for (const required of requiredEvents) {
     assert.equal(names.has(required), true, `${name} did not record ${required}`);
@@ -691,7 +678,7 @@ async function assertJourneyEvents(cdp, name, { requireSink, requireContactCopy 
     }
   }
 
-  return { copyButtonPresent, copyStatus, events, acknowledgements };
+  return { events, acknowledgements };
 }
 
 async function captureScreenshots() {
@@ -751,8 +738,8 @@ async function captureScreenshotsAttempt(attempt) {
         file: `portfolio-${proofLabel}-desktop-en.png`,
         viewport: { width: 1440, height: 1100, deviceScaleFactor: 1, mobile: false },
         language: 'en',
-        waitText: 'Full-stack engineer',
-        firstViewportTexts: ['Xavier Pelchat', 'Full-stack engineer', 'View work', 'Email me', 'GitHub'],
+        waitText: 'Full-stack Developer',
+        firstViewportTexts: ['Xavier Pelchat', 'Full-stack Developer', 'View work', 'Email me', 'GitHub'],
       },
       {
         name: 'mobile-en',
@@ -781,7 +768,6 @@ async function captureScreenshotsAttempt(attempt) {
     const projectCards = [];
     let journeyEvents = [];
     let journeyAcks = [];
-    let contactCopy = { buttonPresent: false, status: '' };
     let languageRecovery = null;
     for (const target of targets) {
       await cdp.send('Emulation.setDeviceMetricsOverride', target.viewport);
@@ -811,14 +797,9 @@ async function captureScreenshotsAttempt(attempt) {
       if (target.name === 'desktop-en') {
         const journeyProof = await assertJourneyEvents(cdp, target.name, {
           requireSink: Boolean(providedUrl),
-          requireContactCopy: !providedUrl,
         });
         journeyEvents = journeyProof.events;
         journeyAcks = journeyProof.acknowledgements;
-        contactCopy = {
-          buttonPresent: journeyProof.copyButtonPresent,
-          status: journeyProof.copyStatus,
-        };
       }
       assert.ok(
         metrics.result.value.scrollWidth <= metrics.result.value.width,
@@ -839,7 +820,7 @@ async function captureScreenshotsAttempt(attempt) {
     languageRecovery = await assertLanguageRecoveryState(cdp);
 
     cdp.close();
-    return { screenshots, firstViewport, visitCounters, accessibility, performance, commandDeck, projectCards, contactCopy, languageRecovery, journeyEvents, journeyAcks };
+    return { screenshots, firstViewport, visitCounters, accessibility, performance, commandDeck, projectCards, languageRecovery, journeyEvents, journeyAcks };
   } catch (error) {
     throw new Error(`${error.message}\nBrowser output:\n${browserOutput.slice(-2000)}`);
   } finally {
@@ -965,7 +946,6 @@ async function writeAutogrowthJourneySignal(proof) {
       inspectabilityStatus: item.inspectabilityStatus,
       deadProjectLinks: item.deadProjectLinks,
     })),
-    contactCopy: proof.contactCopy,
     languageRecovery: proof.languageRecovery,
     privacy: {
       storesTargets: false,
@@ -1054,7 +1034,6 @@ async function writeIntegratedProductionProof(proof) {
       inspectabilityStatus: item.inspectabilityStatus,
       deadProjectLinks: item.deadProjectLinks,
     })),
-    contactCopy: proof.contactCopy,
     languageRecovery: proof.languageRecovery,
     journeyEvents: {
       eventNames: [...new Set(proof.journeyEvents.map((event) => event.name))],
@@ -1217,7 +1196,6 @@ async function writeLatestProof(proof) {
         roleRows: Math.min(...proof.projectCards.map((item) => item.roleCount)),
         constraintRows: Math.min(...proof.projectCards.map((item) => item.constraintCount)),
       },
-      contactCopy: proof.contactCopy,
       languageRecovery: proof.languageRecovery,
       journeyEvents: {
         eventNames: [...new Set(proof.journeyEvents.map((event) => event.name))],
@@ -1321,7 +1299,7 @@ try {
     verifyImage('/images/profile-shoreline.jpg'),
     verifyImage('/images/developer-workspace.png'),
   ]);
-  const { screenshots, firstViewport, visitCounters, accessibility, performance, commandDeck, projectCards, contactCopy, languageRecovery, journeyEvents, journeyAcks } = await captureScreenshots();
+  const { screenshots, firstViewport, visitCounters, accessibility, performance, commandDeck, projectCards, languageRecovery, journeyEvents, journeyAcks } = await captureScreenshots();
   const links = await collectLinks(en, fr);
   const commit = await getCommit();
 
@@ -1340,7 +1318,6 @@ try {
       selectedWork: 'pass',
       projectCardAffordance: 'pass',
       selectedWorkInspectability: projectCards.every((item) => item.inspectabilityStatus === 'present') ? 'pass' : 'not-required-production-deploy-window',
-      contactCopy: contactCopy.buttonPresent && /copied|copi|xpelch\.dev@proton\.me/i.test(contactCopy.status) ? 'pass' : 'not-required-production-deploy-window',
       languageRecovery: languageRecovery ? 'pass' : 'not-required-production-deploy-window',
       imageLoading: 'pass',
       linkContracts: 'pass',
@@ -1365,7 +1342,6 @@ try {
     performance,
     commandDeck,
     projectCards,
-    contactCopy,
     languageRecovery,
     journeyEvents,
     journeyAcks,
@@ -1419,11 +1395,6 @@ try {
       '## Project Card Affordance',
       '',
       ...projectCards.map((item) => `- ${item.name}: ${item.privateCount} private non-link card, ${item.publicCount} public links, ${item.roleCount} role rows, ${item.constraintCount} constraint rows, inspectability ${item.inspectabilityStatus}, ${item.deadProjectLinks} dead links`),
-      '',
-      '## Contact Copy',
-      '',
-      `- button: ${contactCopy.buttonPresent ? 'present' : 'missing'}`,
-      `- status: ${contactCopy.status || 'not-required-production-deploy-window'}`,
       '',
       '## Language Recovery',
       '',

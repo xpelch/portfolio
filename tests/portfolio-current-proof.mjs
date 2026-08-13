@@ -125,7 +125,6 @@ const currentPacket = {
       firstViewportDecisionSurface: productionProof.checks.firstViewportDecisionSurface,
       selectedWork: productionProof.checks.selectedWork,
       languageRecovery: productionProof.checks.languageRecovery,
-      contactCopy: productionProof.checks.contactCopy,
       accessibilitySmoke: productionProof.checks.accessibilitySmoke,
       performanceBudget: productionProof.checks.performanceBudget,
       journeyEventSink: productionProof.checks.journeyEventSink,

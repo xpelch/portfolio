@@ -54,13 +54,7 @@ export const contactPrimaryLinkClassName = [
   'text-secondary-300 transition hover:bg-secondary-300 hover:text-surface-100',
 ].join(' ');
 
-export const contactCopyButtonClassName = [
-  'mono-copy inline-flex min-h-[3.625rem] items-center justify-center border border-border px-8 py-5',
-  'text-text-secondary transition hover:border-secondary-300 hover:text-secondary-300',
-  'focus-visible:border-secondary-300 focus-visible:text-secondary-300',
-].join(' ');
-
 export const footerLinkClassName = [
-  'mono-copy border border-border px-4 py-3 text-sm text-text-secondary',
-  'hover:border-secondary-300 hover:text-secondary-300',
+  'group inline-flex h-12 w-12 items-center justify-center border border-border text-text-secondary',
+  'transition hover:border-secondary-300 hover:bg-secondary-300 hover:text-surface-100',
 ].join(' ');

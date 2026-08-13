@@ -9,7 +9,6 @@ import { ArrowIcon, ExternalIcon, SectionLabel, StackTable } from '@/components/
 import { ProjectCard } from '@/components/home/ProjectCard';
 import {
   commandTriggerClassName,
-  contactCopyButtonClassName,
   contactPrimaryLinkClassName,
   heroPrimaryLinkClassName,
   heroProfileLinkClassName,
@@ -26,7 +25,6 @@ import { useTypingLoop } from '@/hooks/useTypingLoop';
 import { useVisitCounter } from '@/hooks/useVisitCounter';
 import { recordJourneyEvent } from '@/lib/journey-events';
 import type { Translations } from '@/types';
-import { copyTextToClipboard } from '@/utils/clipboard';
 
 const modes = [
   { key: 'ship', en: 'ship', fr: 'livrer' },
@@ -42,10 +40,8 @@ function isFrench(translations: Translations) {
 export default function Home() {
   const { translations, loading, language, setLanguage, languageNotice } = useLanguage();
   const [commandOpen, setCommandOpen] = useState(false);
-  const [contactCopyStatus, setContactCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
   const commandTriggerRef = useRef<HTMLButtonElement | null>(null);
   const lastFocusedElementRef = useRef<HTMLElement | null>(null);
-  const contactCopyResetRef = useRef<number | null>(null);
   const visitCount = useVisitCounter();
 
   const copy = useMemo(() => {
@@ -76,9 +72,6 @@ export default function Home() {
       contactBody: fr
         ? 'Discutons de ton idée, de tes contraintes ou de la release à stabiliser.'
         : 'Send the idea, constraints, or release that needs to ship cleanly.',
-      copyEmail: fr ? 'Copier email' : 'Copy email',
-      contactCopied: fr ? 'Email copié' : 'Email copied',
-      contactCopyFailed: fr ? 'Email visible' : 'Email visible',
       languageRecoveryTitle: fr ? 'Langue récupérée' : 'Language recovered',
       languageRecoveryBody: fr
         ? "Les textes ont été rechargés dans une langue disponible."
@@ -86,7 +79,8 @@ export default function Home() {
       languageRecoveryAction: fr ? 'Passer en anglais' : 'Try French',
       commandTitle: fr ? 'OPERATOR DECK' : 'OPERATOR DECK',
       commandStatus: fr ? 'Chemins rapides pour évaluer le travail.' : 'Fast paths for evaluating the work.',
-      heroStatus: 'Canada / Remote US',
+      backToTop: fr ? 'Retour en haut' : 'Back to top',
+      heroStatus: translations.general.availability ?? 'Remote',
       visitLabel: fr ? 'passage' : 'trace',
       visitTitle: fr ? 'Compteur local de passage' : 'Local visit counter',
       note: fr ? ['idée', 'construire', 'valider', 'livrer'] : ['idea', 'build', 'validate', 'ship'],
@@ -114,33 +108,6 @@ export default function Home() {
     window.setTimeout(() => {
       (lastFocusedElementRef.current ?? commandTriggerRef.current)?.focus({ preventScroll: true });
     }, 0);
-  }, []);
-
-  const copyContactEmail = useCallback(async (source: string) => {
-    if (!translations) return;
-    if (contactCopyResetRef.current !== null) {
-      window.clearTimeout(contactCopyResetRef.current);
-    }
-
-    try {
-      await copyTextToClipboard(translations.general.socials.email);
-      setContactCopyStatus('copied');
-      recordJourneyEvent('contact_copy', source);
-    } catch {
-      setContactCopyStatus('failed');
-      recordJourneyEvent('contact_copy', `${source}:failed`);
-    }
-
-    contactCopyResetRef.current = window.setTimeout(() => {
-      setContactCopyStatus('idle');
-      contactCopyResetRef.current = null;
-    }, 2400);
-  }, [translations]);
-
-  useEffect(() => () => {
-    if (contactCopyResetRef.current !== null) {
-      window.clearTimeout(contactCopyResetRef.current);
-    }
   }, []);
 
   useEffect(() => {
@@ -234,10 +201,14 @@ export default function Home() {
     <main className="paper-noise min-h-screen overflow-hidden bg-surface-100 text-on-background">
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-8 sm:px-8 lg:px-10">
         <header className="flex items-center justify-between gap-6 border-b border-border pb-5">
-          <a href="#top" className="group flex items-center gap-4" aria-label="Back to top">
-            <span className="serif-display text-3xl font-bold leading-none text-secondary-300">XP</span>
-            <span className="mono-copy hidden text-[0.68rem] font-semibold tracking-[0.22em] text-on-surface sm:block">
-              XAVIER PELCHAT
+          <a
+            href="#top"
+            className="group mono-copy inline-flex min-h-9 items-center text-sm font-semibold tracking-[0.06em]"
+            aria-label={copy.backToTop}
+          >
+            <span aria-hidden="true">
+              <span className="text-secondary-300 transition group-hover:text-secondary-400">$</span>
+              <span className="ml-2 text-on-surface transition group-hover:text-secondary-300">cd ~/</span>
             </span>
           </a>
           <nav className="mono-copy hidden items-center gap-9 text-sm text-text-secondary md:flex" aria-label="Primary navigation">
@@ -537,43 +508,14 @@ export default function Home() {
           <div className="space-y-6">
             <SectionLabel>{copy.contactTitle}</SectionLabel>
             <p className="mt-4 max-w-md text-text-secondary">{copy.contactBody}</p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start">
-              <a
-                href={`mailto:${translations.cta.email}`}
-                className={contactPrimaryLinkClassName}
-                onClick={() => recordJourneyEvent('contact_click', 'contact-section')}
-              >
-                {translations.cta.buttonText}
-                <ArrowIcon />
-              </a>
-              <div className="flex flex-col">
-                <button
-                  type="button"
-                  data-proof="contact-copy"
-                  aria-describedby="contact-copy-status"
-                  className={contactCopyButtonClassName}
-                  onClick={() => copyContactEmail('contact-section')}
-                >
-                  {contactCopyStatus === 'copied'
-                    ? copy.contactCopied
-                    : contactCopyStatus === 'failed'
-                      ? copy.contactCopyFailed
-                      : copy.copyEmail}
-                </button>
-                <span
-                  id="contact-copy-status"
-                  data-proof="contact-copy-status"
-                  aria-live="polite"
-                  className="mono-copy mt-1 min-h-4 max-w-[24rem] text-[0.68rem] text-secondary-300"
-                >
-                  {contactCopyStatus === 'idle'
-                    ? ''
-                    : contactCopyStatus === 'copied'
-                      ? copy.contactCopied
-                      : translations.general.socials.email}
-                </span>
-              </div>
-            </div>
+            <a
+              href={`mailto:${translations.cta.email}`}
+              className={contactPrimaryLinkClassName}
+              onClick={() => recordJourneyEvent('contact_click', 'contact-section')}
+            >
+              {translations.cta.buttonText}
+              <ArrowIcon />
+            </a>
           </div>
 
           <FooterLinks isFrench={copy.fr} socials={translations.general.socials} />

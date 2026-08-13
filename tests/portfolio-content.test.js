@@ -43,6 +43,13 @@ function assertNoMojibake(value, label) {
 function validatePortfolioJourney(locale, data) {
   assertNoMojibake(data, locale);
   assert.equal(data.general.name, 'Xavier Pelchat', `${locale}: name is the first identity signal`);
+  assert.equal(
+    data.general.role,
+    locale === 'fr' ? 'Développeur Full-stack' : 'Full-stack Developer',
+    `${locale}: hero role stays concise`,
+  );
+  assert.equal(data.general.availability, 'Remote', `${locale}: availability is region-neutral`);
+  assert.equal(data.cta.title, 'Remote', `${locale}: CTA availability matches the hero`);
   assert.match(
     data.general.headline,
     /production|production|syst\u00e8mes|systems/i,
