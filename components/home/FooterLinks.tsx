@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { recordJourneyEvent } from '@/lib/journey-events';
 import type { Translations } from '@/types';
-import { SectionLabel } from './HomePrimitives';
+import { MailIcon, SectionLabel } from './HomePrimitives';
 import { footerLinkClassName } from './homeClassNames';
 
 export function FooterLinks({ translations }: { translations: Translations }) {
@@ -41,10 +41,7 @@ export function FooterLinks({ translations }: { translations: Translations }) {
           aria-label={home.footerEmailLabel}
           title={home.footerEmailTitle}
         >
-          <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <rect x="3.5" y="5.5" width="17" height="13" stroke="currentColor" strokeWidth="1.5" />
-            <path d="m4.5 7 7.5 6 7.5-6" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-          </svg>
+          <MailIcon />
         </a>
       </div>
     </div>

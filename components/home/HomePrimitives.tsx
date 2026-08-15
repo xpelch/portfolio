@@ -29,6 +29,32 @@ export function ExternalIcon() {
   );
 }
 
+export function LocationIcon() {
+  return (
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M12 12.3a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6Z" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
+export function CrossIcon() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path d="M16 4v24M4 16h24M8 8l16 16M24 8 8 24" stroke="currentColor" strokeWidth="1" />
+    </svg>
+  );
+}
+
+export function MailIcon() {
+  return (
+    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3.5" y="5.5" width="17" height="13" stroke="currentColor" strokeWidth="1.5" />
+      <path d="m4.5 7 7.5 6 7.5-6" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function SectionLabel({ children }: { children: ReactNode }) {
   return (
     <p className="mono-copy text-xs tracking-[0.18em] text-text-secondary">

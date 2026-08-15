@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import type { RefObject } from 'react';
 import type { Translations } from '@/types';
-import { ArrowIcon, ExternalIcon } from '@/components/home/HomePrimitives';
+import { ArrowIcon, ExternalIcon, LocationIcon } from '@/components/home/HomePrimitives';
 import {
   commandTriggerClassName,
   heroPrimaryLinkClassName,
@@ -37,10 +37,7 @@ export function HeroSection({
       <div className="space-y-6 sm:space-y-9">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-secondary-300">
           <div className="flex items-center gap-2">
-            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z" stroke="currentColor" strokeWidth="1.5" />
-              <path d="M12 12.3a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6Z" stroke="currentColor" strokeWidth="1.5" />
-            </svg>
+            <LocationIcon />
             <span className="mono-copy text-xs text-text-secondary">{general.location}</span>
           </div>
           <span className="hidden h-px w-8 bg-border sm:block" />

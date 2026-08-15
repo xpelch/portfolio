@@ -1,6 +1,6 @@
 import { recordJourneyEvent } from '@/lib/journey-events';
 import type { Project } from '@/types';
-import { ExternalIcon } from './HomePrimitives';
+import { CrossIcon, ExternalIcon } from './HomePrimitives';
 
 type ProjectCardLabels = {
   role: string;
@@ -28,9 +28,7 @@ function ProjectVisual({ project, index }: { project: Project; index: number }) 
             </div>
           </div>
           <div className="h-8 w-8 border border-secondary-300/70 text-secondary-300">
-            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-              <path d="M16 4v24M4 16h24M8 8l16 16M24 8 8 24" stroke="currentColor" strokeWidth="1" />
-            </svg>
+            <CrossIcon />
           </div>
         </div>
 
