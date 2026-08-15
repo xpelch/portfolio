@@ -180,5 +180,50 @@
       "constraint": "Must stay fast, accessible, and honest.",
       "stack": ["Next.js", "React", "TypeScript", "Tailwind"]
     }
-  ]
+  ],
+  "home": {
+    "nav": {
+      "projects": "Work",
+      "about": "Profile",
+      "stack": "Stack",
+      "experience": "Experience"
+    },
+    "intro": "understand. build. test. improve.",
+    "sub": "Product-minded full-stack developer focused on software quality, automated testing, and continuous delivery.",
+    "terminalMessages": ["> build, verify, learn...", "> frame, build, validate...", "> ship, measure, improve..."],
+    "recent": "Recent work",
+    "allProjects": "View projects",
+    "aboutHand": "curious, autonomous and proof-oriented",
+    "stackNote": "and always more to learn...",
+    "contactTitle": "Available for new projects",
+    "contactBody": "Send the idea, constraints, or release that needs to ship cleanly.",
+    "languageRecoveryTitle": "Language recovered",
+    "languageRecoveryBody": "Text loaded in an available language after a saved preference failed.",
+    "languageRecoveryAction": "Try French",
+    "commandTitle": "OPERATOR DECK",
+    "commandStatus": "Fast paths for evaluating the work.",
+    "backToTop": "Back to top",
+    "visitLabel": "trace",
+    "visitTitle": "Local visit counter",
+    "note": ["idea", "build", "validate", "ship"],
+    "labels": {
+      "role": "ROLE",
+      "constraint": "CONSTRAINT",
+      "outcome": "OUTCOME",
+      "proof": "PROOF",
+      "private": "Private case study",
+      "open": "Open project"
+    },
+    "experienceHeading": "useful products, shipped with discipline",
+    "projectsNote": "proof over promises.",
+    "commandWorkLabel": "Inspect work",
+    "commandContactLabel": "Start contact",
+    "commandOperatorLabel": "Read operator loop",
+    "commandLanguageLabel": "Passer en français",
+    "commandTriggerLabel": "Open operator deck",
+    "commandCloseLabel": "Close operator deck",
+    "footerLinksLabel": "Links",
+    "footerEmailLabel": "Send an email",
+    "footerEmailTitle": "Email"
+  }
 }

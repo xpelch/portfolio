@@ -119,13 +119,13 @@ async function main() {
 
   const en = await readJson('public/translations/en.json');
   const fr = await readJson('public/translations/fr.json');
-  const homePage = await readFile(path.join(root, 'app/page.tsx'), 'utf8');
+  const aboutSection = await readFile(path.join(root, 'components/sections/AboutSection.tsx'), 'utf8');
 
   validatePortfolioJourney('en', en);
   validatePortfolioJourney('fr', fr);
 
   assert.match(
-    homePage,
+    aboutSection,
     /primaryEducation\.(degree|subject)/,
     'the primary degree is rendered on the portfolio page',
   );

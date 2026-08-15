@@ -180,5 +180,50 @@
       "constraint": "Rester rapide, accessible et honnête.",
       "stack": ["Next.js", "React", "TypeScript", "Tailwind"]
     }
-  ]
+  ],
+  "home": {
+    "nav": {
+      "projects": "Travaux",
+      "about": "Profil",
+      "stack": "Stack",
+      "experience": "Expérience"
+    },
+    "intro": "comprendre. construire. tester. améliorer.",
+    "sub": "Développeur full-stack orienté produit, qualité logicielle, tests automatisés et livraison continue.",
+    "terminalMessages": ["> construire, vérifier, apprendre...", "> cadrer, construire, valider...", "> livrer, mesurer, améliorer..."],
+    "recent": "Travaux récents",
+    "allProjects": "Voir les projets",
+    "aboutHand": "curieux, autonome et rigoureux",
+    "stackNote": "et toujours plus à apprendre...",
+    "contactTitle": "Dispo pour de nouveaux projets",
+    "contactBody": "Discutons de ton idée, de tes contraintes ou de la release à stabiliser.",
+    "languageRecoveryTitle": "Langue récupérée",
+    "languageRecoveryBody": "Les textes ont été rechargés dans une langue disponible.",
+    "languageRecoveryAction": "Passer en anglais",
+    "commandTitle": "OPERATOR DECK",
+    "commandStatus": "Chemins rapides pour évaluer le travail.",
+    "backToTop": "Retour en haut",
+    "visitLabel": "passage",
+    "visitTitle": "Compteur local de passage",
+    "note": ["idée", "construire", "valider", "livrer"],
+    "labels": {
+      "role": "ROLE",
+      "constraint": "CONTRAINTE",
+      "outcome": "IMPACT",
+      "proof": "PREUVE",
+      "private": "Cas privé",
+      "open": "Projet public"
+    },
+    "experienceHeading": "des produits utiles, livrés de façon méthodique",
+    "projectsNote": "du concret, pas du bruit.",
+    "commandWorkLabel": "Inspecter les travaux",
+    "commandContactLabel": "Démarrer le contact",
+    "commandOperatorLabel": "Lire la boucle opérateur",
+    "commandLanguageLabel": "Switch to English",
+    "commandTriggerLabel": "Ouvrir le deck opérateur",
+    "commandCloseLabel": "Fermer le deck opérateur",
+    "footerLinksLabel": "Réseaux",
+    "footerEmailLabel": "Envoyer un courriel",
+    "footerEmailTitle": "Courriel"
+  }
 }

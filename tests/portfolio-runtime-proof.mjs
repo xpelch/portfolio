@@ -1276,9 +1276,12 @@ try {
   const html = await htmlResponse.text();
   assert.match(html, /Xavier Pelchat/, 'runtime HTML exposes the identity signal');
 
-  const pageSource = await readFile(pagePath, 'utf8');
+  const sectionsDir = path.join(root, 'components', 'sections');
+  const sectionFiles = (await readdir(sectionsDir)).filter((file) => file.endsWith('.tsx'));
+  const sectionSources = await Promise.all(sectionFiles.map((file) => readFile(path.join(sectionsDir, file), 'utf8')));
+  const sectionSource = sectionSources.join('\n');
   for (const anchor of ['top', 'projects', 'experience', 'about', 'stack', 'contact']) {
-    assert.ok(pageSource.includes(`id="${anchor}"`), `page source includes #${anchor}`);
+    assert.ok(sectionSource.includes(`id="${anchor}"`), `sections define #${anchor}`);
   }
 
   const en = await readJsonFromRuntime('/translations/en.json');

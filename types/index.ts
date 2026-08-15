@@ -114,4 +114,51 @@ export interface Translations {
   experiences: Experience[];
   education: Education[];
   projects: Project[];
+  home: HomeCopy;
+}
+
+export interface HomeCopy {
+  nav: {
+    projects: string;
+    about: string;
+    stack: string;
+    experience: string;
+  };
+  intro: string;
+  sub: string;
+  terminalMessages: string[];
+  recent: string;
+  allProjects: string;
+  aboutHand: string;
+  stackNote: string;
+  contactTitle: string;
+  contactBody: string;
+  languageRecoveryTitle: string;
+  languageRecoveryBody: string;
+  languageRecoveryAction: string;
+  commandTitle: string;
+  commandStatus: string;
+  backToTop: string;
+  visitLabel: string;
+  visitTitle: string;
+  note: string[];
+  labels: {
+    role: string;
+    constraint: string;
+    outcome: string;
+    proof: string;
+    private: string;
+    open: string;
+  };
+  experienceHeading: string;
+  projectsNote: string;
+  commandWorkLabel: string;
+  commandContactLabel: string;
+  commandOperatorLabel: string;
+  commandLanguageLabel: string;
+  commandTriggerLabel: string;
+  commandCloseLabel: string;
+  footerLinksLabel: string;
+  footerEmailLabel: string;
+  footerEmailTitle: string;
 }

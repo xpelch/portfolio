@@ -1,13 +1,16 @@
 import Image from 'next/image';
 import { recordJourneyEvent } from '@/lib/journey-events';
-import type { Socials } from '@/types';
+import type { Translations } from '@/types';
 import { SectionLabel } from './HomePrimitives';
 import { footerLinkClassName } from './homeClassNames';
 
-export function FooterLinks({ isFrench, socials }: { isFrench: boolean; socials: Socials }) {
+export function FooterLinks({ translations }: { translations: Translations }) {
+  const { home, general } = translations;
+  const socials = general.socials;
+
   return (
     <div className="md:justify-self-end">
-      <SectionLabel>{isFrench ? 'Réseaux' : 'Links'}</SectionLabel>
+      <SectionLabel>{home.footerLinksLabel}</SectionLabel>
       <div className="mt-4 flex flex-wrap gap-3">
         <a
           className={footerLinkClassName}
@@ -35,8 +38,8 @@ export function FooterLinks({ isFrench, socials }: { isFrench: boolean; socials:
           className={footerLinkClassName}
           href={`mailto:${socials.email}`}
           onClick={() => recordJourneyEvent('contact_click', 'footer')}
-          aria-label={isFrench ? 'Envoyer un courriel' : 'Send an email'}
-          title={isFrench ? 'Courriel' : 'Email'}
+          aria-label={home.footerEmailLabel}
+          title={home.footerEmailTitle}
         >
           <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <rect x="3.5" y="5.5" width="17" height="13" stroke="currentColor" strokeWidth="1.5" />
