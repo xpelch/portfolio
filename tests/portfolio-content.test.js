@@ -112,6 +112,24 @@ function validatePortfolioJourney(locale, data) {
   assert.equal(data.education[0].endDate, '12/2024', `${locale}: degree completion month is explicit`);
 }
 
+function assertKeyParity(en, fr, path = 'root') {
+  const enKeys = Object.keys(en).sort();
+  const frKeys = Object.keys(fr).sort();
+  assert.deepEqual(frKeys, enKeys, `translations key parity at ${path}`);
+
+  for (const key of enKeys) {
+    const enValue = en[key];
+    const frValue = fr[key];
+    const nextPath = `${path}.${key}`;
+
+    if (enValue && typeof enValue === 'object' && !Array.isArray(enValue)) {
+      assertKeyParity(enValue, frValue, nextPath);
+    } else if (Array.isArray(enValue)) {
+      assert.equal(frValue.length, enValue.length, `translations array length parity at ${nextPath}`);
+    }
+  }
+}
+
 async function main() {
   assert = (await import('node:assert/strict')).default;
   ({ readFile } = await import('node:fs/promises'));
@@ -135,6 +153,8 @@ async function main() {
     Object.keys(fr.general.navigation).sort(),
     'navigation contracts must match across locales',
   );
+
+  assertKeyParity(en, fr);
 
   assert.throws(
     () => assertUrlOrAnchor('javascript:alert(1)', 'unsafe link'),
