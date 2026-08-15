@@ -16,7 +16,7 @@ async function execText(command, args) {
     windowsHide: true,
     maxBuffer: 1024 * 1024 * 5,
   });
-  return stdout.trim();
+  return stdout.trimEnd();
 }
 
 function statusPath(line) {

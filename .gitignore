@@ -87,3 +87,8 @@ appsettings*.json
 /playbooks/
 /templates/
 /tools/
+
+# Local agent tooling
+/.agents/
+/.codex/
+/.impeccable/
