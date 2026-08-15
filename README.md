@@ -30,3 +30,9 @@ The primary journey is:
 
 Current visual proof is recorded in
 `logs/visual/portfolio-journey-proof.md`.
+
+## Codebase
+
+Architecture and structure: `docs/architecture.md`. The page composes six
+section components under `components/sections/`, and all user-facing copy
+lives in `public/translations/` (en/fr parity is test-enforced).

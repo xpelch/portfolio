@@ -8,14 +8,44 @@
 - Content: static bilingual JSON under `public/translations/`.
 - Asset: generated black-and-white workspace image under `public/images/`.
 
+## Codebase map
+
+```
+app/
+  layout.tsx            metadata, language provider, hydration boundary, language switcher
+  page.tsx              page chrome (header, recovery banner, command deck) composing the sections
+  api/journey/route.ts  validate-and-ack journey event sink (stores nothing)
+components/
+  sections/             the six page sections, each reading typed translations
+    HeroSection, ProjectsSection, ExperienceSection, AboutSection, StackSection, ContactSection
+  home/                 page-specific shared pieces
+    CommandDeck, FooterLinks, HomePrimitives (icons + primitives), ProjectCard, homeClassNames
+  ui/                   LoadingSpinner, HydrationBoundary
+contexts/
+  LanguageContext.tsx   locale state, translation loading, fallback to English
+lib/
+  journey-events.ts     privacy-safe journey event recording
+types/
+  index.ts              shared content contracts (Translations, Project, Experience, ...)
+public/translations/    en.json + fr.json, the single source of truth for all user-facing copy
+tests/                  content contract, asset, script, and runtime journey proofs
+```
+
 ## Boundaries
 
-- `app/layout.tsx`: metadata, language provider, hydration boundary, language switcher.
-- `app/page.tsx`: redesigned one-page visitor journey composition.
-- `contexts/LanguageContext.tsx`: locale state, translation loading, fallback to English.
-- `types/index.ts`: shared content contracts for translations, projects, skills, and proof fields.
-- `tests/portfolio-content.test.mjs`: executable content and journey contract.
-- `.github/workflows/ci.yml`: CI proof path.
+- `app/page.tsx` owns page-level state (command deck open/close, focus restore,
+  language recovery notice) and composes the six sections. It contains no
+  section markup and no user-facing copy.
+- `components/sections/*` render one page section each, reading directly from
+  the typed `Translations` object passed as a prop.
+- All user-facing copy lives in `public/translations/` under the `home` block
+  for page-level strings. Inline bilingual strings are forbidden (ADR-0003);
+  parity is enforced by a recursive key-parity test.
+- `components/home/*` are the page's shared pieces; `components/ui/*` are
+  generic primitives.
+- `lib/journey-events.ts` records the four Journey Events
+  (`contact_click`, `project_open`, `external_profile_click`,
+  `language_switch`) as fire-and-forget, non-persistent telemetry (ADR-0001).
 
 ## Critical Journey
 
@@ -46,6 +76,6 @@ logs/visual/portfolio-mobile-fr.png
 
 ## Risks
 
-- GitHub Actions workflow has been added locally, but remote CI execution is not observed in this workspace.
-- There is no production analytics or field-signal connector yet.
+- There is no production analytics or field-signal connector yet; journey
+  telemetry is validate-and-ack only (ADR-0001).
 - The professional case study intentionally avoids confidential employer/client details.
