@@ -190,7 +190,7 @@
     },
     "intro": "I like building things that keep working.",
     "sub": "I care about software that works: clean code, automated tests, steady delivery.",
-    "terminalMessages": ["> building a bilingual portfolio", "> automating the boring parts", "> learning React Native"],
+    "terminalMessages": ["> build, verify, learn...", "> frame, build, validate...", "> ship, measure, improve..."],
     "recent": "Recent work",
     "allProjects": "View projects",
     "aboutHand": "I like understanding how things work, then making them better.",
