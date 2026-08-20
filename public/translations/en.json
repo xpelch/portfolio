@@ -2,7 +2,7 @@
   "general": {
     "name": "Xavier Pelchat",
     "role": "Full-stack Developer",
-    "headline": "I build robust web and mobile products with .NET, React, TypeScript, and responsibly applied AI.",
+    "headline": "I build web and mobile products that hold up in real production.",
     "location": "Quebec, Canada",
     "availability": "Remote",
     "proofPoints": [
@@ -10,9 +10,9 @@
       { "label": "Software quality", "value": "SOLID, clean architecture, automated tests" },
       { "label": "Web + mobile", "value": "Next.js, React Native, Expo" }
     ],
-    "operatorSignal": {
+"operatorSignal": {
       "title": "Operating loop",
-      "description": "A lightweight loop for durable value: understand the need, choose the smallest useful move, build, test, verify with the team, and keep the learning visible.",
+      "description": "How I work: understand the need, pick the smallest useful move, build it, test it, verify with the team, and keep the learning visible.",
       "steps": ["Sense", "Plan", "Build", "Verify", "Learn"]
     },
     "about": [
@@ -188,20 +188,20 @@
       "stack": "Stack",
       "experience": "Experience"
     },
-    "intro": "understand. build. test. improve.",
-    "sub": "Product-minded full-stack developer focused on software quality, automated testing, and continuous delivery.",
-    "terminalMessages": ["> build, verify, learn...", "> frame, build, validate...", "> ship, measure, improve..."],
+    "intro": "I like building things that keep working.",
+    "sub": "I care about software that works: clean code, automated tests, steady delivery.",
+    "terminalMessages": ["> building a bilingual portfolio", "> automating the boring parts", "> learning React Native"],
     "recent": "Recent work",
     "allProjects": "View projects",
-    "aboutHand": "curious, autonomous and proof-oriented",
-    "stackNote": "and always more to learn...",
+    "aboutHand": "I like understanding how things work, then making them better.",
+    "stackNote": "currently learning React Native and Expo",
     "contactTitle": "Available for new projects",
     "contactBody": "Send the idea, constraints, or release that needs to ship cleanly.",
     "languageRecoveryTitle": "Language recovered",
     "languageRecoveryBody": "Text loaded in an available language after a saved preference failed.",
     "languageRecoveryAction": "Try French",
-    "commandTitle": "OPERATOR DECK",
-    "commandStatus": "Fast paths for evaluating the work.",
+    "commandTitle": "Quick actions",
+    "commandStatus": "Shortcuts to the useful parts.",
     "backToTop": "Back to top",
     "visitLabel": "trace",
     "visitTitle": "Local visit counter",
@@ -215,13 +215,13 @@
       "open": "Open project"
     },
     "experienceHeading": "useful products, shipped with discipline",
-    "projectsNote": "proof over promises.",
-    "commandWorkLabel": "Inspect work",
-    "commandContactLabel": "Start contact",
-    "commandOperatorLabel": "Read operator loop",
+    "projectsNote": "the work speaks for itself.",
+    "commandWorkLabel": "See the projects",
+    "commandContactLabel": "Get in touch",
+    "commandOperatorLabel": "How I work",
     "commandLanguageLabel": "Passer en français",
-    "commandTriggerLabel": "Open operator deck",
-    "commandCloseLabel": "Close operator deck",
+    "commandTriggerLabel": "Open quick actions",
+    "commandCloseLabel": "Close quick actions",
     "footerLinksLabel": "Links",
     "footerEmailLabel": "Send an email",
     "footerEmailTitle": "Email"

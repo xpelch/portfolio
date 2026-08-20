@@ -2,7 +2,7 @@
   "general": {
     "name": "Xavier Pelchat",
     "role": "Développeur Full-stack",
-    "headline": "Je conçois des produits web et mobiles robustes avec .NET, React, TypeScript et une IA appliquée avec discernement.",
+    "headline": "Je conçois des produits web et mobiles qui tiennent en production.",
     "location": "Québec, Canada",
     "availability": "Remote",
     "proofPoints": [
@@ -10,9 +10,9 @@
       { "label": "Qualité logicielle", "value": "SOLID, architecture propre, tests automatisés" },
       { "label": "Web + mobile", "value": "Next.js, React Native, Expo" }
     ],
-    "operatorSignal": {
+"operatorSignal": {
       "title": "Boucle d'opération",
-      "description": "Une boucle simple pour livrer de la valeur durable : comprendre le besoin, choisir le plus petit mouvement utile, construire, tester, vérifier avec l'équipe, puis garder l'apprentissage visible.",
+      "description": "Comment je travaille : comprendre le besoin, choisir le plus petit mouvement utile, construire, tester, vérifier avec l'équipe, et garder l'apprentissage visible.",
       "steps": ["Comprendre", "Planifier", "Construire", "Vérifier", "Apprendre"]
     },
     "about": [
@@ -188,20 +188,20 @@
       "stack": "Stack",
       "experience": "Expérience"
     },
-    "intro": "comprendre. construire. tester. améliorer.",
-    "sub": "Développeur full-stack orienté produit, qualité logicielle, tests automatisés et livraison continue.",
-    "terminalMessages": ["> construire, vérifier, apprendre...", "> cadrer, construire, valider...", "> livrer, mesurer, améliorer..."],
+    "intro": "J'aime construire des choses qui continuent de fonctionner.",
+    "sub": "J'aime le logiciel qui fonctionne : code propre, tests automatisés, livraison régulière.",
+    "terminalMessages": ["> je construis un portfolio bilingue", "> j'automatise le répétitif", "> j'apprends React Native"],
     "recent": "Travaux récents",
     "allProjects": "Voir les projets",
-    "aboutHand": "curieux, autonome et rigoureux",
-    "stackNote": "et toujours plus à apprendre...",
+    "aboutHand": "J'aime comprendre comment ça marche, puis l'améliorer.",
+    "stackNote": "j'apprends React Native et Expo en ce moment",
     "contactTitle": "Dispo pour de nouveaux projets",
     "contactBody": "Discutons de ton idée, de tes contraintes ou de la release à stabiliser.",
     "languageRecoveryTitle": "Langue récupérée",
     "languageRecoveryBody": "Les textes ont été rechargés dans une langue disponible.",
     "languageRecoveryAction": "Passer en anglais",
-    "commandTitle": "OPERATOR DECK",
-    "commandStatus": "Chemins rapides pour évaluer le travail.",
+    "commandTitle": "Actions rapides",
+    "commandStatus": "Des raccourcis vers l'essentiel.",
     "backToTop": "Retour en haut",
     "visitLabel": "passage",
     "visitTitle": "Compteur local de passage",
@@ -215,13 +215,13 @@
       "open": "Projet public"
     },
     "experienceHeading": "des produits utiles, livrés de façon méthodique",
-    "projectsNote": "du concret, pas du bruit.",
-    "commandWorkLabel": "Inspecter les travaux",
-    "commandContactLabel": "Démarrer le contact",
-    "commandOperatorLabel": "Lire la boucle opérateur",
+    "projectsNote": "le travail parle de lui-même.",
+    "commandWorkLabel": "Voir les projets",
+    "commandContactLabel": "Me contacter",
+    "commandOperatorLabel": "Comment je travaille",
     "commandLanguageLabel": "Switch to English",
-    "commandTriggerLabel": "Ouvrir le deck opérateur",
-    "commandCloseLabel": "Fermer le deck opérateur",
+    "commandTriggerLabel": "Ouvrir les actions rapides",
+    "commandCloseLabel": "Fermer les actions rapides",
     "footerLinksLabel": "Réseaux",
     "footerEmailLabel": "Envoyer un courriel",
     "footerEmailTitle": "Courriel"

@@ -50,10 +50,15 @@ function validatePortfolioJourney(locale, data) {
   );
   assert.equal(data.general.availability, 'Remote', `${locale}: availability is region-neutral`);
   assert.equal(data.cta.title, 'Remote', `${locale}: CTA availability matches the hero`);
-  assert.match(
+assert.match(
     data.general.headline,
     /production|produits|products|robustes?|systems|syst\u00e8mes/i,
     `${locale}: headline must state durable product value`,
+  );
+  assert.equal(
+    /AI/i.test(data.general.headline),
+    false,
+    `${locale}: headline avoids an AI mention`,
   );
   assert.ok(data.general.socials.email.includes('@'), `${locale}: email is available`);
   assertUrlOrAnchor(data.general.socials.github, `${locale}: GitHub`);
